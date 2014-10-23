@@ -1,4 +1,3 @@
-jasonblog
-=========
+# Start
 
-This is my personal blog
+`bundle exec jekyll server -w`
