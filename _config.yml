@@ -6,10 +6,10 @@ baseurl: ""
 url: "http://yourdomain.com"
 
 # Build settings
-# markdown: kramdown
+markdown: kramdown
 permalink: pretty
-name: Your New Jekyll Site
-markdown: redcarpet
+name: Jason Cypret is really awesome!
+# markdown: redcarpet
 highlighter: true
 
 # We are adding this below:
