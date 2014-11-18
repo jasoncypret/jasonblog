@@ -8,6 +8,7 @@ gem "middleman-gh-pages"
 gem "slim", "~> 2.1.0"
 gem 'jquery-rails', :require => false
 gem 'knockout-rails', :require => false
+gem "middleman-favicon-maker", "~> 3.7"
 gem 'animate.sass-rails', :git => 'git://github.com/jasoncypret/animate.sass-rails.git', :require => false
 # gem 'expressionui', :git => 'git://github.com/jasoncypret/expressionUI.git', :require => false
 gem 'expressionui', :path => '~/Documents/projects/expressionUI/expressionUI', :require => false
