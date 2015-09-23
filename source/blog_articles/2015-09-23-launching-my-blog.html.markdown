@@ -2,7 +2,7 @@
 title: Re-Launching My Blog
 date: 2015-09-23 14:40 UTC
 tags: 
-image: /launching-my-blog/omg.gif
+image: image_url("launching-my-blog/omg.gif")
 summary: OMG! I'm blogging again! Well, maybe it's not that big of a deal, but I'm excited.
 ---
 
