@@ -14,7 +14,7 @@ title: Jason Cypret
       |, Creator of 
       a href="http://expressionui.com" expressionui
       |, Founder at 
-      a href="taskk.it" Taskk
+      a href="http://taskk.it" Taskk
       |.
     
     ul.links
@@ -26,3 +26,19 @@ title: Jason Cypret
         a.icon href="http://dribbble.com/jasoncypret" 3
       li.pin
         a.icon href="http://www.pinterest.com/jasoncypret/" 5
+    .icon.more.rotate_left.fadeIn -
+
+.blog-articles
+  - blog.articles[0...5].each_with_index do |article, i|
+    article class="blog-article #{(i == 0) ? 'first' : ''}"
+      - if article.data.image
+        a.article-image href="#{article.url}" style="background-image: url(#{article.data.image})"
+      h1.article-title
+        a href="#{article.url}"
+          = article.title
+      - if article.data.summary
+        .article-summary = article.data.summary
+      small.article-date = article.date.strftime('%B %e, %Y')
+      
+      
+        

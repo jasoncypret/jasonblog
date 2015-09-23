@@ -1,20 +1,68 @@
 @import variables
+@import mixins
 @import expressionui
+@import animate/animations/fading-entrances/fadeIn
+
+.fadeIn
+  +animation-name(fadeIn)
+  +animation-duration(0.5s)
+  +animation-timing-function(ease-in-out)
+
+$reading-width: 700px
+
+
+=reading-mix
+  width: $reading-width
+  margin-left: auto
+  margin-right: auto
+  +mobile_only
+    width: auto
+    margin-left: 2%
+    margin-right: 2%
+
+
 
 html, body
   width: 100%
   height: 100%
 
 
+
+// ---------
+// Homepage
+// ---------
+
 body.index
-  background-image: url(../images/design-draw-computer.jpg)
-  +background_cover
   color: white
   .main
-    background: rgba(black, 0.55)
-    padding-top: $pad*2
+    background-image: url(../images/design-draw-computer.jpg)
+    +background_cover
     width: 100%
     height: 100%
+    overflow: hidden
+    +mobile_only
+      height: auto
+    .wrap
+      overflow: hidden
+      background: rgba(black, 0.55)
+      width: 100%
+      height: 100%
+      padding-top: 10%
+      position: relative
+      +mobile_only
+        padding-bottom: 10%
+    .icon.rotate_left
+      display: block
+      position: absolute
+      left: 50%
+      font-size: 50px
+      bottom: 10px
+      +opacity(0)
+      +animation-delay(2.5s)
+      +animation-fill-mode(forwards)
+      color: rgba(white, 0.3)
+      +mobile_only
+        display: none
     .avatar
       $avatar: 90px
       background-image: url(http://www.gravatar.com/avatar/6be8633c004157fb91bd8026b71f99f5.png)
@@ -27,15 +75,17 @@ body.index
       font-size: 36px
       color: white
       text-align: center
+      +mobile_only
+        font-size: 32px
     p.desc
       font-weight: normal
       color: rgba(white, 0.7)
-      width: 700px
+      width: $reading-width
       margin: 0 auto
       font-size: 20px
       line-height: 30px
       +transition-property(color)
-      +transition-duration(0.5s)
+      +transition-duration(0.2s)
       +transition-timing-function(ease-in)
       +text-shadow(rgba(black, 0.8) 0 1px 0)
       a 
@@ -66,3 +116,128 @@ body.index
           &:hover
             color: $highlight
             +transition(0.225)
+
+
+  // -----------
+  // Blog Posts
+  // -----------
+
+
+  .blog-articles
+    color: tint(black, 10%)
+    text-align: center
+    .blog-article
+      border-top: 1px solid shade(white, 10%)
+      padding: $pad*2 0
+      &.first
+        border-top: 0
+      .article-image
+        $article-avatar: 80px
+        display: block
+        +background_cover
+        width: $article-avatar
+        height: $article-avatar
+        margin: 0 auto $pad/2
+        +border-radius($article-avatar)
+      .article-title
+        +reading-mix
+        margin-top: 0
+        margin-bottom: $pad/2
+        a
+          color: tint(black, 10%)
+          +transition-property(color)
+          +transition-duration(0.2s)
+          letter-spacing: -0.03em
+          &:hover
+            color: $main
+      .article-summary
+        color: tint(black, 30%)
+        +reading-mix
+        +serif
+        margin-top: 0
+        margin-bottom: $pad/2
+      .article-date
+        +reading-mix
+        color: shade(white, 20%)
+        text-transform: uppercase
+        font-weight: bold
+        letter-spacing: 0.03em
+
+
+
+// ---------
+// Article Page
+// ---------
+
+.article
+  .post-header
+    color: white
+    text-align: center
+    .wrap
+      padding: $pad*4 0
+    &.no-image
+      background: $accent
+    &.image-post
+      +background-cover
+      .wrap
+        background: rgba(black, 0.55)
+        width: 100%
+        height: 100%
+    .article-title
+      +reading-mix
+      margin-top: 0 
+      margin-bottom: $pad
+      a
+        font-size: 42px
+        color: white
+        +transition-property(color)
+        +transition-duration(0.2s)
+        letter-spacing: -0.03em
+        &:hover
+          color: $highlight
+    .article-date
+      +reading-mix
+      color: rgba(white, 0.4)
+      text-transform: uppercase
+      font-weight: bold
+      letter-spacing: 0.03em
+    .article-summary
+      margin-top: 0 
+      margin-bottom: $pad
+      +reading-mix
+      font-size: 18px
+      color: rgba(white, 0.7)
+  .post-content
+    padding: $pad*2 0
+    +post-style
+    +serif
+    color: tint(black, 30%)
+    pre
+      padding: $pad 0
+      code
+        +reading-mix
+        display: block
+
+
+    p, h1, h2, h3, h4, h5, h6, ul, ol, dl, hr, blockquote, table
+      +reading-mix
+
+    h1, h2, h3, h4, h5, h6
+      +font_stack
+      letter-spacing: -0.03em
+
+    p img
+      width: 100%
+
+    .post-content-tags
+      li
+
+
+
+
+
+
+
+
+  
+      

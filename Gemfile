@@ -6,6 +6,10 @@ gem "middleman", "~>3.3.7"
 gem "middleman-livereload", "~> 3.1.0"
 gem "middleman-gh-pages"
 gem "slim", "~> 2.1.0"
+gem "middleman-blog"
+gem "nokogiri"
+gem "redcarpet"
+gem "middleman-syntax"
 gem 'jquery-rails', :require => false
 gem 'knockout-rails', :require => false
 gem "middleman-favicon-maker", "~> 3.7"
