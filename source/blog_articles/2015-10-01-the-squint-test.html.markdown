@@ -16,11 +16,11 @@ When looking at a design simply de-focus your eyes. If you can't defocus your ey
 
 Ok, ok so what can you use this seemly useless skill for? Answer ... lots of things. In my presentation I was highlighting using the squint test to compare the contrast between 2 card designs.
 
-![Cards](the-squint-test/cards.png)
+![Cards](/the-squint-test/cards.png)
 
 Since these cards have a similar shape, and orientation of actions one could easily confuse one with the other if the presentation is not carefully thought through. I ended up designing one card using mostly dark colors and white text, and the other card light colors, more whitespace, and dark grey text.
 
-![Blured Cards](the-squint-test/blur.png)
+![Blured Cards](/the-squint-test/blur.png)
 
 By squinting you should be able to distinguish between the 2 cards clearly without reading any of the text, images or actions. If you can distinguish between the two the squint test passes. YAY! If not you should look carefully at the design. If your not willing to compromise your *killer design skills* for UX then perhaps consider another non design/color related approach ... **MICROCOPY**!
 
