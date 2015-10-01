@@ -20,7 +20,7 @@ Ok, ok so what can you use this seemly useless skill for? Answer ... lots of thi
 
 Since these cards have a similar shape, and orientation of actions one could easily confuse one with the other if the presentation is not carefully thought through. I ended up designing one card using mostly dark colors and white text, and the other card light colors, more whitespace, and dark grey text.
 
-![Cards](the-squint-test/blur.png)
+![Blured Cards](the-squint-test/blur.png)
 
 By squinting you should be able to distinguish between the 2 cards clearly without reading any of the text, images or actions. If you can distinguish between the two the squint test passes. YAY! If not you should look carefully at the design. If your not willing to compromise your *killer design skills* for UX then perhaps consider another non design/color related approach ... **MICROCOPY**!
 
