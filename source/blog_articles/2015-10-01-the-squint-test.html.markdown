@@ -3,6 +3,7 @@ title: The Squint Test
 date: 2015-10-01 16:33 UTC
 tags: UX, Design
 image: the-squint-test/blur.png
+open_graph_image: the-squint-test/blur.png
 summary: Am I the only one doing this? Let's talk about defocus, squiting, pattern recongition, contrast, and consistancy
 
 ---

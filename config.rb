@@ -38,11 +38,11 @@ configure :build do
   # Minify Javascript on build
   # activate :minify_javascript
 
-  # Enable cache buster
-  activate :asset_hash
-
   # Use relative URLs
   activate :relative_assets
+
+  # Enable cache buster
+  activate :asset_hash
 
   activate :favicon_maker, :icons => {
     "_favicon_template.png" =>   [

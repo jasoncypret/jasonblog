@@ -1,6 +1,8 @@
 meta charset="utf-8"
 meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"
 title = current_page.data.title || "Jason Cypret"
+- if current_page.metadata[:page].try(:[], 'open_graph_image')
+  meta property="og:image" content="#{current_page.metadata[:page]['open_graph_image']}"/
 meta content="" name="description"
 meta content="user-scalable=0, initial-scale=1.0" name="viewport"
 meta content="#00a300" name="msapplication-TileColor"
