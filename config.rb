@@ -16,8 +16,9 @@ end
 activate :blog do |blog|
   blog.layout = "post"
   blog.permalink = "{title}.html"
-  blog.sources = "blog_articles/{year}-{month}-{day}-{title}.html"
 end
+
+# blog.sources = "blog_articles/{year}-{month}-{day}-{title}.html"
 
 activate :directory_indexes
 activate :syntax
