@@ -1,0 +1,31 @@
+.org-logo
+  border-radius: $card-border-radius
+  height: 100px
+  width: 100px
+  padding: 6px
+
+.account-link-form-content
+  font-size: $font-largest
+
+  .heading
+    margin-top: $pad*3
+
+  .buttons-area
+    margin-top: $pad*3
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
+    .account-button
+      &:first-of-type
+        margin-right: $pad*2
+        +mobile-only
+          margin-right: 0
+          width: 100%
+      &:only-child
+        margin-right: 0
+
+  .button-label
+    +headline-copy-sup
+    color: alpha-it($white, $opacity-strong)
+    font-size: $font-small
+    font-style: normal

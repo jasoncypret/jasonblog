@@ -1,0 +1,133 @@
+=white-style
+  color: white
+
+=black-style
+  color: tint(black, 30%)
+
+=btn-chains
+  &.full
+    display: block
+    &[type=submit]
+      width: 100%
+  &.rounded
+    +border-radius(50px)
+  &.border
+    border: 2px solid transparent
+  &.base
+    font-size: $font-base
+  &.large
+    font-size: $font-large
+  &.larger
+    font-size: $font-larger
+  &.largest
+    font-size: $font-largest
+  &.jumbo
+    font-size: $font-jumbo
+  &.small
+    font-size: $font-smaller
+    letter-spacing: $spacing-tight
+  &.smaller
+    font-size: $font-smallest
+    letter-spacing: $spacing-tight
+  &.smallest
+    font-size: $font-micro
+    letter-spacing: $spacing-tight
+  &.micro
+    font-size: ($font-micro - 1px)
+    letter-spacing: $spacing-tight
+  &.active-highlight
+    background: $highlight
+    +text-color($highlight, false)
+    border-color: $highlight
+
+
+=btn-styles
+  +mon-font
+  +border-radius(3px)
+  font-weight: $weight-4
+  font-size: $font-base
+  letter-spacing: $spacing-tighter
+  padding: 0.55em 1.5em
+  +btn-chains
+
+=outline-btn-styles($color: white)
+  +button-base
+  +btn-styles
+  background: none
+  border: 2px solid $color
+  color: $color
+  padding-right: 1.5em
+  padding-left: 1.5em
+  +btn-ghost-hover-styles($color)
+  +btn-chains
+  +btn-ghost-disabled-styles($color)
+
+=outline_btn-styles($color: white)
+  +button-base
+  +btn-styles
+  background: none
+  border: 2px solid $color
+  color: $color
+  padding-right: 1.5em
+  padding-left: 1.5em
+  +btn-ghost-hover-styles($color)
+  +btn-chains
+  +btn-ghost-disabled-styles($color)
+
+=btn-hover-styles($base-color)
+  &:hover, &:active, &.active
+    background: tint($base_color, 10%)
+    +text-color($base_color, false)
+    +text-shadow(none)
+  &.active:hover
+    background: tint($base_color, 20%)
+    +text-color(tint($base_color, 10%), false)
+    +text-shadow(none)
+
+=btn-disabled-styles($base-color)
+  &.disabled, &.disabled:hover, &[disabled], &[disabled]:hover
+    cursor: not-allowed
+    +opacity(0.7)
+    background: $base_color
+    +box-shadow(none)
+    +text-color($base_color, false)
+    +text-shadow(none)
+
+=btn-ghost-hover-styles($color)
+  &:hover
+    background: $color
+    +text-color($color, false)
+    border-color: $color
+
+=btn-ghost-disabled-styles($color)
+  &.disabled, &.disabled:hover, &[disabled], &[disabled]:hover
+    cursor: not-allowed
+    +opacity(0.7)
+    background: none
+    color: $color
+
+=button-base
+  outline: 0
+  border: 0
+  text-align: center
+  text-transform: capitalize
+  text-decoration: none
+  line-height: 1em
+  width: auto
+  +inline-block
+  cursor: pointer
+  text-shadow: none
+  +transition-property(color, border-color, background-color)
+  +transition-duration(0.15s)
+  +transition-timing-function(cubic-bezier(0.7, 0, 0.3, 1))
+
+
+// Deprecated 
+
+=black_style
+  color: tint(black, 30%)
+
+=white_style
+  color: white
+
+

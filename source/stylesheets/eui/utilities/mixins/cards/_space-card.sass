@@ -1,0 +1,86 @@
+=space_card($bgColor: $text-gray-3)
+  border-radius: $button-border-radius
+  box-shadow: 0 1px 1px alpha-it($black, $opacity-weak)
+  margin-bottom: 10px
+  border-width: 0
+  position: relative
+  overflow: hidden
+  color: white
+  background-color: $bgColor
+
+=post_member_card
+  border: 1px solid $text-gray-3
+  background: $white
+  position: relative
+  &-header
+    padding: $pad
+    border-bottom: 1px solid $text-gray-2
+    display: table
+    width: 100%
+    &-creator
+      display: table-cell
+      vertical-align: middle
+      .post-creator, .space-member-user
+        display: table
+        &-user, &-info
+          padding-left: $pad
+          display: table-cell
+          vertical-align: middle
+          a
+            font-size: $font-small
+            font-weight: $weight-7
+    &-actions
+      text-align: right
+      padding-right: $pad
+      display: table-cell
+      vertical-align: middle
+      .menu-action
+        color: $text-gray-5
+  &-menu
+    text-align: right
+    right: $pad
+    top: $pad
+    background: $white
+    border-radius: 3px
+    border: 1px solid $text-gray-3
+    box-shadow: 0 1px 1px alpha-it($black, $opacity-weak)
+    margin-bottom: $pad*4
+    padding: $pad
+    position: absolute
+    z-index: $z-3 + 1
+    padding-top: $pad*4
+    font-size: $font-small
+    &-action
+      position: relative
+      z-index: $z-3
+      color: $text-gray-5
+      &[data-icon='X']
+        z-index: $z-3 + 2
+    li
+      a
+        padding: $pad/2 0
+        display: block
+        &:hover
+          outline: none
+  .hide-post-menu
+    display: none
+  &-meta-timestamp, &-user-meta
+    font-size: $font-smallest
+    color: $text-gray-4
+    font-weight: $weight-4
+    display: block
+
+  &-user-meta
+    & > span
+      &::after
+        content: '\00b7'
+        margin: 0 $pad/3
+      &:last-child
+        &::after
+          display: none
+
+  &-body
+    padding: $pad*2
+    font-size: $font-base
+    line-height: 1.4em
+    white-space: pre-wrap

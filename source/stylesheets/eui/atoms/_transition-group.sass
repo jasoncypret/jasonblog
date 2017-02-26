@@ -1,0 +1,115 @@
+@import ../utilities/vendor/animate/animations/zooming-exits/zoomOut
+@import ../utilities/vendor/animate/animations/zooming-entrances/zoomOutIn
+
+$transition-group-duration: 300ms
+
+//  fade
+.bb-fade-appear,
+.bb-fade-enter
+  opacity: .01
+
+  &.bb-fade-appear-active,
+  &.bb-fade-enter-active
+    opacity: 1
+    transition: opacity $transition-group-duration ease-in
+
+.bb-fade-leave
+  opacity: 1
+  transform: translateY(0)
+
+  &.bb-fade-leave-active
+    opacity: .01
+    transition: opacity $transition-group-duration ease-in
+
+
+//  slide
+.bb-slide-appear,
+.bb-slide-enter
+  overflow-y: hidden
+  max-height: 0
+
+  &.bb-slide-appear-active,
+  &.bb-slide-enter-active
+    max-height: 100vh
+    transition: max-height $transition-group-duration ease-in
+
+.bb-slide-leave
+  max-height: 100vh
+
+  &.bb-slide-leave-active
+    max-height: 0
+    overflow-y: hidden
+    transition: max-height 600ms ease-out
+
+
+
+//  fade-left
+.bb-fade-left-appear,
+.bb-fade-left-enter
+  position: absolute
+  top: 0
+  left: 0
+  opacity: .01
+  transform: translateX(-100%)
+
+  &.bb-fade-left-appear-active,
+  &.bb-fade-left-enter-active
+    opacity: 1
+    transform: translateY(0)
+    transition: opacity $transition-group-duration ease-out, transform $transition-group-duration ease-out
+
+.bb-fade-left-leave
+  position: absolute
+  top: 0
+  left: 0
+  opacity: 1
+  transform: translateY(0)
+
+  &.bb-fade-left-leave-active
+    opacity: .01
+    transform: translateX(100%)
+    transition: opacity $transition-group-duration ease-out, transform $transition-group-duration ease-out
+
+//  Fade right
+.bb-fade-right-appear,
+.bb-fade-right-enter
+  position: absolute
+  top: 0
+  left: 0
+  opacity: .01
+  transform: translateX(100%)
+
+  &.bb-fade-right-appear-active,
+  &.bb-fade-right-enter-active
+    opacity: 1
+    transform: translateY(0)
+    transition: opacity $transition-group-duration ease-out, transform $transition-group-duration ease-out
+
+.bb-fade-right-leave
+  position: absolute
+  top: 0
+  left: 0
+  opacity: 1
+  transform: translateY(0)
+
+  &.bb-fade-right-leave-active
+    opacity: .01
+    transform: translateX(-100%)
+    transition: opacity $transition-group-duration ease-out, transform $transition-group-duration ease-out
+
+//  Zoom
+.bb-zoom-appear,
+.bb-zoom-enter
+  +animation-name(zoomOutIn)
+  +animation-duration($transition-group-duration)
+  +animation-timing-function(ease-in-out)
+
+  &.bb-zoom-appear-active,
+  &.bb-zoom-enter-active
+
+.bb-zoom-leave
+  +animation-name(zoomOut)
+  +animation-duration($transition-group-duration)
+  +animation-timing-function(ease-in-out)
+
+  &.bb-zoom-leave-active

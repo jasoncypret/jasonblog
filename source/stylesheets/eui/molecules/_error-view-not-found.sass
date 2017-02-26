@@ -1,0 +1,21 @@
+.error-view
+  &.not-found
+    margin-top: $pad*3
+    .message
+      color: $text-gray-5
+    .error-view-image
+      width: $pad*14
+      float: left
+      +mobile-only
+        float: none
+    .status-code
+      color: $text-gray-10
+      font-size: $font-jumbo
+      +serif
+    footer
+      a
+        margin: 0 $pad/2
+      +mobile-only
+        padding-top: $pad*3
+        clear: both
+        text-align: center

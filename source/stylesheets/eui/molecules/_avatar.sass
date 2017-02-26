@@ -1,0 +1,65 @@
+
+$font-multipler: 3
+
+.bb-avatar
+  transition: background-image 0.3s ease
+  +background-placeholder
+  +background_cover
+  +inline-block
+  .icon
+    justify-content: center
+    display: flex
+    height: 100%
+    align-items: center
+    color: $text-gray-7
+
+  &-dark
+    border: 2px solid white
+
+  &-light
+    border: 2px solid $background
+
+  &-round
+    border-radius: 50%
+
+  &-smallest
+    width: $font-smallest * $font-multipler
+    height: $font-smallest * $font-multipler
+    .icon
+      font-size: $font-large
+
+  &-smaller
+    width: $font-smaller * $font-multipler
+    height: $font-smaller * $font-multipler
+    .icon
+      font-size: $font-large
+
+  &-small
+    width: $font-small * $font-multipler
+    height: $font-small * $font-multipler
+    .icon
+      font-size: $font-large
+
+  &-base
+    width: $font-base * $font-multipler
+    height: $font-base * $font-multipler
+    .icon
+      font-size: $font-largest
+
+  &-large
+    width: $font-large * $font-multipler
+    height: $font-large * $font-multipler
+    .icon
+      font-size: $font-largest
+
+  &-larger
+    width: $font-larger * $font-multipler
+    height: $font-larger * $font-multipler
+    .icon
+      font-size: $font-jumbo
+
+  &-largest
+    width: $font-largest * $font-multipler
+    height: $font-largest * $font-multipler
+    .icon
+      font-size: $font-jumbo

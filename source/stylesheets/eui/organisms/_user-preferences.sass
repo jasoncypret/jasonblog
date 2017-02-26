@@ -1,0 +1,232 @@
+// user preferences page -
+// encompasses subjects, grades, topics, location, experience pages
+.user-preferences
+  color: #fff
+  text-align: center
+  min-height: 100vh
+  +linear-gradient(to right, rgba(#BF7BB6, 0.83), rgba(#67B2E3, 0.83))
+  z-index: 999999
+  position: relative
+
+  .forms
+    width: 500px
+    margin: 0 auto
+    +mobile_only
+      width: 100%
+      padding: 0 $pad
+
+    .form-select
+      +onboarding-section-width
+      margin: 0 auto
+      height: 47px
+      .Select-control
+        height: 100%
+
+    .group
+      +onboarding-section-width
+      display: flex
+      margin: 0 auto
+      input
+        margin-right: $pad
+
+    input,select.field
+      margin-bottom: $pad !important
+
+  .main-form
+    .school-or-district
+      cursor: pointer
+
+    +media_max_width(460px)
+      width: 95% !important
+      margin: 0 auto !important
+      border-radius: 0 !important
+
+  .section
+    padding-top: $pad*4
+    padding-bottom: $pad*2
+    animation: fadeIn .3s ease
+
+  .sk-spinner
+    margin-top: 100px
+    width: 100px
+    height: 100px
+
+  .error
+    margin: $pad*1.5
+    color: $error
+    font-weight: 700
+    min-height: 20px
+    opacity: 1
+    transition: opacity 0.5s ease-in-out
+
+  .username
+    font-size: $font-small
+    text-transform: uppercase
+    display: block
+
+  .title
+    font-size: $font-larger
+    font-weight: $weight-7
+    display: block
+    margin: 0px $pad
+    margin-bottom: $pad*2
+
+  .subtitle
+    text-transform: uppercase
+    display: block
+    font-weight: 700
+    opacity: 0.8
+
+  .heading
+    text-transform: uppercase
+    display: block
+    font-weight: 700
+    margin: $pad*4 0px $pad*2 0px
+
+  .icon
+    background: none
+    border-color: #fff
+
+  .tag-check-list
+    display: inline-block
+    max-width: 720px
+
+  input[type=checkbox]
+    background: none
+    border: 1px solid hsla(0,0%,100%,.5)
+    &:hover
+      background: none
+      box-shadow: none
+
+  input[type=text], select.field
+    +onboarding-section-width
+
+    &.field-single
+      display: block
+      margin: 0 auto
+      margin-top: $pad*2
+
+  .next-button
+    +onboarding-section-width
+    display: block
+    margin: 0 auto
+
+    +media_max_width(460px)
+      width: 100% !important
+      margin: 0 !important
+      border-radius: 0 !important
+
+  .link-btn
+    color: white
+    border-bottom: 3px solid $tip
+    padding-bottom: 2px
+    margin: $pad*3 auto
+    display: inline-block
+
+  // location page
+  .school-search-form
+    text-align: center
+    position: relative
+
+    .form-alert
+      padding: $pad*2 $pad*3
+      text-align: left
+
+    .search-loading
+      position: absolute
+      margin-top: $pad*4
+      width: 100%
+      .sk-spinner-three-bounce
+        margin-top: 0
+        height: 40px
+      .sk-spinner-three-bounce div
+        background-color: white
+
+    .form-title
+      margin-top: $pad*2
+
+    .results
+      margin: $pad*2 auto
+      min-height: $pad*4
+
+      .result-item
+        text-align: left
+        display: flex
+        border-top: 1px solid white
+        align-items: center
+        cursor: pointer
+        transition: background 0.2s ease
+
+        .details
+          padding: $pad
+          flex-grow: 1
+          .district
+            padding-top: $pad/2
+          .city-state
+            padding-left: $pad/2
+
+        .plus-button
+          color: #fff
+          pointer-events: none
+          margin-right: $pad
+
+        &:last-child
+          border-bottom: 1px solid white
+        &:hover
+          background: rgba($success, 0.6)
+        .result-selected
+          background: $success
+
+    .dont-see-button
+      margin: 0 auto
+      margin-top: $pad
+      display: block
+
+  .not-a-teacher-form
+    .is-teacher
+      display: block
+      margin: 0 auto
+      margin-top: $pad
+    .next-button
+      margin-top: $pad*2 !important
+
+  .custom-school-form
+    .form-title
+      margin-top: $pad*4
+    .fields
+      margin: $pad*2 0
+    .next-button
+      margin-bottom: $pad*4
+
+  // topics
+  &.topics
+
+    .topics-list
+      margin: 25px 0px
+      background: #fff
+      color: #333
+      font-weight: bold
+      padding: $pad
+
+      .topic-card
+        margin: 7px
+        +mobile-only
+          margin: 0 10px 10px 0
+
+  &.experience
+
+    .btn-group-experience
+      +btn-group()
+      margin: $pad*3 0px
+
+      .btn-experience
+        background: transparent
+        color: white
+        border: 1px solid white
+        padding: 25px 0px
+        width: 150px
+
+        &.active
+          background: #4eb69a
+        &:hover
+          font-weight: bold

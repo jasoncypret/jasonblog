@@ -1,0 +1,25 @@
+.space-post-form-attachment
+  width: 100%
+  background-color: $white
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: $pad
+  border: 1px solid $text-gray-3
+  border-radius: $card-border-radius
+  margin-bottom: $pad
+  min-height: 120px
+  word-break: break-all
+  +mobile-only
+    min-height: 70px
+
+  .details-container
+    display: flex
+    align-items: center
+    .file-icon
+      flex-shrink: 0
+      margin-right: $pad*2
+
+  .remove-button
+    margin: 0 $pad
+    color: $success

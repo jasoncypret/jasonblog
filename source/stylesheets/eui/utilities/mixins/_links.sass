@@ -1,0 +1,29 @@
+=link($color, $dark: false, $underline: false)
+  text-decoration: none
+  border-bottom: 1px solid transparent
+  cursor: pointer
+  +transition-property(color, border)
+  +transition-duration(0.15s)
+  +transition-timing-function(cubic-bezier(0.7, 0, 0.3, 1))
+  @if $dark
+    color: white
+    @if $underline
+      border-bottom: 1px solid $color
+  @else
+    color: $color
+    @if $underline
+      border-bottom: 1px solid shade($color, 30%)
+  &:hover
+    color: saturate($color, 60%)
+    @if $dark
+      border-bottom: 1px solid tint($color, 70%)
+    @else
+      @if $underline
+        border-bottom: 1px solid shade($color, 100%)
+      @else
+        border-bottom: 1px solid shade($color, 30%)
+
+=link-colors($colors-list, $dark: false, $underline: false)
+  @each $name, $color in $colors-list
+    &-#{$name}
+      +link($color: $color, $dark: $dark, $underline: $underline)

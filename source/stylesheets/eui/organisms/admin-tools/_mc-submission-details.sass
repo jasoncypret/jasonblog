@@ -1,0 +1,113 @@
+$max-page-width: 800px
+.mc-submissions-details
+  &-header-container
+    background: $white
+  &-header
+    display: flex
+    position: relative
+    +max-width($desktop)
+    margin: auto
+    padding: $pad*3
+    left: 0
+    right: 0
+    .mc-supertitle
+      font-size: $font-small
+      color: $text-gray-6
+      text-transform: uppercase
+      .submitter-profile-link
+        margin-right: $pad/2
+    .mc-title
+      color: $text-gray-9
+      font-size: $font-largest
+      +mon-font
+      word-break: break-word
+    .mc-subtitle
+      +mon-font
+      font-size: $font-small
+      color: $text-gray-5
+      word-break: break-word
+      display: block
+      font-weight: normal
+    .mc-submissions-icons
+      position: relative
+      display: flex
+      align-items: center
+    .submitter-item
+      left: $pad*(-2.5)
+      .circle
+        width: $pad*4
+        height: $pad*4
+        line-height: $pad*4
+        font-size: $font-large
+
+      .bb-avatar
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5)
+    .submission-detail
+      flex-grow: 3
+      display: flex
+      flex-direction: column
+      height: 100%
+      justify-content: center
+      margin-left: $pad
+      padding: $pad/2
+    .submission-status
+      flex-grow: 1
+      .status-item
+        .icon
+          font-size: $font-jumbo
+        p
+          font-size: $font-small
+  .back-btn
+    width: 100%
+    display: flex
+    background: $contrast
+    .btn
+      flex-grow: 1
+      text-align: left
+      +max-width($desktop)
+      margin: auto
+  .application-id
+    +mon-font
+    width: 100%
+    display: flex
+    justify-content: center
+    border-top: 1px solid $border
+    border-bottom: 1px solid $border
+    padding: $pad/2
+    background: darken($background, 5%)
+  .submission-tabs
+    max-width: 700px
+    margin: $pad*2 auto
+  .submission-tab-content
+    +max-width($desktop)
+    margin: $pad*2 auto
+  .tab-files
+    +max-width($max-page-width)
+    margin: auto
+    .file-card
+      margin: $pad*2 0
+  .tab-criteria
+    +max-width($max-page-width)
+    margin: auto
+    .card
+      margin: $pad*2
+      height: $pad*5
+      display: flex
+      justify-content: center
+      align-items: center
+    .tab-assessments
+
++mobile-only
+  .mc-submissions-details-header
+    flex-direction: column
+    align-items: center
+    .mc-title
+      font-size: $font-base
+      line-height: $font-base
+    .submission-detail
+      .mc-supertitle
+        margin: $pad/2 0
+      .mc-title
+        margin: $pad/2 0
+      .mc-subtitle
+        margin: $pad/2 0

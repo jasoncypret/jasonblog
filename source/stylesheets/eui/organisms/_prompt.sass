@@ -1,0 +1,27 @@
+.bb-prompt
+  padding: $pad*2 $pad*3
+  text-align: center
+  .close-btn
+    color: $text-gray-4
+  .headline
+    +form-headline
+    color: $contrast
+    min-height: $pad*2
+  .content
+    +form-title
+    margin-top: $pad
+    color: $contrast
+  .actions
+    margin: $pad*3 0
+    display: flex
+    justify-content: center
+
+    .action
+      margin-left: $pad/2
+      margin-right: $pad/2
+
+      &:first-child
+        margin-left: 0
+
+      &:last-child
+        margin-right: 0

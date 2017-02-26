@@ -1,0 +1,338 @@
+$badge: 50px
+=circle
+  display: flex
+  justify-content: center
+  align-items: center
+  width: $pad*3.333
+  height: $pad*3.333
+  border: 2px $text-gray-7 solid
+  border-radius: 50%
+  color: $text-gray-8
+  font-size: $font-small
+  text-transform: uppercase
+
+.mc-submissions-page
+  .mc-submissions-queue
+    .mc-filter-bar-container
+      background: $white
+      border-bottom: 1px solid $border
+      .mc-filter-bar
+        +max-width($desktop)
+        margin: 0 auto
+        left: 0
+        right: 0
+        display: flex
+        justify-content: space-between
+        padding: $pad 0
+        &-mobile
+          display: none
+        &-left
+          display: flex
+          .Select
+            min-width: 500px
+            .Select-control
+              height: 52px
+              border: 2px solid $border
+              box-shadow: none
+              border-top-left-radius: 4px
+              border-bottom-left-radius: 4px
+              border-top-right-radius: 0
+              border-bottom-right-radius: 0
+              border-right: none
+          .popover-dropdown .text-button-contrast
+            text-transform: none
+          .inside-label-dropdown
+            border-top-left-radius: 0
+            border-bottom-left-radius: 0
+        .form
+          border: 2px solid $border
+          border-top-left-radius: 4px
+          border-bottom-left-radius: 4px
+          border-right: none
+          .field
+            margin-bottom: 0
+        .inside-label-dropdown .filter-options
+          margin: 0
+          border: none
+  .mc-submissions-list
+    .mc-submissions-list-header-container
+      background: darken($background, 5%)
+      border-top: 1px solid darken($background, 10%)
+      border-bottom: 1px solid darken($background, 10%)
+      width: 100%
+    .mc-submissions-list-header
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      +max-width($desktop)
+      margin: 0 auto
+      left: 0
+      right: 0
+      padding: $pad/2 0
+    .mc-submissions-list-items
+      +max-width($desktop)
+      margin: 0 auto
+      left: 0
+      right: 0
+      .mc-submissions-list-item
+        display: flex
+        height: $pad*10
+        align-items: center
+        flex-basis: 700px
+        border-bottom: 1px solid $border
+      &.show-all
+        display: flex
+        justify-content: center
+        padding: $pad*2
+
+    .submission-item
+      position: relative
+      min-width: $pad*25
+      flex-grow: 1
+      min-width: $pad*55
+      .list-view-item
+        padding: 0
+        border: none
+        margin-left: $pad*2
+        .item-left
+          margin-left: 0
+        .item-main-text
+          color: $text-gray-9
+          &:hover
+            color: $blue
+        .item-sub-text
+          +mon-font
+          font-size: $font-small
+          color: $text-gray-6
+          font-weight: normal
+
+    .action-button-item
+      flex-basis: $pad*15
+      flex-grow: 0
+      text-align: center
+      a.rounded
+        width: $pad*10.5
+
+.empty
+  display: flex
+  flex-direction: column
+  justify-content: center
+  text-align: center
+  padding: $pad*5 $pad*2
+  margin: $pad*5
+  .title
+    +mon-font
+    color: $text-gray-8
+    margin: $pad
+// make atoms
+
+.reviewer-item
+  .icon-btn-gray.rounded
+    padding-top: $pad/2
+    width: 33.33px
+    height: 33.33px
+  .icon-btn-gray .icon
+    font-size: 100%
+  .circle
+    +circle
+
+.mc-queue-tooltip
+  font-size: $font-small
+  text-align: center
+.submitter-item
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+  .bb-avatar.bb-avatar-smallest.bb-avatar-round.bb-avatar-light.submitter-icon
+    margin-left: 0
+    box-shadow: 0 2px 5px alpha-it($black, $opacity-base)
+  .circle
+    +circle
+    position: absolute
+    +background-cover
+    display: block
+    background-color: $text-gray-2
+    color: $text-gray-5
+    font-size: $font-small
+    +oswald
+    border: 1px solid $white
+    letter-spacing: $spacing-tight
+    box-shadow: 0 2px 5px alpha-it($black, $opacity-base)
+    width: ($badge/1.5)
+    height: ($badge/1.5)
+    line-height: ($badge/1.5)-3px
+    text-align: center
+    +middle
+
+.header-item
+  font-family: "Montserrat", sans-serif
+  font-weight: normal
+  color: $text-gray-6
+  font-size: $font-smallest
+  letter-spacing: $spacing-looser
+
+.header-link
+  font-family: "Montserrat", sans-serif
+  font-weight: normal
+  color: $text-gray-6
+  font-size: $font-smallest
+  letter-spacing: $spacing-looser
+
+
+.status-item
+  margin-top: $pad*0.75
+  text-align: center
+  .icon
+    font-size: $font-larger
+  &.granted
+    color: $success
+  &.denied
+    color: $error
+  &.inprog
+    color: $contrast
+  &.unassigned
+    color: $contrast
+  p
+    margin: $pad 0 0 0
+    color: $text-gray-5
+    +trans-up
+    font-size: $font-smallest
+    line-height: $font-smallest
+
+
+.date-item
+  cursor: default
+  color: $text-gray-8
+  .month
+    font-size: $font-smaller
+    display: block
+    +trans-up
+  .date
+    font-size: $font-larger
+    display: block
+
+.show-more-btn
+  text-align: center
+  margin: $pad
+
+.pagination-btn
+  max-width: $desktop
+  margin: $pad auto
+  text-align: center
+
+table.mc-queue
+  max-width: $desktop
+  width: 100%
+  margin: 0 auto
+  .mc-queue-header-container
+    background: darken($background, 5%)
+    border-top: 1px solid darken($background, 10%)
+    border-bottom: 1px solid darken($background, 10%)
+    width: 100%
+    .list-item-column-header
+      +mon-font
+      font-weight: normal
+      color: $text-gray-6
+      font-size: $font-smallest
+      letter-spacing: $spacing-looser
+    .list-item-column-header.sortable
+      &:hover
+        cursor: pointer
+        color: $text-gray-8
+  .mc-queue-list-item
+    border-bottom: 1px solid $border
+  td
+    text-align: center
+    padding: $pad 0
+    vertical-align: middle
+  .col-date
+    width: 5%
+    padding: $pad $pad*2.5
+  .col-mc-icon
+    width: 5%
+  .col-mc-title
+    text-align: left
+    width: 50%
+    .submission-item
+      margin-left: $pad
+    .mc-title
+      +mon-font
+      font-weight: $weight-7
+      font-size: $font-large
+      word-break: break-word
+      display: block
+      a
+        color: $text-gray-9
+      a:hover
+        color: $blue
+    .mc-subtitle
+      +mon-font
+      font-weight: normal
+      font-size: $font-small
+      color: $text-gray-6
+      word-break: break-word
+      display: block
+      .submitter-profile-link
+        margin-right: $pad/2
+  .col-mc-reviewer
+    width: 15%
+  .col-mc-status
+    width: 10%
+  .submission-icon-item
+    position: relative
+    .bb-avatar
+      margin-left: $pad*1.5
+
++mobile_only
+  .mc-submissions-page
+    .mc-submissions-queue
+      .mc-filter-bar-container
+        .mc-filter-bar
+          margin: $pad
+          flex-direction: column
+        .mc-filter-bar-left
+          display: flex
+          flex-direction: column
+          margin-bottom: $pad
+        .mc-filter-bar-mobile
+          display: flex
+          margin-top: $pad
+          .inside-label-dropdown
+            width: 100%
+    table.mc-queue
+      .mc-queue-list-item
+        background: white
+        border-radius: 3px
+        display: inline-block
+        position: relative
+        margin: $pad
+        width: 95%
+      .list-item-column
+        display: inline-block
+      .col-mc-title
+        border-top: 1px solid $border
+        padding: $pad
+        width: 100%
+      .col-mc-icon
+        text-align: right
+        position: absolute
+        top: 0px
+        right: 55px
+      .col-mc-reviewer
+        padding: $pad*1.5
+        text-align: left
+        border-bottom: 1px solid $border
+        display: block
+        width: 100%
+      .col-mc-status
+        padding: $pad $pad*1.7
+        width: 50%
+        .status-item
+          margin-top: $pad*(-1)
+          text-align: left
+      .col-mc-action
+        float: right
+        padding: $pad*1.5 $pad
+        width: 50%
+    .mc-queue-header-container
+      display: none

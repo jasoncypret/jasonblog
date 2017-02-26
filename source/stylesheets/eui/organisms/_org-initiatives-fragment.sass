@@ -1,0 +1,47 @@
+.org-initiatives-fragment
+  margin: 0 auto
+  +pad-to-desktop-width
+
+  .org-initiatives-fragment-title
+    +headline
+
+  ul.org-initiatives-fragment-initiative-list
+    +pad-to-desktop-width
+    padding-bottom: $pad*10
+    margin: 0 auto
+    +mobile-only
+      padding: $pad 0
+
+    li
+      margin-top: $pad*2
+      font-size: $font-large
+      font-weight: $weight-7
+      color: $text-gray-9
+
+      .initiative-title
+        padding: 0
+        a
+          display: flex
+          align-items: center
+          padding: $pad*2
+          color: $text-gray-9
+          &:hover
+            color: $text-gray-9
+          .main
+            flex-grow: 1
+          .icon
+            flex-shrink: 0
+
+      .org-initiatives-fragment-add-initiative
+        text-align: center
+        padding-top: $pad*2.5
+        padding-bottom: $pad*2.5
+        display: flex
+        justify-content: center
+        .icon
+          padding-right: $pad/2
+
+      .org-initiatives-fragment-add-input
+        .initiative-title-hint
+          padding-top: $pad
+          text-align: center

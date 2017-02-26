@@ -1,0 +1,70 @@
+.topic-card
+  display: inline-block
+  background: white
+  border-radius: $pad/2
+  width: 140px
+  height: 200px
+  cursor: pointer
+  position: relative
+  +background_cover
+  transition: background .3s ease
+
+  .icon-btn-gray
+    &.rounded
+      border-radius: 50px
+      width: 27px
+      height: 27px
+      font-size: 11px
+      color: white
+      border-color: transparent
+
+  .topic-card-main
+    width: 100%
+    height: 100%
+    border-radius: $pad/2
+    display: block
+
+    &:hover
+      background: rgba(black, 0.75)
+
+    .topic-card-title
+      top: 50%
+      color: white
+      position: relative
+      transform: translateY(-50%)
+      border: 2px solid rgba(white, 0.6)
+      padding: $pad*1.5 $pad*0.25
+      word-wrap: break-word
+      margin: 0 $pad*1.5
+      border-radius: 2px
+      text-shadow: 0 1px 1px rgba(black, 0.2)
+      +mon-font
+      font-size: $font-small
+      transition: border-color .3s ease
+      .topic-card-title-text
+        transition: background .3s ease, color .3s ease, text-shadow .3s ease
+
+
+  .topic-card-tint
+    width: 100%
+    height: 100%
+    position: absolute
+    opacity: 0.9
+    pointer-events: none
+    border-radius: $pad/2
+    transition: background .3s ease
+
+  +topic-backgrounds
+
+.topic-card.topic-card-placeholder
+  pointer-events: none
+  .topic-card-tint
+    background-color: $text-gray-5
+  .topic-card-title
+    border-color: rgba(black, 0)
+    .topic-card-title-text
+      color: rgba(black, 0)
+      text-shadow: none
+      background-color: $text-gray-1
+  .save-button
+    color: rgba(white, 0) !important

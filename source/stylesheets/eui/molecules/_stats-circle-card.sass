@@ -1,0 +1,36 @@
+.stats-circle-card
+  +inline-block
+  &-circle
+    border: $pad*1.5 solid
+    display: flex
+    justify-content: center
+    align-items: center
+    height: $pad*15
+    width: $pad*15
+    border-radius: 50%
+
+  &-value
+    +oswald
+  &-info-text
+    text-align: center
+    margin-top: $pad
+    text-transform: uppercase
+    color: $text-gray-6
+    font-weight: $weight-7
+    letter-spacing: $spacing-loose
+
+
+
+@each $name, $color in $app-colors
+  .stats-circle-card-#{$name}
+    .stats-circle-card-circle
+      border-color: $color
+
+@each $name, $color in $extended-colors
+  .stats-circle-card-#{$name}
+    .stats-circle-card-circle
+      border-color: $color
+
+.stats-circle-card-black
+  .stats-circle-card-circle
+    border-color: $text-gray-9

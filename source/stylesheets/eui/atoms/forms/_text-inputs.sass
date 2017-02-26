@@ -1,0 +1,62 @@
+input
+  &[type='text'], &[type='password'], &[type='email'], &[type='url'], &[type='number']
+    +text-input-styles
+    &.transparent
+      +text-input-styles(true)
+    &.clear
+      +text-input-styles-clear
+
+
+
+.field.inside-left, .field.inside-right, .field.inside_left, .field.inside_right
+  +text-input-styles
+  margin: 0 0 $field-margin
+  padding: 0
+  position: relative
+  width: auto
+  background: $white
+  display: block
+  overflow: hidden
+  label
+    margin: 0
+    float: left
+    +text-input-styles
+    +inline-block
+    +box-shadow(none)
+    text-indent: 0
+    +border-right-radius(0)
+    color: $text-gray-6
+    padding-right: 0
+    line-height: $field-height
+    border: 0
+    font-weight: $weight-7
+    &:hover
+      border: 0
+      box-shadow: 0
+    &.icon
+      font-size: ($font-base)+8px
+      margin-right: $pad / 2
+  &.disabled
+    background: $text-gray-1
+    color: $text-gray-4
+    cursor: not-allowed
+    label
+      background: $text-gray-1
+      color: $text-gray-4
+      cursor: not-allowed
+  .full
+    overflow: hidden
+    input[type='text'], input[type='password'], input[type='email'], input[type='number']
+      // +form-text-input-color($field-color)
+      text-indent: 0
+      width: 100%
+      display: block
+      border: 1px solid transparent
+      +border-left-radius(0)
+.field.inside-right, .field.inside_right
+  label
+    float: right
+    margin-right: $pad
+  .full
+    input[type='text'], input[type='password'], input[type='email'], input[type='number']
+      text-indent: $pad/2

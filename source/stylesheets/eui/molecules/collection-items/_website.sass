@@ -1,0 +1,82 @@
+// ------------------------------------------
+// website, webtools,  (Not Blog Homepage)
+// ------------------------------------------
+
+.#{$ci-class}-website
+  +collection-item-card-settings
+  +min_height($collection-landscape-image-height + 4*$pad)
+  position: relative
+  &-image
+    +background_cover
+    height: $collection-landscape-image-height
+    width: $collection-landscape-image-width
+    float: left
+    margin-right: $pad * 1.5
+    +border-top-radius(4px)
+    +border-bottom-radius(4px)
+    border: 1px solid $collection-resource-border
+    +mobile-only
+      float: none
+      margin-bottom: $pad*2
+    &-overlay, &-overlay-edit
+      position: absolute
+      width: 182px
+      margin-top: -7px
+      margin-left: -2px
+    &-edit
+      position: absolute
+      top: $pad*1.5
+      left: $pad*1.5
+      +mobile-only
+        & > span
+          display: none
+
+  &-actions
+    +collection-item-card-actions(true)
+
+
+  &-content
+    +min_height($collection-landscape-image-height + 4*$pad)
+    padding: 0 $card-padding $card-padding $card-padding
+
+  &-title
+    padding-bottom: $pad
+    display: block
+    +collection-item-title-duration($dark:true)
+    +collection-item-title-text($dark:true)
+    .inline-edit-form
+      width: 73%
+      float: left
+      +mobile-only
+        float: none
+        width: 100%
+        textarea.textarea-autosize
+          float: right
+          width: 85%
+      .edit-inline
+        label
+          display: none
+        &-activate
+          display: inline-block
+          margin-top: $pad
+      textarea
+        width: 92%
+        float: left
+        margin-right: $pad
+
+
+  &-type
+    margin-bottom: $pad*3.5
+
+  &-meta
+    +collection-item-meta
+
+  &-source
+    +collection-item-card-source-favi
+    +collection-item-card-source-name
+
+  &-description
+    display:none
+
+  &-social
+    +collection-item-card-social

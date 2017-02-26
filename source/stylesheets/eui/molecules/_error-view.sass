@@ -1,0 +1,38 @@
+.error-view
+  margin: 0 auto
+  text-align: center
+  color: $contrast
+  width: 600px
+  padding: $nav+$pad $pad $pad*10 $pad
+  +mobile-only
+    width: 100%
+  &-title
+    margin-bottom: $pad*3
+    color: $text-gray-10
+    font-size: $font-larger
+    +mobile-only
+      font-size: $font-large
+  &-subtitle
+    margin-bottom: $pad*3
+    font-size: $font-large
+    +mobile-only
+      font-size: $font-base
+  &-homepage
+    +mobile-only
+      width: 100%
+  &-join
+    margin-bottom: $pad*2
+
+.error-view
+  &-sad, &-denied
+    .error-view-image
+      font-size: $font-jumbo*4
+  &-sad, &-confused, &-denied
+    color: $text-gray-5
+
+
+.error-view-duration
+  margin-top: $pad*2
+  font-size: $font-large
+  +mobile-only
+    font-size: $font-small

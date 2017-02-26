@@ -1,0 +1,24 @@
+=icon-btn($color: $background, $size: large)
+  +outline_btn-styles($color)
+  border-color: $color
+  border-radius: 100px
+  padding-left: 0
+  padding-right: 0
+  .icon
+    font-style: normal
+    +icon-font
+    +font-smoothing(subpixel-antialiased)
+    line-height: 0
+    position: relative
+  @if $size == large
+    width: $icon-btn
+    height: $icon-btn
+    .icon
+      font-size: 160%
+      top: 0.3em
+  @else
+    width: $icon-btn-small
+    height: $icon-btn-small
+    .icon
+      font-size: 130%
+      top: 0.25em

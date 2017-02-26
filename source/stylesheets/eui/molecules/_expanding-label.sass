@@ -1,0 +1,45 @@
+.expanding-label
+  +inline-block
+  +trans-up
+  border-radius: $pad/5
+  font-size: $font-smaller
+  font-weight: $weight-6
+  letter-spacing: $spacing-loose
+  border: $pad/10 $contrast solid
+  margin-right: $pad/2
+  margin-bottom: $pad
+  &-text
+    padding: $pad*0.3 $pad/2
+    +inline-block
+  &-btn
+    display: none
+    text-transform: uppercase
+  &:last-child .expanding-label-btn
+    +inline-block
+    font-size: $font-smaller
+    font-weight: $weight-3
+    padding: $pad*0.4
+    border-radius: 0
+    border-top-right-radius: 2px
+    border-bottom-right-radius: 2px
+    &:after
+      top: 0.22em
+      font-size: 1.2em !important
+
+  &-container
+    // Themes
+    &.success
+      .expanding-label
+        border-color: $success
+
+    &.highlight
+      .expanding-label
+        border-color: $highlight
+
+    &.light
+      .expanding-label
+        border-color: $contrast
+
+    &.dark
+      .expanding-label
+        border-color: $white

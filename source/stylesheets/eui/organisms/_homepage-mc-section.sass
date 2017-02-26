@@ -1,0 +1,16 @@
+.micro-credentials-list
+  padding: $pad 0
+  height: $cardHeight*2 + $pad*6
+  position: relative
+  +mobile_only
+    height: ($cardHeight + $pad/2) * 4
+    padding: ($cardHeight + $pad/2) 0 0 0
+  .microcredential-card
+    +microcredential-card
+    height: 202px
+    margin-bottom: gutter() * 2
+    .save-button
+      margin-right: gutter() * 10
+    +span(3)
+    +mobile_only
+      +span(6)

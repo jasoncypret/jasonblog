@@ -1,0 +1,26 @@
+
+.space-setup-progress-icons
+  display: inline-block
+  width: 100%
+  text-align: center
+  color: $text-gray-5
+  margin-bottom: $pad*3
+
+  .icon-card
+    //+span(4 of 12 no-gutters )
+    @include span(4 of 12 inside no-gutters)
+    padding-bottom: $pad*2
+    border-bottom: 2px solid $text-gray-2
+    display: inline-block
+    &.active
+      color: $contrast
+      border-color: $blue
+      .icon
+        color: $blue
+
+    .icon
+      font-size: $font-jumbo
+      margin-bottom: $pad
+
+    .title
+      font-weight: 400

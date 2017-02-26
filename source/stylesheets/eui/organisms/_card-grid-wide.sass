@@ -1,0 +1,56 @@
+$card-grid-wide-width: $large_desktop - 100px
+
+.card-grid-wide
+
+  @mixin card-grid-wide-sizing
+    height: $card-grid-height
+    +border-radius(4px)
+    .collection-card-title
+      +max_height(160px)
+      +multiline_text_truncate(8)
+      overflow: hidden
+    .resource-card-type
+      +border-top-left-radius(3px)
+
+  +group
+  width: $card-grid-wide-width
+  margin: 0 auto
+  position: relative
+  +media_max_width(($large_desktop - 100px))
+    width: auto
+    margin: 0 $pad
+  ul
+    @include container(($large_desktop - 100px))
+    +group
+    li
+      @include span(3)
+      margin-bottom: gutter()*2
+      position: relative
+      .card-grid-wide-overlay
+        height: $card-grid-height
+        width: calc(100% - 6.667%)
+        top: 0
+        position: absolute
+      +media-max-width(1150px)
+        @include span(4)
+        margin-bottom: gutter()*2
+        .card-grid-wide-overlay
+          width: calc(100% - 5%)
+      +media-max-width(850px)
+        @include span(6)
+        margin-bottom: gutter()*2
+        .card-grid-wide-overlay
+          width: calc(100% - 3.333%)
+      +media_max_width(500px)
+        width: 100%
+        margin: 0
+        margin-bottom: gutter()*2
+        .card-grid-wide-overlay
+          width: calc(100% - 1.667%)
+
+      // Sizing cards in grid
+      @each $type in $collection-item-types
+        .resource-card-#{$type}
+          +card-grid-wide-sizing
+      .collection-card, .collection-card-overlay, .microcredential-card
+        +card-grid-wide-sizing

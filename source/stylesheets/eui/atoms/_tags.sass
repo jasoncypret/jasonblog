@@ -1,0 +1,11 @@
+.tag
+  +tag
+  @each $name, $color in $app-colors
+    &.tag-#{$name}
+      color: $color
+
+.tag-outline
+  +tag-outline
+  @each $name, $color in $app-colors
+    &.tag-#{$name}
+      border-color: $color

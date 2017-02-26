@@ -1,0 +1,139 @@
+.org-add-view-modal
+  display: inline-block
+  overflow-y: scroll
+  .org-add-view
+    background: $white
+    padding-bottom: $pad*2
+    .modal-body
+      max-width: $desktop/2
+      margin: $pad*2 auto
+    .modal-header
+      width: 100%
+      margin-top: $pad*2
+
+  .modal-btn-close
+    color: $text-gray-8
+
+  .create-org-btn
+    margin-top: $pad
+
+.global-org-mgmt-page
+  &-header-wrapper
+    background: $white
+    width: 100%
+    margin: 0
+  &-header
+    max-width: $desktop
+    margin: 0 auto
+    padding: $pad
+    display: flex
+    justify-content: space-between
+    .input-box-icon.input-box-icon-default.form
+      width: 60%
+      border-radius: $pad*3
+  .segmented-group
+    flex-basis: 60%
+    .input-box-icon.input-box-icon-default.form
+      +border-left-radius($pad*3)
+      margin: 0
+      padding: 0
+      border: none
+      .field
+        +border-left-radius($pad*3)
+        width: 100%
+        margin: 0
+        border: none
+      input
+        text-indent: $pad
+        +border-left-radius($pad*3)
+    .segmented-group-item:first-child
+      +border-left-radius($pad*3)
+      flex-grow: 1
+    .segmented-group-item:last-child
+      flex-grow: 1
+    .popover-dropdown
+      button
+        padding: 0
+  .popover-dropdown
+    border-top-right-radius: 25px
+    border-bottom-right-radius: 25px
+  &-results-wrapper
+    width: 100%
+    margin: $pad 0
+  &-results
+    max-width: $desktop
+    margin: 0 auto
+
+
+.global-org-search
+  display: inline-block
+  width: 100%
+  &-buttons
+    display: flex
+    align-items: center
+    .action-btn-outline
+      margin-right: $pad
+  &-item
+    display: flex
+    flex-direction: column
+    position: relative
+    .bb-prompt
+      position: absolute
+      top: 0
+      left: 0
+      display: flex
+      flex-direction: column
+      align-items: center
+      width: 100%
+      height: 100%
+      justify-content: center
+      background: rgba(0,0,0,$opacity-stronger)
+      .headline
+        color: $white
+    .list-view-item.hoverable,
+    .list-view-item.hoverable:hover
+      .item-left, .item-middle
+        transition: 0.2s opacity ease-in-out
+    &.expanded
+      background: white
+      .list-view-item.hoverable:hover
+        border-left: 1px solid transparent
+        border-right: 1px solid transparent
+      .list-view-item.hoverable,
+      .list-view-item.hoverable:hover
+        .item-left, .item-middle
+          opacity: $opacity-base
+          transition: 0.2s opacity ease-in-out
+    .list-view-item.hoverable,
+    .list-view-item.hoverable:hover
+      .item-action-button
+        display: none
+      .item-right
+        display: flex
+        align-items: center
+
+    &.disabled
+      .list-view-item
+        +stripes($disable-stripe-color-1, $disable-stripe-color-2)
+        .item-meta-text
+          color: $error
+        .item-sub-text
+          color: $text-gray-7
+        &:hover
+          +stripes(lighten($disable-stripe-color-1,1%), lighten($disable-stripe-color-2,1%))
+          .item-meta-text
+            +inline-block
+            opacity: 1
+  &-edit
+    display: flex
+    justify-content: center
+    padding: $pad 0
+    background: $white
+    flex-direction: column
+    &-footer
+      display: flex
+      justify-content: center
+      padding: $pad*2
+      border-top: 1px solid $border
+  &-action-button
+    margin-right: $pad*2

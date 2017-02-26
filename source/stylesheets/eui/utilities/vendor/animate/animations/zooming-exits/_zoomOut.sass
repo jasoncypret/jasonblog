@@ -1,0 +1,38 @@
+=zoomOut
+  from
+    opacity: 1
+
+  50%
+    opacity: 0
+    transform: scale3d(0.3, 0.3, 0.3)
+
+  to
+    opacity: 0
+
+
+@if $experimental-support-for-webkit
+  @-webkit-keyframes zoomOut
+    +zoomOut
+
+@if $experimental-support-for-khtml
+  @-khtml-keyframes zoomOut
+    +zoomOut
+
+@if $experimental-support-for-mozilla
+  @-moz-keyframes zoomOut
+    +zoomOut
+
+@if $experimental-support-for-microsoft
+  @-ms-keyframes zoomOut
+    +zoomOut
+
+@if $experimental-support-for-opera
+  @-o-keyframes zoomOut
+    +zoomOut
+
+@keyframes zoomOut
+  +zoomOut
+
+
+.zoomOut
+  +animation-name(zoomOut)

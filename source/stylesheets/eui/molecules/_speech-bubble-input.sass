@@ -1,0 +1,37 @@
+.bb-speech-bubble-input
+  display: flex
+  align-items: flex-start
+  position: relative
+  .user-avatar
+    flex-shrink: 0
+    margin-right: 5px
+    &:hover
+      border-color: $tip
+  .user-input
+    flex-grow: 1
+    margin-left: 8px
+    height: 47px
+    transition: height .3s ease
+    overflow: hidden
+
+  .speech-bubble
+    position: absolute
+    align-self: center
+    top: 10px
+    height: 10px
+    border-width: 15px 10px 15px 0
+    border-color: transparent #e6e6e6
+    border-style: solid
+
+  .speech-bubble::after
+    position: absolute
+    content: ""
+    top: -11px
+    left: 2px
+    border-width: 11px 8px 11px 0
+    border-color: transparent white
+    border-style: solid
+
+  &.active
+    .speech-bubble
+      border-color: transparent #ccc

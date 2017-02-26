@@ -1,0 +1,31 @@
+
+.bb-fade-slide
+  +transition-timing-function(cubic-bezier(0.230, 1.000, 0.320, 1.000))
+  +transition-property(transform, opacity)
+  +transition-duration(.5s)
+  opacity: 0
+  &.entered
+    opacity: 1
+  &.entering
+    opacity: 1
+
+  &-bottom
+    transform: translateY($pad*2)
+    &.entered,
+    &.entering
+      transform: translateY(0)
+  &-top
+    transform: translateY(-$pad*2)
+    &.entered,
+    &.entering
+      transform: translateY(0)
+  &-left
+    transform: translateX(-$pad*2)
+    &.entered,
+    &.entering
+      transform: translateX(0)
+  &-right
+    transform: translateX($pad*2)
+    &.entered,
+    &.entering
+      transform: translateX(0)

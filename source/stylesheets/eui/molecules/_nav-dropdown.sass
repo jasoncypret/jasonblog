@@ -1,0 +1,16 @@
+.nav-dropdown
+  &-content
+    +inline-block
+    cursor: pointer
+  > .icon
+    margin-left: $pad/2
+  &-collapse
+    width: 150%
+    position: absolute
+    top: $pad*5
+    left: 0
+    +mobile-only
+      width: 300%
+  &-close
+    background: $text-gray-9
+    color: $white

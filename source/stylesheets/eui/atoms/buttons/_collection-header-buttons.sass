@@ -1,0 +1,10 @@
+.btn, a.btn, input.btn, button.btn
+  &-text
+    +text-btn
+    &-light
+      +text-btn(false)
+    @each $name, $color in $app-colors
+      &-#{$name}
+        color: $color
+      &:hover
+        border-color: $color

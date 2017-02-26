@@ -1,0 +1,97 @@
+.competency-report-list
+  background: $background
+  overflow-x: auto
+  &-header
+    &-container
+      margin: 0 auto
+      display: flex
+      .stats-header
+        display: flex
+        width: 100%
+        justify-content: center
+        max-height: 80px
+        border-top: 1px solid darken($background, 10%)
+        border-bottom: 1px solid darken($background, 10%)
+        background: darken($background, 5%)
+        +mobile-only
+          justify-content: flex-start
+        &-placeholder
+          position: relative
+          top: -1px
+          height: 80px
+          flex: 0.5 0 300px
+          background: darken($background, 5%)
+          border-top: 1px solid darken($background, 10%)
+          border-bottom: 1px solid darken($background, 10%)
+        &-item
+          position: relative
+          top: -1px
+          height: 80px
+          flex: 0 0 60px
+          padding: $pad 21px
+          text-align: center
+          background: darken($background, 5%)
+          border-top: 1px solid darken($background, 10%)
+          border-bottom: 1px solid darken($background, 10%)
+          +mon-font
+          font-weight: $weight-4
+          color: $text-gray-6
+          font-size: $font-small
+        .stats-header-icon
+          width: 60px
+          height: 60px
+          border-radius: 5px
+  &-body
+    &-container
+      margin: 0 auto
+      .reports-list-item
+        border: none
+        justify-content: center
+        +mobile-only
+          justify-content: flex-start
+        .list-view-item
+          width: auto
+          overflow: hidden
+          flex: 0.5 0 300px
+          border-bottom: 2px solid $border
+          +mobile-only
+            padding-left: $pad
+        &-stats
+          background: inherit
+          width: auto
+          .stats-item
+            width: auto
+            flex: 0 0 60px
+            border-left: 2px solid $border
+            border-bottom: 2px solid $border
+  &-status-icon
+    width: 60px
+    height: 60px
+    text-align: center
+    display: flex
+    justify-content: center
+    align-items: center
+    font-size: 24px
+    margin: auto
+    background-size: cover
+    background-image: url('https://s3.amazonaws.com/singular-content-areas/competency-status-not-started.svg')
+    &.in_progress
+      background-image: url('https://s3.amazonaws.com/singular-content-areas/competency-status-started.svg')
+    &.submitted
+      background-image: url('https://s3.amazonaws.com/singular-content-areas/competency-status-applied.svg')
+    &.denied
+      background-image: url('https://s3.amazonaws.com/singular-content-areas/competency-status-denied.svg')
+    &.granted
+      background-image: url('https://s3.amazonaws.com/singular-content-areas/competency-status-awarded.svg')
+
+
+
+  .subtext-type
+    font-size: $font-base
+  .subtext-about
+    margin-left: $pad/2
+    font-size: $font-smaller
+    color: $black
+  .icon
+    vertical-align: text-bottom
+    margin: 0 $pad/2 0 0

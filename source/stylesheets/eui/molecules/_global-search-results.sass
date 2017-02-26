@@ -1,0 +1,64 @@
+// Mixins for active vs first-tab
+
+.global-search-page-container
+  background-color: white
+  min-height: 100vh
+
+  .text-highlight
+    color: $blue
+
+  .global-search-page-jumbo
+    min-height: 250px
+    max-height: 350px
+    text-align: center
+    padding: (250px - $font-jumbo)/2
+    font-size: $font-jumbo
+    font-weight: 300
+    background-color: rgb(235, 235, 235)
+
+    +mobile-only
+      font-size: $font-larger
+      min-height: 150px
+      padding: (150px - $font-larger)/2
+
+    .search-param
+      font-weight: bold
+
+  .global-search-results-content
+    max-width: 960px
+    margin: 0 auto
+
+    .search-tabs
+      width: 100%
+      max-width: 1200px
+      margin: 0 auto
+      display: block
+      border: none
+      background-color: white
+
+      .error-view
+        padding-top: 0
+
+        .error-view-sad
+          color: $text-gray-4
+
+        .error-text
+          font-size: $font-large
+
+      ul
+        text-align: center
+
+        .tab
+          +headline-copy-sub
+          width: 215px
+          padding-bottom: $pad * 2
+          +mobile-only
+            width: 170px
+            padding: 20px 0 10px 0
+
+          &:not(.active)
+            font-weight: $weight-3
+            border-bottom: 2px solid #cccccc
+
+          &.active, &.first-tab .active
+            border-bottom: 2px solid $blue

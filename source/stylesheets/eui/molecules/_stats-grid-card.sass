@@ -1,0 +1,33 @@
+.stats-grid-card
+  text-align: center
+  display: flex
+  align-items: center
+  &-value
+    +stats-number
+    min-width: $pad*10
+  &-info
+    margin-left: $pad
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+  &-text
+    font-size: $font-small
+    font-weight: $weight-9
+    color: $text-gray-5
+  &-action
+    font-size: $font-base - 1
+
+
+@each $name, $color in $app-colors
+  .stats-grid-card-#{$name}
+    .stats-grid-card-value
+      color: $color
+
+@each $name, $color in $extended-colors
+  .stats-grid-card-#{$name}
+    .stats-grid-card-value
+      color: $color
+
+.stats-grid-card-black
+  .stats-grid-card-value
+    color: $text-gray-9

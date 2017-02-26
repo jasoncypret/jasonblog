@@ -1,0 +1,30 @@
+.input-box-icon
+  width: 100%
+  +text-input-styles
+  display: flex
+  align-items: center
+  .icon
+    font-size: $font-large
+    transition: all 0.1s ease-in-out
+    pointer-events: none
+    &-hide
+      opacity: 0
+    &-show
+      opacity: 1
+    &:hover
+      color: $text-gray-9
+    &.clickable
+      pointer-events: all
+    &-left
+      padding-right: $pad
+    &-right
+      padding-left: $pad
+  input[type='text']
+    +text-input-reset
+
+@each $theme, $color in $app-colors
+  .input-box-icon-#{$theme}
+    border-color: $color
+
+.input-box-icon-none.form
+  border: none

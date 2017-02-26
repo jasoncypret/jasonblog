@@ -1,0 +1,92 @@
+// Subnav Styling
+=subnav($selector: "collection-nav", $border: "true")
+  margin-bottom: $pad*4
+  display: block
+  text-align: center
+  ul
+    +inline-block
+    @if $border == "true"
+      border-bottom: 4px solid shade(white, 10%)
+    .#{$selector}-item
+      +inline-block
+      a
+        display: block
+        padding: $pad $pad*3
+        color: shade(white, 30%)
+        +transition(0.12)
+        .title
+          letter-spacing: $spacing-tighter
+          display: block
+          font-size: $font-base
+          line-height: $font-base
+        strong
+          // font-weight: $weight-9
+          letter-spacing: $spacing-tighter
+          // display: block
+          // font-size: ($font-large + 3px)
+          line-height: ($font-large + 3px)
+          margin-right: $pad/2
+        span
+          // display: block
+          font-size: $font-base
+          line-height: $font-base
+        &:hover
+          +transition(0.12)
+          color: tint(black, 40%)
+    .#{$selector}-item-active
+      @extend .#{$selector}-item
+      position: relative
+      &:after
+        content: ''
+        display: block
+        height: 4px
+        width: 100%
+        bottom: -4px
+        left: 0
+        background: $tip
+        position: absolute
+      a
+        color: tint(black, 30%)
+        .title
+          +mon-font
+  +mobile-only
+    ul .#{$selector}-item a
+      padding: $pad
+
+
+=dark_nav
+  #sitenav.sitenav
+    position: absolute
+    background: rgba(white, 0.11)
+    border-bottom: 0
+    .sitenav-search-input
+      border-color: transparent
+      background: rgba(white, 0.15)
+      color: white
+      +placeholder
+        color: white
+    .logo svg g
+      fill: white !important
+
+    .profile-info
+      &-text
+        color: #fff
+
+    .user_nav a.user_profile
+      border: 1px solid rgba(white, 0.5)
+      .user
+        color: rgba(white, 0.5)
+      .icon
+        color: rgba(white, 0.5)
+    .sitenav-items
+      border-left: 1px solid $background
+      +mobile_only
+        border-left: none
+      .sitenav-item
+        color: $background
+        &:hover
+          color: white
+  &.open #sitenav.sitenav .sitenav-search-input
+    color: tint(black, 10%)
+    +placeholder
+      color: tint(black, 50%)

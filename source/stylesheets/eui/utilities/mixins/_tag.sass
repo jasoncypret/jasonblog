@@ -1,0 +1,30 @@
+
+=tag-base-style
+  +trans-up
+  font-size: $font-smaller
+  color: $contrast
+  display: inline-flex
+  align-items: center
+  padding: $pad/3 $pad/2
+  .icon
+    padding-right: $pad/2
+
+=tag-outline
+  +tag-base-style
+  border-width: 1px
+  border-style: solid
+  border-color: $black
+  border-radius: 2px
+  &.dark
+    color: $white
+  &.light
+    color: $black
+
+=tag
+  +tag-base-style
+  +oswald
+  color: $white
+  &.dark
+    background: $text-gray-9
+  &.light
+    background: $text-gray-2

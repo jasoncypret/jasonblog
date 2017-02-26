@@ -1,7 +1,8 @@
 @import variables
 @import mixins
-@import expressionui
-@import animate/animations/fading-entrances/fadeIn
+@import bourbon
+@import eui/utilities/index
+@import eui/atoms/index
 
 .fadeIn
   +animation-name(fadeIn)
@@ -9,6 +10,11 @@
   +animation-timing-function(ease-in-out)
 
 $reading-width: 700px
+
+=transition($time:0.5)
+  +transition-property(all)
+  +transition-duration($time + s)
+  +transition-timing-function(ease-in)
 
 
 =reading-mix
@@ -65,7 +71,7 @@ body.index
         display: none
     .avatar
       $avatar: 90px
-      background-image: url(http://www.gravatar.com/avatar/6be8633c004157fb91bd8026b71f99f5.png)
+      background-image: url(https://d3vv6lp55qjaqc.cloudfront.net/items/103W0o16053h3m261211/new-face.jpg)
       +background_cover
       width: $avatar
       height: $avatar

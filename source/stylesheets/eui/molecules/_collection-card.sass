@@ -1,0 +1,89 @@
+.collection-card
+  +background_cover
+  position: relative
+  display: block
+  .delete-button
+    position: absolute
+    top: $pad
+    right: $pad
+  .bb-prompt
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 0
+    top: 0
+    z-index: 1
+    background: $white
+    padding-top: $pad*4
+    .headline
+      font-size: $font-large
+    .actions
+      .action
+        // padding: $pad
+    .modal-btn-close
+      font-size: $font-base
+      top: $pad + 5
+      right: $pad + 5
+      .close-text
+        display: none
+  &-overlay
+    +transition-property(background)
+    +transition-duration(0.92s)
+    +transition-timing-function(ease-in)
+    background: rgba(black, 0.2)
+    color: white
+    overflow: hidden
+    position: relative
+    .contain
+      padding: $pad*8 $pad $pad*2 $pad
+      +linear-gradient( rgba(black, 0), rgba(black, 0.6) 90%)
+      position: absolute
+      bottom: 0
+      width: 100%
+  &-title
+    +card-title
+    margin-bottom: $pad
+  &-items
+    background: white
+    +trans-up
+    +inline-block
+    font-size: ($font-micro - 2px)
+    letter-spacing: $spacing-loose
+    padding: $pad/2.5 $pad/1.2
+    color: black
+    margin-bottom: $pad
+    margin-right: $pad/2
+    +border-radius(2px)
+  &-draftMode
+    padding: 0
+    margin-left: $pad/2
+  &-restricted
+    .restricted-icon
+      color: $text-gray-4
+  &-mc-badge-link
+    cursor: pointer
+  &-inaccessible
+    .icon
+      display: block
+      text-align: center
+      font-size: 80px
+      margin-top: $pad * 3
+    .sub-text
+      display: block
+      margin: 10px 20px
+      font-weight: $weight-8
+      text-align: center
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: $purple
+    opacity: 0.9
+    color: white
+    border-radius: 3px
+  &:hover .collection-card-overlay
+    +transition-property(background)
+    +transition-duration(0.22s)
+    +transition-timing-function(ease-in)
+    background: rgba(shade($purple, 60%), 0.55)

@@ -1,0 +1,22 @@
+.space-member
+  +post_member_card
+  &-header-creator
+    width: 70%
+  &-status
+    display: table-cell
+    vertical-align: middle
+    padding: $pad*2 $pad
+    text-align: right
+    .status
+      &-pending, &-admin
+        font-size: $pad+1
+        text-transform: uppercase
+        font-weight: $weight-7
+        border-radius: 100px
+        padding: $pad / 10 $pad - 2
+        color: $white
+        margin-left: $pad/2
+      &-admin
+        background-color: $main
+      &-pending
+        background-color: $accent

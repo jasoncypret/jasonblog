@@ -1,0 +1,33 @@
+.bb-file-icon
+  height: 50px
+  width: 50px
+  display: flex
+  align-items: center
+  justify-content: center
+  .icon
+    font-size: $font-largest
+    color: $success
+    cursor: default
+  &.image
+    background-size: cover
+    background-repeat: no-repeat
+  &.large
+    height: 100px
+    width: 100px
+    +tablet-and-above
+      .icon
+        font-size: $font-jumbo
+    +mobile-only
+      height: 50px
+      width: 50px
+  &.larger
+    height: 150px
+    width: 150px
+    +tablet-and-above
+      .icon
+        font-size: $font-jumbo*2
+    +mobile-only
+      height: 100px
+      width: 100px
+      .icon
+        font-size: $font-jumbo

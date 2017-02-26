@@ -1,0 +1,53 @@
+.collection-item
+  =item_layout
+    +border-radius(3px)
+    border: 1px solid shade($collection-resource-border, 3%)
+    padding: $card-padding
+    position: relative
+    box-shadow: 0 0 4px rgba(black, 0.1)
+  &-curator
+    background: white
+    +item_layout
+    &-quote
+      +fanwood
+      font-size: $font-base
+      color: black
+      letter-spacing: -0.01em
+      line-height: $font-large +6px
+      text-transform: none
+      +mobile-only
+        line-height: $font-base +2px
+    &-name
+      line-height: $pad * 2
+      +inline-block
+      +mon-font
+      font-size: $font-micro
+      font-weight: $weight-4
+      letter-spacing: $spacing-loosest
+      +trans-up
+      color: rgba(black, 0.42)
+      margin-bottom: $pad/2
+      width: 100%
+      +mobile-only
+        line-height: $font-base +4px
+      a
+        color: rgba(black, 0.42)
+      a:hover
+        color: rgba(black, 0.6)
+  &-annotate
+    background-color: $yellow
+    +item_layout
+    form
+      background-color: $yellow
+      margin-top: $pad
+      textarea
+        background: transparent
+        width: 100%
+        border: none
+        margin-bottom: $pad * 2
+        padding: 0
+        +fanwood
+        +placeholder
+          +fanwood
+      input[type='submit']
+        margin-right: $pad

@@ -1,0 +1,40 @@
+.global-user-mgmt-page
+  &-search-wrapper
+    background: $white
+  &-header
+    background: $white
+    display: flex
+    justify-content: center
+    max-width: $desktop
+    margin: 0 auto
+    padding: $pad
+    .global-user-search
+      min-width: $desktop/3
+  &-results-wrapper
+    background: $background
+  &-results
+    max-width: $desktop
+    min-height: $desktop/2
+    +mobile-only
+      min-height: $desktop/4
+    margin: 0 auto
+    display: flex
+    justify-content: center
+    padding: $pad*3 0
+    align-self: flex-start
+    &-searching
+      &-loader
+        padding: $pad*5
+    &-no-result
+      .error-view
+        padding: $pad*3
+    &-not-started
+      align-self: center
+    &-done
+      width: 100%
+      .global-user-search-fragment
+        padding: $pad*2 0
+        &-data
+          margin-bottom: $pad*3
+          +inline-block
+          width: 100%

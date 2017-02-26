@@ -1,0 +1,9 @@
+.btn, a.btn, input.btn, button.btn
+  &-card
+    +btn-card($dark: false)
+    &-icon
+      +btn-card($dark: false, $icon: true)
+    &-light
+      +btn-card($dark: true)
+      &-icon
+        +btn-card($dark: true, $icon: true)

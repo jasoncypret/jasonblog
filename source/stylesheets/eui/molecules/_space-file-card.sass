@@ -1,0 +1,60 @@
+.space-file-card
+  position: relative
+  height: $cardHeight
+  background: white
+  border-radius: $card-border-radius
+  border: 1px solid $text-gray-5
+  margin: 0 3% $pad*2 0
+  width: 31%
+  min-width: 200px
+
+  &:nth-of-type(3n)
+    margin-right: 0
+
+  .file-icon
+    height: 100%
+    width: 100%
+    text-align: center
+    font-size: $font-jumbo * 2
+    margin-top: $pad*2
+    &.image
+      margin-top: 0
+
+  .details-container
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+    padding: $pad
+    background-color: alpha-it($white, 0.9)
+    border-top: 1px solid $text-gray-5
+    border-radius: 0 0 $card-border-radius $card-border-radius
+    .filename
+      word-break: break-word
+    .file-status
+      font-size: $font-smallest
+      color: $text-gray-5
+
+  .menu-button
+    position: absolute
+    top: $pad
+    right: $pad
+    cursor: pointer
+    width: 25px
+    height: 25px
+    border-radius: $card-border-radius
+    text-align: center
+    padding-top: 2px
+    background-color: $white
+    border: 2px solid $text-gray-4
+    box-shadow: 0 0 10px alpha-it($black, 0.2)
+    color: $text-gray-7
+
+.space-file-card-menu
+  padding-top: $pad*3
+  position: relative
+  .close-button
+    color: $error
+    position: absolute
+    top: 0
+    right: 0

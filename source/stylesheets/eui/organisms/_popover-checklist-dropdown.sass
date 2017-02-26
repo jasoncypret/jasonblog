@@ -1,0 +1,36 @@
+.popover-checklist-dropdown
+  white-space: nowrap
+  button
+    overflow: hidden
+  .popover-title
+    overflow: hidden
+    min-height: 18px
+    text-overflow: ellipsis
+    width: 100%
+    display: inline-block
+    padding-right: $pad*3
+  .dropdown-icon
+    display: inline-block
+    position: relative
+    right: $pad*2.5
+.dropdown-checklist-popover
+  &.scrollable
+    .bb-popover-content
+      overflow-y: scroll
+      max-height: 310px
+  .popover-checklist-dropdown-list.check-list
+    .item
+      input
+        border-width: 2px
+        border-color: $white
+      span
+        color: $white
+      &.active
+        background: lighten($success, 20%)
+      &:not(.active):not(:hover)
+        input
+          border-color: $text-gray-5
+        span
+          color: $text-gray-5
+      &:hover
+        background: $success

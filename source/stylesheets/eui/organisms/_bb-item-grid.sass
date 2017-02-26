@@ -1,0 +1,32 @@
+.bb-item-grid
+  > .grid-add
+    text-align: center
+    display: flex
+    flex-direction: column
+    justify-content: center
+    > .add-icon
+      display: block
+      font-size: $font-jumbo * 1.6
+    > .add-text
+      display: block
+      font-size: $font-larger - 4
+
+  > .grid-item
+    display: flex
+    flex-direction: column
+    > .content
+      width: 100%
+      flex-grow: 1
+      &.editing
+        border-bottom-left-radius: 0
+        border-bottom-right-radius: 0
+    > .remove-overlay
+      width: 100%
+      background: $black
+      text-align: center
+      border-bottom-left-radius: 2px
+      border-bottom-right-radius: 2px
+      cursor: pointer
+      > .remove-button
+        display: inline-block
+        margin: $pad

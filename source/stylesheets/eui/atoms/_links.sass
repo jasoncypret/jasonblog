@@ -1,0 +1,19 @@
+
+.link
+  +link($blue)
+  +link-colors($app-colors)
+  +link-colors($extended-colors)
+  &-dark
+    +link($color: $blue, $dark: true)
+    +link-colors($app-colors, $dark: true)
+    +link-colors($extended-colors, $dark: true)
+
+
+.link-underline
+  +link($blue, $underline: true)
+  +link-colors($app-colors, $underline: true)
+  +link-colors($extended-colors, $underline: true)
+  &-dark
+    +link($blue, true, true)
+    +link-colors($app-colors, true, true)
+    +link-colors($extended-colors, true, true)

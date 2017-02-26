@@ -1,0 +1,109 @@
+$lines-to-show : 6
+$collection-card-large-height: 325px
+$mobile-card-height: 175px
+
+.collection-card-large
+  @include container($reading_width)
+  margin: $pad auto
+  min-height: $collection-card-large-height
+  background: white
+  border: 2px solid $collection-resource-border
+  position: relative
+  +border-radius(5px)
+  a.contain
+    color:black
+  +media_max_width($reading_width)
+    width: auto
+    margin: 0 $pad
+  .collection-curator
+    float: left
+    height: $collection-card-large-height
+    @include span(6 of 12)
+    margin-top: 0
+    +media_max_width($reading_width)
+      @include span(12 of 12)
+      margin-top: $mobile-card-height
+    .collection-curator-info
+      @include span(6 of 6)
+      min-height: 150px
+      padding: $pad*2.5 0
+      .collection-curator-avatar-container
+        @include span(3 of 6 at 1 isolate)
+        @include pull(0.5)
+        position: relative
+        .collection-curator-avatar
+          +background_cover
+          width: $collection-curator-avatar
+          height: $collection-curator-avatar
+          display: block
+          +border-radius($user-profile-avatar)
+          border: 2px solid white
+          position: absolute
+          right: 10%
+      .collection-curator-name-container
+        @include span(5 at 5 of 10 isolate)
+        margin-top: $pad*2
+        .collection-curator-name
+          +mon-font
+          color: darken($background, 20%)
+          font-size: $font-large
+        .collection-curator-subheading
+          color: black
+          +mon-font
+          font-size: $font-small
+          font-style: italic
+
+    .collection-curator-note
+      color: black
+      width: 90%
+      margin: 0 auto
+      float: none
+      display: block
+      display: -webkit-box
+      height: $line-height-base*$font-base*$lines-to-show
+      font-size: $font-base
+      line-height: $line-height-base
+      -webkit-line-clamp: $lines-to-show
+      -webkit-box-orient: vertical
+      overflow: hidden
+      text-overflow: ellipsis
+
+  .triangle
+    width: 0
+    height: 0
+    border-style: solid
+    border-width: $pad*2 0 $pad*2 18px
+    border-color: transparent transparent transparent white
+    position: absolute
+    left: 50%
+    top: 30%
+    z-index: $z-1
+    +media_max_width($reading_width)
+      transform: rotateZ(-90deg)
+
+  .collection-card
+    height: $collection-card-large-height
+    @include span(last 6 of 12 inside no-gutters)
+    +border-top-right-radius(5px)
+    +border-bottom-right-radius(5px)
+    +media_max_width($reading_width)
+      @include span(12 of 12)
+      height: $mobile-card-height
+      @include pull(12)
+    .collection-card-overlay
+      float: right
+      height: $collection-card-large-height
+      @include span(full inside no-gutters)
+      margin-top: 0
+      +border-radius(4px)
+      +border-top-left-radius(0px)
+      +border-bottom-left-radius(0px)
+      +media_max_width($reading_width)
+        @include span(12 of 12)
+        height: $mobile-card-height
+      .collection-card-title
+        +max_height($pad*12.5)
+        +multiline_text_truncate(8)
+        overflow: hidden
+        font-size: $font-larger - (($font-larger - $font-large)/2)
+        line-height: $font-larger

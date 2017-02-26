@@ -1,0 +1,68 @@
+.initiative-fragment-topics
+  background: $white
+  padding: $pad*2 0
+
+  .feature-heading
+    color: $text-gray-7
+    text-align: center
+
+  .initiative-fragment-topics-main
+    margin: 0 auto
+    max-width: $card-grid-wide-width
+    position: relative
+    +mobile-only
+      width: auto
+
+    .initiative-fragment-topics-content-menu
+      border-left: 1px solid $text-gray-2
+      margin-bottom: $pad
+
+    .arrow-tab-control
+      display: none
+      &-active
+        padding-top: 2px
+      &-right[data-icon]:before
+        top: -5px
+      +mobile-only
+        display: block
+        width: 320px
+        margin: $pad*2 auto
+
+    .tablet-and-above-add
+      +mobile-only
+        display: none
+
+    .mobile-add
+      width: 100%
+      padding-bottom: $pad*3
+      +tablet-and-above
+        display: none
+
+    .initiative-fragment-topics-content
+      display: flex
+      text-align: left
+
+      .initiative-fragment-topics-content-items
+        flex-grow: 1
+
+      .initiative-fragment-topics-loading
+        margin: $pad*2 auto
+
+      .list-tab-control
+        width: 240px
+        flex-shrink: 0
+        +mobile-only
+          display: none
+
+      .collections-list
+        width: auto
+        margin-right: $pad*4
+        +mobile-only
+          width: calc(100% - #{$pad}*2)
+
+        ul
+          max-width: 100%
+          li
+            width: 33.3%
+            +mobile-only
+              width: 100%

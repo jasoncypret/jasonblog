@@ -1,0 +1,29 @@
+.btn-group
+  &-bottom, &-bottom-small, &-right, &-right-small
+    +inline-block
+    &:hover
+      label
+        color: tint($black, 30%)
+
+  label, &-bottom label, &-bottom-small label, &-right label, &-right-small label
+    display: block
+    font-size: $font-smaller
+    text-align: center
+    color: tint($black, 60%)
+    margin-top: $pad/2
+
+
+  &-bottom-small label
+    line-height: $icon-btn-small
+
+  &-right, &-right-small
+    +inline-block
+    label
+      +inline-block
+      text-align: left
+      margin-top: 0
+      margin-left: $pad/2
+      line-height: $icon-btn
+
+  &-right-small label
+    line-height: $icon-btn-small

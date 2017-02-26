@@ -1,0 +1,31 @@
+=smart_gradient($base_color, $direction: both)
+  +text-color($base_color)
+  @if $direction == both
+    +background(linear-gradient(tint($base_color, 30%), shade($base_color, 10%)))
+  @else if $direction == top
+    +background(linear-gradient(tint($base_color, 50%), $base_color 85%))
+  @else if $direction == bottom
+    +background(linear-gradient($base_color, shade($base_color, 30%)))
+
+=smart_border($base_color, $size: 1px, $direction: both)
+  @if $direction == both
+    border: $size solid shade($base_color, 20%)
+    border-top: $size solid shade($base_color, 10%)
+    border-bottom: $size solid shade($base_color, 40%)
+  @else if $direction == top
+    border: $size solid shade($base_color, 20%)
+    border-top: $size solid $base_color
+  @else if $direction == bottom
+    border: $size solid shade($base_color, 30%)
+    border-top: $size solid shade($base_color, 15%)
+    border-bottom: $size solid shade($base_color, 50%)
+
+=btn_color($base_color, $behind: null)
+  +smart_gradient($base_color)
+  @if $behind == null
+    +smart_border($base_color)
+  @else
+    +smart_border($behind)
+
+=stripes($color1, $color2, $width: $pad, $angle: 135deg)
+  background: repeating-linear-gradient( $angle, $color1, $color1 $width/2, $color2 $width/2, $color2 $width)

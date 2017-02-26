@@ -1,0 +1,23 @@
+.reports-list-item
+  transition: all 0.1s ease-in
+  border-top: 2px solid $border
+  &:hover
+    background-color: $white
+    transition: all 0.1s ease-in
+  display: flex
+  .list-view-item
+    width: 60%
+    text-align: left
+  &-stats
+    width: 40%
+    display: flex
+    align-items: center
+    .stats-item
+      padding: $pad $pad*2
+      width: 100%
+      text-align: center
+      border-left: 2px solid $border
+      +oswald
+      font-size: $font-larger - 4
+      &.grey
+        color: $text-gray-7

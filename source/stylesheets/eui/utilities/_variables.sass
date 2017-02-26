@@ -1,0 +1,618 @@
+// ------------
+// Main colors
+// ------------
+
+$main:              #7BB650 !default
+$accent:            #E7CC61 !default
+$contrast:          #3F3F4E !default
+$background:        #F2F2F2 !default
+$highlight:         #806BB4 !default
+$error:             #D5384F !default
+$success:           #4EB69A !default
+$tip:               #5FC1E3 !default
+$info:              #FDE200 !default
+$app-colors: ( main: $main, accent: $accent, contrast: $contrast, background: $background, highlight: $highlight, error: $error, success: $success, tip: $tip, info: $info)
+
+
+
+// ----------------
+// Extended Colors
+// ----------------
+
+$purple:            #504661
+$blue:              #269BD9
+$yellow:            #FDF7CA
+$twitter:           $tip
+$facebook:          #00217B
+$gmail:             #EC0C00
+$pinterest:         #CE1D1F
+$mantis:            #58C457
+$heliotrope:        #B780F8
+$cinnabar:          #E64D43
+$viking:            #4DC0DB
+$extended-colors: ( purple: $purple, blue: $blue, yellow: $yellow, twitter: $twitter, facebook: $facebook, gmail: $gmail, pinterest: $pinterest, mantis: $mantis, heliotrope: $heliotrope, cinnabar: $cinnabar, viking: $viking)
+
+// --------------------
+// Admin tools colors
+// --------------------
+$global-color: $blue
+$organization-color: $success
+$content-color: $main
+$credential-color: $accent
+$admin-tool-colors: (global: $global-color, organization: $organization-color, content: $content-color, credential: $credential-color)
+$admin-tool-link-highlight: (system-setup: $global-color,global-org-mgmt: $global-color,global-user-mgmt: $global-color,org-mgmt: $organization-color,user-mgmt: $organization-color,collection-mgmt: $content-color,resource-mgmt: $content-color,comment-mgmt: $content-color,subject-topic-mgmt: $content-color,featured-content-mgmt: $content-color,submitted-app-mgmt: $credential-color,credential-mgmt: $credential-color)
+
+
+// ----------------
+// Topic Colors
+// ----------------
+$silver-chalice:    #9d9d9d
+$downy:             #61d0aa
+$sunset-orange:     #fd4e34
+$orange-1:          #E84C3D
+$orange-2:          #F78D6A
+$orange-3:          #FF6225
+$blue-1:            #1C52C2
+$blue-2:            #2E386B
+$blue-3:            #3FA0BE
+$blue-4:            #4EC9FB
+$blue-5:            #65ECFC
+$blue-6:            #016FE8
+$blue-7:            #5CA6D5
+$red-1:             #F75A9A
+$red-2:             #FF2495
+$red-3:             #DD3DA3
+$red-4:             #FC8799
+$red-5:             #FF005E
+$red-6:             #FF0766
+$green-1:           #00897F
+$green-2:           #3EDA0D
+$green-3:           #008356
+$green-4:           #00F8A5
+$green-5:           #00EFD4
+$green-6:           #CFE700
+$purple-1:          #310048
+$purple-2:          #C760FD
+$purple-3:          #FF00F7
+$purple-4:          #61009A
+$purple-5:          #B900F3
+$purple-6:          #4E005C
+$topic-colors: (0: $tip, 1: $highlight, 2: $main, 3: $silver-chalice, 4: $downy, 5: $sunset-orange, 6: $orange-1, 7: $orange-2, 8: $orange-3, 9: $blue-1, 10: $blue-2, 11: $blue-3, 12: $blue-4, 13: $blue-5, 14: $blue-6, 15: $blue-7, 16: $red-1, 17: $red-2, 18: $red-3, 19: $red-4, 20: $red-5, 21: $red-6, 22: $green-1, 23: $green-2, 24: $green-3, 25: $green-4, 26: $green-5, 27: $green-6, 28: $purple-1, 29: $purple-2, 30: $purple-3, 31: $purple-4, 32: $purple-5, 33: $purple-6 )
+
+
+// ----------------
+// Admin Colors
+// ----------------
+$admin-data-background: #202020
+$active-outline-background: #33383F
+
+// ----------------
+// Color Shorthands
+// ----------------
+
+$white: #ffffff
+$black: #000000
+
+// ----------------
+// Text Gray Colors
+// ----------------
+
+$text-gray-1: shade(white, 5%)
+$text-gray-2: shade(white, 10%)
+$text-gray-3: shade(white, 20%)
+$text-gray-4: shade(white, 30%)
+$text-gray-5: shade(white, 40%)
+$text-gray-6: shade(white, 50%)
+$text-gray-7: shade(white, 60%)
+$text-gray-8: shade(white, 70%)
+$text-gray-9: shade(white, 80%)
+$text-gray-10: shade(white, 90%)
+$text-gray-colors: ( gray-1: $text-gray-1, gray-2: $text-gray-2, gray-3: $text-gray-3, gray-4: $text-gray-4, gray-5: $text-gray-5, gray-6: $text-gray-6, gray-7: $text-gray-7, gray-8: $text-gray-8, gray-9: $text-gray-9, gray-10: $text-gray-10 )
+
+// -----------------
+// disabled items color
+// -----------------
+
+$disable-stripe-color-1: #E1CFCD
+$disable-stripe-color-2: #F1DEDC
+
+// ------
+// Paths
+// ------
+
+/// @group Paths
+$fonts-path: "/fonts/" !default
+$version: "0.0" !default
+
+
+
+// --------------
+// Atom & Molecule Colors
+// --------------
+
+$circle_color: $info
+$loading_bars: $info
+$element_colors: ( circle_color: $circle_color, loading_bars: $loading_bars )
+
+/// @group Atom & Molecule Colors
+$focus_color: $contrast
+
+/// @group Atom & Molecule Colors
+$collection-resource-border: shade(white, 8%)
+
+/// @group Atom & Molecule Colors
+$border: $collection-resource-border
+
+/// @group Atom & Molecule Colors
+$footer-color: #22365b
+
+/// @group Atom & Molecule Colors
+$header-border-color: rgba($contrast, 0.15)
+
+
+// --------------
+// Atom & Molecule Sizes
+// --------------
+
+/// Sets all the import forms height
+/// @group Atom & Molecule Sizes
+$field-height: 45px
+
+/// Icon Button Large
+/// @group Atom & Molecule Sizes
+$icon-btn: 50px
+
+/// Icon Button Small
+/// @group Atom & Molecule Sizes
+$icon-btn-small: $icon-btn - 10px
+
+// Need to add form border size & color
+
+/// @group Atom & Molecule Sizes
+$collection-curator-avatar: 50px
+
+/// Avatar size on the profile page
+/// @group Atom & Molecule Sizes
+$user-profile-avatar: 75px
+$collection-resource-image-width: 100px
+$collection-resource-image-height: 150px
+
+$collection-portrait-image-width: 100px
+$collection-portrait-image-height: 142px
+
+$collection-landscape-image-width: 180px
+$collection-landscape-image-height: 140px
+
+///Avatar size on collection card large curator
+$collection-curator-avatar: 75px
+
+/// Card height for all cards in a grid
+$card-grid-height: 250px
+
+$button-border-radius: 4px
+$button-border-width: 2px
+
+
+// -------------
+// Layout Sizes
+// -------------
+
+/// The majority of layouts use this to contain long content
+/// @group Layout Sizes
+$reading_width: 800px
+
+/// Main navigation height
+/// @group Layout Sizes
+$nav: 54px
+
+/// @group Layout Sizes
+$nav_logo_width: 64px
+
+/// @group Layout Sizes
+$search_nav: 54px
+
+/// General spacing variable. Use `$pad` instead of defining directly. If you need things tighter or looser try `$pad*2` or `$pad/2`
+/// @example
+///   .myclass
+///     margin-top: $pad*2
+///     margin-left: $pad/2
+///     margin-bottom: $pad/1.5
+/// @group Layout Sizes
+$pad: 10px !default
+
+
+
+
+
+// ------------
+// Breakpoints
+// ------------
+
+/// @group Breakpoints
+$mobile: 700px !default
+
+/// @group Breakpoints
+$tablet: 701px !default
+
+/// @group Breakpoints
+$desktop: 1200px !default
+
+/// @group Breakpoints
+$large_desktop: 1500px !default
+
+
+
+
+// ------------
+// Line heights
+// ------------
+
+$line-height-base: 1.2
+
+
+// -------------
+// Font Spacing
+// -------------
+
+/// @group Font Spacing
+$spacing-tightest:  -0.1em
+
+/// @group Font Spacing
+$spacing-tighter:   -0.07em
+
+/// @group Font Spacing
+$spacing-tight:     -0.03em
+
+/// @group Font Spacing
+$spacing-normal:     0em
+
+/// @group Font Spacing
+$spacing-loose:      0.03em
+
+/// @group Font Spacing
+$spacing-looser:     0.07em
+
+/// @group Font Spacing
+$spacing-loosest:    0.1em
+
+/// @group Font Spacing
+$spacing-super-loosest:    0.2em
+
+
+// ----------
+// Font Size
+// ----------
+
+/// @group Font Size
+$font-tiny:      8px
+
+/// @group Font Size
+$font-micro:      10px
+
+/// @group Font Size
+$font-smallest:   11px
+
+/// @group Font Size
+$font-smaller:    12px
+
+/// @group Font Size
+$font-small:      14px
+
+/// @group Font Size
+$font-base:       16px
+
+/// @group Font Size
+$font-large:      18px
+
+/// @group Font Size
+$font-larger:     28px
+
+/// @group Font Size
+$font-largest:    30px
+
+/// @group Font Size
+$font-jumbo:      42px
+
+
+// ----------
+// Stat Font Size
+// ----------
+
+/// @group Stat Font Size
+$stat-largest:    65px
+
+
+// --------
+// Opacity
+// --------
+
+/// @group Opacity
+$opacity-ghost:       .1
+
+/// @group Opacity
+$opacity-weakest:     .2
+
+/// @group Opacity
+$opacity-weaker:      .3
+
+/// @group Opacity
+$opacity-weak:        .4
+
+/// @group Opacity
+$opacity-base:        .5
+
+/// @group Opacity
+$opacity-strong:      .6
+
+/// @group Opacity
+$opacity-stronger:    .7
+
+/// @group Opacity
+$opacity-strongest:   .8
+
+/// @group Opacity
+$opacity-solid:       .9
+
+$opacities: ( ghost: $opacity-ghost, weakest: $opacity-weakest, weaker: $opacity-weaker, weak: $opacity-weak, base: $opacity-base, strong: opacity-strong, stronger: $opacity-stronger, strongest: $opacity-strongest, solid: $opacity-solid )
+
+
+
+// -----------
+// Typography
+// -----------
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic,700italic,900italic')
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:700,700italic')
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700')
+@import url('https://fonts.googleapis.com/css?family=Fanwood+Text')
+@import url('https://fonts.googleapis.com/css?family=Oswald')
+
+/// @group Typography
+// $font-stack: 'Lato', sans-serif
+
+/// @group Typography
+// $serif: 'Playfair Display', serif
+
+/// @group Typography
+$icon-font: "singular"
+
+/// @group Typography
+$montserrat: 'Montserrat', sans-serif
+
+/// @group Typography
+$fanwood: 'Fanwood Text', serif
+
+/// @group Typography
+$oswald: 'Oswald', sans-serif
+
+$font_stack: "Montserrat", sans-serif
+$serif: "Droid Serif" serif
+$icon_font: "expressionui"
+
+
+// ------------
+// Font Weight
+// ------------
+
+/// @group Font Weight
+$weight-1:   300
+
+/// @group Font Weight
+$weight-2:   300
+
+/// @group Font Weight
+$weight-3:   300
+
+/// @group Font Weight
+$weight-4:   400
+
+/// @group Font Weight
+$weight-5:   400
+
+/// @group Font Weight
+$weight-6:   700
+
+/// @group Font Weight
+$weight-7:   700
+
+/// @group Font Weight
+$weight-8:   700
+
+/// @group Font Weight
+$weight-9:   900
+
+/// @group Font Weight
+$weight-10:  900
+
+
+/// @group Font Weight
+$s-weight-1:   700
+
+/// @group Font Weight
+$s-weight-2:   700
+
+/// @group Font Weight
+$s-weight-3:   700
+
+/// @group Font Weight
+$s-weight-4:   700
+
+/// @group Font Weight
+$s-weight-5:   700
+
+/// @group Font Weight
+$s-weight-6:   700
+
+/// @group Font Weight
+$s-weight-7:   700
+
+/// @group Font Weight
+$s-weight-8:   700
+
+/// @group Font Weight
+$s-weight-9:   700
+
+/// @group Font Weight
+$s-weight-10:  700
+
+
+/// @group Font Weight
+$mon-weight-1:   400
+
+/// @group Font Weight
+$mon-weight-2:   400
+
+/// @group Font Weight
+$mon-weight-3:   400
+
+/// @group Font Weight
+$mon-weight-4:   400
+
+/// @group Font Weight
+$mon-weight-5:   700
+
+/// @group Font Weight
+$mon-weight-6:   700
+
+/// @group Font Weight
+$mon-weight-7:   700
+
+/// @group Font Weight
+$mon-weight-8:   700
+
+/// @group Font Weight
+$mon-weight-9:   700
+
+/// @group Font Weight
+$mon-weight-10:  700
+
+
+/// @group Font Weight
+$fan-weight-1:   400
+
+/// @group Font Weight
+$fan-weight-2:   400
+
+/// @group Font Weight
+$fan-weight-3:   400
+
+/// @group Font Weight
+$fan-weight-4:   400
+
+/// @group Font Weight
+$fan-weight-5:   400
+
+/// @group Font Weight
+$fan-weight-6:   400
+
+/// @group Font Weight
+$fan-weight-7:   400
+
+/// @group Font Weight
+$fan-weight-8:   400
+
+/// @group Font Weight
+$fan-weight-9:   400
+
+/// @group Font Weight
+$fan-weight-10:  400
+
+
+
+
+// --------
+// Z-Index
+// --------
+
+/// @group Z-Index
+$z-1:   100
+
+/// @group Z-Index
+$z-2:   200
+
+/// @group Z-Index
+$z-3:   300
+
+/// @group Z-Index
+$z-4:   400
+
+/// @group Z-Index
+$z-5:   500
+
+/// @group Z-Index
+$z-6:   600
+
+/// @group Z-Index
+$z-7:   700
+
+/// @group Z-Index
+$z-8:   800
+
+/// @group Z-Index
+$z-9:   900
+
+/// @group Z-Index
+$z-10: 1000
+
+/// @group Z-Index (deprecated)
+$z-intercom: 2147483000
+
+
+// ------------------------
+// Nav
+// ------------------------
+
+$nav: 54px
+
+// ------------------------
+// Atom & Molecule Z-Index
+// ------------------------
+
+
+
+// --------------
+// Card Variables
+// --------------
+$collection-item-types: ( "article", "website", "webtool", "blog", "book", "video", "webinar", "image", "app", "product", "event", "person", "infographic", "ppt", "presentation", "mp3", "podcast", "sp_course", "fa_course", "twitter", "meetup", "tips", "lessonplan", "activity" )
+$card-border-radius: 4px
+
+// --------------
+// Susy Settings
+// --------------
+
+/// Global setting for our Suzy grid. You can add `debug: (image: show)` to have Susy display a grid on your background.
+/// @group Susy Settings
+/// @link http://susy.oddbird.net/
+$susy: ( columns: 12, gutter-position: split, use-custom: (box-sizing: false), column-width: 4em )
+
+
+// -------------------
+// Animation settings
+// -------------------
+$experimental-support-for-webkit: true
+$experimental-support-for-khtml: true
+$experimental-support-for-mozilla: true
+$experimental-support-for-microsoft: true
+$experimental-support-for-opera: true
+
+
+
+// Form Elements
+// -------------------------
+$field-margin: $pad*1.5 !default
+$field-color: white !default
+$label-color: #999999 !default
+$checkbox: 25px !default
+
+
+// Text
+// -------------------------
+$font_size: $font-base !default
+$link: blue !default
+$title: #585050 !default
+$text-color: #141414 !default
+
+
+//  Transitions
+$transition-duration: 600ms
+

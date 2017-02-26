@@ -1,0 +1,39 @@
+
+.select-segmented
+  background: $white
+  padding: 0
+  padding-left: $pad
+  &.segmented-group-item-child
+    padding: $pad/5 0
+  .Select-control
+    border: none
+    box-shadow: none
+    background: none
+  .Select-value
+    margin-left: $pad/2
+    margin-top: $pad/5
+  .Select-arrow-zone
+    display: none
+  .Select-placeholder
+    color: $text-gray-7
+    font-weight: $weight-6
+    padding-left: $pad*1.5
+    top: $pad/10
+  .Select-input input
+    color: $text_gray_9
+    padding-left: $pad/2
+  .Select-clear-zone
+    color: $text_gray_7
+    &:hover
+      color: $text-gray-9
+  .Select-clear
+    font-size: ($font-largest + 2px)
+    font-weight: $weight-1
+    margin-right: $pad/2
+  .Select-menu-outer
+    margin-top: $pad/5
+    margin-left: $pad*1.5
+    width: 95%
+  .Select-menu
+  .Select-option
+    font-size: $font-small

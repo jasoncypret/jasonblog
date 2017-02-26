@@ -1,0 +1,34 @@
+.topic-picker
+  margin: $pad $pad*4
+  position: relative
+  +mobile-only
+    margin: $pad
+
+  &-title
+    +topic-picker-title
+    border-bottom: #ccc solid 4px
+    padding-bottom: $pad
+    margin-botom: $pad
+
+  &-subtitle
+    text-align: center
+    margin-top: $pad
+    margin-bottom: $pad*3
+    +topic-picker-subtitle
+
+  &-main-text
+    margin: $pad 0
+    +topic-picker-main-text
+
+  &-hint
+    margin: $pad 0
+    padding-left: $pad
+    +topic-picker-hint
+
+  &-loading
+    position: absolute
+    background: white
+    height: 100%
+    width: 100%
+    z-index: 1
+    padding: $pad*5

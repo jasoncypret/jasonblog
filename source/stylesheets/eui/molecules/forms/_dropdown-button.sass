@@ -1,0 +1,69 @@
+//  Uses react-select. Remember to import the vendor scss files
+.select-dropdown-button
+  .Select-control
+    border: 2px solid $text-gray-3
+    cursor: pointer
+
+  .Select-placeholder
+    color: $contrast
+    font-weight: $weight-7
+    padding-right: $pad*4
+
+  .Select-arrow-zone
+    .Select-arrow
+      display: none
+
+  span.Select-arrow-zone:before
+    content: '['
+    display: block
+    +icon_font
+    color: $contrast
+    padding: $pad
+    transform: rotateZ(0deg)
+    transition: transform .3s ease
+
+  &.is-open
+    span.Select-arrow-zone:before
+      transform: rotateZ(-180deg)
+
+  &.is-focused:not(.is-open) > .Select-control
+    border-color: $text-gray-3
+
+  .Select-menu-outer
+    box-shadow: none
+    margin-top: 0
+    border: 2px solid $text-gray-3
+    border-top: none
+
+  .Select-option
+    border-bottom: 2px solid $text-gray-3
+    padding: 3px $pad
+    background: none
+    &:last-child
+      border-bottom: none
+    &.is-focused
+      background: $background
+  .item
+    width: 100%
+    text-align: left
+
+  @each $name, $color in $app-colors
+    &.select-dropdown-button-#{$name}
+      .Select-control
+        border-color: $color
+
+  &.rounded
+    .Select-control
+      +border-radius(50px)
+
+    .Select-menu-outer
+      margin: 0 $pad*2
+      width: calc(100% - #{$pad*2*2})
+
+  &.select-dropdown-button-empty
+    .Select-control
+      border-color: transparent
+      background: none
+      pointer-events: none
+    .Select-arrow-zone
+      display: none

@@ -1,0 +1,24 @@
+.text-tab-control
+  .text-tab-label
+    font-size: $font-base
+  .text-button-group
+    +inline-block
+    li
+      font-size: $font-base
+      +inline-block
+      padding: 0 $pad
+      border-right: 1px solid $black
+      cursor: pointer
+      &:last-child
+        border: none
+      &:hover
+        color: $blue
+        transition: color 0.1s ease-in-out
+      &.selected
+        font-weight: $weight-6
+        font-size: ($font-base)-1
+        &.ordered
+          padding-right: $pad/2
+          .icon
+            font-size: $font-smaller
+            margin-left: 5px

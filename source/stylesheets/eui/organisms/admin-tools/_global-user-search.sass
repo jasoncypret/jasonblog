@@ -1,0 +1,26 @@
+.global-user-search
+  min-width: 600px
+  +mobile-only
+    min-width: auto
+    width: 100%
+    padding: $pad/2 0
+  .input-box-icon .field
+    +border-left-radius($pad*3)
+  .segmented-group
+    .segmented-group-item:first-child
+      flex-grow: 2
+    .segmented-group-item:last-child
+      flex-grow: 0
+    .popover-dropdown
+      button
+        padding: 0
+  .global-user-search-field-selector
+    margin-left: -$pad
+    .bb-popover-content
+      border-radius: 3px
+      min-width: $pad*20
+
+
+.global-user-mgmt-page-results
+  +mobile-only
+    padding: $pad*3 0

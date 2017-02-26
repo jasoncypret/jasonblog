@@ -1,0 +1,46 @@
+$col : 4
+$grid : 12
+$mcol: 12
+$cardHeight : 250px
+
+.position-div
+  height: 25px
+  width: 100%
+
+.collection-MC
+  @include container($reading_width)
+  margin-top: $pad*4
+  &-header
+    text-align: center
+    text-transform: uppercase
+    margin: $pad*3
+  &.mc-count-1
+    @include container($reading_width - $pad * 25)
+  +media_max_width(500px)
+    margin: 0 $pad
+  
+  .microcredential-card-view-all
+    +browse_mc_card($col, $mcol, $grid)
+    height: $cardHeight
+
+  .microcredential-card-view-all.mc-count-1
+    +gallery(6 of $grid)
+
+  .microcredential-card-wrapper
+    height: $cardHeight
+    +gallery($col of $grid)
+    margin-bottom: $pad
+    +media_max_width(700px)
+      height: $cardHeight
+    +media_max_width(500px)
+      +gallery($mcol of $grid)
+      height: $cardHeight
+      float: none
+  .microcredential-card-wrapper.mc-count-1
+    +gallery(6 of $grid)
+
+.microcredential-list
+  li 
+    height: $cardHeight
+    .microcredential-card
+      +microcredential-card

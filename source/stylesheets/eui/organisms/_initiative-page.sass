@@ -1,0 +1,44 @@
+.initiative-page
+  padding-top: 54px
+  padding-bottom: $pad*10
+
+  .initiative-page-header
+    text-align: center
+
+    .back-button
+      margin-top: -$pad*1.5
+
+    .initiative-fragment-title
+      +pad-to-reading-width
+      margin: $pad 0
+      textarea.initiative-title-textarea
+        text-align: center
+        +mobile-only
+          text-align: left
+      +mobile-only
+        text-align: left
+
+    &-actions
+      margin-top: $pad*2
+      margin-bottom: -$pad*3
+
+      button
+        margin-right: $pad/2
+        margin-left: $pad/2
+
+.initiative-page-error
+  color: $error
+  font-size: $font-large
+  padding: $pad
+  padding-right: $pad*2
+
+  .text-button-error
+    position: absolute
+    right: $pad
+    top: $pad
+
+.initiative-page-header-actions-menu
+  min-width: 140px
+  button
+    width: 100%
+    display: block

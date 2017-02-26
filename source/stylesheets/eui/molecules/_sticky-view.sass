@@ -1,0 +1,45 @@
+.sticky-view
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0
+  display: flex
+  position: fixed
+  z-index: $z-8
+  pointer-events: none
+
+  &-top
+    flex-direction: column
+
+  &-bottom
+    flex-direction: column-reverse
+
+  &-left
+    flex-direction: row
+
+  &-right
+    flex-direction: row-reverse
+
+  &-top,
+  &-bottom
+    .sticky-view-content.fill
+      width: 100%
+
+  &-left,
+  &-right
+    .sticky-view-content.fill
+      height: 100%
+
+  .sticky-view-content
+    align-self: center
+    pointer-events: all
+
+  +transform(translateY(-100%))
+  +transition-property(transform)
+  +transition-duration(200ms)
+  +transition-timing-function(cubic-bezier(0.7, 0, 0.3, 1))
+
+
+// animations
+.sticky-view-show
+  +transform(translateY(0%))

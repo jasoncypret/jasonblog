@@ -1,0 +1,19 @@
+.content-ferpa-warning
+  margin: $pad
+  margin-bottom: $pad*2
+  background-color: $yellow
+  position: relative
+  border-radius: $card-border-radius
+
+  +mobile-only
+    font-size: $font-smaller
+    margin: $pad/2 $pad/2 $pad*1.5 $pad/2
+
+  .ferpa-content
+    padding: $pad
+
+  .triangle
+    position: absolute
+    bottom: -10px
+    left: 5%
+    +triangle(bottom, 10px, $yellow)

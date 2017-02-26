@@ -1,0 +1,716 @@
++mobile-only
+  .app-content
+    & > div:first-child
+      background: $white
+    .landing-page
+      padding-top: $pad
+    #sitenav
+      margin-bottom: $pad * 4
+      .actions
+        .signup-btn
+          display: none
+      .user-actions
+        width: $pad * 5
+      & > a
+        &.explore
+          & > span
+            & > span
+              +outline-btn-styles($highlight)
+              +border-radius(50px)
+            &::before
+              display: none
+      & > nav
+        width: calc(80% - 10px)
+        .actions
+          a
+            .signup-btn
+              display: none
+            .signin-btn
+              &:active, &:hover
+                color: $blue
+                background-color: transparent
+              padding: 0
+      .sitenav-items
+        flex: 0
+        margin-right: 0
+
+
+#sitenav
+  @include container(100%)
+  top: 0
+  padding: 0 $pad
+  &.transparent
+    border-color: transparent
+    background-color: transparent
+  &.default
+    background-color: #fff
+  .signup-btn
+    margin-right: $pad
+    padding: $pad + 1
+  .user-actions
+    display: flex
+    align-items: center
+    width: $pad * 7
+    .add-btn
+      margin-right: $pad
+  & > a
+    &:first-child
+      flex: 1
+    &.explore
+      font-weight: $weight-6
+      color: $text-gray-7
+      flex: 0.125
+      padding: $pad
+      & > span
+        position: relative
+        top: -1px
+        &::before
+          font-size: $font-larger - 4
+          color: $highlight
+          vertical-align: sub
+          top: 0.1em
+      &.active
+        & > span
+          &::before
+            color: $white
+        margin: 0 $pad
+        background: $purple
+        border-radius: $pad/2
+        color: $white
+        +mobile-only
+          background: transparent
+          span span
+            background: $purple
+            color: $white
+
+  & > nav
+    width: auto
+    flex: 0.1
+    +justify-content(flex-end)
+    display: flex
+  #filter_collections, #filter_resources
+    display: none
+  .sitenav-search-form, .sitenav-results-search-form
+    @include span(7)
+    height: 100%
+    position: relative
+  .sitenav-search-form
+    +opacity(0)
+  .sitenav-items
+    display: inline-block
+    margin-right: $pad * 2
+    .sitenav-item
+      letter-spacing: $pad/40
+      display: inline-block
+      line-height: calc(#{$nav} - #{$pad} * 1.5)
+      transition: color 0.12s ease-in
+      padding: 0 $pad
+      .icon
+        font-size: $font-smaller
+      &:hover
+        color: $contrast
+      .sitenav-item-link
+        vertical-align: top
+
+  .user_nav
+    @include span(4)
+    height: 100%
+    text-align: right
+    .btn-white-outline.rounded.small, .btn-text-white.small
+      margin-top: $pad
+    a.user_profile
+      +inline-block
+      height: ($nav - $pad*2)
+      margin: $pad 0 0 $pad
+      +border-radius($nav - $pad*2)
+      border: 1px solid $collection-resource-border
+      +group
+      padding: $pad/2.5
+      .avatar
+        height: ($nav - $pad*3)
+        width: ($nav - $pad*3)
+        float: left
+        +border-radius(50%)
+        +background_cover
+      .user
+        line-height: ($nav - $pad*3)
+        text-align: left
+        float: left
+        +mon-font
+        font-weight: $weight-4
+        color: shade($collection-resource-border, 10%)
+        margin: 0 $pad
+        font-size: $font-small
+        +mobile_only
+          display: none
+      .icon
+        float: left
+        +rotate(90deg)
+        color: shade($collection-resource-border, 10%)
+        margin: 5px 7px 0 0
+    a.icon.user_add
+      text-align: center
+      color: shade($collection-resource-border, 10%)
+      +inline-block
+      height: ($nav - $pad*2)
+      line-height: ($nav - $pad*2)
+      width: ($nav - $pad*2)
+      margin: $pad 0 0 $pad
+      +border-radius(50%)
+      border: 1px solid $collection-resource-border
+    a.icon.user_message
+      text-align: center
+      color: shade($collection-resource-border, 10%)
+      +inline-block
+      height: ($nav - $pad*2)
+      line-height: ($nav - $pad*2)
+      width: ($nav - $pad*2)
+      margin: $pad 0 0 $pad
+      +border-radius(50%)
+      border: 1px solid $collection-resource-border
+  .logo
+    flex-grow: 1
+    +inline-block
+    padding-top: 3px
+    margin: 0 $pad*2
+    +mobile-only
+      margin: 0 $pad
+    path, text
+      fill: $contrast
+    p
+      margin: 0
+    &-text
+      +mobile-only
+        display: none
+    &-icon
+      display: none
+      margin: $pad 0
+      +mobile-only
+        display: inline
+        svg
+          +transform-origin(5px)
+  .featured-collections
+    li
+      +group
+      margin-bottom: $pad*2
+    .featured-collection-avatar
+      +background_cover
+      width: 66px
+      height: 53px
+      float: left
+      margin: 0 $pad $pad 0
+    .featured-collection-name
+      font-weight: $weight-9
+      letter-spacing: $spacing-tight
+      font-size: ($font-base)
+      margin-bottom: $pad/2
+      color: tint($contrast, 10%)
+      +transition(0.12)
+    .featured-collection-social
+      font-size: $font-smaller
+      color: rgba($contrast, 0.7)
+      +text_truncate
+      strong
+        font-weight: $weight-7
+      span
+        margin-right: $pad
+  .featured-categories
+    text-align: center
+    li
+      +inline-block
+    .featured-category
+      +inline-block
+      +btn(white)
+      +btn-styles
+      +border-radius(0)
+      border: 1px solid black
+      font-size: 80%
+      +opacity(0.4)
+      margin: $pad/3
+      +transition(0.12)
+      color: black
+      &:hover
+        +transition(0.12)
+        background: tint($highlight, 70%)
+        color: shade($highlight, 90%)
+        +box-shadow(none)
+        +opacity(1)
+  .featured-people
+    li
+      +group
+      margin-bottom: $pad
+    .featured-curator-avatar
+      margin: 0 $pad $pad 0
+      +background_cover
+      width: ($collection-curator-avatar - $pad*2.5)
+      height: ($collection-curator-avatar - $pad*2.5)
+      display: block
+      float: left
+      +border-radius($collection-curator-avatar - $pad*2.5)
+    .featured-curator-name
+      font-weight: $weight-9
+      letter-spacing: $spacing-tight
+      font-size: ($font-small)
+      margin-bottom: $pad/2
+      color: tint($contrast, 10%)
+      +transition(0.12)
+      line-height: ($collection-curator-avatar - $pad*2.5)
+      +text_truncate
+.search-filter-nav
+  +subnav("search-filter-nav")
+.simular-search-categories
+  margin: $nav 0 $pad*4
+  padding: $pad*3 0 0 0
+  background: shade($background, 3%)
+  height: 80px
+  width: 100%
+  overflow: hidden
+  text-align: center
+  ul
+    width: $reading_width
+    margin: 0 auto
+    +media_max_width($reading_width)
+      width: auto
+      margin: 0 $pad
+    li
+      +inline-block
+      position: relative
+      &:first-child:before
+        content: 'Simular Topics'
+        display: block
+        position: absolute
+        top: -($pad*2)
+        left: $pad/3
+        +trans-up
+        font-size: $font-smallest
+        font-weight: $weight-4
+        color: shade($border, 20%)
+        width: 100px
+        text-align: left
+    .simular-search-categories-title
+      +inline-block
+      +btn(white)
+      +btn-styles
+      +border-radius(0)
+      border: 1px solid black
+      font-size: 80%
+      +opacity(0.4)
+      margin: 0 $pad/3 $pad*3
+      +transition(0.12)
+      color: black
+      &:hover
+        +transition(0.12)
+        background: tint($highlight, 70%)
+        color: shade($highlight, 90%)
+        +box-shadow(none)
+        +opacity(1)
+
+
+// Standard Site Navigation
+#sitenav.sitenav, #sitenav.expanded-search-nav, #sitenav.expanded-category-nav
+  display: flex
+  //justify-content: space-between
+  align-items: center
+  height: $nav
+  max-width: $desktop
+  // margin-bottom: $pad*4
+  +group
+  // position: absolute
+  z-index: $z-4
+  -webkit-transform-origin: 100% 0
+  transform-origin: 100% 0
+  -webkit-transition-property: background, min-height, width, top, left
+  transition-property: background, min-height, width, top, left
+  -webkit-transition-duration: 0.5s
+  transition-duration: 0.5s
+  -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1)
+  transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1)
+  .search-input
+    $search-input-height: $pad*4
+    margin: 0 $pad * 2 0 0
+    height: $search-input-height - 8
+    border: 1px solid #cccccc
+    font-weight: 300
+    +justify-content(flex-end)
+    flex: 0.3
+    +transition-property(all)
+    +transition-duration(500ms)
+    background-color: alpha-it($text-gray-1, $opacity-strong)
+
+    &.focus
+      background-color: $white
+      border: 1px solid $highlight
+      box-shadow: 0 0 3px alpha-it($highlight, $opacity-base)
+      .icon, input[type='text']
+        background-color: $white
+
+    .icon
+      margin: 0
+
+    .icon, input[type='text']
+      background-color: alpha-it($text-gray-1, $opacity-strong)
+      height: $search-input-height - 8
+      margin-top: -2px
+
+    input[type='text']
+      padding-left: $pad/2
+      +placeholder
+        text-transform: capitalize !important
+
+    .icon
+      font-size: $font-base
+      font-weight: $weight-9 !important
+      position: relative
+      top: -4px
+
+    +mobile-only
+      position: absolute
+      top: $nav
+      left: 3%
+      width: 94%
+
+    &-mobile
+      position: relative
+
+      +mobile-only
+        margin: 0 $pad * 2
+        width: 100%
+        height: 75%
+        font-weight: 300
+        display: inline-block
+
+
+    &:focus
+      border: 1px solid $blue
+      box-shadow: 0 0 3px rgba($blue, .5)
+
+
+  .search-button
+    margin-top: 4px
+    font-size: $font-large
+    font-weight: bold
+    display: none
+
+    .icon
+      font-weight: 700 !important
+      color: $blue
+
+    +mobile-only
+      margin-right: $pad
+      display: inline-block
+      flex: 2
+      text-align: right
+
+  .cancel-button
+    right: 30px
+    top: ($nav - $font-base)/2
+    position: absolute
+    color: red
+
+  +mobile-only
+    box-sizing: border-box
+    border-bottom: 0
+
+  input[type="search"]
+    -webkit-box-sizing: border-box
+    box-sizing: border-box
+  .sitenav-search-input, .sitenav-results-search-input
+    width: 100%
+    height: 100%
+    position: absolute
+    border: none
+    font-size: 0.9em
+    letter-spacing: $spacing-tight
+    -webkit-transition: border-color, background, color, font-size 0.5s cubic-bezier(0.7, 0, 0.3, 1)
+    transition: border-color, background, color, font-size 0.5s cubic-bezier(0.7, 0, 0.3, 1)
+    background: none
+    color: tint(black, 15%)
+    border: 1px solid $collection-resource-border
+    border-width: 0 0 0 1px
+    padding: 0 $pad*1.5 0 $pad*4
+    +mon-font
+    font-weight: $weight-4
+    letter-spacing: $spacing-tight
+    +placeholder
+      color: rgba($blue, 0.35)
+      font-weight: $weight-4
+      letter-spacing: $spacing-loose
+    &::-ms-clear
+      display: none
+    &:focus
+      outline: none
+  .gn-search:focus::-webkit-input-placeholder
+    color: transparent
+  .sitenav-search-icon
+    position: absolute
+    left: $pad*2
+    top: 50%
+    margin-top: -9px
+    height: 20px
+    line-height: 20px
+    +icon-font
+    color: shade(white, 40%)
+  .sitenav-search-submit, .sitenav-results-search-submit
+    &:focus
+      outline: none
+    position: absolute
+    width: 80px
+    height: 80px
+    text-indent: 100px
+    overflow: hidden
+    right: 0
+    top: 50%
+    background: tint(black, 40%)
+    background-size: 100%
+    border: none
+    pointer-events: none
+    transform-origin: 50% 50%
+    opacity: 0
+    -webkit-transform: translate3d(-30px, -50%, 0) scale3d(0, 0, 1)
+    transform: translate3d(-30px, -50%, 0) scale3d(0, 0, 1)
+  .sitenav-search-close
+    width: 36px
+    height: 36px
+    position: absolute
+    right: 1em
+    top: 1em
+    overflow: hidden
+    text-indent: 100%
+    cursor: pointer
+    pointer-events: none
+    opacity: 0
+    -webkit-transform: scale3d(0, 0, 1)
+    transform: scale3d(0, 0, 1)
+    &::before, &::after
+      content: ''
+      position: absolute
+      width: 2px
+      height: 100%
+      top: 0
+      left: 50%
+      border-radius: 3px
+      opacity: 0.2
+      background: #000
+    &:hover.sitenav-search-close
+      &::before, &::after
+        opacity: 1
+    &::before
+      -webkit-transform: rotate(45deg)
+      transform: rotate(45deg)
+    &::after
+      -webkit-transform: rotate(-45deg)
+      transform: rotate(-45deg)
+  .sitenav-search-content
+    color: #333
+    margin-top: 14.5em
+    width: 100%
+    height: 0
+    overflow: hidden
+    padding: 0 10.5%
+    background: transparent
+    position: absolute
+    pointer-events: none
+    opacity: 0
+    &-column
+      width: 30%
+      padding: 0 0 6em
+      float: left
+      opacity: 0
+      -webkit-transform: translate3d(0, 100px, 0)
+      transform: translateY(100px)
+      -webkit-transition: -webkit-transform 0.5s, opacity 0.5s
+      transition: transform 0.5s, opacity 0.5s
+      &:nth-child(2)
+        margin: 0 5%
+      h2
+        padding: 0.5em 0
+        +trans-up
+        color: tint(black, 70%)
+        font-size: $font-base
+        font-weight: $weight-9
+        display: block
+        margin: $pad*4 0 $pad*2
+        position: relative
+        letter-spacing: $spacing-tight
+        text-align: left
+      ul
+        padding: 0
+        list-style: none
+
+
+
+
+// OPEN
+.open
+  overflow: hidden
+  #sitenav.sitenav, #sitenav.expanded-search-nav, #sitenav.expanded-category-nav
+    position: fixed !important
+    background: rgba(white, 0.97) !important
+    width: 100%
+    min-height: 100%
+    top: 0px
+    left: 0px
+    +border-radius(0px)
+    margin-bottom: 0
+    overflow: auto
+    .profile-nav, .logo
+      +opacity(0)
+    .sitenav-search-form
+      margin: 0 10% 0 10%
+      width: 80%
+      height: 160px
+      -webkit-transform: translate3d(0, 3em, 0)
+      transform: translate3d(0, 3em, 0)
+    .sitenav-search-input
+      font-size: 4em
+      background: none
+      color: tint(black, 10%)
+      font-weight: $weight-1
+      border-color: transparent
+      padding: 0 $pad
+      +placeholder
+        color: tint(black, 50%)
+        font-weight: $weight-1
+    .sitenav-search-submit, .sitenav-search-icon
+      display: none
+    .sitenav-search-close
+      opacity: 1
+      pointer-events: auto
+      -webkit-transform: scale3d(1, 1, 1)
+      transform: scale3d(1, 1, 1)
+      -webkit-transition: opacity .3s, -webkit-transform .3s
+      transition: opacity .3s, transform .3s
+      -webkit-transition-delay: 0.5s
+      transition-delay: 0.5s
+    .sitenav-search-content
+      // the hidden ness is causing problems?
+      opacity: 1
+      height: auto
+      overflow: visible
+      pointer-events: auto
+      -webkit-transition: opacity .3s 0.5s
+      transition: opacity .3s 0.5s
+      &-column
+        &:first-child
+          -webkit-transition-delay: 1.4s
+          transition-delay: 0.4s
+        &:nth-child(2)
+          -webkit-transition-delay: 1.45s
+          transition-delay: 0.45s
+        &:nth-child(3)
+          -webkit-transition-delay: 1.5s
+          transition-delay: 0.5s
+        opacity: 1
+        -webkit-transform: translate3d(0, 0, 0)
+        transform: translate3d(0, 0, 0)
+
+  +media_max_width(1280px)
+    #sitenav.sitenav .sitenav-search-form, #sitenav.expanded-search-nav .sitenav-search-form, #sitenav.expanded-category-nav .sitenav-search-form
+      margin: 0 3% 0 3%
+      width: 100%
+    #sitenav.sitenav .sitenav-search-content, #sitenav.expanded-search-nav .sitenav-search-content, #sitenav.expanded-category-nav .sitenav-search-content
+      padding: 0 4% 0 4%
+      &-column
+        width: 32%
+        &:nth-child(2)
+          margin: 0 2%
+  +media_max_width(1000px)
+    #sitenav.sitenav .sitenav-search-form, #sitenav.expanded-search-nav .sitenav-search-form, #sitenav.expanded-category-nav .sitenav-search-form
+      margin: 0 3% 0 3%
+      width: 100%
+    #sitenav.sitenav .sitenav-search-content, #sitenav.expanded-search-nav .sitenav-search-content, #sitenav.expanded-category-nav .sitenav-search-content
+      padding: 0 4% 0 4%
+      &-column
+        width: 100%
+        border-bottom: 1px solid shade(white, 10%)
+        &:nth-child(2)
+          margin: 0
+  +mobile_only
+    #sitenav.sitenav .sitenav-search-form, #sitenav.expanded-search-nav .sitenav-search-form, #sitenav.expanded-category-nav .sitenav-search-form
+      margin: 0
+      width: 100%
+    #sitenav.sitenav .sitenav-search-input, #sitenav.expanded-search-nav .sitenav-search-input, #sitenav.expanded-category-nav .sitenav-search-input
+      font-size: 2em
+.hideInput #sitenav.sitenav .sitenav-search-input, .hideInput #sitenav.expanded-search-nav .sitenav-search-input, .hideInput #sitenav.expanded-category-nav .sitenav-search-input
+  color: transparent
+  -webkit-transition: color .3s
+  transition: color .3s
+
+
+
+
+
+
+
+
+// Category Search
+
+
+header.category-search-header
+  +background_cover
+  width: 100%
+  margin-bottom: $pad*4
+  &:after
+    position: absolute
+    z-index: $z-1
+    height: $nav
+    content: ''
+    display: block
+    width: 100%
+    margin-bottom: $pad*4
+    background: rgba(white, 0.11)
+    top: 0
+    left: 0
+  .category-search-header-overlay
+    padding: ($nav + $pad*6) 0 0
+    color: white
+    overflow: hidden
+    width: 100%
+    .contain
+      text-align: center
+      width: $reading_width
+      margin: 0 auto
+      +media_max_width($reading_width)
+        width: auto
+        margin: 0 $pad
+      .category-search-header-title
+        text-align: center
+        +mon-font
+        font-weight: $weight-7
+        letter-spacing: $spacing-tight
+        font-size: ($font-jumbo + 7px)
+        margin-bottom: $pad/2
+        color: white
+        +text-shadow(rgba(black, 0.3) 0 1px 2px)
+        span
+        a.btn-whitetext.category-search-header-action.icon_left
+          font-size: $font-large
+          +transition(0.12)
+          &:hover
+            +transition(0.12)
+            color: $accent
+    .simular-search-categories
+      margin: $nav 0 0
+      background: rgba(black, 0.2)
+      ul
+        li
+          +inline-block
+          &:first-child:before
+            color: rgba(white, 0.64)
+        .simular-search-categories-title
+          +btn(black)
+          +btn-styles
+          background: none
+          +border-radius(0)
+          border: 1px solid white
+          color: white
+          font-size: 80%
+          +opacity(0.6)
+          margin: 0 $pad/3 $pad*3
+          +transition(0.12)
+          &:hover
+            +transition(0.12)
+            background: white
+            color: $contrast
+            +box-shadow(none)
+            +opacity(1)

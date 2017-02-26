@@ -1,0 +1,85 @@
+=center
+  left: 50%
+  +transform(translateX(-50%))
+
+=middle
+  top: 50%
+  +transform(translateY(-50%))
+
+=vertical
+  position: relative
+  top: 50%
+  +transform( translateY(-50%) )
+
+=inline-block
+  display: -moz-inline-stack
+  display: inline-block
+  vertical-align: top
+  zoom: 1
+
+=inline_block
+  display: -moz-inline-stack
+  display: inline-block
+  vertical-align: top
+  zoom: 1
+
+=group
+  &:before, &:after
+    content: ""
+    display: table
+  &:after
+    clear: both
+  *zoom: 1
+
+=min-height($size)
+  min-height: $size
+  // sass-lint:disable ImportantRule
+  height: auto !important
+  height: $size
+
+=min-width($size)
+  min-width: $size
+  // sass-lint:disable ImportantRule
+  width: auto !important
+  width: $size
+
+=max-height($size)
+  max-height: $size
+  // sass-lint:disable ImportantRule
+  height: auto !important
+  height: $size
+
+=max-width($size)
+  max-width: $size
+  // sass-lint:disable ImportantRule
+  width: auto !important
+  width: $size
+
+// Move
+=narrow-page($width, $padding)
+  padding: $padding
+  max-width: $width
+  margin: 0 auto
+
+//  Pad desktop-width
+=pad-to-desktop-width
+  padding-left: $pad
+  padding-right: $pad
+  +desktop-only
+    padding-left: calc(50% - #{$desktop} / 2)
+    padding-right: calc(50% - #{$desktop} / 2)
+
+//  Pad reading-width
+=pad-to-reading-width
+  padding-left: $pad
+  padding-right: $pad
+  +tablet-and-above
+    padding-left: calc(50% - #{$reading-width} / 2)
+    padding-right: calc(50% - #{$reading-width} / 2)
+
+=pad-to-card-grid-wide
+  padding-left: $pad
+  padding-right: $pad
+  +tablet-and-above
+    padding-left: calc(50% - #{$large_desktop} / 2 + 50px)
+    padding-right: calc(50% - #{$large_desktop} / 2 + 50px)

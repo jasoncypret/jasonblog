@@ -1,0 +1,45 @@
+.info-number
+  text-align: center
+
+  &-value
+    +stats-number
+
+  &-title
+    font-weight: $weight-9
+    font-size: $font-small
+  &-hint
+    margin-top: $pad
+    font-size: $font-smaller
+
+//Themes
+.info-number-standard
+  .info-number-title
+    color: $white
+  .info-number-hint
+    color: $text-gray-5
+.info-number-stats
+  .info-number-title
+    color: $white
+  .info-number-hint
+    color: $white
+.info-number-mono
+  .info-number-title
+    color: $text-gray-5
+  .info-number-hint
+    color: $text-gray-5
+
+
+
+@each $name, $color in $app-colors
+  .info-number-#{$name}
+    .info-number-value
+      color: $color
+
+@each $name, $color in $extended-colors
+  .info-number-#{$name}
+    .info-number-value
+      color: $color
+
+.info-number-black
+  .info-number-value
+    color: $text-gray-9

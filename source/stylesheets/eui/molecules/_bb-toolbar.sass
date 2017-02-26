@@ -1,0 +1,14 @@
+.bb-toolbar
+  display: flex
+  flex-wrap: wrap
+  .toolbar-item
+    padding: $pad
+    display: inline-block
+    cursor: pointer
+    +user-select-none
+    color: $text-gray-7
+    &:hover
+      background: $text-gray-2
+      color: $text-gray-10
+  +mobile-only
+    justify-content: space-between

@@ -1,0 +1,61 @@
+.space-files
+
+  .space-files-grid
+    &:not(.show-grid)
+      display: none
+    +mobile-only
+      display: none
+    .file-item
+      width: 100%
+
+  .space-files-list
+    display: none
+    &.show-list
+      display: block
+    .file-item
+      border-bottom: 1px solid $text-gray-3
+      &:last-child
+        border-bottom: none
+    +mobile-only
+      display: block
+
+  .file-buttons-container
+    padding-bottom: $pad*2
+    .sort-buttons, .view-buttons
+      .btn-gray-outline
+        font-size: $font-smaller
+        color: $text-gray-6
+        &.disabled
+          color: $text-gray-6
+          border: 2px solid $text-gray-5
+          background-color: $text-gray-3
+        &:nth-of-type(1)
+          border-top-right-radius: 0
+          border-bottom-right-radius: 0
+          border-right: 2px solid $text-gray-5
+        &:last-of-type
+          border-top-left-radius: 0
+          border-bottom-left-radius: 0
+          border-left: none
+
+    .view-buttons
+      padding-right: $pad*1.5
+      +mobile-only
+        display: none
+  .loading-files
+    margin-top: $pad*2
+
+.space-files-item-menu
+  display: flex
+  flex-direction: column
+  justify-content: flex-end
+
+.bb-space-files-file-view-item
+  .dropdown-button
+    top: 0
+    right: $pad
+    position: absolute
+
+.bb-spaces-files-file-view-item-menu
+  display: flex
+  flex-direction: column

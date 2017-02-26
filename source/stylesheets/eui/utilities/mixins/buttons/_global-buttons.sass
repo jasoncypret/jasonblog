@@ -1,0 +1,9 @@
+=btn($base_color, $behind: null, $border: false)
+  +button-base
+  background: $base_color
+  +text-color($base_color, false)
+  +btn-hover-styles($base_color)
+  +btn-disabled-styles($base_color)
+  &.icon
+    +icon-font
+    text-transform: none

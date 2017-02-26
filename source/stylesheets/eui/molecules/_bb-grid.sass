@@ -1,0 +1,34 @@
+=grid-item($n)
+  > .item
+    width: calc((100% - #{($n - 1) * $pad * 2}) / #{$n})
+    &:nth-child(#{$n}n)
+      margin-right: 0
+
+=grid-item-device($device)
+  &.#{$device}-1
+    +grid-item(1)
+  &.#{$device}-2
+    +grid-item(2)
+  &.#{$device}-3
+    +grid-item(3)
+  &.#{$device}-4
+    +grid-item(4)
+  &.#{$device}-5
+    +grid-item(5)
+
+.bb-grid
+  display: flex
+  flex-wrap: wrap
+  margin-bottom: -$pad*2
+  > .item
+    margin-right: $pad * 2
+    margin-bottom: $pad * 2
+  +desktop-only
+    +grid-item-device(desktop)
+  +tablet-only
+    +grid-item-device(tablet)
+  +mobile-only
+    +grid-item-device(mobile)
+
+  &.empty
+    margin-bottom: 0

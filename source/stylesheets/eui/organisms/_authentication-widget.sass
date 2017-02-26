@@ -1,0 +1,245 @@
+@keyframes authFadeInUpBig
+  from
+    opacity: 0
+    transform: translate3d(0, 2000px, 0)
+  to
+    opacity: 1
+    transform: none
+
+body.no-cta-footer
+  .authentication_widget
+    &.show
+      transform: translateY(100%)
+    &.fullscreen
+      transform: translateY(0%)
+
+$form-width: 500px
+
+.loading-fullscreen
+  padding-top: 175px
+  .loading
+    &.sk-spinner-circle
+      .sk-circle
+        &:before
+          background-color: $text-gray-1
+  &.hide
+    display: none
+
+  &.show
+    display: inherit
+
+
+.authentication_widget_wrapper
+  &.show
+    height: 200px
+
+.authentication_widget
+  position: fixed
+  height: 200px
+  width: 100%
+  bottom: 0
+  left: 0
+  +transform(translateY(100%))
+  +transition-property(height, transform)
+  +transition-duration(0.5s)
+  +transition-timing-function(cubic-bezier(0.7, 0, 0.3, 1))
+  +linear-gradient(to right, rgba(#BF7BB6, 0.83), rgba(#67B2E3, 0.83))
+  animation-duration: 1s
+  animation-fill-mode: both
+  animation-name: authFadeInUpBig
+  color: white
+  z-index: 10000
+
+  .sk-spinner
+    margin-top: 100px
+    width: 100px
+    height: 100px
+
+  .error
+    margin: $pad*1.5
+    color: $error
+    font-weight: 700
+    min-height: 20px
+    opacity: 1
+    transition: opacity 0.5s ease-in-out
+
+  &.hide
+    display: none
+
+  &.show
+    display: inherit
+
+  &.preview
+    height: 50px
+    text-align: center
+    padding-top: 10px
+    cursor: pointer
+
+    .text-yellow
+      color: #fdf7ca
+
+    .get-started-link
+      font-size: $font-small
+      color: #fff
+      border-bottom: 2px solid #5fc1e3
+      margin-top: 11px
+      margin-left: 25px
+      display: inline-block
+
+  &.prompt
+    height: 200px
+
+  &.open
+    height: 100%
+
+
+  // CTA Area
+  .btn-text
+    color: rgba(white, 0.72)
+    position: absolute
+    top: $pad*2
+    right: $pad*2
+    text-transform: lowercase
+    &:before
+      +inline-block
+      +rotate(90deg)
+      vertical-align: middle
+    &:hover
+      color: $error
+
+  .message
+    +transition-property(font-size)
+    text-align: center
+    color: white
+    +mon-font
+    h2
+      font-size: $font-larger
+      font-weight: $weight-4
+      letter-spacing: $spacing-tight
+    .text-yellow
+      color: $yellow
+    .btn-warning.large.rounded.center
+      +mon-font
+      padding-left: $pad*6
+      padding-right: $pad*6
+      margin-bottom: $pad
+    .cta-sign-in
+      letter-spacing: $spacing-normal
+      font-weight: $weight-3
+      +font-stack
+      font-size: $font-base
+      color: rgba(white, 0.8)
+      a
+        color: white
+        border-bottom: 1px solid $tip
+        &:hover
+          border-bottom: 0
+    &.dood
+      +animation-name(bounce)
+      +animation-duration(1s)
+      +animation-timing-function(ease-in-out)
+
+  .terms
+    color: #fff
+    position: absolute
+    left: 0
+    bottom: $pad*1.5
+    width: 100%
+    text-align: center
+    a
+      color: #fff
+      font-weight: $weight-4
+      margin-left: $pad/2
+      border-bottom: 3px solid $tip
+
+
+  +mobile_only
+    height: 180px
+
+    .btn-text
+      top: $pad/2
+      right: 0
+    .message
+      margin-top: 50px
+      h2
+        font-size: $font-base
+
+    .terms
+      padding: 0 10%
+
+    &.collapse
+      height: auto
+      .message
+        margin-top: 0
+        h2
+          margin-bottom: 0
+          width: 100%
+          float: none
+        div.step1
+          width: 100%
+          & > a
+            margin-top: 0
+            margin-bottom: $pad
+
+    &.fullscreen
+      +transition-property(none)
+      top: 0
+
+.authentication_content
+  width: auto
+  max-width: 500px
+  margin: 0 auto
+  text-align: center
+  padding-top: 10%
+  min-height: 100vh
+
+.authentication_actions
+  animation-duration: 1s
+  animation-fill-mode: both
+  transition-duration: 1s
+  animation-name: fadeInUp
+
+
+//onboarding
+.onboarding-prompt
+  position: fixed
+  left: 0
+  bottom: 0
+  width: 100%
+  line-height: 50px
+  text-align: center
+  color: #fff
+  z-index: 9999
+  cursor: pointer
+  +transition-property(height, transform)
+  +transition-duration(0.5s)
+  +transition-timing-function(cubic-bezier(0.7, 0, 0.3, 1))
+  +linear-gradient(to right, rgba(#BF7BB6, 0.83), rgba(#67B2E3, 0.83))
+
+  &.show
+    height: 50px
+    z-index: 999999
+  &.hide
+    height: 0px
+  &.loading
+    height: 100vh
+  &.fullscreen-with-animation
+    height: 100vh
+    transform: translateY(0%)
+
+  .hide
+    display: none
+  .show
+    display: inherit
+
+  .hide-onboarding
+    margin-left: 30px
+    &:hover
+      cursor: pointer
+    &:after
+      font-size: 75%
+
+.user-preferences
+
+  .control
+    padding-top: 50px

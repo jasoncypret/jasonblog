@@ -1,0 +1,60 @@
+
+.bb-ask-question-form
+  color: $contrast
+  overflow-y: auto
+  height: 100%
+  padding-bottom: $pad*2
+  .form-content
+    padding-top: $pad*12
+    margin: 0 auto
+    text-align: center
+    padding-left: $pad
+    padding-right: $pad
+    width: 500px
+    +mobile_only
+      width: 100%
+    .form-header
+      margin-bottom: $pad*2
+    .form-title
+      margin-bottom: $pad*3
+      color: $text-gray-6
+    .form-main
+      padding: $pad*3
+      padding-top: $pad*2
+      margin-bottom: $pad*2
+      .form-avatar
+        display: block
+        margin: 0 auto
+        &:hover
+          border-color: $tip
+      .form-avatar-sub
+        margin-top: $pad
+        margin-bottom: $pad*2
+        color: white
+        font-family: $montserrat
+      .form-input
+        width: 100%
+    .form-remarks
+      margin-bottom: $pad*2
+      color: $text-gray-7
+    .buttons
+      button
+        margin-right: $pad
+      button:last-child
+        margin-right: 0
+
+
+.bb-ask-question-tip
+  background: $blue-3
+
+.bb-ask-question-pink
+  background: $red-3
+
+.bb-ask-question-purple
+  background: $purple-1
+
+.bb-ask-question-green
+  background: $green-3
+
+.bb-ask-question-orange
+  background: $orange-1

@@ -1,0 +1,31 @@
+.inside-label-dropdown
+  display: flex
+  justify-content: center
+  background: $white
+  border: 2px solid $border
+  border-radius: 4px
+  .filter-options
+    display: flex
+    min-width: $pad*24
+    flex-direction: column
+    margin: $pad $pad*2
+    align-items: baseline
+    border: 2px solid $border
+    border-radius: 3px
+    padding: $pad*0.3 $pad
+    .popover-dropdown button
+      padding: $pad/2 0
+      text-align: left
+    .label
+      margin: 0
+      +mon-font
+      text-transform: uppercase
+      color: $text-gray-4
+      font-size: $font-smaller + 1
+  +mobile-only
+    flex-direction: column
+.inside-label
+  .popover-dropdown-menu-options
+    text-align: right
+  .popover-dropdown-menu-items
+    padding: $pad/2 $pad/2 $pad/2 $pad*5

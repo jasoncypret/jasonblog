@@ -1,0 +1,114 @@
+=amp
+  font-family: Baskerville, "Goudy Old Style", serif
+  font-weight: normal
+  font-style: italic
+
+=hr($width: 20%)
+  display: block
+  width: $width
+  margin: $pad*4 auto $pad*4 auto
+  border: 1px solid shade($background, 20%)
+
+=trans-up
+  text-transform: uppercase
+=trans-up
+  text-transform: uppercase
+=trans-caps
+  text-transform: capitalize
+=trans-lower
+  text-transform: lowercase
+=trans-none
+  text-transform: none
+=trans-small-caps
+  font-variant: small-caps
+  +trans_none
+
+=font-stack
+  font-family: $font-stack, sans-serif
+
+=font_stack
+  font-family: $font-stack, sans-serif
+
+=serif
+  font-family: $serif, serif
+  font-weight: $s-weight-7
+
+=mon-font
+  font-family: $montserrat
+  font-weight: $mon-weight-7
+
+=mon_font
+  font-family: $montserrat
+  font-weight: $mon-weight-7
+
+=fanwood
+  font-family: $fanwood
+  font-weight: $fan-weight-4
+
+=oswald
+  font-family: $oswald
+  font-weight: normal
+  text-transform: uppercase
+
+=text_truncate
+  position: relative
+  overflow: hidden
+  white-space: nowrap
+  text-overflow: ellipsis
+  -o-text-overflow: ellipsis
+  -ms-text-overflow: ellipsis
+
+=ellipsis ($max-width)
+  display: inline-block
+  max-width: $max-width
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+
+
+=multiline_text_truncate($lines: 2)
+  overflow : hidden
+  text-overflow: ellipsis
+  display: -webkit-box
+  -webkit-line-clamp: $lines
+  -webkit-box-orient: vertical
+
+
+// Replace text to display background image (old skoll)
+=text_replace
+  text-indent: 100%
+  white-space: nowrap
+  overflow: hidden
+  display: block
+
+// text color helper
+=text-color($base_color, $shadow: false, $more_contrast: false)
+  @if lightness($base_color) > 75%
+    @if $more_contrast
+      color: shade($base_color, 80%)
+    @else
+      color: shade($base_color, 60%)
+    @if $shadow
+      text-shadow: rgba(white, 0.2 + lightness($base_color) * 0.8 / 100%) 0 1px 0
+  @else
+    @if $more_contrast
+      color: tint($base_color, 100%)
+    @else
+      color: tint($base_color, 95%)
+    @if $shadow
+      text-shadow: rgba(black, 0.4) 0 -1px 1px
+
+// Font Smoothing
+=font-smoothing($value: antialiased)
+  @if $value == antialiased
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+  @else
+    -webkit-font-smoothing: subpixel-antialiased
+    -moz-osx-font-smoothing: auto
+
+
+=text-colors($colors-list)
+  @each $name, $color in $colors-list
+    .text-color-#{$name}
+      color: $color

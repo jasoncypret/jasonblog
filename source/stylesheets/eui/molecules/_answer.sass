@@ -1,0 +1,67 @@
+
+.bb-answer
+  color: $contrast
+
+  .answer-main
+
+    .answer-top
+      vertical-align: top
+      display: flex
+      .user-link
+        color: inherit
+        &:hover
+          color: $tip
+      .avatar-link
+        &:hover
+          border-color: $tip
+      .answer-user
+        padding: $pad/2 $pad
+        .user-name
+          font-family: $montserrat
+          padding-right: $pad
+        .user-summary
+          color: $text-gray-4
+        .answer-date
+          color: $text-gray-3
+          padding-top: $pad/3
+
+    .answer-content
+      padding-left: $pad
+      margin-left: $font-base * $font-multipler
+      +mobile-only
+        margin-left: 0
+
+    .answer-answer
+      white-space: pre-wrap
+      margin: $pad 0
+      color: $text-gray-8
+
+    .answer-answer.partial
+      +multiline_text_truncate(2)
+      position: relative
+
+    .answer-answer.partial:before
+      content: ''
+      width: 100%
+      height: 100%
+      position: absolute
+      left: 0
+      background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), white)
+      background: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), white)
+
+  .answer-actions
+    text-align: right
+    padding: $pad
+    padding-top: 0
+    .delete-btn
+      background: none
+      border: 2px solid transparent
+      margin-left: $pad
+      &:hover
+        border-color: $text-gray-6
+    .edit-btn
+      background: none
+      color: $success
+      border: 2px solid transparent
+      &:hover
+        border-color: $text-gray-6

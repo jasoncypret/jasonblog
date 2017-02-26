@@ -1,0 +1,75 @@
+.list-tab-control
+  font-size: $font-large
+
+  &-title
+    font-size: $font-base
+    text-transform: uppercase
+    padding: $pad*2
+    padding-top: 0
+    color: $text-gray-7
+
+  > .list-tab-control-list
+    > .list-item
+      cursor: pointer
+      color: $text-gray-4
+      border-color: rgba(0, 0, 0, 0)
+      > .item-text
+        padding: $pad $pad*2
+        display: inline-block
+
+    li.inactive-bar
+      border-color: $text-gray-2
+
+    .active
+      color: $text-gray-8
+      font-weight: $weight-7
+
+  &.vertical
+    .list-tab-control-list
+      li
+        border-left-width: $pad*0.4
+        border-left-style: solid
+        margin-left: 0
+
+  &.horizontal
+    .list-tab-control-list
+      li
+        border-bottom-width: $pad*0.4
+        border-bottom-style: solid
+        margin-bottom: 0
+        display: inline-block
+
+
+.list-tab-control.accent-highlight
+  .active.active-text
+    color: $highlight
+  .active
+    border-color: $highlight
+
+
+.list-tab-control.accent-success
+  .active.active-text
+    color: $success
+  .active
+    border-color: $success
+
+
+.list-tab-control.accent-tip
+  .active.active-text
+    color: $tip
+  .active
+    border-color: $tip
+
+
+.list-tab-control.accent-error
+  .active.active-text
+    color: $error
+  .active
+    border-color: $error
+
+
+.list-tab-control.accent-info
+  .active.active-text
+    color: $info
+  .active
+    border-color: $info

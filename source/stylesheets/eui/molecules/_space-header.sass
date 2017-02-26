@@ -1,0 +1,67 @@
+.space-header
+  =header-theme($color)
+    background-color: $color
+    *
+      color: white
+
+  padding: $pad*6 $pad
+  +mon-font
+  +mobile_only
+    padding: $pad*2 $pad
+  .contain
+    position: relative
+    max-width: $reading_width
+    margin: 0 auto
+
+  .space-title-container
+    & > .space-privacy
+      font-size: $font-smallest
+      opacity: 0.8
+      text-transform: uppercase
+      font-weight: $weight-4
+      display: block
+    & > .space-title-content
+      font-size: $font-largest + 12
+      display: flex
+      align-items: center
+      justify-content: space-between
+      line-height: $font-largest + 12
+      +mobile-only
+        font-size: $font-larger
+        line-height: $font-larger
+
+  .secondary-navigation
+    &-trigger
+      font-size: $font-large
+
+  &.theme
+    &-1
+      +header-theme($tip)
+    &-2
+      +header-theme($success)
+    &-3
+      +header-theme($highlight)
+    &-4
+      +header-theme($contrast)
+    &-5
+      +header-theme($error)
+    &-6
+      +header-theme($purple)
+    &-7
+      +header-theme($main)
+
+
+.space-settings-popover
+  .secondary-navigation
+    li
+      .secondary-navigation-option
+        cursor: pointer
+        color: $blue
+        padding: $pad
+        display: block
+        border-radius: $pad/2
+        font-weight: $weight-7
+        font-size: $font-base
+        &:hover
+          background: $blue
+          color: $white

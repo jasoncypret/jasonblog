@@ -1,0 +1,146 @@
+// Make checkbox colors...blue is default
+
+input
+  &[type=checkbox]
+    +appearance(none)
+    +inline-block
+    cursor: pointer
+    outline: none
+    +border-radius($button-border-radius)
+    background: alpha-it($black, $opacity-ghost)
+    width: $checkbox
+    height: $checkbox
+    border: 1px solid alpha-it($black, $opacity-weakest)
+    position: relative
+    color: alpha-it($black, $opacity-ghost)
+    +transition-property(all)
+    +transition-duration(.2s)
+    +transition-timing-function(cubic-bezier(.7, 0, .3, 1))
+    ~ span
+      font-size: $font-base
+      line-height: $field-height
+      color: tint(black, 50%)
+    &:checked
+      +btn($blue)
+      text-transform: none
+      padding: 0
+      width: $checkbox
+      height: $checkbox
+      ~ span
+        color: $text-gray-6
+      &:after
+        +icon-font
+        content: 'o'
+        width: 100%
+        height: 100%
+        text-align: center
+        line-height: 1.3em
+        font-size: 1em
+        position: relative
+        top: 50%
+        display: block
+        margin-top: -($checkbox/2.5)
+    &:hover
+      +transform(scale(1.1))
+
+
+    // ---------------
+    // Checkbox Toggle
+    // ---------------
+    &.toggle
+      +border-radius(30px)
+      width: $field-height * 2
+      height: auto
+      position: relative
+      border: $button-border-width solid alpha-it($black, $opacity-ghost)
+      padding-right: (($field-height * 2)-($field-height)/1.5)-(4px)
+      text-align: center
+      overflow: hidden
+      outline: none
+      &:before
+        +icon-font
+        content: 'X  o'
+        line-height: ($field-height)/1.5
+        width: 200%
+        font-size: $font-large
+        +text-shadow(none)
+        color: alpha-it($black, $opacity-weaker)
+        letter-spacing: 20px
+        position: absolute
+        top: 0
+        left: 0
+        overflow: visible
+        height: ($field-height)/1.5
+        text-align: left
+        padding-left: $pad * 4.5
+      &:hover
+        &:before
+          overflow: hidden
+          width: 100%
+      &:after
+        +border-radius(300px)
+        content: ' '
+        background: $white
+        +inline-block
+        width: ($field-height)/1.5
+        height: ($field-height)/1.5
+        position: relative
+      &:checked
+        background: $success
+        border: $button-border-width solid $success
+        padding-left: (($field-height * 2)-($field-height)/1.5)-(4px)
+        padding-right: 0
+        +box-shadow(none)
+        &:before
+          +text-color($success, false)
+          left: auto
+          right: 0
+          text-align: right
+          padding-left: 0
+          padding-right: $pad * 2.5
+        &:after
+          margin: 0
+          top: auto
+          left: auto
+      &:hover
+        +transform(scale(1))
+
+
+
+
+// ------------------
+// Outline Checkboxes
+// ------------------
+
+.field-outline
+  +inline-block
+  +btn(white)
+  padding: 5px 0 5px $pad
+  margin: 10px $pad * 2 3px 0
+  text-align: left
+  +transition-property(all)
+  +transition-duration(0.1s)
+  +transition-timing-function(ease-in)
+  label
+    line-height: $checkbox
+  input[type=checkbox]
+    margin: 3px 0 0
+    ~ span
+      margin: 0 $pad/1.5 0 $pad
+      line-height: 25px
+      color: $text-gray-4
+      &.icon
+        text-transform: none
+        font-size: 25px
+        position: relative
+        top: 0.1em
+    &:checked ~ span
+      color: $blue
+  &:hover
+    +box-shadow(0 2px 5px $text-gray-6)
+    input[type=checkbox]
+      background: $text-gray-7
+      &:checked
+        background: shade($blue, 5%)
+      ~ span
+        color: $text-gray-7

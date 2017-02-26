@@ -1,0 +1,98 @@
+.stats-bar-graph
+  display: flex
+  width: 100%
+  vertical-align: middle
+  &.large
+    padding: $pad*5
+    .graph-components
+      height: 80px
+  &.small
+    padding: 0
+    .graph-components
+      height: 25px
+  .graph-components
+    min-width: 2px
+    padding: $pad 0
+    float: left
+    color: $white
+    font-size: $font-jumbo
+    text-align: center
+    &:nth-of-type(odd)
+      .graph-components-info
+        top: -130px
+        &.small
+          top: -75px
+        &:after
+          content: ""
+          display: block
+          width: 2px
+          height: 15px
+          position: absolute
+          left: 50%
+          transform: translateX(-50%)
+    &:nth-of-type(even)
+      .graph-components-info
+        top: 14px
+        &.small
+          top: 70px
+        &:before
+          content: ""
+          display: block
+          width: 2px
+          height: 15px
+          position: absolute
+          left: 50%
+          transform: translateX(-50%)
+
+    &-info
+      +oswald
+      color: $black
+      position: relative
+
+    &-value
+      font-size: $font-largest
+      margin-right: $pad/2
+    &-label
+      font-size: $font-base
+      text-transform: uppercase
+      color: $text-gray-7
+
+
+
+@each $name, $color in $app-colors
+  .stats-bar-graph
+    .graph-components.graph-#{$name}
+      background-color: $color
+      .graph-components-info
+        &:before
+          background-color: $color
+        &:after
+          background-color: $color
+
+@each $name, $color in $extended-colors
+  .stats-bar-graph
+    .graph-components.graph-#{$name}
+      background-color: $color
+      .graph-components-info
+        &:before
+          background-color: $color
+        &:after
+          background-color: $color
+
+@each $name, $color in $text-gray-colors
+  .stats-bar-graph
+    .graph-components.graph-#{$name}
+      background-color: $color
+      .graph-components-info
+        &:before
+          background-color: $color
+          &:after
+            background-color: $color
+
+.graph-components.graph-black
+  background-color: $text-gray-9
+  .graph-components-info
+    &:before
+      background-color: $text-gray-9
+    &:after
+      background-color: $text-gray-9

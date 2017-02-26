@@ -1,0 +1,141 @@
+$space-colors: (1: $tip, 2: $success, 3: $highlight, 4: $contrast, 5: $error, 6: $purple, 7: $main)
+$thin-header-height: 7px
+
+.bb-space-card
+  &-thin, &-full, &-image
+    overflow: hidden
+    width: 600px
+    text-align: left
+
+    > .placeholder
+      min-height: 160px
+      background-color: $text-gray-2
+
+    > .main
+      position: relative
+      display: flex
+      flex-direction: column
+      width: 100%
+      height: 100%
+
+      > .bottom-wrapper
+        display: flex
+        align-items: center
+        padding: 0 $pad
+        border-top: 1px solid $text-gray-2
+        flex-grow: 1
+        &.show-gradient
+          position: relative
+          &:after
+            position: absolute
+            bottom: 0
+            height: 100%
+            width: 100%
+            content: ""
+            background: linear-gradient(to top, rgba(255,255,255, 1) 20%, rgba(255,255,255, 0) 90%)
+
+        > .btn-join
+          z-index: 1
+          display: none
+          margin: $pad * 2 auto
+          flex-shrink: 0
+          &.show
+            display: block
+
+        > .recents
+          overflow: hidden
+          flex-grow: 1
+          .recent-item
+            +text_truncate
+            padding-right: $pad
+
+        > .no-recents
+          color: $text-gray-5
+          padding: $pad
+
+      > .card-header
+        color: $white
+        border-top-left-radius: 4px
+        border-top-right-radius: 4px
+
+        > .thin-wrapper
+          display: flex
+          align-items: center
+
+          .title
+            +mon-font
+            font-size: ($font-larger - 2px)
+            padding: $pad $pad*1.5
+            text-shadow: 0 1px 1px alpha-it($black, $opacity-weakest)
+            margin: 0
+            flex-grow: 1
+            +mobile-only
+              font-size: $font-large
+
+          .sub-title
+            font-size: $font-smaller
+            line-height: $font-smaller
+            +font-stack
+            +trans-up
+            display: block
+            text-shadow: inherit
+            letter-spacing: $spacing-loose
+            color: alpha-it($white, $opacity-strongest)
+            .icon
+              padding-right: $pad/3
+
+          .member-count
+            flex-shrink: 0
+            font-size: $font-small
+            font-weight: $weight-7
+            padding: 0 $pad
+            +mobile-only
+              font-size: $font-smaller
+
+          .member-avatars
+            flex-shrink: 0
+            margin-right: $pad
+
+    &.short
+      .card-header
+        min-height: 100%
+        border-radius: $card-border-radius
+
+  &-thin, &-full
+    @each $name, $color in $space-colors
+      &.theme-#{$name}
+        > .main
+          > .card-header
+            background: $color
+
+  &-thin
+    > .main
+      > .card-header
+        > .thin-wrapper
+          height: calc(100% - #{$thin-header-height})
+          background: $white
+          color: $text-gray-8
+          margin-top: $thin-header-height
+          overflow: hidden
+          .title
+            text-shadow: inherit
+            line-height: ($font-larger - 2px)
+          .sub-title
+            color: alpha-it($black, $opacity-weak)
+
+  &-image
+    > .main
+      > .card-header
+        background-color: $text-gray-9
+        background-position: center
+        background-size: cover
+        .logo
+          // TODO implement a way to batch get avatars for orgs
+          display: none
+          margin-left: $pad
+          width: 80px
+          height: 50px
+          background-color: $white
+          background-position: center
+          background-size: contain
+          border-radius: $card-border-radius

@@ -1,0 +1,44 @@
+.bb-timeline
+  position: relative
+  padding: $pad*2 0
+
+  > .item
+    display: flex
+    padding: $pad
+    align-items: center
+    position: relative
+    +mobile-only
+      font-size: 90%
+
+    > .dot
+      position: absolute
+      flex-shrink: 0
+      pointer-events: none
+      border-radius: $pad*2
+      width: $pad
+      height: $pad
+      top: calc(50% - #{$pad}/2)
+
+    > .content
+      margin-left: $pad*3
+      flex-grow: 1
+
+    > .date
+      flex-shrink: 0
+      margin: 0 $pad/2
+      font-size: $font-small
+      color: $text-gray-4
+      +mobile-only
+        font-size: $font-smaller
+
+  > .timeline
+    position: absolute
+    width: 1px
+    height: 100%
+    top: 0
+    left: $pad * 1.45
+    background: $text-gray-1
+
+  @each $name, $color in $app-colors
+    &.#{$name} > .item > .dot, > .item.#{$name} > .dot
+      background: $color
