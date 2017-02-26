@@ -42,7 +42,7 @@ configure :build do
   activate :automatic_image_sizes
 
   # Enable cache buster
-  # activate :asset_hash
+  activate :asset_hash
 
   # Use relative URLs
   activate :relative_assets
