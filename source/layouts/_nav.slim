@@ -1,0 +1,6 @@
+.nav
+  a.avatar href="/"
+  ul.menu
+    - data.site.navigation.each do |item|
+      li
+        a.menu-item href="item.url" = item.title

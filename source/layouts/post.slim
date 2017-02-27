@@ -14,6 +14,7 @@ html.no-js
 
     header.post-header class="#{(current_article.data.image) ? 'image-post' : 'no-image'}" style="#{(current_article.data.image) ? 'background-image: url(../'+current_article.data.image+')' : ''}"
       .wrap
+        = partial "/layouts/nav"
         h1.article-title
           a href="#{current_article.url}" = current_article.title
         .article-summary = current_article.data.summary

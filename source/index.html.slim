@@ -4,6 +4,7 @@ title: Jason Cypret
 
 .main
   .wrap
+    = partial "/layouts/nav"
     .avatar
     h1 Jason Cypret
     p.desc
@@ -13,7 +14,7 @@ title: Jason Cypret
       a href="http://boxboard.io" BoxBoard
       |, Creator of 
       a href="http://expressionui.com" expressionui
-      |, Founder at 
+      |, Co-Founder at 
       a href="http://taskk.it" Taskk
       |.
     
@@ -36,7 +37,7 @@ a.bb-splash href="https://boxboard.io"
       = image_tag 'resume.png', class: 'resume-img'
       .buttons
         h3.serif I'm Avaliable
-        a.golden-btn href="http://s.jasoncypret.com/3t0F3703133v/jason_cypret.pdf" Check out my resume
+        a.golden-btn href="#{data.site.resume}" Check out my resume
 
 
 .blog-articles

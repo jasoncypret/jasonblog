@@ -4,6 +4,29 @@
     text-align: center
     .wrap
       padding: $pad*4 0
+
+      .nav
+        a.avatar
+          display: block
+          $avatar: 40px
+          background-image: url(https://d3vv6lp55qjaqc.cloudfront.net/items/103W0o16053h3m261211/new-face.jpg)
+          +background_cover
+          width: $avatar
+          height: $avatar
+          +border-radius($avatar)
+          top: -($pad/6)
+          left: $pad
+          position: absolute
+          &:after
+            content: '-'
+            +icon-font
+            color: $white
+            left: -15px
+            top: 50%
+            position: absolute
+            font-size: 20px
+            margin-top: -10px
+
     &.no-image
       background: $accent
     &.image-post
@@ -68,3 +91,6 @@
       text-decoration: underline
       &:hover
         color: black
+    hr
+      +hr(20%)
+      

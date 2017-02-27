@@ -4,6 +4,11 @@
 @import eui/atoms/index
 @import mixins
 
+
+// ---------
+// Base Classes
+// ---------
+
 .fadeIn
   +animation-name(fadeIn)
   +animation-duration(0.5s)
@@ -18,15 +23,20 @@ html, body
   +serif
 
 
+
 // ---------
-// Homepage
+// Partials
+// ---------
+
+@import partials/nav
+
+
+
+// ---------
+// Views
 // ---------
 body.index
   color: white
   @import views/homepage
 
-
-// ---------
-// Article Page
-// ---------
 @import views/article
