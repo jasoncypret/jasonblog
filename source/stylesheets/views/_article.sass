@@ -1,0 +1,70 @@
+.article
+  .post-header
+    color: white
+    text-align: center
+    .wrap
+      padding: $pad*4 0
+    &.no-image
+      background: $accent
+    &.image-post
+      +background-cover
+      .wrap
+        background: rgba(black, 0.55)
+        width: 100%
+        height: 100%
+    .article-title
+      +reading-mix
+      margin-top: 0 
+      margin-bottom: $pad
+      a
+        font-size: 42px
+        color: white
+        +transition-property(color)
+        +transition-duration(0.2s)
+        letter-spacing: -0.03em
+        &:hover
+          color: $highlight
+    .article-date
+      +reading-mix
+      color: rgba(white, 0.4)
+      text-transform: uppercase
+      font-weight: bold
+      letter-spacing: 0.03em
+    .article-summary
+      margin-top: 0 
+      margin-bottom: $pad
+      +reading-mix
+      font-size: 18px
+      color: rgba(white, 0.7)
+  .post-content
+    padding: $pad*2 0
+    +post-style
+    +serif
+    color: tint(black, 30%)
+    line-height: 1.98
+    pre
+      padding: $pad 0
+      code
+        +reading-mix
+        display: block
+
+
+    p, h1, h2, h3, h4, h5, h6, ul, ol, dl, hr, blockquote, table
+      +reading-mix
+
+    h1, h2, h3, h4, h5, h6
+      +font_stack
+      letter-spacing: -0.03em
+
+    p img
+      width: 100%
+
+    .post-content-tags
+      li
+
+    a
+      color: $tip
+      +transition(0.2)
+      text-decoration: underline
+      &:hover
+        color: black

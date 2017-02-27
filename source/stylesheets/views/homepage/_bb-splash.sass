@@ -1,0 +1,44 @@
+a.bb-splash
+  display: block
+  +background-cover
+  background-image: url(../images/boxboard-splash.jpg)
+  height: 345px
+  position: relative
+  &:before
+    content: ""
+    display: block
+    position: absolute
+    background: rgba(black, 0)
+    +transition(0.4)
+    width: 100%
+    height: 100%
+    left: 0
+    right: 0
+  &:after
+    content: "Check it out"
+    display: block
+    position: absolute
+    border: 2px solid #fff
+    border-radius
+    color: white
+    +transition(0.4)
+    left: 50%
+    top: 50%
+    padding: $pad/2 0
+    text-transform: uppercase
+    width: 160px
+    margin-left: -(160px/2)
+    margin-top: -25px
+    text-align: center
+    +opacity(0)
+  &:hover
+    &:before
+      background: rgba(black, 0.8)
+    &:after
+      +opacity(1)
+      &:hover
+        background: rgba($tip, 0.9)
+  +media_max_width(975px)
+    background-position: 30%
+  +mobile_only
+    background-position: 10%

@@ -1,0 +1,82 @@
+.main
+  background-image: url(../images/design-draw-computer.jpg)
+  +background_cover
+  width: 100%
+  height: 100%
+  overflow: hidden
+  +mobile_only
+    height: auto
+  .wrap
+    overflow: hidden
+    background: rgba(black, 0.55)
+    width: 100%
+    height: 100%
+    padding-top: 10%
+    position: relative
+    +mobile_only
+      padding-bottom: 10%
+  .icon.rotate_left
+    display: block
+    position: absolute
+    left: 50%
+    font-size: 50px
+    bottom: 10px
+    +opacity(0)
+    +animation-delay(2.5s)
+    +animation-fill-mode(forwards)
+    color: rgba(white, 0.3)
+    +mobile_only
+      display: none
+  .avatar
+    $avatar: 90px
+    background-image: url(https://d3vv6lp55qjaqc.cloudfront.net/items/103W0o16053h3m261211/new-face.jpg)
+    +background_cover
+    width: $avatar
+    height: $avatar
+    margin: $pad auto 0
+    +border-radius($avatar)
+  h1
+    font-size: 36px
+    color: white
+    text-align: center
+    +mobile_only
+      font-size: 32px
+  p.desc
+    font-weight: normal
+    color: rgba(white, 0.7)
+    width: $reading-width
+    margin: 0 auto
+    font-size: 20px
+    line-height: 30px
+    +transition-property(color)
+    +transition-duration(0.2s)
+    +transition-timing-function(ease-in)
+    +text-shadow(rgba(black, 0.8) 0 1px 0)
+    a 
+      color: $main
+      &:hover
+        color: $highlight
+        +transition(0.225)
+    +mobile_only
+      width: auto
+      margin: 0 $pad/2
+      font-size: 16px
+      line-height: 28px
+  ul.links
+    text-align: center
+    margin-top: $pad
+    padding: 0
+    li
+      +inline_block
+      a
+        padding: 0 $pad/2
+        font-size: 30px
+        color: white
+        +transition-property(color)
+        +transition-duration(0.5s)
+        +transition-timing-function(ease-in)
+        +mobile_only
+          font-size: 40px
+        &:hover
+          color: $highlight
+          +transition(0.225)

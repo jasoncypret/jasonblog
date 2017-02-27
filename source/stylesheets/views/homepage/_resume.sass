@@ -1,0 +1,31 @@
+.resume
+  background-image: linear-gradient(-132deg, #F09819 0%, #FF5858 100%)
+  padding: $pad*4 0
+  .center
+    width: 370px
+    margin: auto
+    text-align: left
+    +group
+    img.resume-img
+      width: 100px
+      height: auto
+      float: left
+      margin-right: $pad
+    .buttons
+      text-align: center
+      h3.serif
+        font-weight: $weight-4
+        font-style: italic
+        font-size: $font-larger
+        letter-spacing: $spacing-normal
+      a.golden-btn  
+        +outline-btn-styles(#84271D)
+        +white-style
+        border-radius: 100px
+    +media_max_width(370px)
+      width: 100%
+      img.resume-img
+        float: none
+      
+    .buttons
+      

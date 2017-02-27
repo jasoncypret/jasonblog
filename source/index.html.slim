@@ -30,6 +30,15 @@ title: Jason Cypret
 
 a.bb-splash href="https://boxboard.io"
 
+.section
+  .resume
+    .center
+      = image_tag 'resume.png', class: 'resume-img'
+      .buttons
+        h3.serif I'm Avaliable
+        a.golden-btn href="http://s.jasoncypret.com/3t0F3703133v/jason_cypret.pdf" Check out my resume
+
+
 .blog-articles
   - blog.articles[0...5].each_with_index do |article, i|
     article class="blog-article #{(i == 0) ? 'first' : ''}"
