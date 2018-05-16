@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7"--><!--[if IE 7] <html class="no-js lt-ie9 lt-ie8"--><!--[if IE 8] <html class="no-js lt-ie9"--><!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]--><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><title>Atomic Design the Sassy Way</title><meta content="" name="description" /><meta content="user-scalable=0, initial-scale=1.0" name="viewport" /><meta content="#00a300" name="msapplication-TileColor" /><meta content="../mstile-144x144.png" name="msapplication-TileImage" /><link href="../stylesheets/all-47357340.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="apple-touch-icon-152x152-precomposed.png" rel="apple-touch-icon-precomposed" sizes="152x152" /><link href="apple-touch-icon-144x144-precomposed.png" rel="apple-touch-icon-precomposed" sizes="144x144" /><link href="apple-touch-icon-114x114-precomposed.png" rel="apple-touch-icon-precomposed" sizes="114x114" /><link href="apple-touch-icon-72x72-precomposed.png" rel="apple-touch-icon-precomposed" sizes="72x72" /><link href="apple-touch-icon-precomposed.png" rel="apple-touch-icon-precomposed" /><link href="favicon.png" rel="shortcut icon" /><link href="favicon.ico" rel="icon" type="image/ico" /><style rel="stylesheet" type="text/css">.highlight table td { padding: 5px; }
+<!DOCTYPE html><!--[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7"--><!--[if IE 7] <html class="no-js lt-ie9 lt-ie8"--><!--[if IE 8] <html class="no-js lt-ie9"--><!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]--><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><title>Atomic Design the Sassy Way</title><meta content="" name="description" /><meta content="user-scalable=0, initial-scale=1.0" name="viewport" /><meta content="#00a300" name="msapplication-TileColor" /><meta content="../mstile-144x144.png" name="msapplication-TileImage" /><link href="../stylesheets/all-75b23361.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="apple-touch-icon-152x152-precomposed.png" rel="apple-touch-icon-precomposed" sizes="152x152" /><link href="apple-touch-icon-144x144-precomposed.png" rel="apple-touch-icon-precomposed" sizes="144x144" /><link href="apple-touch-icon-114x114-precomposed.png" rel="apple-touch-icon-precomposed" sizes="114x114" /><link href="apple-touch-icon-72x72-precomposed.png" rel="apple-touch-icon-precomposed" sizes="72x72" /><link href="apple-touch-icon-precomposed.png" rel="apple-touch-icon-precomposed" /><link href="favicon.png" rel="shortcut icon" /><link href="favicon.ico" rel="icon" type="image/ico" /><style rel="stylesheet" type="text/css">.highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight {
   color: #faf6e4;
@@ -161,7 +161,7 @@
 .highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
   color: #a8e1fe;
   font-weight: bold;
-}</style></head><body class="article atomic-design-the-sassy-way atomic-design-the-sassy-way_index"><header class="post-header no-image" style=""><div class="wrap"><div class="nav"><a class="avatar" href="/"></a><ul class="menu"><li><a href="../resume/" class="menu-item resume">resume</a></li><li><a href="../work/" class="menu-item work">work</a></li></ul></div><h1 class="article-title"><a href="/atomic-design-the-sassy-way/">Atomic Design the Sassy Way</a></h1><div class="article-summary">Atomic design and Sass...the perfect pair.</div><small class="article-date">February 26, 2017</small></div></header><article class="post-content"><p>I wrote this awhile ago for the folks at BloomBoard. UX, Design, and Dev all owned the styles so good collaboration and thought around how to break things down was key to keeping our code maintainable. Over the years we became even more dilligent about how to break apart pieces, and this article was the kickstarter.</p>
+}</style></head><body class="article atomic-design-the-sassy-way atomic-design-the-sassy-way_index"><header class="post-header no-image"><div class="wrap"><div class="nav"><a class="avatar" href="/"></a><ul class="menu"><li><a href="../resume/" class="menu-item resume">resume</a></li><li><a href="../work/" class="menu-item work">work</a></li></ul></div><h1 class="article-title"><a href="/atomic-design-the-sassy-way/">Atomic Design the Sassy Way</a></h1><div class="article-summary">Atomic design and Sass...the perfect pair.</div><small class="article-date">February 26, 2017</small></div></header><article class="post-content"><p>I wrote this awhile ago for the folks at BloomBoard. UX, Design, and Dev all owned the styles so good collaboration and thought around how to break things down was key to keeping our code maintainable. Over the years we became even more dilligent about how to break apart pieces, and this article was the kickstarter.</p>
 
 <h1>Writing Sass the atomic way</h1>
 
@@ -203,21 +203,21 @@
 
 <h4>Page:</h4>
 
-<p><img src="http://s.jasoncypret.com/1f043B222W0N/Image%202016-06-07%20at%2010.40.03%20AM.png" alt="Image%202016 06 07%20at%2010.40.03%20am" />
+<p><img src="http://s.jasoncypret.com/1f043B222W0N/Image%202016-06-07%20at%2010.40.03%20AM.png" alt="Image%202016 06 07%20at%2010.40.03%20am" class="lazyload" />
 Page level overrides. Should be fairly small, but used for orchestration of all elements.</p>
 
 <h4>Organism:</h4>
 
-<p><img src="http://s.jasoncypret.com/372m3Q2Z140F/Image%202016-06-07%20at%2010.34.25%20AM.png" alt="Image%202016 06 07%20at%2010.34.25%20am" />
+<p><img src="http://s.jasoncypret.com/372m3Q2Z140F/Image%202016-06-07%20at%2010.34.25%20AM.png" alt="Image%202016 06 07%20at%2010.34.25%20am" class="lazyload" />
 Reusable and can be dropped on any page. Great examples are lists, galleries, and results.</p>
 
 <h4>Molecule:</h4>
 
-<p><img src="http://s.jasoncypret.com/1m3V0N372G2D/Image%202016-06-07%20at%2010.39.11%20AM.png" alt="Image%202016 06 07%20at%2010.39.11%20am" /></p>
+<p><img src="http://s.jasoncypret.com/1m3V0N372G2D/Image%202016-06-07%20at%2010.39.11%20AM.png" alt="Image%202016 06 07%20at%2010.39.11%20am" class="lazyload" /></p>
 
 <h4>Atoms:</h4>
 
-<p><img src="http://s.jasoncypret.com/0D2x0I101927/Image%202016-06-07%20at%2010.37.51%20AM.png" alt="Image%202016 06 07%20at%2010.37.51%20am" /></p>
+<p><img src="http://s.jasoncypret.com/0D2x0I101927/Image%202016-06-07%20at%2010.37.51%20AM.png" alt="Image%202016 06 07%20at%2010.37.51%20am" class="lazyload" /></p>
 
 <p>Foreach/while statements are a great indicator that a organisms and molecules are needed. Typically the parent of the &ldquo;foreach&rdquo; is the organism and the &ldquo;loop&rdquo; is a molecule.</p>
 
@@ -368,7 +368,7 @@ Reusable and can be dropped on any page. Great examples are lists, galleries, an
 <span class="nc">.my-molecule</span>
   <span class="c1">// local variable (might want to encapsulate in a class)
 </span>  <span class="nv">$mobile-card-height</span><span class="p">:</span> <span class="m">175px</span>
-</code></pre></article></body><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+</code></pre></article></body><script src="../javascripts/all-8fbf35e7.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
