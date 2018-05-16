@@ -15,6 +15,4 @@ gem 'jquery-rails', :require => false
 gem 'knockout-rails', :require => false
 gem "middleman-favicon-maker"
 gem "bourbon"
-# gem 'animate.sass-rails', :git => 'git://github.com/jasoncypret/animate.sass-rails.git', :require => false
-# gem 'expressionui', :git => 'git://github.com/jasoncypret/expressionUI.git', :require => false
-# gem 'expressionui', :path => '~/Documents/projects/expressionUI/expressionUI', :require => false
+gem 'rails-assets-lazysizes', source: 'https://rails-assets.org'

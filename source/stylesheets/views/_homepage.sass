@@ -1,7 +1,28 @@
+=header-subtitle  
+  color: $text-gray-6
+  text-transform: uppercase
+  font-size: $font-large
 
-@import homepage/hero
-@import homepage/bb-splash
-@import homepage/blog-posts
-@import homepage/resume
+body.index
+  color: white
+  @import homepage/hero
+  @import homepage/bb-splash
+  @import homepage/blog-posts
+  @import homepage/resume
+
+  .header-subtitle
+    +header-subtitle
 
 
+  .work
+    background-image: linear-gradient(-90deg, #000000 0%, #434343 100%)
+    text-align: center
+    padding: $pad 0
+    .header-subtitle.pink
+      +header-subtitle
+      color: #F75A9A
+      margin-bottom: $pad/3
+    img
+      border-radius: 4px
+      +inline-block
+      margin: $pad/6

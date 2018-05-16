@@ -3,4 +3,4 @@
   ul.menu
     - data.site.navigation.each do |item|
       li
-        a.menu-item href="item.url" = item.title
+        = link_to "#{item.title}", "#{item.url}", class: "menu-item #{item.title}"

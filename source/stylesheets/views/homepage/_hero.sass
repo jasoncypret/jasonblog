@@ -1,12 +1,23 @@
 .main
-  background-image: url(../images/design-draw-computer.jpg)
   +background_cover
   width: 100%
   height: 100%
   overflow: hidden
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)
+  position: relative
+  img.hero
+    width: 100%
+    height: 100%
+    object-fit: cover
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 1
   +mobile_only
     height: auto
   .wrap
+    z-index: 2
     overflow: hidden
     background: rgba(black, 0.55)
     width: 100%
@@ -28,13 +39,23 @@
     +mobile_only
       display: none
   .avatar
-    $avatar: 90px
-    background-image: url(https://d3vv6lp55qjaqc.cloudfront.net/items/103W0o16053h3m261211/new-face.jpg)
+    position: relative
+    $avatar: 100px
     +background_cover
     width: $avatar
     height: $avatar
     margin: $pad auto 0
     +border-radius($avatar)
+    img
+      +border-radius($avatar)
+      width: 100%
+      height: 100%
+      object-fit: cover
+      display: block
+      position: absolute
+      top: 0
+      left: 0
+      z-index: 1
   h1
     font-size: 36px
     color: white
@@ -42,6 +63,7 @@
     +mobile_only
       font-size: 32px
   p.desc
+    text-align: center
     font-weight: normal
     color: rgba(white, 0.7)
     width: $reading-width
@@ -52,7 +74,7 @@
     +transition-duration(0.2s)
     +transition-timing-function(ease-in)
     +text-shadow(rgba(black, 0.8) 0 1px 0)
-    a 
+    a
       color: $main
       &:hover
         color: $highlight

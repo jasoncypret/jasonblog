@@ -9,27 +9,29 @@ html.no-js
     = partial "/layouts/head"
     style rel='stylesheet' type='text/css'
       = Rouge::Themes::ThankfulEyes.render(:scope => '.highlight')
-    
+
   body class="article #{page_classes}"
 
-    header.post-header class="#{(current_article.data.image) ? 'image-post' : 'no-image'}" style="#{(current_article.data.image) ? 'background-image: url(../'+current_article.data.image+')' : ''}"
+    header.post-header class="#{(current_article.data.image) ? 'image-post' : 'no-image'}"
+      - if current_article.data.image
+        = image_tag current_article.data.image, class: 'header-image lazyload'
       .wrap
         = partial "/layouts/nav"
         h1.article-title
           a href="#{current_article.url}" = current_article.title
         .article-summary = current_article.data.summary
         small.article-date = current_article.date.strftime('%B %e, %Y')
-      
+
     article.post-content
       = yield
       / ul.post-content-tags
       /   - current_article.tags.each do |tag|
       /     li = tag
-    
 
 
 
-  / = javascript_include_tag  "all"
+
+  = javascript_include_tag  "all"
 
   javascript:
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -39,5 +41,3 @@ html.no-js
 
     ga('create', 'UA-4581413-1', 'auto');
     ga('send', 'pageview');
-
-

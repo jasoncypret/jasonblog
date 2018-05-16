@@ -22,6 +22,42 @@ html, body
 .serif
   +serif
 
+.post-style
+  +post-style
+  +serif
+  color: tint(black, 30%)
+  line-height: 1.98
+  pre
+    padding: $pad 0
+    code
+      +reading-mix
+      display: block
+
+
+  p, h1, h2, h3, h4, h5, h6, ul, ol, dl, hr, blockquote, table
+    +reading-mix
+
+  h1, h2, h3, h4, h5, h6
+    +font_stack
+    letter-spacing: -0.03em
+
+  p img
+    width: 100%
+
+  .post-content-tags
+    li
+
+  a
+    color: $tip
+    +transition(0.2)
+    text-decoration: underline
+    &:hover
+      color: black
+  hr
+    +hr(20%)
+    
+
+
 
 
 // ---------
@@ -35,8 +71,9 @@ html, body
 // ---------
 // Views
 // ---------
-body.index
-  color: white
-  @import views/homepage
 
+@import views/homepage
 @import views/article
+@import views/resume
+@import views/work
+@import views/work-show

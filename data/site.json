@@ -2,7 +2,10 @@
   "navigation": [
     {
       "title": "resume",
-      "url": "http://s.jasoncypret.com/3t0F3703133v/jason_cypret.pdf"
+      "url": "/resume.html"
+    },{
+      "title": "work",
+      "url": "/work.html"
     }
   ],
   "resume": "http://s.jasoncypret.com/3t0F3703133v/jason_cypret.pdf"

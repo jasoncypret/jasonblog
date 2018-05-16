@@ -4,40 +4,31 @@
     text-align: center
     .wrap
       padding: $pad*4 0
-
-      .nav
-        a.avatar
-          display: block
-          $avatar: 40px
-          background-image: url(https://d3vv6lp55qjaqc.cloudfront.net/items/103W0o16053h3m261211/new-face.jpg)
-          +background_cover
-          width: $avatar
-          height: $avatar
-          +border-radius($avatar)
-          top: -($pad/6)
-          left: $pad
-          position: absolute
-          &:after
-            content: '-'
-            +icon-font
-            color: $white
-            left: -15px
-            top: 50%
-            position: absolute
-            font-size: 20px
-            margin-top: -10px
-
+      +backhome
     &.no-image
       background: $accent
     &.image-post
       +background-cover
+      position: relative
+      background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%)
+      img.header-image
+        width: 100%
+        height: 100%
+        object-fit: cover
+        display: block
+        position: absolute
+        top: 0
+        left: 0
+        z-index: 1
       .wrap
+        position: relative
         background: rgba(black, 0.55)
         width: 100%
         height: 100%
+        z-index: 2
     .article-title
       +reading-mix
-      margin-top: 0 
+      margin-top: 0
       margin-bottom: $pad
       a
         font-size: 42px
@@ -54,7 +45,7 @@
       font-weight: bold
       letter-spacing: 0.03em
     .article-summary
-      margin-top: 0 
+      margin-top: 0
       margin-bottom: $pad
       +reading-mix
       font-size: 18px
@@ -93,4 +84,3 @@
         color: black
     hr
       +hr(20%)
-      

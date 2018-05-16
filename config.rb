@@ -7,11 +7,14 @@ configure :development do
 end
 
 # Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
+helpers do
+  def image_tag( path, params = {} )
+   classes = params[:class].try(:split, " ") || []
+   classes << "lazyload"
+   params[:class] = classes.try(:join, " ")
+   super( path, params )
+ end
+end
 
 activate :blog do |blog|
   blog.layout = "post"

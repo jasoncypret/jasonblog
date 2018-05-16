@@ -1,9 +1,18 @@
 a.bb-splash
   display: block
   +background-cover
-  background-image: url(../images/boxboard-splash.jpg)
   height: 345px
   position: relative
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%)
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 1
   &:before
     content: ""
     display: block
@@ -14,6 +23,7 @@ a.bb-splash
     height: 100%
     left: 0
     right: 0
+    z-index: 2
   &:after
     content: "Check it out"
     display: block
@@ -31,6 +41,7 @@ a.bb-splash
     margin-top: -25px
     text-align: center
     +opacity(0)
+    z-index: 3
   &:hover
     &:before
       background: rgba(black, 0.8)
@@ -39,6 +50,10 @@ a.bb-splash
       &:hover
         background: rgba($tip, 0.9)
   +media_max_width(975px)
-    background-position: 30%
+    img
+      object-position: 30%
+    // background-position: 30%
   +mobile_only
-    background-position: 10%
+    // background-position: 10%
+    img
+      object-position: 10%

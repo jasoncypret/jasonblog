@@ -1,0 +1,103 @@
+---
+title: Jason Cypret
+---
+
+header.header
+  = partial "/layouts/nav"
+  .wrap
+    .wrap-left
+      .avatar.header-avatar
+      h1.header-title = current_page.data.title
+      h4.header-subtitle
+        = "13+ years of UX, product, "
+        span style="white-space: nowrap" = "& development experience"
+      .header-contacts
+        a.header-contact href="tel:972-914-8847" 972.914.8847
+        a.header-contact href="mailto:jason@jasoncypret.com" jason@jasoncypret.com
+      .header-links
+        a
+          = image_tag 'in.svg', class: 'in lazyload'
+        a
+          = image_tag 'git.svg', class: 'git lazyload'
+        a
+          = image_tag 'drib.svg', class: 'drib lazyload'
+
+    .wrap-right
+      = image_tag 'NitroCasino-2.jpg', class: 'resume-img lazyload'
+
+
+section.jobs
+  h5.meta-title Nine-to-Five
+  ul.job-list
+
+    li.job-list-item
+      a.job-list-item-logo href="http://powerhrg.com"
+        = image_tag 'power-logo.svg'
+      .job-list-item-title
+        |Head of User Experience
+        span.year 2017-NOW
+      a.job-list-item-company href="http://powerhrg.com" Power
+      .job-list-item-description Speaking, training, and leading the UX design group for the second largest remodeling group in the US.
+
+    li.job-list-item
+      a.job-list-item-logo href="http://bloomboard.com"
+        = image_tag 'bloom-logo.jpg', class: 'lazyload'
+      .job-list-item-title
+        |Senior Principal Product Designer
+        span.year 2014-2017
+      a.job-list-item-company href="http://bloomboard.com" BloomBoard
+      .job-list-item-description Full Stack UX Design and Development. Rails/Node/React.
+
+    li.job-list-item
+      a.job-list-item-logo href="http://brainspace.com"
+        = image_tag 'brainspace.png', class: 'lazyload'
+      .job-list-item-title
+        |Principal Product Designer
+        span.year 2012-2014
+      a.job-list-item-company href="http://brainspace.com" Brainspace
+      .job-list-item-description Full Stack UX Design and Development. Rails
+
+    li.job-list-item
+      a.job-list-item-logo href="http://improving.com"
+        = image_tag 'improving.png', class: 'lazyload'
+      .job-list-item-title
+        |Principal UX Consultant
+        span.year 2010-2012
+      a.job-list-item-company href="http://improving.com" Improving Enterprises
+      .job-list-item-description Full Stack UX Design and Development. Clients: Thompson Reuters, ADT Security.
+
+    li.job-list-item
+      .job-list-item-logo
+        = image_tag 'med.png', class: 'lazyload'
+      .job-list-item-title
+        |Director of User Experience
+        span.year 2010
+      .job-list-item-company Medfactory
+      .job-list-item-description Led Design and UX for a heathcare startup.
+
+    li.job-list-item
+      .job-list-item-logo
+        = image_tag 'true.png', class: 'lazyload'
+      .job-list-item-title
+        |Senior UX Designer & Developer
+        span.year 2008-2010
+      .job-list-item-company Metric Interactive & True.com
+      .job-list-item-description Lead designer and frontend developer for true.com and Metric the ad agency. Other clients, Shermin Williams, Nokia, Acer, Radio Shack
+
+    li.job-list-item
+      .job-list-item-logo
+        = image_tag 'hilton.png', class: 'lazyload'
+      .job-list-item-title
+        |Manager of Brand Content Publishing
+        span.year 2007-2008
+      .job-list-item-company Hilton Hotels Corp.
+      .job-list-item-description Managed brand content publishing, and content markting efforts for DoubleTree & Embassy Suites
+
+    li.job-list-item
+      .job-list-item-logo
+        = image_tag 'hilton.png', class: 'lazyload'
+      .job-list-item-title
+        |Senior UX Designer
+        span.year 2005-2007
+      .job-list-item-company Hilton
+      .job-list-item-description Lead designer and fronend developer for custom hotel landing pages.

@@ -1,0 +1,104 @@
+.header
+  $avatar: 150px
+  background-image: url(../images/resume-header.jpg)
+  +background_cover
+  margin-bottom: 50px
+  .nav .resume
+    +active-nav
+  +mobile_only
+    margin-bottom: 100px
+  .wrap
+    +group
+    width: $resume-width
+    margin: auto
+    padding: $pad*4 0
+    position: relative
+    &-left
+      display: block
+      margin-right: (350px + $pad)
+      position: relative
+    &-right
+      width: 350px
+      position: absolute
+      bottom: -50px
+      right: 0
+      img
+        width: 100%
+        height: auto
+    +media_max_width($resume-width)
+      width: auto
+      margin: auto $pad/6
+    +mobile_only
+      padding: $pad*2 0 0 0
+      &-left
+        display: block
+        margin: 0 $pad/6
+      &-right
+        width: 320px
+        position: relative
+        left: inherit
+        margin: auto
+
+  &-avatar
+    display: block
+    background-image: url(https://d3vv6lp55qjaqc.cloudfront.net/items/103W0o16053h3m261211/new-face.jpg)
+    +background_cover
+    width: $avatar
+    height: $avatar
+    +border-radius($avatar)
+    position: absolute
+    top: -($pad)
+  &-title
+    margin-left: ($avatar + $pad)
+    color: $white
+    font-size: $font-jumbo
+    margin-bottom: $pad/3
+  &-subtitle
+    margin-left: ($avatar + $pad)
+    color: rgba($white, $opacity-strong)
+    margin-top: 0
+    font-weight: $weight-4
+    font-size: ($font-large +2px)
+  &-contacts
+    margin-left: ($avatar + $pad)
+    .header-contact
+      color: $main
+      margin-right: $pad
+      font-weight: $weight-6
+      &:hover
+        color: $highlight
+        +transition(0.225)
+  &-links
+    margin-left: ($avatar + $pad)
+    text-align: left
+    margin-top: $pad
+    a
+      +inline-block
+      margin: 0 $pad 0 0
+  +mobile_only
+    &-avatar
+      position: static
+      margin: auto
+      width: ($avatar / 1.5)
+      height: ($avatar / 1.5)
+      font-size: ($font-jumbo - 3px)
+    &-title
+      text-align: center
+      margin-left: $pad/3
+      margin-right: $pad/3
+      font-size: $font-large
+    &-subtitle
+      margin-left: $pad/3
+      margin-right: $pad/3
+      text-align: center
+    &-contacts
+      margin-left: $pad/3
+      margin-right: $pad/3
+      text-align: center
+    &-links
+      text-align: center
+      margin-left: $pad/3
+      margin-right: $pad/3
+      a
+        margin: 0 $pad/2
+    

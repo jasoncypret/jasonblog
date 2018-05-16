@@ -4,6 +4,36 @@
   +transition-timing-function(ease-in)
 
 
+=active-nav
+  background: rgba($white, 0.6)
+  color: rgba($black, 0.8)
+
+=backhome($dark: true)
+  .nav
+    a.avatar
+      display: block
+      $avatar: 40px
+      background-image: url(https://d3vv6lp55qjaqc.cloudfront.net/items/103W0o16053h3m261211/new-face.jpg)
+      +background_cover
+      width: $avatar
+      height: $avatar
+      +border-radius($avatar)
+      top: -($pad/6)
+      left: $pad
+      position: absolute
+      &:after
+        content: '-'
+        +icon-font
+        left: -15px
+        top: 50%
+        position: absolute
+        font-size: 20px
+        margin-top: -10px
+        @if $dark
+          color: $white
+        @else
+          color: $text-gray-7
+
 =reading-mix
   width: $reading-width
   margin-left: auto
