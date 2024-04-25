@@ -1,0 +1,52 @@
+.serif {
+  @include serif;
+}
+
+.post-style {
+  @include post-style;
+  @include serif;
+  color: tint(black, 30%);
+  line-height: 1.98;
+
+  pre {
+    padding: $space_xs 0;
+
+    code {
+      @include reading-mix;
+      display: block;
+    }
+  }
+
+  p, h1, h2, h3, h4, h5, h6, ul, ol, dl, hr, blockquote, table {
+    @include reading-mix;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @include font_stack;
+    letter-spacing: -0.03em;
+  }
+
+  p img {
+    width: 100%;
+  }
+
+  .post-content-tags {
+    li {
+      // Add your styles here
+    }
+  }
+
+  a {
+    color: $tip;
+    @include transition(0.2);
+    text-decoration: underline;
+
+    &:hover {
+      color: $black;
+    }
+  }
+
+  hr {
+    @include hr(20%);
+  }
+}

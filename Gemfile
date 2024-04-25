@@ -1,18 +1,17 @@
-# If you do not have OpenSSL installed, update
-# the following line to use "http://" instead
 source 'https://rubygems.org'
 
-gem "middleman", "~>4.2.1"
-gem "middleman-livereload"
-gem "middleman-gh-pages"
-gem "middleman-sprockets", github: "middleman/middleman-sprockets"
-gem "slim"
-gem "middleman-blog"
-gem "nokogiri"
+gem 'middleman', '~> 4.5'
+gem 'middleman-autoprefixer', '~> 3.0'
+gem 'middleman-blog'
+gem 'middleman-gh-pages'
 gem "redcarpet"
-gem "middleman-syntax"
-gem 'jquery-rails', :require => false
-gem 'knockout-rails', :require => false
-gem "middleman-favicon-maker"
-gem "bourbon"
-gem 'rails-assets-lazysizes', source: 'https://rails-assets.org'
+gem 'middleman-syntax'
+gem 'middleman-livereload'
+gem 'terser', '~> 1.1'
+gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby, :x64_mingw]
+gem 'wdm', '~> 0.1', platforms: [:mswin, :mingw, :x64_mingw]
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-animate.css'
+  gem 'rails-assets-lazysizes'
+end

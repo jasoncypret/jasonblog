@@ -1,0 +1,9 @@
+<!doctype html>
+<html>
+  <%= partial "/layouts/head" %>
+  <body class="<%= page_classes %>">
+    <%= partial "/layouts/nav" %>
+    <%= yield %>
+  </body>
+  <%= partial "/layouts/js_includes" %>
+</html>

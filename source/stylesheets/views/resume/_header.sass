@@ -1,22 +1,23 @@
 .header
   $avatar: 150px
-  background-image: url(../images/resume-header.jpg)
+  background-image: url(../images/resume/resume-header.jpg)
   +background_cover
   margin-bottom: 50px
   .nav .resume
-    +active-nav
+    background: rgba($white, 0.6)
+    color: rgba($black, 0.8)
   +mobile_only
     margin-bottom: 100px
   .wrap
-    +group
     width: $resume-width
     margin: auto
-    padding: $pad*4 0
+    padding: $space-xl*3 0
     position: relative
     &-left
-      display: block
-      margin-right: (350px + $pad)
+      display: flex
+      margin-right: (350px + $space-sm)
       position: relative
+      padding-left: $space-xs
     &-right
       width: 350px
       position: absolute
@@ -25,80 +26,86 @@
       img
         width: 100%
         height: auto
-    +media_max_width($resume-width)
+    +break_at($resume-width)
       width: auto
-      margin: auto $pad/6
+      margin: auto $space-sm/6
     +mobile_only
-      padding: $pad*2 0 0 0
+      padding: $space-sm*2 0 0 0
       &-left
         display: block
-        margin: 0 $pad/6
+        margin: 0 $space-sm/6
       &-right
         width: 320px
         position: relative
         left: inherit
         margin: auto
 
-  &-avatar
-    display: block
-    background-image: url(https://d3vv6lp55qjaqc.cloudfront.net/items/103W0o16053h3m261211/new-face.jpg)
-    +background_cover
-    width: $avatar
-    height: $avatar
-    +border-radius($avatar)
-    position: absolute
-    top: -($pad)
+  &-avatar 
+    img
+      display: block
+      object-fit: cover
+      width: $avatar
+      height: $avatar
+      border-radius: $avatar
+      margin-top: -($space-sm)
   &-title
-    margin-left: ($avatar + $pad)
+    margin-left: $space-sm
     color: $white
-    font-size: $font-jumbo
-    margin-bottom: $pad/3
+    font-size: $text-jumbo
+    margin-bottom: $space-sm/3
   &-subtitle
-    margin-left: ($avatar + $pad)
-    color: rgba($white, $opacity-strong)
+    margin-left: $space-sm
+    color: rgba($white, 0.6)
     margin-top: 0
-    font-weight: $weight-4
-    font-size: ($font-large +2px)
-  &-contacts
-    margin-left: ($avatar + $pad)
+    font-weight: $regular
+    font-size: $text-large
+  &-details
+    flex: 1
+    .header-contacts
+      margin-top: $space-md
+      margin-left: $space-sm
     .header-contact
       color: $main
-      margin-right: $pad
-      font-weight: $weight-6
+      margin-right: $space-sm
+      font-weight: bold
       &:hover
         color: $highlight
         +transition(0.225)
   &-links
-    margin-left: ($avatar + $pad)
+    margin-left: $space-sm
     text-align: left
-    margin-top: $pad
+    margin-top: $space-md
     a
-      +inline-block
-      margin: 0 $pad 0 0
-  +mobile_only
+      display: inline-block
+      margin: 0 $space-sm 0 0
+      transition: transform 0.2s
+      &:hover
+        transform: scale(1.1)
+        transition: transform 0.2s
+  +break_at(760px)
     &-avatar
       position: static
       margin: auto
       width: ($avatar / 1.5)
       height: ($avatar / 1.5)
-      font-size: ($font-jumbo - 3px)
+      font-size: ($text-jumbo - 3px)
     &-title
       text-align: center
-      margin-left: $pad/3
-      margin-right: $pad/3
-      font-size: $font-large
+      margin-left: $space-sm/3
+      margin-right: $space-sm/3
+      font-size: $text-large
     &-subtitle
-      margin-left: $pad/3
-      margin-right: $pad/3
+      margin-left: $space-sm/3
+      margin-right: $space-sm/3
       text-align: center
     &-contacts
-      margin-left: $pad/3
-      margin-right: $pad/3
+      margin-left: $space-sm/3
+      margin-right: $space-sm/3
       text-align: center
     &-links
       text-align: center
-      margin-left: $pad/3
-      margin-right: $pad/3
+      margin-left: $space-sm/3
+      margin-right: $space-sm/3
       a
-        margin: 0 $pad/2
+        margin: 0 $space-sm/2
     

@@ -1,0 +1,77 @@
+a.bb-splash {
+  display: block;
+  @include background-cover;
+  height: 345px;
+  position: relative;
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    background: rgba(black, 0);
+    @include transition(0.4s);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    z-index: 2;
+  }
+
+  &:after {
+    content: "Check it out";
+    display: block;
+    position: absolute;
+    border: 2px solid #fff;
+    border-radius: 0;
+    color: white;
+    @include transition(0.4s);
+    left: 50%;
+    top: 50%;
+    padding: $space_xs 0;
+    text-transform: uppercase;
+    width: 160px;
+    margin-left: -(160px/2);
+    margin-top: -25px;
+    text-align: center;
+    opacity: 0;
+    z-index: 3;
+  }
+
+  &:hover {
+    &:before {
+      background: rgba($black, 0.8);
+    }
+
+    &:after {
+      opacity: 1;
+
+      &:hover {
+        background: rgba($tip, 0.9);
+      }
+    }
+  }
+
+  @include break_at(975px) {
+    img {
+      object-position: 30%;
+    }
+  }
+
+  @include mobile_only {
+    img {
+      object-position: 10%;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+body.index {
+  color: $white;
+  @import "homepage/hero";
+  @import "homepage/bb-splash";
+  @import "homepage/blog-posts";
+  @import "homepage/resume";
+  a.avatar {
+    visibility: hidden;
+  }
+  .header-subtitle {
+    color: $text_lt_default;
+    text-transform: uppercase;
+    font-size: $text_large;
+    &.pink {
+      color: #F75A9A;
+      margin-bottom: $space_md;
+    }
+  }
+
+  .work {
+    background-image: linear-gradient(-90deg, #000000 0%, #434343 100%);
+    text-align: center;
+    padding: $space_md 0;
+
+    img {
+      border-radius: 4px;
+      display: inline-block;
+      margin: $space_xs;
+    }
+  }
+}

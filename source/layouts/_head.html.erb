@@ -1,0 +1,14 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <% if current_page.metadata[:page].try(:[], 'open_graph_image') %>
+    <meta property="og:image" content="<%= current_page.metadata[:page]['open_graph_image'] %>"/>
+  <% end %>
+  <%# <meta content="" name="description" /> %>
+  <title><%= current_page.data.title || "Jason Cypret - Unlocking Potential Through UX" %></title>
+  <%= stylesheet_link_tag "site" %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+</head>

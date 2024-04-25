@@ -1,0 +1,49 @@
+$font_family_base: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans_serif !default;
+$font_family_accent: "Droid Serif", serif;
+$serif: $font_family_accent;
+
+/* CLEAN UP AND REMOVE */
+$text_jumbo:        36px !default;
+$text_largest:      32px !default;
+$text_larger:       28px !default;
+$text_large:        20px !default;
+$text_base:         16px !default;
+$text_default:      $text_base !default;
+$text_normal:       $text_base !default;
+$text_medium:       $text_base !default;
+$text_small:        14px !default;
+$text_smaller:      12px !default;
+$text_smallest:     11px !default;
+
+/* Headings */
+$heading_1: 46px !default;
+$heading_2: 34px !default;
+$heading_3: $text_larger !default;
+$heading_4: $text_base !default;
+
+// Letter Spacing
+$lspace_tightest:         -.1em !default;
+$lspace_tighter:          -.07em !default;
+$lspace_tight:            -.01em !default;
+$lspace_normal:           0 !default;
+$lspace_loose:            .03em !default;
+$lspace_looser:           .07em !default;
+$lspace_loosest:          .1em !default;
+$lspace_super_loosest:    .2em !default;
+
+// Droid+Serif 400 700
+// Montserrat 400 700
+
+/* Standard Font Weights */
+$bold:          700 !default;
+$regular:       400 !default;
+
+/* Non_Standard Font Weights */
+$extrabold:     700 !default;
+$boldest:       700 !default;
+$bolder:        700 !default;
+$light:         400 !default;
+$lighter:       400 !default;
+
+// Reading Width
+$reading-width: 700px !default;

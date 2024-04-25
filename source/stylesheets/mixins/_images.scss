@@ -1,0 +1,16 @@
+@mixin offscreen {
+  position: absolute;
+  left:  -9999px;
+  top: -9999px;
+  display: block;
+}
+
+@mixin background_cover {
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin background-placeholder {
+  transition: background-image 0.3s ease;
+  background-image: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN89h8AAtEB5wrzxXEAAAAASUVORK5CYII=);
+}

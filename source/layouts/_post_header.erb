@@ -1,0 +1,13 @@
+<header class="post-header <%= (current_article.data.image) ? 'image-post' : 'no-image' %>">
+  <% if current_article.data.image %>
+    <%= image_tag current_article.data.image, class: 'header-image lazyload' %>
+  <% end %>
+  <div class="wrap">
+    <%= partial "/layouts/nav" %>
+    <h1 class="article-title">
+      <a href="<%= current_article.url %>"><%= current_article.title %></a>
+    </h1>
+    <div class="article-summary"><%= current_article.data.summary %></div>
+    <small class="article-date"><%= current_article.date.strftime('%B %e, %Y') %></small>
+  </div>
+</header>

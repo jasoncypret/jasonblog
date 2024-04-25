@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+  <%= partial "/layouts/head" %>
+  <style rel='stylesheet' type='text/css'>
+    <%= Rouge::Themes::ThankfulEyes.render(scope: '.highlight') %>
+  </style>
+  <body class="article <%= page_classes %>">
+    <%= partial "/layouts/post_header" %>
+    <article class="post-content">
+      <%= yield %>
+    </article>
+  </body>
+  <%= partial "/layouts/js_includes" %>
+</html>

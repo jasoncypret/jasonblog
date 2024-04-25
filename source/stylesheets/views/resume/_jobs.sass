@@ -2,15 +2,14 @@ section.jobs
   width: $resume-width
   margin: auto
   background: $white
-  +media_max_width($resume-width)
+  +break_at($resume-width)
     width: auto
-    margin: auto $pad/6
+    margin: auto $space-sm/6
 
   .job-list 
     $logo: 60px
     &-item
-      margin-bottom: $pad*2
-      +group
+      margin-bottom: $space-sm*2
       position: relative
       &-logo
         position: absolute
@@ -22,41 +21,41 @@ section.jobs
         +mobile_only
           position: static
           display: block
-          margin-left: $pad/3
-          margin-right: $pad/3
+          margin-left: $space-sm/3
+          margin-right: $space-sm/3
       &-title
-        margin-left: ($logo + $pad/1.5)
+        margin-left: ($logo + $space-sm/1.5)
         position: relative
-        font-weight: $weight-9
-        font-size: ($font-large +6px)
-        color: $text-gray-9
+        font-weight: bold
+        font-size: ($text-large +6px)
+        color: $text_lt_default
         .year
           position: absolute
           right: 0
           top: 2px
-          color: $text-gray-4
-          font-size: $font-base
+          color: text_lt_light
+          font-size: $text-base
         +mobile_only
-          margin-left: $pad/3
-          margin-right: $pad/3
+          margin-left: $space-sm/3
+          margin-right: $space-sm/3
           .year
-            font-size: $font-small
+            font-size: $text-small
             position: static
             display: inline-block
-            margin-left: $pad/6
+            margin-left: $space-sm/6
       &-company
-        margin-left: ($logo + $pad/1.5)
-        color: $text-gray-5
-        font-size: ($font-large +2px)
+        margin-left: ($logo + $space-sm/1.5)
+        color: $text_lt_light
+        font-size: ($text-large +2px)
         +mobile_only
-          margin-left: $pad/3
-          margin-right: $pad/3
+          margin-left: $space-sm/3
+          margin-right: $space-sm/3
       &-description
-        margin-left: ($logo + $pad/1.5)
+        margin-left: ($logo + $space-sm/1.5)
         +serif
-        color: $text-gray-8
-        margin-top: $pad/2
+        color: $text_lt_default
+        margin-top: $space-sm/2
         +mobile_only
-          margin-left: $pad/3
-          margin-right: $pad/3
+          margin-left: $space-sm/3
+          margin-right: $space-sm/3
   

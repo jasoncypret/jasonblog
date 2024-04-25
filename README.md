@@ -1,30 +1,62 @@
-# Serve
+# Jason's Blog
 
-```shell
-$ middleman
-```
+Welcome to My Blog! This is a simple and powerful Middleman application that does amazing things.
 
-# Write New Post
+## Getting started
 
-```shell
-$ bundle exec middleman article "Launching my blog"
-```
+To get started with my blog, follow these steps:
 
+1. Clone this repository to your local machine.
+  ```sh
+  git clone https://github.com/jasoncypret/jasonblog.git
+  ```
 
-# Publish
+2. Navigate to the project directory.
+  ```sh
+  cd jasonblog
+  ```
 
-[Github Pages Middleman config](https://github.com/neo/middleman-gh-pages)
+3. This site runs on asdf. Make sure you have that installed with ruby and run:
+  ```sh
+  asdf install
+  ```
 
-```ruby
-rake build    # Compile all files into the build directory
-rake publish  # Build and publish to Github Pages
-```
+4. Once run you can bundle like normal.
+  ```sh
+  bundle install
+  ```
 
-If you get an error similar to:
+## Run the site
+
+1. Run the Middleman server
+  ```sh
+  bundle exec middleman server
+  ```
+
+2. Open your web browser and visit `http://localhost:4567` to see the app in action. Visit `http://localhost:4567/__middleman` to see the config settings.
+
+## Write a New Post
 
 ```sh
-error: src refspec gh-pages does not match any.
-error: failed to push some refs to...
+bundle exec middleman article "Launching my blog"
 ```
 
-Then delete the build directory and try again. You may need `bundle exec rake publish ALLOW_DIRTY=true`
+## Test Build before Publishing to GitHub Pages
+
+```sh
+bundle exec rake build # Compile all files into the build directory
+```
+
+
+## Publish to GitHub Pages
+
+Clear build folder before this step
+
+```sh
+bundle exec rake publish ALLOW_DIRTY=true # Build and publish to Github Pages
+```
+
+
+## Configuration
+
+You can configure My Blog by modifying the `config.rb` file in the project root directory. Make sure to update the necessary settings before running the application.

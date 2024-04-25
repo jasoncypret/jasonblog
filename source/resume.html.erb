@@ -1,0 +1,137 @@
+---
+title: Jason Cypret
+---
+
+<header class="header">
+  <div class="wrap">
+    <div class="wrap-left">
+      <div class="header-avatar">
+        <div class="avatar"><%= image_tag 'https://d3vv6lp55qjaqc.cloudfront.net/items/103W0o16053h3m261211/new-face.jpg', class: 'lazyload' %></div>
+      </div>
+      <div class="header-details">
+        <h1 class="header-title"><%= current_page.data.title %></h1>
+        <h4 class="header-subtitle">
+          <%= age_in_completed_years(Date.new(2005, 2, 1), Date.today) %>+ years of UX, product,
+          <span style="white-space: nowrap">& development experience</span>
+        </h4>
+        <div class="header-contacts">
+          <%# <a class="header-contact" href="tel:972-914-8847">972.914.8847</a> %>
+          <a class="header-contact" href="mailto:jason@jasoncypret.com">jason@jasoncypret.com</a>
+        </div>
+        <div class="header-links">
+          <a href="https://www.linkedin.com/in/jasoncypret/"><%= image_tag 'resume/in.svg', class: 'in lazyload' %></a>
+          <a href="https://github.com/jasoncypret"><%= image_tag 'resume/git.svg', class: 'git lazyload' %></a>
+          <a href="https://dribbble.com/jasoncypret"><%= image_tag 'resume/drib.svg', class: 'drib lazyload' %></a>
+        </div>
+      </div>
+    </div>
+    <div class="wrap-right">
+      <%= image_tag 'resume/NitroCasino-2.jpg', class: 'resume-img lazyload' %>
+    </div>
+  </div>
+</header>
+
+<section class="jobs">
+  <h5 class="meta-title">Nine-to-Five</h5>
+  <ul class="job-list">
+    <li class="job-list-item">
+      <a class="job-list-item-logo" href="http://powerhrg.com">
+        <%= image_tag 'resume/power-logo.svg' %>
+      </a>
+      <div class="job-list-item-title">
+        Vice President of User Experience
+        <span class="year">2017-NOW</span>
+      </div>
+      <a class="job-list-item-company" href="http://powerhrg.com">Power</a>
+      <div class="job-list-item-description">
+        Speaking, training, and leading the UX design group for the largest home remodeling group in the US.
+      </div>
+    </li>
+
+    <li class="job-list-item">
+      <a class="job-list-item-logo" href="http://bloomboard.com">
+      <%= image_tag 'resume/bloom-logo.jpg', class: 'lazyload' %>
+      </a>
+      <div class="job-list-item-title">
+      Senior Principal Product Designer
+      <span class="year">2014-2017</span>
+      </div>
+      <a class="job-list-item-company" href="http://bloomboard.com">BloomBoard</a>
+      <div class="job-list-item-description">Full Stack UX Design and Development. Rails/Node/React.</div>
+    </li>
+
+    <li class="job-list-item">
+      <a class="job-list-item-logo" href="http://brainspace.com">
+      <%= image_tag 'resume/brainspace.png', class: 'lazyload' %>
+      </a>
+      <div class="job-list-item-title">
+      Principal Product Designer
+      <span class="year">2012-2014</span>
+      </div>
+      <a class="job-list-item-company" href="http://brainspace.com">Brainspace</a>
+      <div class="job-list-item-description">Full Stack UX Design and Development. Rails</div>
+    </li>
+
+    <li class="job-list-item">
+      <a class="job-list-item-logo" href="http://improving.com">
+      <%= image_tag 'resume/improving.png', class: 'lazyload' %>
+      </a>
+      <div class="job-list-item-title">
+      Principal UX Consultant
+      <span class="year">2010-2012</span>
+      </div>
+      <a class="job-list-item-company" href="http://improving.com">Improving Enterprises</a>
+      <div class="job-list-item-description">Full Stack UX Design and Development. Clients: Thompson Reuters, ADT Security.</div>
+    </li>
+
+    <li class="job-list-item">
+      <div class="job-list-item-logo">
+      <%= image_tag 'resume/med.png', class: 'lazyload' %>
+      </div>
+      <div class="job-list-item-title">
+      Director of User Experience
+      <span class="year">2010</span>
+      </div>
+      <div class="job-list-item-company">Medfactory</div>
+      <div class="job-list-item-description">Led Design and UX for a heathcare startup.</div>
+    </li>
+
+    <li class="job-list-item">
+      <div class="job-list-item-logo">
+      <%= image_tag 'resume/true.png', class: 'lazyload' %>
+      </div>
+      <div class="job-list-item-title">
+      Senior UX Designer & Developer
+      <span class="year">2008-2010</span>
+      </div>
+      <div class="job-list-item-company">Metric Interactive & True.com</div>
+      <div class="job-list-item-description">Lead designer and frontend developer for true.com and Metric the ad agency. Other clients, Shermin Williams, Nokia, Acer, Radio Shack</div>
+    </li>
+
+    <li class="job-list-item">
+      <div class="job-list-item-logo">
+      <%= image_tag 'resume/hilton.png', class: 'lazyload' %>
+      </div>
+      <div class="job-list-item-title">
+      Manager of Brand Content Publishing
+      <span class="year">2007-2008</span>
+      </div>
+      <div class="job-list-item-company">Hilton Hotels Corp.</div>
+      <div class="job-list-item-description">Managed brand content publishing, and content markting efforts for DoubleTree & Embassy Suites</div>
+    </li>
+
+    <li class="job-list-item">
+      <div class="job-list-item-logo">
+      <%= image_tag 'resume/hilton.png', class: 'lazyload' %>
+      </div>
+      <div class="job-list-item-title">
+      Senior UX Designer
+      <span class="year">2005-2007</span>
+      </div>
+      <div class="job-list-item-company">Hilton</div>
+      <div class="job-list-item-description">Lead designer and fronend developer for custom hotel landing pages.</div>
+    </li>
+
+
+  </ul>
+</section>
