@@ -1,15 +1,16 @@
 .header
+  $page-breakpoint: 760px
   $avatar: 150px
   background-image: url(../images/resume/resume-header.jpg)
   +background_cover
-  margin-bottom: 50px
+  margin-bottom: 100px
+  +break_at($page-breakpoint)
+    margin-bottom: 150px
   .nav .resume
     background: rgba($white, 0.6)
     color: rgba($black, 0.8)
-  +mobile_only
-    margin-bottom: 100px
   .wrap
-    width: $resume-width
+    max-width: $resume-width
     margin: auto
     padding: $space-xl*3 0
     position: relative
@@ -22,14 +23,13 @@
       width: 350px
       position: absolute
       bottom: -50px
-      right: 0
+      right: 10px
       img
         width: 100%
         height: auto
-    +break_at($resume-width)
+    +break_at($page-breakpoint)
       width: auto
       margin: auto $space-sm/6
-    +mobile_only
       padding: $space-sm*2 0 0 0
       &-left
         display: block
@@ -82,8 +82,8 @@
       &:hover
         transform: scale(1.1)
         transition: transform 0.2s
-  +break_at(760px)
-    &-avatar
+  +break_at($page-breakpoint)
+    &-avatar img
       position: static
       margin: auto
       width: ($avatar / 1.5)
@@ -108,4 +108,3 @@
       margin-right: $space-sm/3
       a
         margin: 0 $space-sm/2
-    

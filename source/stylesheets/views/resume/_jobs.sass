@@ -5,11 +5,12 @@ section.jobs
   +break_at($resume-width)
     width: auto
     margin: auto $space-sm/6
-
   .job-list 
     $logo: 60px
+    list-style: none;
+    padding-bottom: $space-xl
     &-item
-      margin-bottom: $space-sm*2
+      margin-bottom: $space-xl
       position: relative
       &-logo
         position: absolute
@@ -33,7 +34,7 @@ section.jobs
           position: absolute
           right: 0
           top: 2px
-          color: text_lt_light
+          color: $text_lt_light
           font-size: $text-base
         +mobile_only
           margin-left: $space-sm/3
