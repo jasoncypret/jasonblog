@@ -1,4 +1,17 @@
-<!DOCTYPE html><!--[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7"--><!--[if IE 7] <html class="no-js lt-ie9 lt-ie8"--><!--[if IE 8] <html class="no-js lt-ie9"--><!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]--><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><title>Atomic Design the Sassy Way</title><meta content="" name="description" /><meta content="user-scalable=0, initial-scale=1.0" name="viewport" /><meta content="#00a300" name="msapplication-TileColor" /><meta content="../mstile-144x144.png" name="msapplication-TileImage" /><link href="../stylesheets/all-75b23361.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="apple-touch-icon-152x152-precomposed.png" rel="apple-touch-icon-precomposed" sizes="152x152" /><link href="apple-touch-icon-144x144-precomposed.png" rel="apple-touch-icon-precomposed" sizes="144x144" /><link href="apple-touch-icon-114x114-precomposed.png" rel="apple-touch-icon-precomposed" sizes="114x114" /><link href="apple-touch-icon-72x72-precomposed.png" rel="apple-touch-icon-precomposed" sizes="72x72" /><link href="apple-touch-icon-precomposed.png" rel="apple-touch-icon-precomposed" /><link href="favicon.png" rel="shortcut icon" /><link href="favicon.ico" rel="icon" type="image/ico" /><style rel="stylesheet" type="text/css">.highlight table td { padding: 5px; }
+<!doctype html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Atomic Design the Sassy Way</title>
+  <link href="../stylesheets/site-57ba7225.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+</head>
+  <style rel='stylesheet' type='text/css'>
+    .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight {
   color: #faf6e4;
@@ -8,22 +21,26 @@
   color: #dee5e7;
   background-color: #4e5d62;
 }
-.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+.highlight .gp {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
   color: #6c8b9f;
   font-style: italic;
 }
 .highlight .cp {
   color: #b2fd6d;
   font-weight: bold;
-  font-style: italic;
 }
 .highlight .err {
   color: #fefeec;
   background-color: #cc0000;
 }
 .highlight .gr {
-  color: #fefeec;
-  background-color: #cc0000;
+  color: #cc0000;
+  font-weight: bold;
+  font-style: italic;
 }
 .highlight .k, .highlight .kd, .highlight .kv {
   color: #f6dd62;
@@ -31,6 +48,7 @@
 }
 .highlight .o, .highlight .ow {
   color: #4df4ff;
+  font-weight: bold;
 }
 .highlight .p, .highlight .pi {
   color: #4df4ff;
@@ -111,7 +129,7 @@
   color: #ffb000;
   font-weight: bold;
 }
-.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
   color: #f696db;
   font-weight: bold;
 }
@@ -123,8 +141,12 @@
   color: #f696db;
   font-weight: bold;
 }
-.highlight .s, .highlight .sb, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+.highlight .s, .highlight .sb, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
   color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .sa {
+  color: #f6dd62;
   font-weight: bold;
 }
 .highlight .se {
@@ -149,7 +171,10 @@
 .highlight .w {
   color: #BBBBBB;
 }
-.highlight .nf {
+.highlight .go {
+  color: #BBBBBB;
+}
+.highlight .nf, .highlight .fm {
   color: #a8e1fe;
 }
 .highlight .py {
@@ -158,10 +183,34 @@
 .highlight .na {
   color: #a8e1fe;
 }
-.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi, .highlight .vm {
   color: #a8e1fe;
   font-weight: bold;
-}</style></head><body class="article atomic-design-the-sassy-way atomic-design-the-sassy-way_index"><header class="post-header no-image"><div class="wrap"><div class="nav"><a class="avatar" href="/"></a><ul class="menu"><li><a href="../resume/" class="menu-item resume">resume</a></li><li><a href="../work/" class="menu-item work">work</a></li></ul></div><h1 class="article-title"><a href="/atomic-design-the-sassy-way/">Atomic Design the Sassy Way</a></h1><div class="article-summary">Atomic design and Sass...the perfect pair.</div><small class="article-date">February 26, 2017</small></div></header><article class="post-content"><p>I wrote this awhile ago for the folks at BloomBoard. UX, Design, and Dev all owned the styles so good collaboration and thought around how to break things down was key to keeping our code maintainable. Over the years we became even more dilligent about how to break apart pieces, and this article was the kickstarter.</p>
+}
+  </style>
+  <body class="article x2017-02-26-atomic-design-the-sassy-way x2017-02-26-atomic-design-the-sassy-way_index">
+    <header class="post-header no-image">
+  <div class="wrap">
+    <div class="nav">
+  <a class="avatar" href="/">
+    <div class="icon-arrow-left"></div>
+    <div class="avatar"><img src="https://d3vv6lp55qjaqc.cloudfront.net/items/103W0o16053h3m261211/new-face.jpg" class="lazyload lazyload" alt="" /></div>
+  </a>
+  <ul class="menu">
+      <li>
+        <a href="/resume/" class="menu-item resume">resume</a>
+      </li>
+  </ul>
+</div>
+    <h1 class="article-title">
+      <a href="/2017-02-26-atomic-design-the-sassy-way/">Atomic Design the Sassy Way</a>
+    </h1>
+    <div class="article-summary">Atomic design and Sass...the perfect pair.</div>
+    <small class="article-date">February 26, 2017</small>
+  </div>
+</header>
+    <article class="post-content">
+      <p>I wrote this awhile ago for the folks at BloomBoard. UX, Design, and Dev all owned the styles so good collaboration and thought around how to break things down was key to keeping our code maintainable. Over the years we became even more dilligent about how to break apart pieces, and this article was the kickstarter.</p>
 
 <h1>Writing Sass the atomic way</h1>
 
@@ -172,29 +221,29 @@
 <h2>Breaking bad</h2>
 
 <p>You don&rsquo;t need to be an expert at sass or atomic design to start breaking the ui apart. Start with separating layout from the UI. Flex props, floats, widths and percentages are a good indicator of something that has layout. Things that have layout are generally at the page level, or an organism. When done right atoms and molecules can stand alone, but may not be positioned quite right. This is common if we&rsquo;ve done our job right. See this example below.</p>
-<pre class="highlight sass"><code><span class="c1">// organism (mostly layout properties)
-</span><span class="nc">.data-list</span>
+<div class="highlight"><pre class="highlight sass"><code><span class="c1">// organism (mostly layout properties)</span>
+<span class="nc">.data-list</span>
   <span class="nl">width</span><span class="p">:</span> <span class="m">500px</span>
   <span class="nl">margin-top</span><span class="p">:</span> <span class="m">10px</span>
-  <span class="c1">// organism takes responsibility of positioning &amp; layout of atoms and molecules
-</span>  <span class="nc">.list-item</span>
+  <span class="c1">// organism takes responsibility of positioning &amp; layout of atoms and molecules</span>
+  <span class="nc">.list-item</span>
     <span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">10px</span>
     <span class="nl">width</span><span class="p">:</span> <span class="m">90%</span>
 
-<span class="c1">// molecule (self contained, but not including layout)
-</span><span class="nc">.list-item</span>
+<span class="c1">// molecule (self contained, but not including layout)</span>
+<span class="nc">.list-item</span>
   <span class="nl">background</span><span class="p">:</span> <span class="mh">#fff</span>
   <span class="nl">padding</span><span class="p">:</span> <span class="m">10px</span>
   <span class="nl">border-bottom</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="mh">#ccc</span>
-  <span class="c1">// molecule takes responsibility of positioning &amp; layout of atoms
-</span>  <span class="nc">.list-item-title</span>
+  <span class="c1">// molecule takes responsibility of positioning &amp; layout of atoms</span>
+  <span class="nc">.list-item-title</span>
     <span class="nl">margin-top</span><span class="p">:</span> <span class="m">10px</span>
 
-<span class="c1">// atom (very small and can stand alone)
-</span><span class="nc">.list-item-title</span>
+<span class="c1">// atom (very small and can stand alone)</span>
+<span class="nc">.list-item-title</span>
   <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span>
   <span class="nl">font-size</span><span class="p">:</span> <span class="m">14px</span>
-</code></pre>
+</code></pre></div>
 <p>In the example the organism takes responsibility of positioning &amp; layout of atoms and molecules. The molecule again stands alone and should be without layout. However the molecule controlls it&rsquo;s childern and positions atoms contained inside.</p>
 
 <p>Atoms are awesome and the most re-usable ui element, but 99% of the time they are paired within a molecule or organism. Rarely do they completely stand alone.</p>
@@ -203,21 +252,21 @@
 
 <h4>Page:</h4>
 
-<p><img src="http://s.jasoncypret.com/1f043B222W0N/Image%202016-06-07%20at%2010.40.03%20AM.png" alt="Image%202016 06 07%20at%2010.40.03%20am" class="lazyload" />
+<p><img src="http://s.jasoncypret.com/1f043B222W0N/Image%202016-06-07%20at%2010.40.03%20AM.png" alt="" class="lazyload" />
 Page level overrides. Should be fairly small, but used for orchestration of all elements.</p>
 
 <h4>Organism:</h4>
 
-<p><img src="http://s.jasoncypret.com/372m3Q2Z140F/Image%202016-06-07%20at%2010.34.25%20AM.png" alt="Image%202016 06 07%20at%2010.34.25%20am" class="lazyload" />
+<p><img src="http://s.jasoncypret.com/372m3Q2Z140F/Image%202016-06-07%20at%2010.34.25%20AM.png" alt="" class="lazyload" />
 Reusable and can be dropped on any page. Great examples are lists, galleries, and results.</p>
 
 <h4>Molecule:</h4>
 
-<p><img src="http://s.jasoncypret.com/1m3V0N372G2D/Image%202016-06-07%20at%2010.39.11%20AM.png" alt="Image%202016 06 07%20at%2010.39.11%20am" class="lazyload" /></p>
+<p><img src="http://s.jasoncypret.com/1m3V0N372G2D/Image%202016-06-07%20at%2010.39.11%20AM.png" alt="" class="lazyload" /></p>
 
 <h4>Atoms:</h4>
 
-<p><img src="http://s.jasoncypret.com/0D2x0I101927/Image%202016-06-07%20at%2010.37.51%20AM.png" alt="Image%202016 06 07%20at%2010.37.51%20am" class="lazyload" /></p>
+<p><img src="http://s.jasoncypret.com/0D2x0I101927/Image%202016-06-07%20at%2010.37.51%20AM.png" alt="" class="lazyload" /></p>
 
 <p>Foreach/while statements are a great indicator that a organisms and molecules are needed. Typically the parent of the &ldquo;foreach&rdquo; is the organism and the &ldquo;loop&rdquo; is a molecule.</p>
 
@@ -232,25 +281,25 @@ Reusable and can be dropped on any page. Great examples are lists, galleries, an
 <p>Lets discuss prefixed classes and style bleeding, and chained classes first. Unexpected styles can occur when classes are changed together. <code>class=&quot;pod green error disabled&quot;</code> Bleeding refers to the mixing of styles or behavior from one component to another. </p>
 
 <p>Taking the chained classes approach, your CSS selectors might look something like this for a given set of components:</p>
-<pre class="highlight css"><code><span class="nc">.success</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
+<div class="highlight"><pre class="highlight css"><code><span class="nc">.success</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
 <span class="nc">.btn.success</span> <span class="p">{</span> <span class="err">..</span> <span class="p">}</span>
 <span class="nc">.alert.success</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
-</code></pre>
+</code></pre></div>
 <p>Prefixed classes guide developers towards a simpler and more maintainable direction for building an extensive CSS design system. Here’s what we have if we take away the generic base class and scope things per component with prefixes:</p>
-<pre class="highlight css"><code><span class="nc">.btn-success</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
+<div class="highlight"><pre class="highlight css"><code><span class="nc">.btn-success</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
 <span class="nc">.alert-success</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
-</code></pre>
+</code></pre></div>
 <p>We use a hyphenated lowercase classname convention here at BloomBoard. Every component of .pod is accessible by a css class that is prefixed with <code>pod-</code>. Components that have a <strong>parent-to-many-children</strong> relationship take on a singular/plural naming scheme, as in <code>pod-item</code> and <code>pod-items</code>.</p>
-<pre class="highlight html"><code>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"pod"</span><span class="nt">&gt;</span>
+<div class="highlight"><pre class="highlight html"><code>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"pod"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"pod-header"</span><span class="nt">&gt;</span>heading<span class="nt">&lt;/h3&gt;</span>
     <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"pod-items"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"pod-item"</span><span class="nt">&gt;&lt;a</span> <span class="na">class=</span><span class="s">"pod-item-link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Click me<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
       <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"pod-item"</span><span class="nt">&gt;&lt;a</span> <span class="na">class=</span><span class="s">"pod-item-link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Click me<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
     <span class="nt">&lt;/ul&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
-</code></pre>
+</code></pre></div>
 <p>Use your best judgment here. Not everything should have a parent-to-many-children class name. Atoms used in many places will typically have a different class name.</p>
-<pre class="highlight html"><code>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"pod"</span><span class="nt">&gt;</span>
+<div class="highlight"><pre class="highlight html"><code>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"pod"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"featured-heading"</span><span class="nt">&gt;</span>I'm an atom! I'm used everywhere<span class="nt">&lt;/h3&gt;</span>
     <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"pod-items"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"pod-item"</span><span class="nt">&gt;</span>
@@ -263,7 +312,7 @@ Reusable and can be dropped on any page. Great examples are lists, galleries, an
       <span class="nt">&lt;/li&gt;</span>
     <span class="nt">&lt;/ul&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
-</code></pre>
+</code></pre></div>
 <p>Naming correctly for how &amp; where it is used is just as important as the structure. </p>
 
 <h3>Good</h3>
@@ -296,7 +345,7 @@ Reusable and can be dropped on any page. Great examples are lists, galleries, an
 <p>Where to put things come after you&rsquo;ve nailed down what it is an what to call it. From here you can start coding up your sass, and figure out where to put it.</p>
 
 <p>We actually mirror these design practices and methods in our folder structure. It&rsquo;s a great way to organize, and a constant reminder to break things down further. This is also helpful for discovery. A constant naming convention and folder structure makes it really easy to discover others mixins an variables.</p>
-<pre class="highlight shell"><code>|____atoms/
+<div class="highlight"><pre class="highlight shell"><code>|____atoms/
 | |_____animations.sass
 | |_____forms-elements.sass
 | |_____colors.sass
@@ -327,7 +376,7 @@ Reusable and can be dropped on any page. Great examples are lists, galleries, an
 |
 |____application.sass
 
-</code></pre>
+</code></pre></div>
 <p>As folders get full, subfolders get created. You should always feel comfortable optimizing the subfolders, renaming and regrouping. This helps make the folder structure easy to digest and manage. Prepare for this optimization with each project and our sass structure will stay nice and clean.</p>
 
 <h4>Utilities</h4>
@@ -343,35 +392,42 @@ Reusable and can be dropped on any page. Great examples are lists, galleries, an
 <p>Utilities are mostly our global helper mixins, functions, and variables. Things that are cannot be reused can remain in other sass files, but if its a helpful mixin that can be used elsewhere, or a variable we want to control across files, place it in utilities.</p>
 
 <p><strong>Mixin examples:</strong></p>
-<pre class="highlight sass"><code><span class="c1">// utilities/mixins (excellent global mixin)
-</span><span class="nf">=multiline-text-truncate</span><span class="p">(</span><span class="nv">$lines</span><span class="o">:</span> <span class="m">2</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight sass"><code><span class="c1">// utilities/mixins (excellent global mixin)</span>
+<span class="nf">=multiline-text-truncate</span><span class="p">(</span><span class="nv">$lines</span><span class="o">:</span> <span class="m">2</span><span class="p">)</span>
   <span class="nl">overflow</span> <span class="p">:</span> <span class="nb">hidden</span>
   <span class="nl">text-overflow</span><span class="p">:</span> <span class="n">ellipsis</span>
   <span class="nl">display</span><span class="p">:</span> <span class="o">-</span><span class="n">webkit-box</span>
   <span class="na">-webkit-line-clamp</span><span class="p">:</span> <span class="nv">$lines</span>
   <span class="na">-webkit-box-orient</span><span class="p">:</span> <span class="n">vertical</span>
 
-<span class="c1">// local mixin (Very specific to the molecule only)
-</span><span class="nf">=resource-card-cover-image</span>
+<span class="c1">// local mixin (Very specific to the molecule only)</span>
+<span class="nf">=resource-card-cover-image</span>
   <span class="nl">transition</span><span class="p">:</span> <span class="n">opacity</span> <span class="mi">.3s</span> <span class="n">ease</span>
   <span class="nd">+background_cover</span>
   <span class="nl">height</span><span class="p">:</span> <span class="m">160px</span>
   <span class="nd">+border-top-radius</span><span class="p">(</span><span class="m">4px</span><span class="p">)</span>
-</code></pre>
+</code></pre></div>
 <p><strong>Variable examples:</strong></p>
-<pre class="highlight sass"><code><span class="c1">// local variable
-</span><span class="nv">$lines-to-show</span><span class="p">:</span> <span class="m">6</span>
+<div class="highlight"><pre class="highlight sass"><code><span class="c1">// local variable</span>
+<span class="nv">$lines-to-show</span><span class="p">:</span> <span class="m">6</span>
 
-<span class="c1">// global variable (utilities/variables)
-</span><span class="nv">$collection-card-large-height</span><span class="p">:</span> <span class="m">325px</span>
+<span class="c1">// global variable (utilities/variables)</span>
+<span class="nv">$collection-card-large-height</span><span class="p">:</span> <span class="m">325px</span>
 
 <span class="nc">.my-molecule</span>
-  <span class="c1">// local variable (might want to encapsulate in a class)
-</span>  <span class="nv">$mobile-card-height</span><span class="p">:</span> <span class="m">175px</span>
-</code></pre></article></body><script src="../javascripts/all-8fbf35e7.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <span class="c1">// local variable (might want to encapsulate in a class)</span>
+  <span class="nv">$mobile-card-height</span><span class="p">:</span> <span class="m">175px</span>
+</code></pre></div>
+    </article>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-ga('create', 'UA-4581413-1', 'auto');
-ga('send', 'pageview');</script></html>
+  ga('create', 'UA-4581413-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</html>
