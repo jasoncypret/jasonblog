@@ -50,10 +50,10 @@ bundle exec rake build # Compile all files into the build directory
 
 ## Publish to GitHub Pages
 
-Clear build folder before this step
+Clear/delete build folder before this step
 
 ```sh
-bundle exec rake publish ALLOW_DIRTY=true # Build and publish to Github Pages
+rm -rf build/ && bundle exec rake publish ALLOW_DIRTY=true # Build and publish to Github Pages
 ```
 
 
