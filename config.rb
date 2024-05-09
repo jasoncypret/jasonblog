@@ -59,6 +59,7 @@ activate :blog do |blog|
   blog.layout = "post"
   blog.permalink = "{title}.html"
   blog.sources = "articles/:title.html"
+  blog.publish_future_dated = true
 end
 
 # Build-specific configuration
