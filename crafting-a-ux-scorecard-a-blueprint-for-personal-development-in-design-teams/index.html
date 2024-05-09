@@ -1,0 +1,297 @@
+<!doctype html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Crafting a UX Scorecard</title>
+  <link href="../stylesheets/site-4c555855.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+</head>
+  <style rel='stylesheet' type='text/css'>
+    .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .gp {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .gr {
+  color: #cc0000;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .sa {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .go {
+  color: #BBBBBB;
+}
+.highlight .nf, .highlight .fm {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi, .highlight .vm {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+  </style>
+  <body class="article crafting-a-ux-scorecard-a-blueprint-for-personal-development-in-design-teams crafting-a-ux-scorecard-a-blueprint-for-personal-development-in-design-teams_index">
+    <header class="post-header image-post">
+    <img src="../images/articles/2024-05-09-crafting-a-ux-scorecard-a-blueprint-for-personal-development-in-design-teams/radar.webp" class="header-image lazyload lazyload" alt="" />
+  <div class="wrap">
+    <div class="nav">
+  <a class="avatar" href="/">
+    <div class="icon-arrow-left"></div>
+    <div class="avatar"><img src="https://d3vv6lp55qjaqc.cloudfront.net/items/103W0o16053h3m261211/new-face.jpg" class="lazyload lazyload" alt="" /></div>
+  </a>
+  <ul class="menu">
+      <li>
+        <a href="/resume/" class="menu-item resume">resume</a>
+      </li>
+  </ul>
+</div>
+    <h1 class="article-title">
+      <a href="/crafting-a-ux-scorecard-a-blueprint-for-personal-development-in-design-teams/">Crafting a UX Scorecard</a>
+    </h1>
+    <div class="article-summary">A Blueprint for Personal Development in Design Teams.</div>
+    <small class="article-date">May  9, 2024</small>
+  </div>
+</header>
+    <article class="post-content">
+      <p>In the dynamic field of UX design, continuous improvement and precise metrics are essential for both individual and team success. At Power, we are refining a detailed scorecard that systematically categorizes vital skills. This new tool will be invaluable not only for assessing current capabilities but also for planning the growth trajectory of our team members. This guide will explore each category in depth, offering insights on how you can tailor this structured approach to your team&rsquo;s development.</p>
+
+<p>We organize our core skills into four main groups: <strong>Craft</strong>, <strong>Engineering</strong>, <strong>Communication &amp; Collaboration</strong>, and <strong>Design Ops &amp; Leadership</strong>. The inclusion of Engineering is a deliberate choice, stemming from my background and our belief that a deeper understanding of how things are built leads to superior designs. While we don&rsquo;t expect our designers to become full-time developers, we do equip them to build interfaces using our design system in code. I mention this to emphasize that while this guide is a robust starting point, it should be adapted to reflect the unique attributes and needs of your team. With that in mind, let&rsquo;s dive in.</p>
+
+<h2>Craft</h2>
+
+<p>This category is foundational, focusing on the core artistic and technical skills a designer must possess:</p>
+
+<ul>
+<li><strong>Proficiency &amp; Speed:</strong> Mastery of design tools and methodologies, evaluated by speed and independence in execution.</li>
+<li><strong>Interface Design:</strong> Ability to create intuitive and aesthetically pleasing user interfaces using system components, with a focus on innovation and adherence to design standards.</li>
+<li><strong>UX Design:</strong> Expertise in user-centric design processes, including extensive user research and the effective use of our design toolkit to deliver optimal user experiences.</li>
+<li><strong>Business Knowledge:</strong> Understanding of the broader business context in which design decisions are made, ensuring alignment with organizational goals.</li>
+</ul>
+
+<h2>Engineering</h2>
+
+<p>Technical acumen in software development that supports effective design implementation:</p>
+
+<ul>
+<li><strong>Engineering Knowledge:</strong> Deep understanding of software principles and best practices, essential for making informed design decisions.</li>
+<li><strong>Engineering Demonstrated:</strong> Practical application of engineering skills, contributing to development tasks and projects.</li>
+<li><strong>Engineering Ambassador:</strong> Acts as a bridge between design and development teams, facilitating communication and problem resolution.</li>
+<li><strong>Technology Mindset:</strong> Considers technical feasibility and implementation details in the design process, optimizing both design integrity and practical execution.</li>
+</ul>
+
+<h2>Communication + Collaboration</h2>
+
+<p>Essential skills for working effectively within and across teams:</p>
+
+<ul>
+<li><strong>Communication &amp; Presentation Skills:</strong> Clear articulation of design concepts and decisions, using compelling storytelling to engage stakeholders.</li>
+<li><strong>Action &amp; Impact:</strong> Ability to translate design work into business value, fostering trust and influencing the strategic direction.</li>
+<li><strong>Collaboration:</strong> Skill in building consensus and incorporating diverse perspectives into design solutions.</li>
+<li><strong>Organization &amp; Priority Management:</strong> Effective management of design workflows and stakeholder expectations, ensuring timely delivery of projects.</li>
+</ul>
+
+<h2>Design Ops &amp; Leadership</h2>
+
+<p>Strategic and operational capabilities that enhance team functionality and innovation:</p>
+
+<ul>
+<li><strong>Tooling &amp; Standards:</strong> Development and maintenance of design tools and standards that streamline workflows and improve output quality.</li>
+<li><strong>Systems Thinking:</strong> Holistic approach to design, considering the impact of decisions on the system as a whole and promoting a culture of continuous improvement.</li>
+<li><strong>Hiring:</strong> Engagement in the recruitment and development of new team members, shaping a diverse and dynamic design culture.</li>
+<li><strong>Performance Evaluation:</strong> Implementation of rigorous evaluation methods to provide feedback and foster professional growth among team members.</li>
+</ul>
+
+<p><strong>Conclusion:</strong></p>
+
+<p>Our scorecard is designed to not just evaluate but also inspire our designers, pushing them to expand their skills and embrace new challenges. By adopting a similar scorecard, leaders in other organizations can provide clear pathways for designer development, ensuring that their teams not only meet but exceed their potential in creating exceptional user experiences.</p>
+
+<p>This guide is meerly an overview, and provides a glimpse into our structured approach to skill development. We have each skill within the scorecard meticulously broken down by levels, tailored to guide and enhance the growth of our team members. In future posts, I plan to delve deeper into each skill, providing detailed breakdowns and examples to further aid in the application and customization of this framework to your specific needs.</p>
+
+<p><strong>Resources:</strong></p>
+
+<p>To further explore the concepts discussed and gain additional perspectives on building effective design teams, consider the following resources:</p>
+
+<ul>
+<li><a href="https://wadeshearer.medium.com/designing-work-developing-careers-53028aec9a82">Designing Work, Developing Careers by Wade Shearer</a></li>
+<li><a href="https://progression.fyi/">Progression.fyi</a></li>
+<li><a href="https://www.figma.com/blog/how-we-built-the-figma-design-team/">How Figma Built Their Design Team</a></li>
+<li><a href="https://github.com/buzzfeed/design/blob/master/product-design-roles.md">Buzzfeed&rsquo;s Product Design Roles</a></li>
+<li><a href="https://medium.com/design-or-be-designed/developing-levels-on-a-design-team-5f8df0e462b8">Developing Levels on a Design Team by Mia Blume</a></li>
+<li><a href="https://www.designerfund.com/blog/a-design-teams-guide-to-leveling/">A Design Team’s Guide to Leveling by DesignerFund</a></li>
+</ul>
+
+<p>This post aims to provide a comprehensive guide on how to implement a structured and effective scorecard for UX teams, offering a blueprint that can be customized to meet the needs of various organizations and team sizes.</p>
+
+    </article>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-4581413-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</html>
