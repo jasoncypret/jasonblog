@@ -1,0 +1,12 @@
+---
+layout: layout
+title: "Tags"
+---
+
+<h1>All Tags</h1>
+
+<ul>
+  <% blog.tags.each do |tag, posts| %>
+    <li><%= link_to tag, "/tags/#{tag.downcase.gsub(' ', '-')}/" %></li>
+  <% end %>
+</ul>

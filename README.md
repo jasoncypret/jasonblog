@@ -60,3 +60,5 @@ rm -rf build/ && bundle exec rake publish ALLOW_DIRTY=true # Build and publish t
 ## Configuration
 
 You can configure My Blog by modifying the `config.rb` file in the project root directory. Make sure to update the necessary settings before running the application.
+
+This is a [good starter template](https://github.com/middleman/middleman-templates-blog) to study.

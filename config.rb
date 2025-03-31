@@ -60,6 +60,14 @@ activate :blog do |blog|
   blog.permalink = "{title}.html"
   blog.sources = "articles/:title.html"
   blog.publish_future_dated = true
+
+  # Enable pagination
+  blog.paginate = true
+  blog.per_page = 10
+  blog.page_link = "page/{num}"
+
+  blog.tag_template = "tag_template.html"
+  blog.calendar_template = "calendar_template.html"
 end
 
 # Build-specific configuration
