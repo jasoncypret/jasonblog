@@ -1,6 +1,9 @@
 body.index {
   color: $white;
   @import "homepage/hero";
+  @import "homepage/my-features";
+  @import "homepage/speaking";
+  @import "homepage/showcase_power";
   @import "homepage/bb-splash";
   @import "homepage/blog-posts";
   @import "homepage/resume";
@@ -8,9 +11,12 @@ body.index {
     visibility: hidden;
   }
   .header-subtitle {
-    color: $text_lt_default;
-    text-transform: uppercase;
+    color: $text_lt_light;
     font-size: $text_large;
+    letter-spacing: $lspace_looser;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
     &.pink {
       color: #F75A9A;
       margin-bottom: $space_md;

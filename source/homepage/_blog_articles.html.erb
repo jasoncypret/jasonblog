@@ -1,0 +1,19 @@
+<div class="blog-articles">
+  <div class="header-subtitle">Latest Blog Posts</div>
+  <% blog.articles[0...5].each_with_index do |article, i| %>
+    <article class="blog-article <%= (i == 0) ? 'first' : '' %>">
+      <% if article.data.image %>
+        <% link_to article.url, class: "article-image" do %>
+          <%= image_tag article.data.image, class: "lazyload" %>
+        <% end %>
+      <% end %>
+      <h1 class="article-title">
+        <%= link_to article.title, article.url %>
+      </h1>
+      <% if article.data.summary %>
+        <div class="article-summary"><%= article.data.summary %></div>
+      <% end %>
+      <small class="article-date"><%= article.date.strftime('%B %e, %Y') %></small>
+    </article>
+  <% end %>
+</div>

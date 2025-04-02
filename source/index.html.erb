@@ -2,58 +2,10 @@
 title: Jason Cypret
 ---
 
-<div class="main">
-  <%= image_tag "homepage/hero.webp", class: 'hero lazyload' %>
-  <div class="wrap">
-    <div class="avatar"><%= image_tag 'avatar.webp', class: 'lazyload' %></div>
-    <h1><%= current_page.data.title %></h1>
-    <p class="desc">
-      <%= "VP of UX at " %>
-      <a href="http://powerhrg.com">Power</a><%= ". Founder of " %>
-      <a href="http://boxboard.io">BoxBoard</a><%= ", Core contributor of the " %>
-      <a href="http://expressionui.com">Playbook</a> design system.
-    </p>
-
-    <ul class="links">
-      <li class="tweet">
-        <a class="icon-twitter" href="http://twitter.com/JasonCypret"></a>
-      </li>
-      <li class="git">
-        <a class="icon-github" href="http://github.com/jasoncypret"></a>
-      </li>
-      <li class="drib">
-        <a class="icon-dribbble" href="http://dribbble.com/jasoncypret"></a>
-      </li>
-      <li class="pin">
-        <a class="icon-pintrest" href="http://www.pinterest.com/jasoncypret/"></a>
-      </li>
-    </ul>
-
-    <div class="icon-arrow-down more fadeIn"></div>
-  </div>
-</div>
-
-<a class="bb-splash" href="https://boxboard.io">
-  <%= image_tag 'homepage/boxboard-splash.jpg', class: 'lazyload' %>
-</a>
-
-
-<div class="blog-articles">
-  <div class="header-subtitle">Latest Blog Posts</div>
-  <% blog.articles[0...5].each_with_index do |article, i| %>
-    <article class="blog-article <%= (i == 0) ? 'first' : '' %>">
-      <% if article.data.image %>
-        <% link_to article.url, class: "article-image" do %>
-          <%= image_tag article.data.image, class: "lazyload" %>
-        <% end %>
-      <% end %>
-      <h1 class="article-title">
-        <%= link_to article.title, article.url %>
-      </h1>
-      <% if article.data.summary %>
-        <div class="article-summary"><%= article.data.summary %></div>
-      <% end %>
-      <small class="article-date"><%= article.date.strftime('%B %e, %Y') %></small>
-    </article>
-  <% end %>
-</div>
+<%= partial "homepage/hero" %>
+<%= partial "homepage/my_features" %>
+<%= partial "homepage/speaking" %>
+<h5 class="header-subtitle pt-5 mt-5">Experience Showcase</h5>
+<%= partial "homepage/showcase_power" %>
+<%= partial "homepage/bb_splash" %>
+<%= partial "homepage/blog_articles" %>
