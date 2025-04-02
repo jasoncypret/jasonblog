@@ -98,6 +98,10 @@
   &.bloom .showcase-container {
     background: linear-gradient(103.44deg, #6D5AB9 1.5%, #0D33CB 97.38%);
   }
+  &.brain .showcase-container {
+    background: linear-gradient(103.44deg, #00716E 1.5%, #30B3AD 97.38%);
+  }
+  
   &.left .showcase-container {
     flex-direction: row-reverse;
     .showcase-image {
