@@ -1,0 +1,11 @@
+<!doctype html>
+<html>
+  <%= partial "/layouts/head" %>
+  <body class="article <%= page_classes %>">
+    <%# partial "/layouts/post_header" %>
+    <article class="post-content">
+      <%= yield %>
+    </article>
+  </body>
+  <%= partial "/layouts/js_includes" %>
+</html>

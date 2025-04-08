@@ -4,6 +4,7 @@ a.bb-splash {
   height: 345px;
   position: relative;
   background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  margin: ($space_xl*2) 0;
 
   img {
     width: 100%;
