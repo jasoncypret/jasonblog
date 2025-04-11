@@ -61,7 +61,7 @@
       font-weight: 400;
       color: rgba($white, $opacity_7);
     }
-    button {
+    button, a {
       appearance: none;
       background: none;
       border: 0;
@@ -71,6 +71,9 @@
       color: $white;
       font-size: $text_base;
       font-weight: 600;
+      i {
+        margin-left: $space_sm;
+      }
     }
     &-center {
       flex: 2;
@@ -94,6 +97,7 @@
   }
   &.power .showcase-container {
     background: linear-gradient(103.44deg, #1a458f 1.5%, #357af1 97.38%);
+    cursor: pointer;
   }
   &.bloom .showcase-container {
     background: linear-gradient(103.44deg, #6D5AB9 1.5%, #0D33CB 97.38%);
@@ -129,14 +133,14 @@
       position: relative;
     }
   }
-  // @media (hover:hover) {  
-  //   &:hover .showcase-container {
-  //     scale: 1.01;
-  //   }
-  // }
-  // @media (hover:hover) {  
-  //   &.power:hover .showcase-container:after {
-  //     opacity: 1;
-  //   }
-  // }
+  @media (hover:hover) {  
+    &.power:hover .showcase-container {
+      scale: 1.01;
+    }
+  }
+  @media (hover:hover) {  
+    &.power:hover .showcase-container:after {
+      opacity: 1;
+    }
+  }
 }

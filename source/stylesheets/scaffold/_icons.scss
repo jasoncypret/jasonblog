@@ -38,32 +38,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-[data-icon]:before {
-  font-family: "jasonicon" !important;
-  content: attr(data-icon);
-  font-style: normal !important;
-  font-weight: normal !important;
-  font-variant: normal !important;
-  text-transform: none !important;
-  speak: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-[class^="icon-"]:before,
-[class*=" icon-"]:before {
-  font-family: "jasonicon" !important;
-  font-style: normal !important;
-  font-weight: normal !important;
-  font-variant: normal !important;
-  text-transform: none !important;
-  speak: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 .icon-arrow-left:before {
   content: "\61";
 }
@@ -73,12 +47,36 @@
 .icon-pintrest:before {
   content: "\65";
 }
-.icon-twitter:before {
-  content: "\66";
-}
 .icon-github:before {
   content: "\62";
 }
 .icon-arrow-down:before {
   content: "\64";
+}
+.icon-arrow-right:before {
+  content: "\66";
+}
+.icon-block-question:before {
+  content: "\67";
+}
+.icon-book-sparkles:before {
+  content: "\68";
+}
+.icon-display-chart-up:before {
+  content: "\69";
+}
+.icon-handshake-angle:before {
+  content: "\6a";
+}
+.icon-laptop-code:before {
+  content: "\6b";
+}
+.icon-laptop-mobile:before {
+  content: "\6c";
+}
+.icon-swap-arrows:before {
+  content: "\6d";
+}
+.icon-wand-magic-sparkles:before {
+  content: "\6e";
 }

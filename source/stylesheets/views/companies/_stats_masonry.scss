@@ -1,0 +1,53 @@
+/* Outer container for the masonry layout */
+.stats-masonry {
+  max-width: 1200px;        // Limit the container width
+  margin: 0 auto;           // Center it horizontally
+  display: flex;
+  flex-direction: column;   // Default stack on mobile
+  flex-wrap: wrap;
+
+
+  &__col {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Items inside each column */
+  .stats-item {
+    background: #F2F4F7;
+    margin: 0.5rem 0;
+    // padding: 1rem;
+    flex: 1;
+    border-radius: 12px;
+  }
+
+  /* At medium breakpoints and above, display columns side by side */
+  @media (min-width: 768px) {
+    flex-direction: row;
+    &__col {
+      flex: 1;              // Adjust to equal width columns, or tweak as needed
+      margin-right: 1rem;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  /* Optional extra spacing adjustments for larger screens */
+  @media (min-width: 992px) {
+    &__col {
+      margin-right: 1rem;
+      &:last-child {
+        margin-right: 0;
+        flex: 2;
+      }
+    }
+  }
+}
+
+/* Specific styling for the large callout image item */
+// .stats-item--image {
+//   // background: #ccc url('path/to/your-image.jpg') center/cover no-repeat;
+//   height: 300px; // Adjust height as desired
+// }

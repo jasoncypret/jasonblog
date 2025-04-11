@@ -1,0 +1,56 @@
+// Module styles
+.company-hero {
+	padding: 3.4375rem 0 0;
+	overflow: hidden;
+	text-align: center;
+	@media (min-width: 992px) {
+		padding: 7.5rem 0 0;
+	}
+	&.power {
+    background: linear-gradient(103.44deg, #1a458f 1.5%, #357af1 97.38%);
+  }
+	.company-container {
+		width: 100%;
+		max-width: 1140px;
+		margin: 0 auto;
+		padding: 0 15px;
+	}
+	.company-content {
+		max-width: 700px;
+		margin: 0 auto;
+		text-align: center;
+		.company-logo {
+			height: 64px;
+			margin-bottom: 3.25rem;
+			vertical-align: middle;
+		}
+		.company-title {
+			margin-bottom: 1.3rem;
+			font-style: normal;
+			font-weight: 700;
+			font-size: 20px;
+			line-height: 25px;
+			text-align: center;
+			color: $white;
+			line-height: 1.2;
+		}
+		.company-description {
+			margin-bottom: 2rem;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 25px;
+			text-align: center;
+			color: rgba($white, 0.8);
+		}
+	}
+	.company-mockup {
+		width: 100%;
+		max-width: 1400px;
+		margin: 0 auto;
+		margin-bottom: -12rem;
+		@media (max-width: 700px) {
+			margin-bottom: -5rem;
+		}
+	}
+}

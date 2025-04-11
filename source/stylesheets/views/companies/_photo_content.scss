@@ -1,0 +1,449 @@
+// @font-face { 
+//   font-family:'Circular Std';
+//   src:url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-Medium.eot');
+//   src:url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-Medium.eot?#iefix') format('embedded-opentype'),
+//         url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-Medium.woff2') format('woff2'),
+//         url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-Medium.woff') format('woff'),
+//         url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-Medium.ttf') format('truetype');
+//   font-weight:500;
+//   font-style:normal;
+//   font-display:swap;
+// } 
+// @font-face { 
+//   font-family:'Circular Std';
+//   src:url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-Book.eot');
+//   src:url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-Book.eot?#iefix') format('embedded-opentype'),
+//         url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-Book.woff2') format('woff2'),
+//         url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-Book.woff') format('woff'),
+//         url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-Book.ttf') format('truetype');
+//   font-weight:400;
+//   font-style:normal;
+//   font-display:swap;
+// } 
+// @font-face { 
+//   font-family:'Circular Std';
+//   src:url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-BookItalic.eot');
+//   src:url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-BookItalic.eot?#iefix') format('embedded-opentype'),
+//         url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-BookItalic.woff2') format('woff2'),
+//         url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-BookItalic.woff') format('woff'),
+//         url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-BookItalic.ttf') format('truetype');
+//   font-weight:400;
+//   font-style:italic;
+//   font-display:swap;
+// } 
+// @font-face { 
+//   font-family:'Circular Std';
+//   src:url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-BoldItalic.eot');
+//   src:url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-BoldItalic.eot?#iefix') format('embedded-opentype'),
+//         url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-BoldItalic.woff2') format('woff2'),
+//         url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-BoldItalic.woff') format('woff'),
+//         url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-BoldItalic.ttf') format('truetype');
+//   font-weight:700;
+//   font-style:italic;
+//   font-display:swap;
+// } 
+// @font-face { 
+//   font-family:'Circular Std';
+//   src:url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-Bold.eot');
+//   src:url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-Bold.eot?#iefix') format('embedded-opentype'),
+//         url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-Bold.woff2') format('woff2'),
+//         url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-Bold.woff') format('woff'),
+//         url('https://finestwp.co/demos/html/shadepro/light/fonts/typography-font/CircularStd-Bold.ttf') format('truetype');
+//   font-weight:700;
+//   font-style:normal;
+//   font-display:swap;
+// } 
+//   body {  
+//     font-family:"Circular Std", sans-serif;
+//     font-size:1rem;
+//     font-weight:400;
+//     line-height:1.5;
+//     color:var(--color-texts-opacity);
+//     text-align:left;
+//   }  
+// * { 
+//     box-sizing: border-box;
+// } 
+
+// .container { 
+//     width: 100%; 
+//     padding-right: 15px; 
+//     padding-left: 15px; 
+//     margin-right: auto; 
+//     margin-left: auto;
+// } 
+
+// @media (min-width: 576px){ 
+//   .container { 
+//     max-width: 540px;
+//   } 
+// }     
+
+// @media (min-width: 768px){ 
+//   .container { 
+//     max-width: 720px;
+//   } 
+// }     
+
+// @media (min-width: 992px){ 
+//   .container { 
+//     max-width: 960px;
+//   } 
+// }     
+
+// @media (min-width: 1200px){ 
+//   .container { 
+//     max-width: 1140px;
+//   } 
+// }     
+
+// .mb-13 { 
+//     margin-bottom: 3.125rem !important;
+// } 
+
+// body { 
+//     margin: 0; 
+//     font-family: "Circular Std", sans-serif; 
+//     font-size: 1rem; 
+//     font-weight: 400; 
+//     line-height: 1.5; 
+//     color: var(--color-texts-opacity); 
+//     text-align: left; 
+//     background-color: var(--bg);
+// } 
+
+// body { 
+//     --bg: #fcfdfe; 
+//     --bg-2: #f4f7fa; 
+//     --bg-4: #fdfdff; 
+//     --color-headings: #161c2d; 
+//     --color-texts-opacity: rgba(22,28,45, 0.7); 
+//     --border-color: #e7e9ed; 
+// } 
+
+// html { 
+//     font-family: sans-serif; 
+//     line-height: 1.15; 
+//     -webkit-text-size-adjust: 100%; 
+//     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+// } 
+
+// .pt-14 { 
+//     padding-top: 3.4375rem !important;
+// } 
+
+// .pb-14 { 
+//     padding-bottom: 3.4375rem !important;
+// } 
+
+// @media (min-width: 992px){ 
+//   .pt-lg-25 { 
+//     padding-top: 7.5rem !important;
+//   } 
+
+//   .pb-lg-26 { 
+//     padding-bottom: 8.125rem !important;
+//   } 
+// }     
+
+// .bg-gradient { 
+//     position: relative; 
+//     z-index: 1;
+// } 
+
+// .bg-gradient-3 { 
+//     background-image: linear-gradient(to bottom, var(--bg-2) 62%, var(--bg-4) 62%, var(--bg-4) 100%);
+// } 
+
+// *,:before,:after { 
+//     box-sizing: border-box;
+// } 
+
+// .row { 
+//     display: flex; 
+//     flex-wrap: wrap; 
+//     margin-right: -15px; 
+//     margin-left: -15px;
+// } 
+
+// .col-md-6,.col-lg-6,.col-xl-6 { 
+//     position: relative; 
+//     width: 100%; 
+//     padding-right: 15px; 
+//     padding-left: 15px;
+// } 
+
+// @media (min-width: 768px){ 
+//   .col-md-6 { 
+//     flex: 0 0 50%; 
+//     max-width: 50%;
+//   } 
+// }     
+
+// @media (min-width: 992px){ 
+//   .col-lg-6 { 
+//     flex: 0 0 50%; 
+//     max-width: 50%;
+//   } 
+// }     
+
+// @media (min-width: 1200px){ 
+//   .col-xl-6 { 
+//     flex: 0 0 50%; 
+//     max-width: 50%;
+//   } 
+// }     
+
+// .col-md-6,.col-lg-6 { 
+//     position: relative; 
+//     width: 100%; 
+//     padding-right: 15px; 
+//     padding-left: 15px;
+// } 
+
+// [data-aos="fade-up"] { 
+//     transform: translate3d(0,100px,0);
+// } 
+
+// [data-aos^="fade"][data-aos^="fade"] { 
+//     opacity: 0; 
+//     transition-property: opacity,transform;
+// } 
+
+// body[data-aos-duration="400"] [data-aos]  { 
+//     transition-duration: .4s;
+// } 
+
+// body[data-aos-easing="ease"] [data-aos]  { 
+//     transition-timing-function: ease;
+// } 
+
+// [data-aos][data-aos][data-aos-duration="1000"] { 
+//     transition-duration: 1s;
+// } 
+
+// [data-aos^="fade"][data-aos^="fade"].aos-animate { 
+//     opacity: 1; 
+//     transform: translateZ(0);
+// } 
+
+// @media (min-width: 992px){ 
+//   .mb-lg-21 { 
+//     margin-bottom: 5.625rem !important;
+//   } 
+// }     
+
+// @media (min-width: 1200px){ 
+//   .pr-xl-6 { 
+//     padding-right: 1rem !important;
+//   } 
+// }     
+
+// .mt-9 { 
+//     margin-top: 1.875rem !important;
+// } 
+
+// @media (min-width: 992px){ 
+//   .mt-lg-4 { 
+//     margin-top: 0.625rem !important;
+//   } 
+// }     
+
+// @media (min-width: 1200px){ 
+//   .pl-xl-6 { 
+//     padding-left: 1rem !important;
+//   } 
+// }     
+
+// h2 { 
+//     margin-top: 0; 
+//     margin-bottom: 0.5rem;
+// } 
+
+// h2 { 
+//     margin-bottom: 0.5rem; 
+//     font-weight: 700; 
+//     line-height: 1.2; 
+//     color: var(--color-headings);
+// } 
+
+// h2 { 
+//     font-size: 2.25rem;
+// } 
+
+// .mb-7 { 
+//     margin-bottom: 1.25rem !important;
+// } 
+
+// .gr-text-3 { 
+//     font-size: 3rem; 
+//     letter-spacing: -1.8px; 
+//     line-height: 1.21;
+// } 
+
+// p { 
+//     margin-top: 0; 
+//     margin-bottom: 1rem;
+// } 
+
+// p { 
+//     font-size: 1.1875rem; 
+//     color: var(--color-texts-opacity);
+// } 
+
+// .gr-text-8 { 
+//     font-size: 1.1875rem; 
+//     letter-spacing: -0.2px; 
+//     line-height: 1.69;
+// } 
+
+// img { 
+//     vertical-align: middle; 
+//     border-style: none;
+// } 
+
+// .w-100 { 
+//     width: 100% !important;
+// } 
+
+// .rounded-10 { 
+//     border-radius: 10px;
+// } 
+
+// .d-none { 
+//     display: none !important;
+// } 
+
+// @media (min-width: 992px){ 
+//   .d-lg-block { 
+//     display: block !important;
+//   } 
+// }     
+
+.photo-content {
+  position: relative;
+  z-index: 1;
+  padding: 3.4375rem 0;
+  --bg-2: #f4f7fa; 
+  --bg-4: #fdfdff; 
+  background-image: linear-gradient(to bottom, var(--bg-2) 62%, var(--bg-4) 62%, var(--bg-4) 100%);
+
+  @media (min-width: 992px) {
+    padding: 7.5rem 0 8.125rem;
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+  }
+
+  &__column {
+    position: relative;
+    width: 100%;
+    padding: 0 15px;
+    opacity: 1;
+
+    @media (min-width: 768px) {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    &--left {
+      @media (min-width: 1200px) {
+        padding-right: 1rem;
+      }
+    }
+
+    &--right {
+      @media (min-width: 1200px) {
+        padding-left: 1rem;
+      }
+    }
+  }
+
+  &__header {
+    margin-bottom: 3.125rem;
+
+    @media (min-width: 992px) {
+      margin-bottom: 5.625rem;
+    }
+  }
+
+  &__title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--color-headings);
+    margin-bottom: 1.75rem;
+  }
+
+  &__description {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-texts-opacity);
+  }
+
+  &__image {
+    margin-top: 1.875rem;
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+
+    @media (min-width: 992px) {
+      margin-top: 0.625rem;
+    }
+
+    &--left {
+      @media (min-width: 992px) {
+        margin-top: 0;
+      }
+    }
+
+    &--right {
+      @media (min-width: 992px) {
+        margin-top: 0.625rem;
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+  }
+}
+
+// AOS animations
+[data-aos] {
+  opacity: 0;
+  transition-property: opacity, transform;
+  will-change: opacity, transform;
+}
+
+[data-aos="fade-up"] {
+  transform: translate3d(0, 100px, 0);
+}
+
+[data-aos^="fade"][data-aos^="fade"] {
+  opacity: 0;
+  transition-property: opacity, transform;
+}
+
+[data-aos^="fade"][data-aos^="fade"].aos-animate {
+  opacity: 1;
+  transform: translateZ(0);
+}
+
+[data-aos][data-aos][data-aos-duration="1000"] {
+  transition-duration: 1s;
+  opacity: 1;
+}
+
+
