@@ -6,6 +6,14 @@ set :css_dir, 'stylesheets'
 set :markdown_engine, :redcarpet
 set :markdown, fenced_code_blocks: true, smartypants: true
 
+# Add video files to the list of binary files
+set :binary_files, %w(.m4v .mp4 .webm .ogv)
+
+after_build do |builder|
+  # Copy video files to build directory
+  FileUtils.cp_r Dir.glob('source/videos/*'), 'build/videos/'
+end
+
 activate :autoprefixer do |prefix|
   prefix.browsers = "last 2 versions"
 end

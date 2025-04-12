@@ -38,7 +38,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-arrow-left:before {
+.icon-angle-left:before {
   content: "\61";
 }
 .icon-dribbble:before {
@@ -59,14 +59,35 @@
 .icon-block-question:before {
   content: "\67";
 }
+.icon-arrow-left:before {
+  content: "\74";
+}
+.icon-arrow-up-right-from-square:before {
+  content: "\75";
+}
 .icon-book-sparkles:before {
   content: "\68";
+}
+.icon-charging-station:before {
+  content: "\76";
+}
+.icon-cloud-arrow-down:before {
+  content: "\77";
+}
+.icon-cubes:before {
+  content: "\78";
 }
 .icon-display-chart-up:before {
   content: "\69";
 }
-.icon-handshake-angle:before {
+.icon-figma:before {
   content: "\6a";
+}
+.icon-handshake-angle:before {
+  content: "\6f";
+}
+.icon-html-5:before {
+  content: "\70";
 }
 .icon-laptop-code:before {
   content: "\6b";
@@ -74,8 +95,17 @@
 .icon-laptop-mobile:before {
   content: "\6c";
 }
+.icon-rails:before {
+  content: "\73";
+}
+.icon-react:before {
+  content: "\72";
+}
 .icon-swap-arrows:before {
   content: "\6d";
+}
+.icon-swift:before {
+  content: "\71";
 }
 .icon-wand-magic-sparkles:before {
   content: "\6e";
