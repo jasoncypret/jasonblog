@@ -459,3 +459,16 @@
     }
   }
 }
+
+@mixin caption {
+  color: $text_lt_light;
+  font-size: $text_large;
+  letter-spacing: $lspace_looser;
+  text-transform: uppercase;
+  font-weight: normal;
+  text-align: center;
+}
+
+.caption {
+  @include caption;
+}

@@ -8,6 +8,7 @@ gem 'middleman-gh-pages'
 gem "redcarpet"
 gem 'middleman-syntax'
 gem 'middleman-livereload'
+gem 'mini_magick', '~> 4.12'
 gem 'terser', '~> 1.1'
 gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby, :x64_mingw]
 gem 'wdm', '~> 0.1', platforms: [:mswin, :mingw, :x64_mingw]

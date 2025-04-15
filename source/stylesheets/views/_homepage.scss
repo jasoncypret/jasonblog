@@ -11,12 +11,7 @@ body.index {
     visibility: hidden;
   }
   .header-subtitle {
-    color: $text_lt_light;
-    font-size: $text_large;
-    letter-spacing: $lspace_looser;
-    text-transform: uppercase;
-    font-weight: 700;
-    text-align: center;
+    @include caption;
     &.pink {
       color: #F75A9A;
       margin-bottom: $space_md;

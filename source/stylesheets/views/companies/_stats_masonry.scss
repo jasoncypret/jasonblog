@@ -1,11 +1,32 @@
-/* Outer container for the masonry layout */
+.stats-masonry-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  &-logo {
+    width: auto;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  &-quote {
+    font-size: 32px;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: $text_lt_default;
+  }
+}
+
+
+
 .stats-masonry {
-  max-width: 1200px;
+  max-width: 1120px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;   // Default stack on mobile
   flex-wrap: wrap;
-  padding: 30px 10px;
+  padding: 30px 10px 0 10px;
 
   &__col {
     margin-bottom: 1rem;
@@ -65,6 +86,9 @@
       font-style: normal;
       font-weight: 700;
       font-size: 64px;
+      &_sm {
+        font-size: 60px;
+      }
       &_xl {
         font-size: 96px;
       }
@@ -89,7 +113,7 @@
     }
     &.black {
       background: #000;
-      .stats-item__title {
+      .stats-item__title, .stats-item__title_sm {
         color: $white;
       }
       .stats-item__subtitle, .stats-item__description_small {
@@ -98,7 +122,7 @@
     }
     &.blue {
       background: #3300FF;
-      .stats-item__title {
+      .stats-item__title, .stats-item__title_sm {
         color: $white;
       }
       .stats-item__subtitle, .stats-item__description {
@@ -133,8 +157,39 @@
   }
 }
 
-/* Specific styling for the large callout image item */
-// .stats-item--image {
-//   // background: #ccc url('path/to/your-image.jpg') center/cover no-repeat;
-//   height: 300px; // Adjust height as desired
-// }
+.stats-masonry-footnote {
+  max-width: 1120px;
+  padding: 0 10px;
+  margin: auto;
+  font-size: 14px;
+  color: $text_lt_light;
+}
+
+.stats-masonry-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  flex-direction: column;
+  align-items: center;
+
+  &-title {
+    font-size: 36px;
+    color: $text_lt_default;
+    margin-bottom: 1rem;
+  }
+  &-subtitle {
+    font-size: 15px;
+    color: $text_lt_light;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    a {
+      color: $royal;
+      text-decoration: underline;
+      font-weight: bold;
+      &:hover {
+        color: darken($royal, 10%);
+      }
+    }
+  }
+}

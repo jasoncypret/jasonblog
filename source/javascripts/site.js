@@ -1,125 +1,94 @@
-document.addEventListener("DOMContentLoaded", function() {
-  // Carousel elements
-  const carouselWrapper = document.querySelector('.carousel__wrapper');
-  const slides = document.querySelectorAll('.carousel__slide');
-  const prevBtn = document.getElementById('carousel-prev');
-  const nextBtn = document.getElementById('carousel-next');
-  const totalSlides = slides.length;
-  let currentSlide = 0;
-  let isTransitioning = false;
-  let scrollPosition = 0;
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM Content Loaded');
+  
+  // Only initialize if we have gallery items
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  console.log('Found gallery items:', galleryItems.length);
+  
+  if (galleryItems.length === 0) return;
 
-  // Lightbox elements
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const lightboxClose = document.getElementById('lightbox-close');
+  // Create lightbox element
+  const lightbox = document.createElement('div');
+  lightbox.className = 'lightbox';
+  
+  // Create lightbox content structure
+  lightbox.innerHTML = '<div class="lightbox-content">' +
+    '<img class="lightbox-image lazyload" src="" alt="">' +
+    '<h3 class="lightbox-title"></h3>' +
+    '<p class="lightbox-description"></p>' +
+    '</div>';
+  
+  document.body.appendChild(lightbox);
+  console.log('Created lightbox element');
 
-  // Initialize carousel
-  function initCarousel() {
-    // Set initial active slide
-    slides[0].classList.add('active');
-    slides[0].style.opacity = '1';
-    
-    // Add data-large attributes if not present
-    slides.forEach(slide => {
-      const img = slide.querySelector('img');
-      if (img && !slide.hasAttribute('data-large')) {
-        slide.setAttribute('data-large', img.src);
+  // Helper function to safely get text content
+  function getTextContent(element) {
+    return element ? element.textContent : null;
+  }
+
+  // Add click handlers to gallery items
+  Array.prototype.forEach.call(galleryItems, function(item) {
+    item.addEventListener('click', function() {
+      const img = this.querySelector('.gallery-thumbnail');
+      const titleElement = this.querySelector('.gallery-item-title');
+      const descriptionElement = this.querySelector('.gallery-item-description');
+      const title = getTextContent(titleElement);
+      const description = getTextContent(descriptionElement);
+      
+      const lightboxImg = lightbox.querySelector('.lightbox-image');
+      const lightboxTitle = lightbox.querySelector('.lightbox-title');
+      const lightboxDescription = lightbox.querySelector('.lightbox-description');
+      
+      // Get the original image path from the data attribute
+      const originalPath = img.getAttribute('data-lightbox');
+      if (originalPath) {
+        lightboxImg.src = originalPath;
+      } else {
+        lightboxImg.src = img.src;
       }
-    });
-  }
-
-  // Update slides with smooth transition
-  function updateCarousel() {
-    if (isTransitioning) return;
-    isTransitioning = true;
-
-    // Fade out current slide
-    const currentActive = document.querySelector('.carousel__slide.active');
-    if (currentActive) {
-      currentActive.style.opacity = '0';
-      setTimeout(() => {
-        currentActive.classList.remove('active');
-      }, 500);
-    }
-
-    // Fade in new slide
-    slides[currentSlide].classList.add('active');
-    setTimeout(() => {
-      slides[currentSlide].style.opacity = '1';
-      isTransitioning = false;
-    }, 50);
-  }
-
-  // Next/Prev functionality with smooth transition
-  function goToSlide(index) {
-    if (isTransitioning) return;
-    currentSlide = (index + totalSlides) % totalSlides;
-    updateCarousel();
-  }
-
-  nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
-  prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
-
-  // Lightbox functionality
-  function openLightbox(imgSrc) {
-    // Store current scroll position
-    scrollPosition = window.pageYOffset;
-    
-    // Prevent scrolling
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollPosition}px`;
-    document.body.style.width = '100%';
-    
-    // Open lightbox
-    lightboxImg.src = imgSrc;
-    lightbox.style.display = "flex";
-  }
-
-  function closeLightbox() {
-    // Close lightbox
-    lightbox.style.display = "none";
-    
-    // Restore scrolling
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.width = '';
-    // window.scrollTo(0, scrollPosition);
-  }
-
-  // Open lightbox when clicking on slides
-  slides.forEach(slide => {
-    slide.addEventListener('click', function() {
-      const largeImgSrc = this.getAttribute('data-large');
-      if (largeImgSrc) {
-        openLightbox(largeImgSrc);
+      lightboxImg.alt = img.alt;
+      
+      // Add lazyload class and trigger the library
+      lightboxImg.classList.add('lazyload');
+      if (window.lazySizes) {
+        window.lazySizes.loader.unveil(lightboxImg);
       }
+      
+      if (title) {
+        lightboxTitle.textContent = title;
+        lightboxTitle.style.display = 'block';
+      } else {
+        lightboxTitle.style.display = 'none';
+      }
+      
+      if (description) {
+        lightboxDescription.textContent = description;
+        lightboxDescription.style.display = 'block';
+      } else {
+        lightboxDescription.style.display = 'none';
+      }
+      
+      lightbox.classList.add('active');
     });
   });
 
-  // Close lightbox
-  lightboxClose.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', function(event) {
-    if (event.target === lightbox) {
-      closeLightbox();
+  // Add click handler to lightbox
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) {
+      const lightboxImg = lightbox.querySelector('.lightbox-image');
+      // Remove lazyload class when closing
+      lightboxImg.classList.remove('lazyload', 'lazyloaded', 'ls-is-cached');
+      lightbox.classList.remove('active');
     }
   });
 
-  // Keyboard navigation
-  document.addEventListener('keydown', function(event) {
-    if (lightbox.style.display === "flex") {
-      if (event.key === "Escape") {
-        closeLightbox();
-      }
-    } else {
-      if (event.key === "ArrowRight") {
-        goToSlide(currentSlide + 1);
-      } else if (event.key === "ArrowLeft") {
-        goToSlide(currentSlide - 1);
-      }
+  // Add keyboard handler for escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+      const lightboxImg = lightbox.querySelector('.lightbox-image');
+      // Remove lazyload class when closing with escape
+      lightboxImg.classList.remove('lazyload', 'lazyloaded', 'ls-is-cached');
+      lightbox.classList.remove('active');
     }
   });
-
-  // Initialize carousel
-  initCarousel();
-});
+}); 

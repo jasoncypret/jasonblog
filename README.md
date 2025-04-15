@@ -62,3 +62,47 @@ rm -rf build/ && bundle exec rake publish ALLOW_DIRTY=true # Build and publish t
 You can configure My Blog by modifying the `config.rb` file in the project root directory. Make sure to update the necessary settings before running the application.
 
 This is a [good starter template](https://github.com/middleman/middleman-templates-blog) to study.
+
+# Image Gallery
+
+The site includes an image gallery feature with lightbox functionality. Images are automatically processed to create optimized thumbnails.
+
+## Image Processing
+
+### Thumbnail Generation
+- Thumbnails are generated at 2x resolution (400x500) for retina displays
+- Quality is set to 90% for optimal file size/quality balance
+- Thumbnails are automatically generated during build and server startup
+- Thumbnail files are named with `_thumb` suffix (e.g., `image.jpg` → `image_thumb.jpg`)
+
+### Regenerating Thumbnails
+To regenerate all thumbnails (e.g., after changing image processing settings):
+
+```bash
+bundle exec rake images:regenerate_thumbnails
+```
+
+This will:
+1. Delete all existing thumbnails
+2. Generate new thumbnails at the current settings
+3. Process all images in the `source/images/companies` directory
+
+### Image Gallery Usage
+To add an image to the gallery:
+
+```erb
+<div class="image-gallery">
+  <%= gallery_image "companies/power/Playbook-Figma.jpg", alt: "Power Playbook in Figma" %>
+</div>
+```
+
+The gallery will:
+- Display thumbnails in a responsive grid
+- Open full-size images in a lightbox on click
+- Support keyboard navigation (ESC to close)
+- Maintain page scroll position when opening/closing
+
+### Image Requirements
+- Original images should be placed in `source/images/companies/[company]/`
+- Supported formats: JPG, JPEG, PNG
+- Recommended minimum size: 800x1000 pixels (for 2x thumbnails)

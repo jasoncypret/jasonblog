@@ -1,32 +1,21 @@
 .company-highlights {
-	padding: 3.4375rem 0 1.25rem;
+	padding: 3.4375rem 0;
 	background: var(--bg-6);
 
-	@media (min-width: 992px) {
-		padding: 7.5rem 0 2.5rem;
-	}
-
 	.company-container {
-		max-width: 1200px;
+		max-width: 1130px;
 		margin: 0 auto;
 		padding: 0 15px;
 	}
 
 	.company-section-header {
 		text-align: center;
-		margin-bottom: 3.125rem;
+		margin-bottom: 1.125rem;
 	
 		@media (min-width: 992px) {
-			margin-bottom: 6.25rem;
+			margin-bottom: 1.25rem;
 		}
 		.company-section-title {
-			font-size: 1.25rem;
-			letter-spacing: $lspace_loose;
-			text-transform: uppercase;
-			letter-spacing: -1.2px;
-			line-height: 1.3;
-			color: $text_lt_light;
-			font-weight: 700;
 			margin-bottom: 0.5rem;
 		}
 	}
@@ -34,11 +23,11 @@
 	.company-highlights-grid {
 		display: grid;
 		grid-template-columns: 1fr;
-		gap: 2.5rem;
+		gap: 0rem;
 
 		@media (min-width: 992px) {
 			grid-template-columns: repeat(2, 1fr);
-			gap: 5rem;
+			gap: 0.5rem;
 		}
 
 		.company-highlight {
