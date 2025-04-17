@@ -6,21 +6,24 @@ title: Power
 <%= partial "companies/shared/hero" %>
 <%= partial "companies/shared/highlights" %>
 <%= partial "companies/shared/photo_content", locals: {
-  layout_type: 'default',
+  layout_type: 'single-image',
   title: "Designing & Scaling Playbook",
-  description: "Playbook is one of the most robust design systems ever developed specifically for Ruby on Rails — used in production across dozens of internal and customer-facing tools, and downloaded by teams around the world.",
+  description: "<p>Playbook started as a <strong>scrappy style guide</strong> and became a multi-language design system powering every PR in Nitro. We went from Bootstrap overrides to a fully responsive system in Rails, React, and Swift—adopted across teams and trusted by engineering.</p>
+
+<p>By pairing live code with <strong>Figma kits</strong> and prioritizing usability, we shipped faster and more consistently. The system now gets <strong>2M+ downloads</strong> a year and supports everything from dashboards to mobile apps to internal tooling.</p>
+
+<blockquote>&ldquo;Playbook isn't just a system of components. <br/><br/>It's a system of thinking.&rdquo;</blockquote>",
   images: [
-    { src: "/images/companies/power/jason-collab.png", alt: "Jason Collab" },
     { src: "/images/companies/power/playbook-computer.jpg", alt: "Playbook Homepage" }
   ]
 } %>
 
 
 <%= partial "companies/shared/stats_masonry" %>
-<%= partial "companies/shared/image_gallery" %>
+<%# partial "companies/shared/image_gallery" %>
 <%= partial "partials/media_showcase", locals: {
-  title: "Designing & Scaling Playbook",
-  description: "A comprehensive look at how we approached designing and scaling the Power platform.",
+  title: "Designing for Designers <br/>and Developers",
+  description: "",
   items: [
     {
       type: "image",
@@ -88,8 +91,10 @@ title: Power
       caption_description: "Responsive design adaptation"
     }
   ],
-  footer_title: "Performance that thrills",
-  footer_description: "Built with performance in mind, every interaction is smooth and responsive."
+  footer_title: "Think about systems, not just screens.",
+  footer_description: "<p>We built Playbook for scale, speed, and joy. Every component is tested, documented, and extensible. Developers can implement in seconds; designers can test ideas in real time. And because it lives in code and Figma, it meets teams where they are.</p>
+
+<p>The system became a shared language. It reduced churn between design and engineering. It helped us prototype ideas in hours, not weeks. And it became a foundation for AI prototyping, templates, and new workflows.</p>",
 } %>
 
 

@@ -7,6 +7,9 @@
   &-header {
     margin-bottom: 48px;
     max-width: 800px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 
     &-title {
       font-size: 48px;
@@ -34,16 +37,16 @@
   // Grid layout
   &-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 24px;
     margin-bottom: 48px;
 
     @media (min-width: 1024px) {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(5, 1fr);
     }
 
     @media (max-width: 640px) {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
     }
 
     // Grid items
@@ -54,6 +57,7 @@
       background: $white;
       transition: transform 0.3s ease;
       cursor: pointer;
+      aspect-ratio: 1;
 
       &:hover {
         transform: scale(1.02);
@@ -63,6 +67,7 @@
       &.span-2 {
         @media (min-width: 640px) {
           grid-column: span 2;
+          aspect-ratio: 2/1;
         }
       }
 
@@ -70,6 +75,7 @@
       &.span-2-rows {
         @media (min-width: 640px) {
           grid-row: span 2;
+          aspect-ratio: 1/2;
         }
       }
 
@@ -118,8 +124,11 @@
 
   // Footer section
   &-footer {
-    max-width: 800px;
+    max-width: 100%;
     margin: 48px 0;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 
     &-title {
       font-size: 32px;
@@ -137,9 +146,19 @@
       font-size: 18px;
       line-height: 1.5;
       color: $text_lt_light;
+      display: flex;
+      gap: 48px;
+      text-align: left;
+
+      p {
+        flex: 1;
+        margin: 0;
+      }
 
       @media (max-width: 768px) {
         font-size: 16px;
+        flex-direction: column;
+        gap: 24px;
       }
     }
   }

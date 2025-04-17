@@ -1,5 +1,5 @@
 $font_family_base: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans_serif !default;
-$font_family_accent: "Droid Serif", serif;
+$font_family_accent: $font_family_base;
 $serif: $font_family_accent;
 
 /* CLEAN UP AND REMOVE */
@@ -36,7 +36,7 @@ $lspace_super_loosest:    .2em !default;
 
 /* Standard Font Weights */
 $bold:          700 !default;
-$regular:       400 !default;
+$regular:       500 !default;
 
 /* Non_Standard Font Weights */
 $extrabold:     700 !default;
