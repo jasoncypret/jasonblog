@@ -1,20 +1,103 @@
-<div class="photo-content">
-  <div class="photo-content__container">
-    <div class="photo-content__grid">
-      <div class="photo-content__column photo-content__column--left">
-        <div class="photo-content__header" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-          <h2 class="photo-content__title">Designing & Scaling Playbook</h2>
-          <p class="photo-content__description">Playbook is one of the most robust design systems ever developed specifically for Ruby on Rails — used in production across dozens of internal and customer-facing tools, and downloaded by teams around the world.</p>
+<%
+# Local variables:
+# - layout_type: String (required) - 'default', 'single-image', or 'centered-image'
+# - title: String (required)
+# - description: String (required)
+# - images: Array of Hashes (required)
+#   Each image should have:
+#   - src: String (required)
+#   - alt: String (required)
+#   - caption: String (optional)
+%>
+
+<% 
+  layout_classes = {
+    'default' => 'photo-content--two-column',
+    'single-image' => 'photo-content--single-image',
+    'centered-image' => 'photo-content--centered'
+  }
+%>
+
+<section class="photo-content <%= layout_classes[layout_type] %>">
+  <div class="container">
+    <% if layout_type == 'centered-image' %>
+      <%# Centered layout %>
+      <h2 class="title" data-aos="fade-up"><%= title %></h2>
+      <div class="image-container" data-aos="fade-up" data-aos-delay="100">
+        <% if images.first %>
+          <div class="gallery-item">
+            <img class="gallery-thumbnail lazyload" 
+                 src="<%= images.first[:src] %>"
+                 data-lightbox="<%= images.first[:src] %>"
+                 alt="<%= images.first[:alt] %>">
+            <% if images.first[:caption] %>
+              <p class="caption"><%= images.first[:caption] %></p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="description-wide" data-aos="fade-up" data-aos-delay="200">
+        <%= description %>
+      </div>
+
+    <% elsif layout_type == 'single-image' %>
+      <%# Single image layout %>
+      <div class="content-wrapper">
+        <div class="content-primary" data-aos="fade-up">
+          <h2 class="title"><%= title %></h2>
+          <div class="description">
+            <%= description %>
+          </div>
         </div>
-        <div class="photo-content__image photo-content__image--left" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" data-aos-delay="200">
-          <%= image_tag "companies/power/jason-collab.png", class: "lazyload photo-content__img", alt: "Jason Collab" %>
+        <div class="content-secondary" data-aos="fade-up" data-aos-delay="100">
+          <% if images.first %>
+            <div class="gallery-item">
+              <img class="gallery-thumbnail lazyload" 
+                   src="<%= images.first[:src] %>"
+                   data-lightbox="<%= images.first[:src] %>"
+                   alt="<%= images.first[:alt] %>">
+              <% if images.first[:caption] %>
+                <p class="caption"><%= images.first[:caption] %></p>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
-      <div class="photo-content__column photo-content__column--right">
-        <div class="photo-content__image photo-content__image--right" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" data-aos-delay="400">
-          <%= image_tag "companies/power/playbook-computer.jpg", class: "lazyload photo-content__img", alt: "Playbook Homepage" %>
+
+    <% else %>
+      <%# Default two-column layout %>
+      <div class="content-wrapper">
+        <div class="content-primary" data-aos="fade-up">
+          <h2 class="title"><%= title %></h2>
+          <div class="description">
+            <%= description %>
+          </div>
+          <% if images.first %>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+              <img class="gallery-thumbnail lazyload" 
+                   src="<%= images.first[:src] %>"
+                   data-lightbox="<%= images.first[:src] %>"
+                   alt="<%= images.first[:alt] %>">
+              <% if images.first[:caption] %>
+                <p class="caption"><%= images.first[:caption] %></p>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <div class="content-secondary">
+          <% if images[1] %>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+              <img class="gallery-thumbnail lazyload" 
+                   src="<%= images[1][:src] %>"
+                   data-lightbox="<%= images[1][:src] %>"
+                   alt="<%= images[1][:alt] %>">
+              <% if images[1][:caption] %>
+                <p class="caption"><%= images[1][:caption] %></p>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
-</div>
+</section> 

@@ -1,0 +1,146 @@
+.media-showcase {
+  margin: 120px auto;
+  padding: 0 24px;
+  max-width: 1180px;
+
+  // Header section
+  &-header {
+    margin-bottom: 48px;
+    max-width: 800px;
+
+    &-title {
+      font-size: 48px;
+      line-height: 1.1;
+      font-weight: 600;
+      color: $text_lt_default;
+      margin-bottom: 16px;
+
+      @media (max-width: 768px) {
+        font-size: 32px;
+      }
+    }
+
+    &-description {
+      font-size: 21px;
+      line-height: 1.5;
+      color: $text_lt_light;
+
+      @media (max-width: 768px) {
+        font-size: 18px;
+      }
+    }
+  }
+
+  // Grid layout
+  &-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+    }
+
+    // Grid items
+    &-item {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      background: $white;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+
+      // For items that should span multiple columns
+      &.span-2 {
+        @media (min-width: 640px) {
+          grid-column: span 2;
+        }
+      }
+
+      // For items that should span multiple rows
+      &.span-2-rows {
+        @media (min-width: 640px) {
+          grid-row: span 2;
+        }
+      }
+
+      // Thumbnail
+      .gallery-thumbnail {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        
+        &.lazyloaded {
+          opacity: 1;
+        }
+      }
+
+      // Optional caption overlay
+      .caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+        color: white;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+
+        &-title {
+          font-size: 18px;
+          font-weight: 500;
+          margin-bottom: 4px;
+        }
+
+        &-description {
+          font-size: 14px;
+          line-height: 1.4;
+        }
+      }
+
+      &:hover .caption {
+        opacity: 1;
+      }
+    }
+  }
+
+  // Footer section
+  &-footer {
+    max-width: 800px;
+    margin: 48px 0;
+
+    &-title {
+      font-size: 32px;
+      line-height: 1.2;
+      font-weight: 500;
+      color: $text_lt_default;
+      margin-bottom: 16px;
+
+      @media (max-width: 768px) {
+        font-size: 24px;
+      }
+    }
+
+    &-description {
+      font-size: 18px;
+      line-height: 1.5;
+      color: $text_lt_light;
+
+      @media (max-width: 768px) {
+        font-size: 16px;
+      }
+    }
+  }
+} 

@@ -1,0 +1,75 @@
+<%
+# Local variables:
+# - title: String (required)
+# - description: String (required)
+# - footer_title: String (optional)
+# - footer_description: String (optional)
+# - items: Array of Hashes (required)
+#   Each item should have:
+#   - type: 'image' or 'video'
+#   - src: path to media
+#   - thumbnail: path to thumbnail (required for videos)
+#   - alt: alt text
+#   - caption_title: String (optional)
+#   - caption_description: String (optional)
+#   - span: String (optional) - 'span-2' or 'span-2-rows'
+%>
+
+<section class="media-showcase">
+  <div class="media-showcase-header">
+    <h2 class="media-showcase-header-title"><%= title %></h2>
+    <p class="media-showcase-header-description"><%= description %></p>
+  </div>
+
+  <div class="media-showcase-grid">
+    <% items.each do |item| %>
+      <div class="media-showcase-grid-item gallery-item <%= item[:span] %>">
+        <% if item[:type] == 'video' %>
+          <img class="gallery-thumbnail lazyload" 
+               src="<%= item[:thumbnail] %>"
+               data-lightbox="<%= item[:src] %>"
+               alt="<%= item[:alt] %>">
+          <% if item[:caption_title] %>
+            <h3 class="gallery-item-title"><%= item[:caption_title] %></h3>
+          <% end %>
+          <% if item[:caption_description] %>
+            <p class="gallery-item-description"><%= item[:caption_description] %></p>
+          <% end %>
+        <% else %>
+          <img class="gallery-thumbnail lazyload" 
+               src="<%= item[:src] %>"
+               data-lightbox="<%= item[:src] %>"
+               alt="<%= item[:alt] %>">
+          <% if item[:caption_title] %>
+            <h3 class="gallery-item-title"><%= item[:caption_title] %></h3>
+          <% end %>
+          <% if item[:caption_description] %>
+            <p class="gallery-item-description"><%= item[:caption_description] %></p>
+          <% end %>
+        <% end %>
+
+        <% if item[:caption_title] || item[:caption_description] %>
+          <div class="caption">
+            <% if item[:caption_title] %>
+              <h3 class="caption-title"><%= item[:caption_title] %></h3>
+            <% end %>
+            <% if item[:caption_description] %>
+              <p class="caption-description"><%= item[:caption_description] %></p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if defined?(footer_title) || defined?(footer_description) %>
+    <div class="media-showcase-footer">
+      <% if defined?(footer_title) %>
+        <h3 class="media-showcase-footer-title"><%= footer_title %></h3>
+      <% end %>
+      <% if defined?(footer_description) %>
+        <p class="media-showcase-footer-description"><%= footer_description %></p>
+      <% end %>
+    </div>
+  <% end %>
+</section> 

@@ -5,6 +5,91 @@ title: Power
 
 <%= partial "companies/shared/hero" %>
 <%= partial "companies/shared/highlights" %>
-<%= partial "companies/shared/photo_content" %>
+<%= partial "companies/shared/photo_content", locals: {
+  layout_type: 'default',
+  title: "Designing & Scaling Playbook",
+  description: "Playbook is one of the most robust design systems ever developed specifically for Ruby on Rails — used in production across dozens of internal and customer-facing tools, and downloaded by teams around the world.",
+  images: [
+    { src: "/images/companies/power/jason-collab.png", alt: "Jason Collab" },
+    { src: "/images/companies/power/playbook-computer.jpg", alt: "Playbook Homepage" }
+  ]
+} %>
+
+
 <%= partial "companies/shared/stats_masonry" %>
 <%= partial "companies/shared/image_gallery" %>
+<%= partial "partials/media_showcase", locals: {
+  title: "Designing & Scaling Playbook",
+  description: "A comprehensive look at how we approached designing and scaling the Power platform.",
+  items: [
+    {
+      type: "image",
+      src: "/images/companies/power/nitro-404.png",
+      alt: "Power Playbook Design",
+      caption_title: "Design System",
+      caption_description: "Establishing consistent patterns",
+      span: "span-2"
+    },
+    {
+      type: "video",
+      src: "/videos/video-background.m4v",
+      thumbnail: "/images/thumbnails/video-background-thumbnail.jpg",
+      alt: "Platform Overview",
+      caption_title: "Platform Demo",
+      caption_description: "See the platform in action"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/Playbook-Figma.jpg",
+      alt: "Playbook Figma Library",
+      caption_title: "Figma Library",
+      caption_description: "Component system in Figma"
+    },
+    {
+      type: "image", 
+      src: "/images/companies/power/nitro-update.png",
+      alt: "Nitro Branding Update",
+      caption_title: "Nitro Update",
+      caption_description: "Updated branding elements"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/playbook-top-components.png", 
+      alt: "Top Components Overview",
+      caption_title: "Core Components",
+      caption_description: "Most used design patterns"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/pulse-dashboard.png",
+      alt: "Pulse Dashboard View",
+      caption_title: "Dashboard",
+      caption_description: "Main analytics interface"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/pulse-detail.png",
+      alt: "Pulse Detail View",
+      caption_title: "Detail View",
+      caption_description: "In-depth metrics analysis"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/pulse-magic-link.png",
+      alt: "Pulse Magic Link Interface",
+      caption_title: "Magic Link",
+      caption_description: "Seamless authentication"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/pulse-mobile.png",
+      alt: "Pulse Mobile Interface",
+      caption_title: "Mobile View",
+      caption_description: "Responsive design adaptation"
+    }
+  ],
+  footer_title: "Performance that thrills",
+  footer_description: "Built with performance in mind, every interaction is smooth and responsive."
+} %>
+
+
