@@ -1,0 +1,80 @@
+<%# Start 3C %>
+<%= partial "companies/shared/photo_content", locals: {
+  layout_type: 'single-image',
+  title: "From Invisible to Indispensable: Launching Pulse",
+  description: "<p>Pulse was our first major consumer-facing product. It started with a vision: make the chaos of home remodeling feel calm. From kickoff to launch, we ran rapid UX research, stripped away complexity, and shipped an experience customers love.</p>
+
+<p>The dashboard became a daily ritual for thousands. With over 567k users and 13k+ deep engagements, Pulse changed how we connected with customers—and proved that internal systems can lead to external delight.</p>
+
+<blockquote>&ldquo;Pulse didn't just track the project. It gave customers control.&rdquo;</blockquote>",
+  images: [
+    { src: "/images/companies/power/pulse-dashboard.png", alt: "Pulse Dashboard" }
+  ]
+} %>
+
+<%= partial "companies/shared/stats_masonry", locals: {
+  title: "Pulse Highlights",
+  stats: [
+    { icon: "icon-users", value: "567k", label: "Active Users" },
+    { icon: "icon-chart-line", value: "13k+", label: "Deep Engagements" },
+    { icon: "icon-star", value: "4.8", label: "App Store Rating" }
+  ]
+} %>
+
+<%= partial "partials/media_showcase", locals: {
+  title: "Designed Around the User",
+  description: "<p>We started with listening: interviews, surveys, field visits. Users wanted less jargon, more transparency, and fewer surprises. So we mapped every moment of the remodeling journey, designed flows around natural touchpoints, and shipped fast.</p>
+
+<p>The result was a clean, mobile-first dashboard that let users preview doors, confirm details, and feel confident every step of the way. Pulse became a surprise delight in a space where expectations were low.</p>",
+  items: [
+    {
+      type: "image",
+      src: "/images/companies/power/pulse-login.png",
+      alt: "Pulse Login",
+      caption_title: "Login Experience",
+      caption_description: "Seamless authentication",
+      span: "span-2"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/pulse-mobile.png",
+      alt: "Mobile Interface",
+      caption_title: "Mobile First",
+      caption_description: "Designed for on-the-go"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/pulse-preview.png",
+      alt: "Door Preview",
+      caption_title: "Door Preview",
+      caption_description: "Visualize your choices"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/pulse-payment.png",
+      alt: "Payment Flow",
+      caption_title: "Payment Flow",
+      caption_description: "Simple and secure"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/pulse-timeline.png",
+      alt: "Project Timeline",
+      caption_title: "Project Timeline",
+      caption_description: "Track progress"
+    },
+    {
+      type: "video",
+      src: "/videos/pulse-walkthrough.m4v",
+      thumbnail: "/images/companies/power/pulse-walkthrough-thumb.jpg",
+      alt: "Pulse Walkthrough",
+      caption_title: "Product Walkthrough",
+      caption_description: "See Pulse in action"
+    }
+  ],
+  footer_title: "Pulse transformed how we connect with customers.",
+  footer_description: "<p>By focusing on user needs and stripping away complexity, we created an experience that customers love. Pulse became more than a tool—it became a trusted companion throughout the remodeling journey.</p>
+
+<p>The success of Pulse proved that even in a traditionally offline industry, thoughtful digital experiences can create meaningful connections and drive business growth.</p>"
+} %>
+<%# End 3C %> 

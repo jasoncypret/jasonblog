@@ -1,0 +1,80 @@
+<%# Start 3D %>
+<%= partial "companies/shared/photo_content", locals: {
+  layout_type: 'single-image',
+  title: "Designing What's Next",
+  description: "<p>From COVID-19 disruptions to 3D visualization breakthroughs, this lab created space to experiment, prototype, and prove what's possible. UX R&D at Power wasn't just an after-hours side hustle — it was a core function of how we planned, pitched, and accelerated the future.</p>
+
+<p>We made room for safe, low-risk exploration inside a mature org. That breathing room enabled some of our most creative outputs: from remote sales tools to internal design knowledge hubs and fully 3D-rendered product configurators.</p>
+
+<blockquote>&ldquo;Not every idea shipped, but every idea sharpened the team. And many became the future of our platform.&rdquo;</blockquote>",
+  images: [
+    { src: "/images/companies/power/innovation-lab.jpg", alt: "Innovation Lab" }
+  ]
+} %>
+
+<%= partial "companies/shared/stats_masonry", locals: {
+  title: "Innovation Highlights",
+  stats: [
+    { icon: "icon-lightbulb", value: "5", label: "Major Innovations" },
+    { icon: "icon-clock", value: "5", label: "Weeks to MVP" },
+    { icon: "icon-users", value: "100+", label: "Projects Impacted" }
+  ]
+} %>
+
+<%= partial "partials/media_showcase", locals: {
+  title: "Turning Vision into Velocity",
+  description: "<p>The innovation lab wasn't just a sandbox — it was a pressure cooker. We took on near-term strategic bets, using design and prototyping to unlock big moves ahead of engineering. It was a place to trial the hard stuff: new platforms, new modalities (like 3D), or tools that didn't have an owner yet.</p>
+
+<p>Virtual Appointments showed how to rethink an in-home model during COVID. Huddle became our design team's source of truth. The 3D Door Builder proved that sales configurators didn't have to feel like a slideshow. All were built with tiny, fast teams — and many went straight to production.</p>",
+  items: [
+    {
+      type: "image",
+      src: "/images/companies/power/virtual-appointments.jpg",
+      alt: "Virtual Appointments",
+      caption_title: "Virtual Appointments",
+      caption_description: "Remote sales solution",
+      span: "span-2"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/3d-door-builder.jpg",
+      alt: "3D Door Builder",
+      caption_title: "3D Door Builder",
+      caption_description: "Interactive configurator"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/huddle-platform.jpg",
+      alt: "Huddle Platform",
+      caption_title: "Huddle Platform",
+      caption_description: "Design knowledge hub"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/ipad-tools.jpg",
+      alt: "iPad Tools",
+      caption_title: "iPad Tools",
+      caption_description: "Field-ready prototypes"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/dojo-lms.jpg",
+      alt: "Dojo LMS",
+      caption_title: "Dojo LMS",
+      caption_description: "Learning platform"
+    },
+    {
+      type: "video",
+      src: "/videos/innovation-lab.m4v",
+      thumbnail: "/images/companies/power/innovation-lab-thumb.jpg",
+      alt: "Innovation Lab Overview",
+      caption_title: "Lab Overview",
+      caption_description: "See the lab in action"
+    }
+  ],
+  footer_title: "Innovation became our competitive advantage.",
+  footer_description: "<p>By creating space for experimentation and rapid prototyping, we were able to stay ahead of industry trends and customer needs. The lab became a source of both immediate solutions and long-term strategic direction.</p>
+
+<p>What started as a small team of experimenters grew into a vital part of our product development process, proving that innovation isn't just about new ideas—it's about creating the right environment for those ideas to thrive.</p>"
+} %>
+<%# End 3D %> 

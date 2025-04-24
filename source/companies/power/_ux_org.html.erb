@@ -1,0 +1,79 @@
+<%# Start 3A %>
+<%= partial "companies/shared/photo_content", locals: {
+  layout_type: 'single-image',
+  title: "Building a Team That Builds Everything",
+  description: "<p>From a team of one to a department embedded in every corner of the company, building UX at Power was a lesson in scale, culture, and momentum. We didn't just grow fast—we grew right. With intentional recruiting, clear career paths, and a strong leadership bench, we transformed UX from a support role into a strategic driver.</p>
+
+<p>Our culture became our product: daily stand-ups, dual-track agile rituals, onboarding that empowered, and systems that sustained. What started as a whisper of \"design\" became a drumbeat across every team in the company.</p>
+
+<blockquote>&ldquo;We didn't just bring in designers—we built an environment where design could thrive.&rdquo;</blockquote>",
+  images: [
+    { src: "/images/companies/power/ux_org/ux-team.png", alt: "Power UX Team" }
+  ]
+} %>
+
+<%= partial "companies/shared/stats_masonry", locals: {
+  title: "From Team of One to Scaled Org",
+  content: [
+    { icon: "icon-users", value: "30+", label: "UX team members hired" },
+    { icon: "icon-calendar", value: "100%", label: "Product teams with embedded UX" },
+    { icon: "icon-chart-line", value: "95%", label: "Retention rate" }
+  ]
+} %>
+
+<%= partial "partials/media_showcase", locals: {
+  title: "Culture is the Operating System",
+  description: "<p>A strong team is more than headcount. It's habits. We built a culture of trust, transparency, and speed. Daily UX standups gave us shared momentum. Our onboarding playbook meant every new hire could ship confidently within weeks. And with dual-track agile, we built the right thing—not just the thing that was spec'd.</p>
+
+<p>Retention soared. Designers stayed not just because of the work, but because of the environment. UX became a sought-after discipline across the company, influencing hiring, engineering, and even how product was scoped.</p>",
+  items: [
+    {
+      type: "image",
+      src: "/images/companies/power/ux-standup.jpg",
+      alt: "UX Team Standup",
+      caption_title: "Daily Standups",
+      caption_description: "Building shared momentum",
+      span: "span-2"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/onboarding.jpg",
+      alt: "Onboarding System",
+      caption_title: "Onboarding System",
+      caption_description: "Empowering new hires"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/agile-workflow.jpg",
+      alt: "Dual-Track Agile",
+      caption_title: "Dual-Track Agile",
+      caption_description: "Building the right thing"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/team-event.jpg",
+      alt: "Team Event",
+      caption_title: "Team Events",
+      caption_description: "Building culture together"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/workshop.jpg",
+      alt: "Design Workshop",
+      caption_title: "Workshops",
+      caption_description: "Collaborative problem solving"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/leadership.jpg",
+      alt: "Leadership Team",
+      caption_title: "Leadership",
+      caption_description: "Strong leadership bench"
+    }
+  ],
+  footer_title: "UX is now embedded in every corner of the company.",
+  footer_description: "<p>What started as a team of one grew into a department that influenced every aspect of the business. From product development to customer experience, our UX team became the driving force behind Power's digital transformation.</p>
+
+<p>Through intentional growth, clear career paths, and a culture of continuous learning, we built not just a team, but a movement that continues to shape the company's future.</p>"
+} %>
+<%# End 3A %> 

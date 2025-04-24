@@ -1,0 +1,107 @@
+<%# Start 3B %>
+<%= partial "companies/shared/photo_content", locals: {
+  layout_type: 'single-image',
+  title: "Designing & Scaling Playbook",
+  description: "<p>Playbook started as a <strong>scrappy style guide</strong> and became a multi-language design system powering every PR in Nitro. We went from Bootstrap overrides to a fully responsive system in Rails, React, and Swift—adopted across teams and trusted by engineering.</p>
+
+<p>By pairing live code with <strong>Figma kits</strong> and prioritizing usability, we shipped faster and more consistently. The system now gets <strong>2M+ downloads</strong> a year and supports everything from dashboards to mobile apps to internal tooling.</p>
+
+<blockquote>&ldquo;Playbook isn't just a system of components. <br/><br/>It's a system of thinking.&rdquo;</blockquote>",
+  images: [
+    { src: "/images/companies/power/playbook/playbook-computer.jpg", alt: "Playbook Homepage" }
+  ]
+} %>
+
+<%= partial "companies/shared/stats_masonry", locals: {
+  title: "",
+  intro: {
+    logo: "/images/companies/power/playbook/pb-logo.svg",
+    quote: "The largest design system ever built for Ruby on Rails."
+  },
+  content: [
+    {
+      type: 'stats',
+      subtitle: '*Power Stats',
+      icon: 'icon-charging-station',
+      value: '95%',
+      label: 'Adoption in legacy platform',
+      color: 'black',
+      size: 'sm'
+    },
+    {
+      type: 'stats',
+      subtitle: '*Power Stats',
+      icon: 'icon-cubes',
+      value: '+23K',
+      label: 'Components used across all apps',
+      color: 'black',
+      size: 'sm'
+    },
+    {
+      type: 'stats',
+      icon: 'icon-cloud-arrow-down',
+      value: '+2M',
+      label: 'Downloads',
+      color: 'blue'
+    },
+    {
+      type: 'stats',
+      value: '+350',
+      label: 'Customizable<br/>Components'
+    },
+    {
+      type: 'stats',
+      value: '5',
+      label: 'Core<br/>Platforms',
+      size: 'xl',
+      icons: ['icon-rails', 'icon-html-5', 'icon-swift', 'icon-figma', 'icon-react']
+    },
+    {
+      type: 'video',
+      src: '/videos/video-images-playbook.mp4',
+      alt: 'Playbook Design System Demo'
+    }
+  ],
+  footnote: '*Estimates based on stats from main platform ecosystem, Quote based on the number of view components available to the public',
+  cta: {
+    title: 'Explore Playbook Live',
+    button_text: 'Browse the Website',
+    button_url: 'https://playbook.powerapp.cloud',
+    subtitle: 'Browse the code <a href="https://github.com/powerhome/playbook">Web</a> | <a href="https://github.com/powerhome/playbook-swift">Swift</a>'
+  }
+} %>
+
+<%= partial "partials/media_showcase", locals: {
+  title: "Designing for Designers <br/>and Developers",
+  description: "",
+  items: [
+    {
+      type: "image",
+      src: "/images/companies/power/playbook/Playbook-Figma.jpg",
+      alt: "Playbook Figma Library",
+      caption_title: "Figma Library",
+      caption_description: "Component system in Figma",
+      span: "span-2"
+    },
+    {
+      type: "video",
+      src: "/videos/video-background.m4v",
+      thumbnail: "/images/thumbnails/video-background-thumbnail.jpg",
+      alt: "Playbook Templates",
+      caption_title: "Platform Demo",
+      caption_description: "These are page templates (atomic design) that allow developers, rapid development using large patterns."
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/playbook/playbook-top-components.png", 
+      alt: "Top Components Overview",
+      caption_title: "Top 10 Playbook Components in Core System",
+      caption_description: "Most used design components in the core system"
+    }
+  ],
+  footer_title: "Think about systems, not just screens.",
+  footer_description: "<p>We built Playbook for scale, speed, and joy. Every component is tested, documented, and extensible. Developers can implement in seconds; designers can test ideas in real time. And because it lives in code and Figma, it meets teams where they are.</p>
+
+<p>The system became a shared language. It reduced churn between design and engineering. It helped us prototype ideas in hours, not weeks. And it became a foundation for AI prototyping, templates, and new workflows.</p>"
+} %>
+<%# End 3B %> 

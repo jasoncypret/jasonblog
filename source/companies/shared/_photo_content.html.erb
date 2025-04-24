@@ -28,8 +28,8 @@
           <div class="gallery-item">
             <img class="gallery-thumbnail lazyload" 
                  src="<%= images.first[:src] %>"
-                 data-lightbox="<%= images.first[:src] %>"
-                 alt="<%= images.first[:alt] %>">
+                 alt="<%= images.first[:alt] %>"
+                 <%= "data-lightbox='#{title}'" if images.length > 1 %>>
             <% if images.first[:caption] %>
               <p class="caption"><%= images.first[:caption] %></p>
             <% end %>
@@ -54,7 +54,6 @@
             <div class="gallery-item">
               <img class="gallery-thumbnail lazyload" 
                    src="<%= images.first[:src] %>"
-                   data-lightbox="<%= images.first[:src] %>"
                    alt="<%= images.first[:alt] %>">
               <% if images.first[:caption] %>
                 <p class="caption"><%= images.first[:caption] %></p>
@@ -76,8 +75,8 @@
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
               <img class="gallery-thumbnail lazyload" 
                    src="<%= images.first[:src] %>"
-                   data-lightbox="<%= images.first[:src] %>"
-                   alt="<%= images.first[:alt] %>">
+                   alt="<%= images.first[:alt] %>"
+                   <%= "data-lightbox='#{title}'" if images.length > 1 %>>
               <% if images.first[:caption] %>
                 <p class="caption"><%= images.first[:caption] %></p>
               <% end %>
@@ -89,8 +88,8 @@
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
               <img class="gallery-thumbnail lazyload" 
                    src="<%= images[1][:src] %>"
-                   data-lightbox="<%= images[1][:src] %>"
-                   alt="<%= images[1][:alt] %>">
+                   alt="<%= images[1][:alt] %>"
+                   <%= "data-lightbox='#{title}'" if images.length > 1 %>>
               <% if images[1][:caption] %>
                 <p class="caption"><%= images[1][:caption] %></p>
               <% end %>

@@ -1,0 +1,80 @@
+<%# Start 3E %>
+<%= partial "companies/shared/photo_content", locals: {
+  layout_type: 'single-image',
+  title: "When UX Leads the Way",
+  description: "<p>Not every problem needs a prototype — but our biggest wins all started with one. These were the major product initiatives where UX led the way through ambiguity, validated the path forward, and laid the foundation for game-changing apps.</p>
+
+<p>With Home Tour, we redesigned a critical step in every customer project. With the Inventory Scanner, we connected physical product flow with digital tracking. Each helped set new patterns that influenced Nitro-wide standards.</p>
+
+<blockquote>&ldquo;We built internal tools at enterprise scale, but with startup speed.&rdquo;</blockquote>",
+  images: [
+    { src: "/images/companies/power/home-tour.jpg", alt: "Home Tour App" }
+  ]
+} %>
+
+<%= partial "companies/shared/stats_masonry", locals: {
+  title: "Highlights from Big Ideas",
+  stats: [
+    { icon: "icon-calendar", value: "3", label: "Years of Research" },
+    { icon: "icon-check-circle", value: "100%", label: "Project Coverage" },
+    { icon: "icon-bolt", value: "5x", label: "Faster Delivery" }
+  ]
+} %>
+
+<%= partial "partials/media_showcase", locals: {
+  title: "Research-Driven Foundations",
+  description: "<p>We didn't build these apps in a vacuum. Home Tour took 3 years of research, testing, iteration, and simplification before it launched. It replaced a legacy window-measuring tool and is now used on every project. The design helped frame everything: from how to capture data to how to structure handoffs to engineering.</p>
+
+<p>The Inventory Scanner combined hardware and software in a tight loop. It allowed us to manage the full warehouse lifecycle of window products—from truck delivery to bay placement. And its UI design was so modern and usable, it influenced other Nitro interfaces for years to come.</p>",
+  items: [
+    {
+      type: "image",
+      src: "/images/companies/power/home-tour-flow.jpg",
+      alt: "Home Tour Flow",
+      caption_title: "Home Tour Flow",
+      caption_description: "Streamlined process",
+      span: "span-2"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/inventory-scanner.jpg",
+      alt: "Inventory Scanner",
+      caption_title: "Inventory Scanner",
+      caption_description: "Hardware + software"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/warehouse-flow.jpg",
+      alt: "Warehouse Flow",
+      caption_title: "Warehouse Flow",
+      caption_description: "Physical to digital"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/pattern-library.jpg",
+      alt: "Pattern Library",
+      caption_title: "Pattern Library",
+      caption_description: "Nitro-wide standards"
+    },
+    {
+      type: "image",
+      src: "/images/companies/power/enterprise-speed.jpg",
+      alt: "Enterprise Speed",
+      caption_title: "Enterprise Speed",
+      caption_description: "Fast delivery at scale"
+    },
+    {
+      type: "video",
+      src: "/videos/big-apps.m4v",
+      thumbnail: "/images/companies/power/big-apps-thumb.jpg",
+      alt: "Big Apps Overview",
+      caption_title: "Apps Overview",
+      caption_description: "See the apps in action"
+    }
+  ],
+  footer_title: "UX-led development became our superpower.",
+  footer_description: "<p>By starting with research and user needs, we were able to build apps that not only solved immediate problems but also set new standards for the entire organization. These big app breakthroughs proved that thoughtful UX can drive both innovation and operational excellence.</p>
+
+<p>From Home Tour to the Inventory Scanner, each project demonstrated how user-centered design can transform complex processes into intuitive experiences, even in enterprise environments.</p>"
+} %>
+<%# End 3E %> 
