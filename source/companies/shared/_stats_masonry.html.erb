@@ -4,7 +4,7 @@
     - logo: String (path to logo image)
     - quote: String (quote text)
   - title: String (optional)
-  - content: Array of Hashes (required)
+  - content: Array of Hashes (optional)
     Each item can be:
     - type: 'stats' (default)
       - icon: String (icon class)
@@ -18,6 +18,9 @@
       - alt: String (alt text)
     - type: 'html'
       - content: String (HTML content)
+  - layout: Array of Arrays (optional)
+    - Each inner array represents a column and contains the indices of items to show
+    - Default: [[0,1,2], [3,4], [5]] (3 columns with 3,2,1 items respectively)
   - footnote: String (optional)
   - cta: Hash (optional)
     - title: String
@@ -37,137 +40,59 @@
   </div>
 <% end %>
 
-<div class="stats-masonry">
-  <%# First column - first 3 items %>
-  <div class="stats-masonry__col">
-    <% content[0..2].each do |item| %>
-      <% case item[:type] %>
-      <% when 'stats' %>
-        <div class="stats-item stats-item--box <%= item[:color] || '' %>">
-          <% if item[:subtitle] %>
-            <p class="stats-item__subtitle"><%= item[:subtitle] %></p>
+<% if defined?(content) && content.present? %>
+  <div class="stats-masonry">
+    <%# Use custom layout if provided, otherwise use default 3-column layout %>
+    <% layout_config = defined?(layout) && layout.present? ? layout : [[0,1,2], [3,4], [5]] %>
+    
+    <% layout_config.each do |column_indices| %>
+      <div class="stats-masonry__col">
+        <% column_indices.each do |index| %>
+          <% if content[index] %>
+            <% item = content[index] %>
+            <% case item[:type] %>
+            <% when 'stats' %>
+              <div class="stats-item stats-item--box <%= item[:color] || '' %>">
+                <% if item[:subtitle] %>
+                  <p class="stats-item__subtitle"><%= item[:subtitle] %></p>
+                <% end %>
+                <% if item[:icon] %>
+                  <i class="<%= item[:icon] %>"></i>
+                <% end %>
+                <h4 class="stats-item__title<%= item[:size] ? "_#{item[:size]}" : '' %>"><%= item[:value] %></h4>
+                <p class="stats-item__description<%= item[:size] == 'sm' ? '_small' : '' %>">
+                  <%= item[:label].html_safe %>
+                </p>
+                <% if item[:icons] %>
+                  <div class="stats-item__icons">
+                    <% item[:icons].each do |icon| %>
+                      <i class="<%= icon %>"></i>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            <% when 'image' %>
+              <div class="stats-item stats-item--image">
+                <%= image_tag item[:src], class: 'lazyload', alt: item[:alt] %>
+              </div>
+            <% when 'video' %>
+              <div class="stats-item stats-item--image">
+                <video autoplay loop muted playsinline class="lazyload">
+                  <source src="<%= item[:src] %>" type="video/mp4">
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+            <% when 'html' %>
+              <div class="stats-item stats-item--html">
+                <%= item[:content].html_safe %>
+              </div>
+            <% end %>
           <% end %>
-          <% if item[:icon] %>
-            <i class="<%= item[:icon] %>"></i>
-          <% end %>
-          <h4 class="stats-item__title<%= item[:size] ? "_#{item[:size]}" : '' %>"><%= item[:value] %></h4>
-          <p class="stats-item__description<%= item[:size] == 'sm' ? '_small' : '' %>">
-            <%= item[:label].html_safe %>
-          </p>
-          <% if item[:icons] %>
-            <div class="stats-item__icons">
-              <% item[:icons].each do |icon| %>
-                <i class="<%= icon %>"></i>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      <% when 'image' %>
-        <div class="stats-item stats-item--image">
-          <%= image_tag item[:src], class: 'lazyload', alt: item[:alt] %>
-        </div>
-      <% when 'video' %>
-        <div class="stats-item stats-item--image">
-          <video autoplay loop muted playsinline class="lazyload">
-            <source src="<%= item[:src] %>" type="video/mp4">
-            Your browser does not support HTML5 video.
-          </video>
-        </div>
-      <% when 'html' %>
-        <div class="stats-item stats-item--html">
-          <%= item[:content].html_safe %>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     <% end %>
   </div>
-
-  <%# Second column - next 2 items %>
-  <div class="stats-masonry__col">
-    <% content[3..4].each do |item| %>
-      <% case item[:type] %>
-      <% when 'stats' %>
-        <div class="stats-item stats-item--box <%= item[:color] || '' %>">
-          <% if item[:subtitle] %>
-            <p class="stats-item__subtitle"><%= item[:subtitle] %></p>
-          <% end %>
-          <% if item[:icon] %>
-            <i class="<%= item[:icon] %>"></i>
-          <% end %>
-          <h4 class="stats-item__title<%= item[:size] ? "_#{item[:size]}" : '' %>"><%= item[:value] %></h4>
-          <p class="stats-item__description<%= item[:size] == 'sm' ? '_small' : '' %>">
-            <%= item[:label].html_safe %>
-          </p>
-          <% if item[:icons] %>
-            <div class="stats-item__icons">
-              <% item[:icons].each do |icon| %>
-                <i class="<%= icon %>"></i>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      <% when 'image' %>
-        <div class="stats-item stats-item--image">
-          <%= image_tag item[:src], class: 'lazyload', alt: item[:alt] %>
-        </div>
-      <% when 'video' %>
-        <div class="stats-item stats-item--image">
-          <video autoplay loop muted playsinline class="lazyload">
-            <source src="<%= item[:src] %>" type="video/mp4">
-            Your browser does not support HTML5 video.
-          </video>
-        </div>
-      <% when 'html' %>
-        <div class="stats-item stats-item--html">
-          <%= item[:content].html_safe %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-
-  <%# Third column - last item %>
-  <div class="stats-masonry__col">
-    <% if content[5] %>
-      <% item = content[5] %>
-      <% case item[:type] %>
-      <% when 'stats' %>
-        <div class="stats-item stats-item--box <%= item[:color] || '' %>">
-          <% if item[:subtitle] %>
-            <p class="stats-item__subtitle"><%= item[:subtitle] %></p>
-          <% end %>
-          <% if item[:icon] %>
-            <i class="<%= item[:icon] %>"></i>
-          <% end %>
-          <h4 class="stats-item__title<%= item[:size] ? "_#{item[:size]}" : '' %>"><%= item[:value] %></h4>
-          <p class="stats-item__description<%= item[:size] == 'sm' ? '_small' : '' %>">
-            <%= item[:label].html_safe %>
-          </p>
-          <% if item[:icons] %>
-            <div class="stats-item__icons">
-              <% item[:icons].each do |icon| %>
-                <i class="<%= icon %>"></i>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      <% when 'image' %>
-        <div class="stats-item stats-item--image">
-          <%= image_tag item[:src], class: 'lazyload', alt: item[:alt] %>
-        </div>
-      <% when 'video' %>
-        <div class="stats-item stats-item--image">
-          <video autoplay loop muted playsinline class="lazyload">
-            <source src="<%= item[:src] %>" type="video/mp4">
-            Your browser does not support HTML5 video.
-          </video>
-        </div>
-      <% when 'html' %>
-        <div class="stats-item stats-item--html">
-          <%= item[:content].html_safe %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-</div>
+<% end %>
 
 <% if defined?(footnote) && footnote %>
   <p class="stats-masonry-footnote"><%= footnote %></p>

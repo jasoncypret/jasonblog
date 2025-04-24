@@ -8,17 +8,33 @@
 
 <blockquote>&ldquo;Pulse didn't just track the project. It gave customers control.&rdquo;</blockquote>",
   images: [
-    { src: "/images/companies/power/pulse-dashboard.png", alt: "Pulse Dashboard" }
+    { src: "/media/homepage/power-splash.png", alt: "Pulse Dashboard" }
   ]
 } %>
 
 <%= partial "companies/shared/stats_masonry", locals: {
   title: "Pulse Highlights",
-  stats: [
-    { icon: "icon-users", value: "567k", label: "Active Users" },
-    { icon: "icon-chart-line", value: "13k+", label: "Deep Engagements" },
-    { icon: "icon-star", value: "4.8", label: "App Store Rating" }
-  ]
+  content: [
+    {
+      type: 'stats',
+      value: '570k+',
+      label: 'Since Creation<br/>(Launch - March 2025)',
+      size: 'sm'
+    },
+    {
+      type: 'stats',
+      value: '13k+',
+      label: 'Users in First Month',
+      color: 'black',
+      size: 'sm'
+    },
+    {
+      type: 'video',
+      src: '/media/companies/power/pulse/pulse-before-after.mp4',
+      alt: 'Playbook Design System Demo'
+    }
+  ],
+  layout: [[0,1], [2]]
 } %>
 
 <%= partial "partials/media_showcase", locals: {
@@ -29,47 +45,53 @@
   items: [
     {
       type: "image",
-      src: "/images/companies/power/pulse-login.png",
-      alt: "Pulse Login",
-      caption_title: "Login Experience",
-      caption_description: "Seamless authentication",
+      src: "/media/companies/power/pulse/pulse-dashboard.png",
+      alt: "Pulse Dashboard",
+      caption_title: "Dashboard",
+      caption_description: "",
       span: "span-2"
     },
     {
       type: "image",
-      src: "/images/companies/power/pulse-mobile.png",
+      src: "/media/companies/power/pulse/pulse-mobile.png",
       alt: "Mobile Interface",
       caption_title: "Mobile First",
       caption_description: "Designed for on-the-go"
     },
     {
       type: "image",
-      src: "/images/companies/power/pulse-preview.png",
-      alt: "Door Preview",
-      caption_title: "Door Preview",
-      caption_description: "Visualize your choices"
+      src: "/media/companies/power/pulse/pulse-magic-link.png",
+      alt: "Magic Link",
+      caption_title: "Magic Link",
+      caption_description: "Seamless authentication"
     },
     {
       type: "image",
-      src: "/images/companies/power/pulse-payment.png",
-      alt: "Payment Flow",
-      caption_title: "Payment Flow",
-      caption_description: "Simple and secure"
+      src: "/media/companies/power/pulse/pulse-detail.png",
+      alt: "Detail",
+      caption_title: "Detail",
+      caption_description: "Detailed project information"
     },
     {
       type: "image",
-      src: "/images/companies/power/pulse-timeline.png",
-      alt: "Project Timeline",
-      caption_title: "Project Timeline",
-      caption_description: "Track progress"
+      src: "/media/companies/power/pulse/pulse-3d-door.png",
+      alt: "3D Door",
+      caption_title: "3D Door",
+      caption_description: "See your door in 3D"
     },
     {
+      type: "image",
+      src: "/media/companies/power/pulse/pulse-payment-confirm.png",
+      alt: "Payment Confirmation",
+      caption_title: "Payment Confirmation",
+      caption_description: "Confirm your payment"
+    },{
       type: "video",
-      src: "/videos/pulse-walkthrough.m4v",
-      thumbnail: "/images/companies/power/pulse-walkthrough-thumb.jpg",
-      alt: "Pulse Walkthrough",
-      caption_title: "Product Walkthrough",
-      caption_description: "See Pulse in action"
+      src: "/media/companies/power/pulse/pulse-signature.mp4",
+      thumbnail: "/media/companies/power/pulse/pulse-signature_thumb.jpg",
+      alt: "Signature",
+      caption_title: "Signature",
+      caption_description: "See your signature"
     }
   ],
   footer_title: "Pulse transformed how we connect with customers.",

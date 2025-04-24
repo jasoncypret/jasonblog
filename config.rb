@@ -21,11 +21,11 @@ configure :development do
     thumbnail_size = "400x500"
     
     # Find all images in the companies directory
-    Dir.glob("source/images/companies/**/*.{jpg,jpeg,png}").each do |image_path|
+    Dir.glob("source/media/companies/**/*.{jpg,jpeg,png,webp}").each do |image_path|
       next if image_path.include?('_thumb') # Skip existing thumbnails
       
       # Generate thumbnail path
-      thumbnail_path = image_path.gsub(/\.(jpg|jpeg|png)$/, '_thumb\0')
+      thumbnail_path = image_path.gsub(/\.(jpg|jpeg|png|webp)$/, '_thumb\0')
       
       # Skip if thumbnail already exists
       next if File.exist?(thumbnail_path)
@@ -36,6 +36,61 @@ configure :development do
       image.resize thumbnail_size
       image.quality 90 # Higher quality for thumbnails
       image.write thumbnail_path
+
+      unless image_path.end_with?('.webp')
+        webp_path = image_path.gsub(/\.(jpg|jpeg|png)$/, '.webp')
+        image.format 'webp'
+        image.write webp_path
+        desktop_path = File.expand_path("~/Desktop")
+        backup_path = File.join(desktop_path, File.basename(image_path))
+        FileUtils.mv(image_path, backup_path) if File.exist?(image_path)
+      end
+    end
+
+
+    # Generate thumbnails for videos on startup
+    require 'open3'
+
+    Dir.glob("source/media/**/*.{mov,m4v,avi}").each do |video_path|
+      output_path = video_path.gsub(/\.(mov|m4v|avi)$/, ".mp4")
+      
+      # Skip if already exists
+      next if File.exist?(output_path)
+    
+      puts "Converting #{video_path} to MP4..."
+      cmd = [
+        "ffmpeg", "-i", video_path,
+        "-vcodec", "libx264", "-crf", "23", "-preset", "veryfast",
+        "-acodec", "aac", "-strict", "-2",
+        output_path
+      ]
+    
+      Open3.popen3(*cmd) do |_stdin, _stdout, stderr, wait_thr|
+        unless wait_thr.value.success?
+          puts "Error converting #{video_path}: #{stderr.read}"
+        else
+          desktop_path = File.expand_path("~/Desktop")
+          backup_path = File.join(desktop_path, File.basename(video_path))
+          FileUtils.mv(video_path, backup_path) if File.exist?(video_path)
+        end
+      end
+
+      # Generate thumbnail image from video
+      thumbnail_output = video_path.gsub(/\.(mov|m4v|avi)$/, '_thumb.jpg')
+
+      unless File.exist?(thumbnail_output)
+        puts "Generating thumbnail for #{output_path}"
+        thumb_cmd = [
+          "ffmpeg", "-i", output_path, "-ss", "00:00:01.000",
+          "-vframes", "1", thumbnail_output
+        ]
+
+        Open3.popen3(*thumb_cmd) do |_stdin, _stdout, stderr, wait_thr|
+          unless wait_thr.value.success?
+            puts "Error generating thumbnail for #{output_path}: #{stderr.read}"
+          end
+        end
+      end
     end
   end
 end
@@ -145,11 +200,11 @@ configure :build do
     thumbnail_size = "400x500"
     
     # Find all images in the companies directory
-    Dir.glob("source/images/companies/**/*.{jpg,jpeg,png}").each do |image_path|
+    Dir.glob("source/media/companies/**/*.{jpg,jpeg,png,webp}").each do |image_path|
       next if image_path.include?('_thumb') # Skip existing thumbnails
       
       # Generate thumbnail path
-      thumbnail_path = image_path.gsub(/\.(jpg|jpeg|png)$/, '_thumb\0')
+      thumbnail_path = image_path.gsub(/\.(jpg|jpeg|png|webp)$/, '_thumb\0')
       
       # Skip if thumbnail already exists
       next if File.exist?(thumbnail_path)
@@ -160,6 +215,60 @@ configure :build do
       image.resize thumbnail_size
       image.quality 90 # Higher quality for thumbnails
       image.write thumbnail_path
+
+      unless image_path.end_with?('.webp')
+        webp_path = image_path.gsub(/\.(jpg|jpeg|png)$/, '.webp')
+        image.format 'webp'
+        image.write webp_path
+        desktop_path = File.expand_path("~/Desktop")
+        backup_path = File.join(desktop_path, File.basename(image_path))
+        FileUtils.mv(image_path, backup_path) if File.exist?(image_path)
+      end
+    end
+
+    # Generate thumbnails for videos during build
+    require 'open3'
+
+    Dir.glob("source/media/**/*.{mov,m4v,avi}").each do |video_path|
+      output_path = video_path.gsub(/\.(mov|m4v|avi)$/, ".mp4")
+      
+      # Skip if already exists
+      next if File.exist?(output_path)
+    
+      puts "Converting #{video_path} to MP4..."
+      cmd = [
+        "ffmpeg", "-i", video_path,
+        "-vcodec", "libx264", "-crf", "23", "-preset", "veryfast",
+        "-acodec", "aac", "-strict", "-2",
+        output_path
+      ]
+    
+      Open3.popen3(*cmd) do |_stdin, _stdout, stderr, wait_thr|
+        unless wait_thr.value.success?
+          puts "Error converting #{video_path}: #{stderr.read}"
+        else
+          desktop_path = File.expand_path("~/Desktop")
+          backup_path = File.join(desktop_path, File.basename(video_path))
+          FileUtils.mv(video_path, backup_path) if File.exist?(video_path)
+        end
+      end
+
+      # Generate thumbnail image from video
+      thumbnail_output = video_path.gsub(/\.(mov|m4v|avi)$/, '_thumb.jpg')
+
+      unless File.exist?(thumbnail_output)
+        puts "Generating thumbnail for #{output_path}"
+        thumb_cmd = [
+          "ffmpeg", "-i", output_path, "-ss", "00:00:01.000",
+          "-vframes", "1", thumbnail_output
+        ]
+
+        Open3.popen3(*thumb_cmd) do |_stdin, _stdout, stderr, wait_thr|
+          unless wait_thr.value.success?
+            puts "Error generating thumbnail for #{output_path}: #{stderr.read}"
+          end
+        end
+      end
     end
   end
 
