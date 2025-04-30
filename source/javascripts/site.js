@@ -12,6 +12,7 @@ function loadSite() {
     let currentGalleryItems = [];
     let currentIndex = 0;
     let scrollPosition = 0;
+    const isMobile = window.innerWidth <= 768;
 
     // Create lightbox element
     const lightbox = document.createElement("div");
@@ -20,7 +21,7 @@ function loadSite() {
     <div class="lightbox-content">
       <div class="lightbox-media-container">
         <img class="lightbox-image lazyload" src="" alt="">
-        <video class="lightbox-video" controls autoplay loop playsinline>
+        <video class="lightbox-video" playsinline>
           <source src="" type="video/mp4">
           Your browser does not support the video tag.
         </video>
@@ -63,6 +64,31 @@ function loadSite() {
       nextButton.style.display = showNav ? "" : "none";
     }
 
+    // Intersection Observer for lazy loading
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const item = entry.target;
+          const preloadVideo = item.querySelector('.lightbox-video-preload');
+          
+          if (preloadVideo) {
+            // Start preloading video when thumbnail is visible
+            preloadVideo.preload = 'metadata';
+          }
+          
+          observer.unobserve(item);
+        }
+      });
+    }, {
+      rootMargin: '50px 0px',
+      threshold: 0.1
+    });
+
+    // Observe all gallery items
+    galleryItems.forEach(item => {
+      imageObserver.observe(item);
+    });
+
     function showMedia(item) {
       const media = item.querySelector(".gallery-thumbnail");
       const titleElement = item.querySelector(".gallery-item-title");
@@ -73,9 +99,7 @@ function loadSite() {
       const lightboxImg = lightbox.querySelector(".lightbox-image");
       const lightboxVideo = lightbox.querySelector(".lightbox-video");
       const lightboxTitle = lightbox.querySelector(".lightbox-caption-title");
-      const lightboxDescription = lightbox.querySelector(
-        ".lightbox-caption-description"
-      );
+      const lightboxDescription = lightbox.querySelector(".lightbox-caption-description");
 
       const originalPath = media.getAttribute("data-lightbox");
       const mediaType = getMediaType(media);
@@ -84,13 +108,24 @@ function loadSite() {
       lightboxVideo.style.display = "none";
 
       if (mediaType === "video") {
-        lightboxVideo.querySelector("source").src = originalPath || media.src;
+        const videoSource = lightboxVideo.querySelector("source");
+        const mobilePath = originalPath.replace('.mp4', '_mobile.mp4');
+        
+        // Use mobile version if on mobile device
+        videoSource.src = isMobile ? mobilePath : originalPath;
         lightboxVideo.load();
+        
+        // Set video attributes based on device
+        lightboxVideo.controls = true;
+        lightboxVideo.autoplay = !isMobile; // Don't autoplay on mobile
+        lightboxVideo.loop = !isMobile; // Don't loop on mobile
+        lightboxVideo.muted = !isMobile; // Don't mute on mobile (better UX)
+        
         lightboxVideo.style.display = "block";
       } else {
-        lightboxImg.src = originalPath || media.src;
+        const mobilePath = originalPath.replace(/\.(jpg|jpeg|png|webp)$/, '_mobile\$1');
+        lightboxImg.src = isMobile ? mobilePath : originalPath;
         lightboxImg.alt = media.alt;
-        lightboxImg.classList.add("lazyload");
         if (window.lazySizes) {
           window.lazySizes.loader.unveil(lightboxImg);
         }
@@ -113,14 +148,13 @@ function loadSite() {
     }
 
     function closeLightbox() {
-      const lightboxImg = lightbox.querySelector(".lightbox-image");
       const lightboxVideo = lightbox.querySelector(".lightbox-video");
 
       if (lightboxVideo.style.display === "block") {
         lightboxVideo.pause();
+        lightboxVideo.currentTime = 0;
       }
 
-      lightboxImg.classList.remove("lazyload", "lazyloaded", "ls-is-cached");
       lightbox.classList.remove("active");
       document.body.style.overflow = "";
       document.body.style.position = "";
@@ -153,9 +187,7 @@ function loadSite() {
     // Navigation handlers
     prevButton.addEventListener("click", (e) => {
       e.stopPropagation();
-      currentIndex =
-        (currentIndex - 1 + currentGalleryItems.length) %
-        currentGalleryItems.length;
+      currentIndex = (currentIndex - 1 + currentGalleryItems.length) % currentGalleryItems.length;
       showMedia(currentGalleryItems[currentIndex]);
     });
 
@@ -165,37 +197,26 @@ function loadSite() {
       showMedia(currentGalleryItems[currentIndex]);
     });
 
-    // Close button handler
-    closeButton.addEventListener("click", (e) => {
-      e.stopPropagation();
-      closeLightbox();
-    });
-
-    // Add click handler to lightbox overlay
-    lightbox.addEventListener("click", function (e) {
+    closeButton.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (e) => {
       if (e.target === lightbox) {
         closeLightbox();
       }
     });
 
-    // Prevent closing when clicking content
-    lightbox.querySelector(".lightbox-content").addEventListener("click", (e) => {
-      e.stopPropagation();
-    });
-
-    // Add keyboard handler for navigation and escape
-    document.addEventListener("keydown", function (e) {
+    // Handle keyboard navigation
+    document.addEventListener("keydown", (e) => {
       if (!lightbox.classList.contains("active")) return;
 
       switch (e.key) {
-        case "Escape":
-          closeLightbox();
-          break;
         case "ArrowLeft":
           prevButton.click();
           break;
         case "ArrowRight":
           nextButton.click();
+          break;
+        case "Escape":
+          closeLightbox();
           break;
       }
     });

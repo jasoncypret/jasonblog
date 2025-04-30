@@ -5,67 +5,100 @@ require 'mini_magick'
 namespace :images do
   desc "Convert images to webp and generate thumbnails"
   task :convert_to_webp, [:force] do |t, args|
-    # Define thumbnail size (increased width for better quality)
-    thumbnail_size = "600x500"
+    # Define sizes
+    sizes = {
+      mobile: "300x300",
+      desktop: "600x500"
+    }
     force = args[:force] == 'true'
     
     # Find all images in the companies directory
     Dir.glob("source/media/companies/**/*.{jpg,jpeg,png}").each do |image_path|
       # Skip thumbnails and webp files
-      next if image_path.include?('_thumb') || image_path.end_with?('.webp')
+      next if image_path.include?('_thumb') || image_path.include?('_mobile') || image_path.end_with?('.webp')
       
-      # Generate webp path
+      # Generate paths
       webp_path = image_path.gsub(/\.(jpg|jpeg|png)$/, '.webp')
+      mobile_path = image_path.gsub(/\.(jpg|jpeg|png)$/, '_mobile\0')
+      mobile_webp_path = mobile_path.gsub(/\.(jpg|jpeg|png)$/, '.webp')
+      thumb_path = image_path.gsub(/\.(jpg|jpeg|png)$/, '_thumb\0')
+      thumb_webp_path = thumb_path.gsub(/\.(jpg|jpeg|png)$/, '.webp')
       
-      # Generate thumbnail paths
-      original_thumb_path = image_path.gsub(/\.(jpg|jpeg|png)$/, '_thumb\0')
-      webp_thumb_path = webp_path.gsub(/\.webp$/, '_thumb.webp')
-      
-      # Skip if webp and thumbnail exist and not forcing
-      if !force && File.exist?(webp_path) && File.exist?(webp_thumb_path)
+      # Skip if all versions exist and not forcing
+      if !force && File.exist?(webp_path) && File.exist?(mobile_path) && 
+         File.exist?(mobile_webp_path) && File.exist?(thumb_webp_path)
         puts "Skipping #{image_path} - already converted"
         next
       end
       
-      # Convert to webp with high quality
-      puts "Converting #{image_path} to webp"
+      puts "Processing #{image_path}"
       image = MiniMagick::Image.open(image_path)
-      image.format 'webp'
-      image.quality 95  # Increased quality for main webp
-      image.write webp_path
       
-      # Generate webp thumbnail with high quality
-      puts "Generating thumbnail for #{webp_path}"
-      image.resize thumbnail_size + '^'  # ^ ensures minimum size while maintaining aspect ratio
-      image.gravity 'center'
-      image.extent thumbnail_size  # Crop to exact size from center
-      image.quality 95  # Increased quality for thumbnail
-      image.write webp_thumb_path
+      # Generate mobile version
+      puts "Generating mobile version"
+      mobile = image.clone
+      mobile.resize sizes[:mobile] + '^'
+      mobile.gravity 'center'
+      mobile.extent sizes[:mobile]
+      mobile.quality 85  # Slightly lower quality for mobile
+      FileUtils.mkdir_p(File.dirname(mobile_path))
+      mobile.write(mobile_path) { |file| file.overwrite = true }
+      mobile.format 'webp'
+      FileUtils.mkdir_p(File.dirname(mobile_webp_path))
+      mobile.write(mobile_webp_path) { |file| file.overwrite = true }
+      
+      # Generate desktop thumbnail
+      puts "Generating desktop thumbnail"
+      thumb = image.clone
+      thumb.resize sizes[:desktop] + '^'
+      thumb.gravity 'center'
+      thumb.extent sizes[:desktop]
+      thumb.quality 95
+      thumb.format 'webp'
+      FileUtils.mkdir_p(File.dirname(thumb_webp_path))
+      thumb.write(thumb_webp_path) { |file| file.overwrite = true }
+      
+      # Convert original to webp
+      puts "Converting to webp"
+      image.format 'webp'
+      image.quality 95
+      FileUtils.mkdir_p(File.dirname(webp_path))
+      image.write(webp_path) { |file| file.overwrite = true }
       
       # Remove original thumbnail if it exists
-      File.delete(original_thumb_path) if File.exist?(original_thumb_path)
+      File.delete(thumb_path) if File.exist?(thumb_path)
     end
 
-    # Generate thumbnails for videos
+    # Generate thumbnails and mobile versions for videos
     Dir.glob("source/media/companies/**/*.mp4").each do |video_path|
-      next if video_path.include?('_thumb') # Skip existing thumbnails
+      next if video_path.include?('_thumb') || video_path.include?('_mobile')
       
-      # Generate thumbnail path
-      thumbnail_path = video_path.gsub(/\.mp4$/, '_thumb.webp')
+      # Generate paths
+      mobile_video_path = video_path.gsub('.mp4', '_mobile.mp4')
+      thumbnail_path = video_path.gsub('.mp4', '_thumb.webp')
+      mobile_thumb_path = video_path.gsub('.mp4', '_mobile.webp')
       
-      # Skip if thumbnail exists and not forcing
-      if !force && File.exist?(thumbnail_path)
-        puts "Skipping #{video_path} - thumbnail exists"
+      # Skip if files exist and not forcing
+      if !force && File.exist?(mobile_video_path) && File.exist?(thumbnail_path) && File.exist?(mobile_thumb_path)
+        puts "Skipping #{video_path} - already converted"
         next
       end
       
-      # Create high-quality thumbnail from video
-      puts "Generating thumbnail for #{video_path}"
-      # Using higher quality settings:
-      # -q:v 1 = highest quality (range is 1-31, lower is better)
-      # -qscale:v 1 = highest quality for the frame extraction
-      # -vf scale with high-quality lanczos scaling
-      system("ffmpeg -i #{video_path} -ss 00:00:01 -vframes 1 -vf \"scale=#{thumbnail_size}:force_original_aspect_ratio=decrease,format=rgb24\" -sws_flags lanczos -q:v 1 -qscale:v 1 #{thumbnail_path}")
+      puts "Processing #{video_path}"
+      
+      # Ensure output directories exist
+      FileUtils.mkdir_p(File.dirname(mobile_video_path))
+      FileUtils.mkdir_p(File.dirname(thumbnail_path))
+      FileUtils.mkdir_p(File.dirname(mobile_thumb_path))
+      
+      # Generate mobile video version (lower bitrate, smaller size)
+      puts "Generating mobile video version"
+      system("ffmpeg -y -i #{video_path} -vf scale='-2:720' -b:v 800k -maxrate 800k -bufsize 1600k -c:v libx264 -profile:v main -level:v 3.1 -movflags +faststart #{mobile_video_path}")
+      
+      # Generate thumbnails
+      puts "Generating thumbnails"
+      system("ffmpeg -y -i #{video_path} -ss 00:00:01 -vframes 1 -vf scale=#{sizes[:desktop]}:force_original_aspect_ratio=decrease,format=rgb24 -sws_flags lanczos -q:v 1 -qscale:v 1 #{thumbnail_path}")
+      system("ffmpeg -y -i #{video_path} -ss 00:00:01 -vframes 1 -vf scale=#{sizes[:mobile]}:force_original_aspect_ratio=decrease,format=rgb24 -sws_flags lanczos -q:v 1 -qscale:v 1 #{mobile_thumb_path}")
     end
   end
 
