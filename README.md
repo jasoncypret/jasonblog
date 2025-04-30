@@ -85,16 +85,9 @@ bundle exec rake images:regenerate_thumbnails
 This will:
 1. Delete all existing thumbnails
 2. Generate new thumbnails at the current settings
-3. Process all images in the `source/images/companies` directory
+3. Process all images in the `source/media/companies` directory
 
 ### Image Gallery Usage
-To add an image to the gallery:
-
-```erb
-<div class="image-gallery">
-  <%= gallery_image "companies/power/Playbook-Figma.jpg", alt: "Power Playbook in Figma" %>
-</div>
-```
 
 The gallery will:
 - Display thumbnails in a responsive grid
@@ -103,6 +96,6 @@ The gallery will:
 - Maintain page scroll position when opening/closing
 
 ### Image Requirements
-- Original images should be placed in `source/images/companies/[company]/`
+- Original images should be placed in `source/media/companies/[company]/`
 - Supported formats: JPG, JPEG, PNG
 - Recommended minimum size: 800x1000 pixels (for 2x thumbnails)

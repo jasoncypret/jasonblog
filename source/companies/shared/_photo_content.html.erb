@@ -3,11 +3,17 @@
 # - layout_type: String (required) - 'default', 'single-image', or 'centered-image'
 # - title: String (required)
 # - description: String (required)
-# - images: Array of Hashes (required)
-#   Each image should have:
+# - media_items: Array of Hashes (required)
+#   Each media item should have:
+#   - type: String (required) - 'image' or 'video'
 #   - src: String (required)
-#   - alt: String (required)
+#   - alt: String (required for images)
 #   - caption: String (optional)
+#   - poster: String (optional, for video thumbnail)
+#   - autoplay: Boolean (optional, for videos, defaults to false)
+#   - controls: Boolean (optional, for videos, defaults to true)
+#   - muted: Boolean (optional, for videos, defaults to true)
+#   - loop: Boolean (optional, for videos, defaults to true)
 %>
 
 <% 
@@ -24,14 +30,26 @@
       <%# Centered layout %>
       <h2 class="title" data-aos="fade-up"><%= title %></h2>
       <div class="image-container" data-aos="fade-up" data-aos-delay="100">
-        <% if images.first %>
+        <% if media_items.first %>
           <div class="gallery-item">
-            <img class="gallery-thumbnail lazyload" 
-                 src="<%= images.first[:src] %>"
-                 alt="<%= images.first[:alt] %>"
-                 <%= "data-lightbox='#{title}'" if images.length > 1 %>>
-            <% if images.first[:caption] %>
-              <p class="caption"><%= images.first[:caption] %></p>
+            <% if media_items.first[:type] == 'video' %>
+              <video class="gallery-thumbnail"
+                     src="<%= media_items.first[:src] %>"
+                     <%= "poster='#{media_items.first[:poster]}'" if media_items.first[:poster] %>
+                     <%= "controls" if media_items.first[:controls] != false %>
+                     <%= "autoplay" if media_items.first[:autoplay] %>
+                     <%= "muted" if media_items.first[:muted] != false %>
+                     <%= "loop" if media_items.first[:loop] != false %>
+                     playsinline>
+              </video>
+            <% else %>
+              <img class="gallery-thumbnail lazyload" 
+                   src="<%= media_items.first[:src] %>"
+                   alt="<%= media_items.first[:alt] %>"
+                   <%= "data-lightbox='#{title}'" if media_items.length > 1 %>>
+            <% end %>
+            <% if media_items.first[:caption] %>
+              <p class="caption"><%= media_items.first[:caption] %></p>
             <% end %>
           </div>
         <% end %>
@@ -50,13 +68,25 @@
           </div>
         </div>
         <div class="content-secondary" data-aos="fade-up" data-aos-delay="100">
-          <% if images.first %>
+          <% if media_items.first %>
             <div class="gallery-item">
-              <img class="gallery-thumbnail lazyload" 
-                   src="<%= images.first[:src] %>"
-                   alt="<%= images.first[:alt] %>">
-              <% if images.first[:caption] %>
-                <p class="caption"><%= images.first[:caption] %></p>
+              <% if media_items.first[:type] == 'video' %>
+                <video class="gallery-thumbnail"
+                       src="<%= media_items.first[:src] %>"
+                       <%= "poster='#{media_items.first[:poster]}'" if media_items.first[:poster] %>
+                       <%= "controls" if media_items.first[:controls] != false %>
+                       <%= "autoplay" if media_items.first[:autoplay] %>
+                       <%= "muted" if media_items.first[:muted] != false %>
+                       <%= "loop" if media_items.first[:loop] != false %>
+                       playsinline>
+                </video>
+              <% else %>
+                <img class="gallery-thumbnail lazyload" 
+                     src="<%= media_items.first[:src] %>"
+                     alt="<%= media_items.first[:alt] %>">
+              <% end %>
+              <% if media_items.first[:caption] %>
+                <p class="caption"><%= media_items.first[:caption] %></p>
               <% end %>
             </div>
           <% end %>
@@ -71,27 +101,51 @@
           <div class="description">
             <%= description %>
           </div>
-          <% if images.first %>
+          <% if media_items.first %>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-              <img class="gallery-thumbnail lazyload" 
-                   src="<%= images.first[:src] %>"
-                   alt="<%= images.first[:alt] %>"
-                   <%= "data-lightbox='#{title}'" if images.length > 1 %>>
-              <% if images.first[:caption] %>
-                <p class="caption"><%= images.first[:caption] %></p>
+              <% if media_items.first[:type] == 'video' %>
+                <video class="gallery-thumbnail"
+                       src="<%= media_items.first[:src] %>"
+                       <%= "poster='#{media_items.first[:poster]}'" if media_items.first[:poster] %>
+                       <%= "controls" if media_items.first[:controls] != false %>
+                       <%= "autoplay" if media_items.first[:autoplay] %>
+                       <%= "muted" if media_items.first[:muted] != false %>
+                       <%= "loop" if media_items.first[:loop] != false %>
+                       playsinline>
+                </video>
+              <% else %>
+                <img class="gallery-thumbnail lazyload" 
+                     src="<%= media_items.first[:src] %>"
+                     alt="<%= media_items.first[:alt] %>"
+                     <%= "data-lightbox='#{title}'" if media_items.length > 1 %>>
+              <% end %>
+              <% if media_items.first[:caption] %>
+                <p class="caption"><%= media_items.first[:caption] %></p>
               <% end %>
             </div>
           <% end %>
         </div>
         <div class="content-secondary">
-          <% if images[1] %>
+          <% if media_items[1] %>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-              <img class="gallery-thumbnail lazyload" 
-                   src="<%= images[1][:src] %>"
-                   alt="<%= images[1][:alt] %>"
-                   <%= "data-lightbox='#{title}'" if images.length > 1 %>>
-              <% if images[1][:caption] %>
-                <p class="caption"><%= images[1][:caption] %></p>
+              <% if media_items[1][:type] == 'video' %>
+                <video class="gallery-thumbnail"
+                       src="<%= media_items[1][:src] %>"
+                       <%= "poster='#{media_items[1][:poster]}'" if media_items[1][:poster] %>
+                       <%= "controls" if media_items[1][:controls] != false %>
+                       <%= "autoplay" if media_items[1][:autoplay] %>
+                       <%= "muted" if media_items[1][:muted] != false %>
+                       <%= "loop" if media_items[1][:loop] != false %>
+                       playsinline>
+                </video>
+              <% else %>
+                <img class="gallery-thumbnail lazyload" 
+                     src="<%= media_items[1][:src] %>"
+                     alt="<%= media_items[1][:alt] %>"
+                     <%= "data-lightbox='#{title}'" if media_items.length > 1 %>>
+              <% end %>
+              <% if media_items[1][:caption] %>
+                <p class="caption"><%= media_items[1][:caption] %></p>
               <% end %>
             </div>
           <% end %>

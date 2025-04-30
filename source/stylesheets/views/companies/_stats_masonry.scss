@@ -156,6 +156,7 @@
     &__col {
       &:last-child {
         flex: 2 1 0%;  // Take up more space on larger screens
+        max-height: 800px;
       }
     }
   }

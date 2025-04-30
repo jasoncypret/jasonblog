@@ -7,34 +7,43 @@
 <p>The dashboard became a daily ritual for thousands. With over 567k users and 13k+ deep engagements, Pulse changed how we connected with customers—and proved that internal systems can lead to external delight.</p>
 
 <blockquote>&ldquo;Pulse didn't just track the project. It gave customers control.&rdquo;</blockquote>",
-  images: [
-    { src: "/media/homepage/power-splash.png", alt: "Pulse Dashboard" }
+  media_items: [
+    { type: 'image', src: "/media/homepage/power-splash.png", alt: "Pulse Dashboard" }
   ]
 } %>
 
 <%= partial "companies/shared/stats_masonry", locals: {
+  intro: {
+    logo: "/media/companies/power/pulse/project-pulse-logo.svg",
+    quote: ""
+  },
   title: "Pulse Highlights",
   content: [
     {
       type: 'stats',
       value: '570k+',
       label: 'Since Creation<br/>(Launch - March 2025)',
+      color: 'black',
       size: 'sm'
     },
     {
       type: 'stats',
       value: '13k+',
       label: 'Users in First Month',
-      color: 'black',
       size: 'sm'
     },
     {
+      type: 'image',
+      src: '/media/companies/power/pulse/pulse-logo.svg',
+      alt: 'Pulse Logo'
+    },
+    {
       type: 'video',
-      src: '/media/companies/power/pulse/pulse-before-after.mp4',
+      src: '/media/companies/power/pulse/project-pulse-ad.mp4',
       alt: 'Playbook Design System Demo'
     }
   ],
-  layout: [[0,1], [2]]
+  layout: [[0,1,2], [3]]
 } %>
 
 <%= partial "partials/media_showcase", locals: {
@@ -45,53 +54,78 @@
   items: [
     {
       type: "image",
-      src: "/media/companies/power/pulse/pulse-dashboard.png",
+      src: "/media/companies/power/pulse/pulse-dashboard.webp",
+      thumbnail: "/media/companies/power/pulse/pulse-dashboard_thumb.webp",
       alt: "Pulse Dashboard",
       caption_title: "Dashboard",
-      caption_description: "",
+      caption_description: "Central hub for every step in the customer journey—simplified and designed for clarity.",
       span: "span-2"
     },
     {
       type: "image",
-      src: "/media/companies/power/pulse/pulse-mobile.png",
+      src: "/media/companies/power/pulse/pulse-mobile.webp",
+      thumbnail: "/media/companies/power/pulse/pulse-mobile_thumb.webp",
       alt: "Mobile Interface",
       caption_title: "Mobile First",
-      caption_description: "Designed for on-the-go"
+      caption_description: "Optimized for access on the go, keeping customers connected from anywhere."
     },
     {
       type: "image",
-      src: "/media/companies/power/pulse/pulse-magic-link.png",
+      src: "/media/companies/power/pulse/pulse-magic-link.webp",
+      thumbnail: "/media/companies/power/pulse/pulse-magic-link_thumb.webp",
       alt: "Magic Link",
       caption_title: "Magic Link",
-      caption_description: "Seamless authentication"
+      caption_description: "One-tap login with no passwords—reducing friction while boosting trust.",
+      span: "span-2"
     },
     {
       type: "image",
-      src: "/media/companies/power/pulse/pulse-detail.png",
+      src: "/media/companies/power/pulse/pulse-detail.webp",
+      thumbnail: "/media/companies/power/pulse/pulse-detail_thumb.webp",
       alt: "Detail",
-      caption_title: "Detail",
-      caption_description: "Detailed project information"
+      caption_title: "Project Details",
+      caption_description: "Key info delivered clearly—timeline, milestones, and confirmations in one place.",
     },
     {
       type: "image",
-      src: "/media/companies/power/pulse/pulse-3d-door.png",
+      src: "/media/companies/power/pulse/pulse-3d-door.webp",
+      thumbnail: "/media/companies/power/pulse/pulse-3d-door_thumb.webp",
       alt: "3D Door",
-      caption_title: "3D Door",
-      caption_description: "See your door in 3D"
+      caption_title: "3D Door Preview",
+      caption_description: "Lets users explore their actual product with an interactive, photorealistic view.",
+      span: "span-2"
     },
     {
       type: "image",
-      src: "/media/companies/power/pulse/pulse-payment-confirm.png",
+      src: "/media/companies/power/pulse/pulse-payment-confirm.webp",
+      thumbnail: "/media/companies/power/pulse/pulse-payment-confirm_thumb.webp",
       alt: "Payment Confirmation",
       caption_title: "Payment Confirmation",
-      caption_description: "Confirm your payment"
-    },{
+      caption_description: "A complex workflow made simple—secure payments handled directly in Pulse."
+    },
+    {
+      type: "image",
+      src: "/media/companies/power/pulse/pulse-onboard.webp",
+      thumbnail: "/media/companies/power/pulse/pulse-onboard_thumb.webp",
+      alt: "Pulse Onboarding",
+      caption_title: "Onboarding Flow",
+      caption_description: "A guided setup experience that helps homeowners start with confidence."
+    },
+    {
+      type: "video",
+      src: "/media/companies/power/pulse/pulse-before-after.mp4",
+      thumbnail: "/media/companies/power/pulse/pulse-before-after_thumb.webp",
+      alt: "Dashboard Before & After",
+      caption_title: "Before & After",
+      caption_description: "How user research shaped the dashboard—showing the evolution from clutter to clarity."
+    },
+    {
       type: "video",
       src: "/media/companies/power/pulse/pulse-signature.mp4",
-      thumbnail: "/media/companies/power/pulse/pulse-signature_thumb.jpg",
+      thumbnail: "/media/companies/power/pulse/pulse-signature_thumb.webp",
       alt: "Signature",
       caption_title: "Signature",
-      caption_description: "See your signature"
+      caption_description: "An intuitive flow that lets users sign documents with clarity and peace of mind."
     }
   ],
   footer_title: "Pulse transformed how we connect with customers.",

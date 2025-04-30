@@ -53,6 +53,13 @@
           @media (min-width: 992px) {
             margin-top: 0.625rem;
           }
+
+          img, video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+          }
         }
       }
 
@@ -78,6 +85,13 @@
 
           @media (min-width: 992px) {
             margin-top: 0;
+          }
+
+          img, video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
           }
         }
       }
@@ -146,14 +160,11 @@
             margin-top: 0;
           }
 
-          img {
+          img, video {
             width: 100%;
             height: auto;
             border-radius: 10px;
-            
-            @media (min-width: 768px) {
-              max-width: none;
-            }
+            object-fit: cover;
           }
         }
       }
@@ -174,10 +185,11 @@
       margin: 3.125rem auto;
       max-width: 1000px;
 
-      img {
+      img, video {
         width: 100%;
         height: auto;
         border-radius: 10px;
+        object-fit: cover;
       }
     }
 

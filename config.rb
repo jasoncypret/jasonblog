@@ -18,7 +18,7 @@ configure :development do
     require 'mini_magick'
     
     # Define thumbnail size (2x the display size for retina)
-    thumbnail_size = "400x500"
+    thumbnail_size = "500x600"
     
     # Find all images in the companies directory
     Dir.glob("source/media/companies/**/*.{jpg,jpeg,png,webp}").each do |image_path|
@@ -34,13 +34,14 @@ configure :development do
       puts "Generating thumbnail for #{image_path}"
       image = MiniMagick::Image.open(image_path)
       image.resize thumbnail_size
-      image.quality 90 # Higher quality for thumbnails
+      image.quality 96 # Higher quality for thumbnails
       image.write thumbnail_path
 
       unless image_path.end_with?('.webp')
         webp_path = image_path.gsub(/\.(jpg|jpeg|png)$/, '.webp')
-        image.format 'webp'
-        image.write webp_path
+        original = MiniMagick::Image.open(image_path)
+        original.format 'webp'
+        original.write webp_path
         desktop_path = File.expand_path("~/Desktop")
         backup_path = File.join(desktop_path, File.basename(image_path))
         FileUtils.mv(image_path, backup_path) if File.exist?(image_path)
@@ -119,29 +120,6 @@ helpers do
     super( path, params )
   end
 
-  def gallery_image(path, title: nil, description: nil, alt: nil)
-    content_tag(:div, class: 'gallery-item') do
-      # Add data-lightbox attribute to the image
-      image = image_tag(path, 
-        class: 'gallery-thumbnail lazyload', 
-        alt: alt,
-        data: { lightbox: "/images/#{path}" }
-      )
-      content = []
-      content << image
-      
-      if title
-        content << content_tag(:h5, title, class: 'gallery-item-title')
-      end
-      
-      if description
-        content << content_tag(:p, description, class: 'gallery-item-description')
-      end
-      
-      content.join.html_safe
-    end
-  end
-
   def process_image(path, options = {})
     # Default options
     options = {
@@ -189,7 +167,7 @@ end
 configure :build do
   activate :asset_hash
   activate :minify_css
-  activate :minify_javascript
+  # activate :minify_javascript
   activate :relative_assets
   
   # Generate thumbnails during build
@@ -218,8 +196,9 @@ configure :build do
 
       unless image_path.end_with?('.webp')
         webp_path = image_path.gsub(/\.(jpg|jpeg|png)$/, '.webp')
-        image.format 'webp'
-        image.write webp_path
+        original = MiniMagick::Image.open(image_path)
+        original.format 'webp'
+        original.write webp_path
         desktop_path = File.expand_path("~/Desktop")
         backup_path = File.join(desktop_path, File.basename(image_path))
         FileUtils.mv(image_path, backup_path) if File.exist?(image_path)
@@ -272,9 +251,14 @@ configure :build do
     end
   end
 
-  # Copy video files to build directory
+  # Copy video files to build/media directory while retaining structure
   after_build do |builder|
-    FileUtils.cp_r Dir.glob('source/videos/*'), 'build/videos/'
+    Dir.glob("source/media/**/*.{mp4,webm,m4v,ogv}").each do |video_path|
+      relative_path = video_path.sub(/^source\//, '')
+      output_path = File.join("build", relative_path)
+      FileUtils.mkdir_p(File.dirname(output_path))
+      FileUtils.cp(video_path, output_path)
+    end
   end
 end
 
