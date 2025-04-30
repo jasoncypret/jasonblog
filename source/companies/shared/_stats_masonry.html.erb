@@ -16,6 +16,7 @@
     - type: 'video'
       - src: String (video path)
       - alt: String (alt text)
+      - poster: String (optional, path to poster image)
     - type: 'html'
       - content: String (HTML content)
   - layout: Array of Arrays (optional)
@@ -76,9 +77,30 @@
                 <%= image_tag item[:src], class: 'lazyload', alt: item[:alt] %>
               </div>
             <% when 'video' %>
-              <div class="stats-item stats-item--image">
-                <video autoplay loop muted playsinline class="lazyload">
-                  <source src="<%= item[:src] %>" type="video/mp4">
+              <div class="stats-item stats-item--video" data-video-loaded="false" style="position: relative;">
+                <%# Generate poster path if not provided %>
+                <% poster_path = item[:poster] || item[:src].gsub('.mp4', '_thumb.webp') %>
+                
+                <%# Initial poster image %>
+                <img class="video-poster lazyload"
+                     src="<%= poster_path %>"
+                     alt="<%= item[:alt] %>"
+                     loading="lazy"
+                     style="width: 100%; opacity: 1; transition: opacity 0.3s ease; position: absolute; top: 0; left: 0;">
+                
+                <%# Video element - will be loaded when in viewport %>
+                <video class="stats-video"
+                       playsinline
+                       preload="none"
+                       style="width: 100%; opacity: 0; transition: opacity 0.3s ease;"
+                       <%= "poster='#{poster_path}'" if item[:poster] %>>
+                  <%# Mobile source %>
+                  <source src="<%= item[:src].gsub('.mp4', '_mobile.mp4') %>"
+                          type="video/mp4"
+                          media="(max-width: 768px)">
+                  <%# Desktop source %>
+                  <source src="<%= item[:src] %>"
+                          type="video/mp4">
                   Your browser does not support HTML5 video.
                 </video>
               </div>

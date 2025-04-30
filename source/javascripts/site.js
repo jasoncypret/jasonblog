@@ -3,6 +3,9 @@ function loadSite() {
   document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM Content Loaded");
 
+    // Initialize video loading for stats masonry
+    initializeStatsVideos();
+
     // Initialize lightbox for all gallery items
     const galleryItems = document.querySelectorAll(".gallery-item");
     console.log("Found gallery items:", galleryItems.length);
@@ -62,6 +65,71 @@ function loadSite() {
       const showNav = currentGalleryItems.length > 1;
       prevButton.style.display = showNav ? "" : "none";
       nextButton.style.display = showNav ? "" : "none";
+    }
+
+    // Stats video loading management
+    function initializeStatsVideos() {
+      const videoContainers = document.querySelectorAll('.stats-item--video');
+      
+      if (!videoContainers.length) return;
+
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const container = entry.target;
+            const video = container.querySelector('video');
+            const poster = container.querySelector('.video-poster');
+            
+            if (container.dataset.videoLoaded === 'false') {
+              // Set up video
+              video.muted = true;
+              video.loop = true;
+              video.autoplay = true;
+              
+              // Load and play video
+              video.load();
+              
+              // Handle video loaded
+              video.addEventListener('loadeddata', () => {
+                container.dataset.videoLoaded = 'true';
+                // Fade in video
+                video.style.opacity = '1';
+                // Fade out poster
+                if (poster) {
+                  poster.style.opacity = '0';
+                  // Remove poster from DOM after transition
+                  poster.addEventListener('transitionend', () => {
+                    poster.style.display = 'none';
+                  }, { once: true });
+                }
+                video.play().catch(err => {
+                  console.warn('Auto-play failed:', err);
+                  // Keep poster visible if autoplay fails
+                  if (poster) {
+                    poster.style.opacity = '1';
+                    poster.style.display = 'block';
+                    video.style.opacity = '0';
+                  }
+                });
+              });
+            } else if (video.paused) {
+              video.play().catch(() => {});
+            }
+          } else {
+            const video = entry.target.querySelector('video');
+            if (video && !video.paused) {
+              video.pause();
+            }
+          }
+        });
+      }, {
+        threshold: 0.2,
+        rootMargin: '50px'
+      });
+
+      videoContainers.forEach(container => {
+        videoObserver.observe(container);
+      });
     }
 
     // Intersection Observer for lazy loading

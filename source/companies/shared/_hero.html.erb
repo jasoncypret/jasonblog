@@ -1,10 +1,21 @@
-<div class="company-hero power">
+<%#
+  Locals:
+  - company: String (company name for class)
+  - logo: String (path to company logo)
+  - title: String
+  - description: String
+  - background_image: String (optional, path to background image)
+%>
+
+<div class="company-hero <%= company.downcase %>">
   <div class="company-container">
     <div class="company-content">
-      <%= image_tag "media/companies/power/shared/power-logo.svg", class: "lazyload company-logo", alt: "Power Logo" %>
-      <h1 class="company-title">8 Years of Design-Led Transformation at Power</h1>
-      <p class="company-description">A look inside how I helped scale a billion-dollar home remodeling company through UX leadership, systems thinking, and bold product innovation.</p>
+      <%= image_tag logo, class: "lazyload company-logo", alt: "#{company} Logo" %>
+      <h1 class="company-title"><%= title %></h1>
+      <p class="company-description"><%= description %></p>
     </div>
   </div>
-  <%= image_tag 'media/homepage/power-splash.png', class: 'company-mockup lazyload' %>
+  <% if defined?(background_image) && background_image %>
+    <%= image_tag background_image, class: 'company-mockup lazyload' %>
+  <% end %>
 </div> 

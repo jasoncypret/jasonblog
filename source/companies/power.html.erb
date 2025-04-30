@@ -1,13 +1,18 @@
 ---
-layout: company_detail
-title: Power
+title: "Power - Jason Cypret"
+description: "8 Years of Design-Led Transformation at Power - A look inside how I helped scale a billion-dollar home remodeling company through UX leadership, systems thinking, and bold product innovation."
 ---
 
-<%= partial "companies/shared/hero" %>
-<%= partial "companies/shared/highlights" %>
+<%= partial "companies/shared/hero", locals: {
+  company: "Power",
+  logo: "media/companies/power/shared/power-logo.svg",
+  title: "8 Years of Design-Led Transformation at Power",
+  description: "A look inside how I helped scale a billion-dollar home remodeling company through UX leadership, systems thinking, and bold product innovation.",
+  background_image: "media/homepage/power-splash.png"
+} %>
 
+<%= partial "companies/power/ux_org" %>
 <%= partial "companies/power/playbook" %>
 <%= partial "companies/power/pulse" %>
 <%= partial "companies/power/innovation_lab" %>
 <%= partial "companies/power/big_apps" %>
-<%= partial "companies/power/ux_org" %>

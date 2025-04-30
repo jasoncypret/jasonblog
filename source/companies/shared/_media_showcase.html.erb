@@ -1,0 +1,111 @@
+<%
+# Local variables:
+# - title: String (required)
+# - description: String (required)
+# - footer_title: String (optional)
+# - footer_description: String (optional)
+# - items: Array of Hashes (required)
+#   Each item should have:
+#   - type: 'image' or 'video'
+#   - src: path to media
+#   - thumbnail: path to thumbnail (required for videos)
+#   - alt: alt text
+#   - caption_title: String (optional)
+#   - caption_description: String (optional)
+#   - span: String (optional) - 'span-2' or 'span-2-rows'
+%>
+
+<section class="media-showcase">
+  <% if defined?(title) && title.present? %>
+    <h2 class="media-showcase-header-title"><%= title.html_safe %></h2>
+  <% end %>
+
+  <% if defined?(description) && description.present? %>
+    <p class="media-showcase-header-description"><%= description.html_safe %></p>
+  <% end %>
+
+  <div class="media-showcase-grid">
+    <% items.each do |item| %>
+      <div class="media-showcase-grid-item gallery-item <%= item[:span] if item[:span].present? %>">
+        <% if item[:type] == 'video' %>
+          <%# Video thumbnail with responsive image %>
+          <% if item[:thumbnail].present? %>
+            <picture>
+              <%# WebP version %>
+              <source
+                type="image/webp"
+                srcset="<%= item[:thumbnail].gsub(/\.(jpg|jpeg|png)$/, '_mobile.webp') %> 300w,
+                        <%= item[:thumbnail].gsub(/\.(jpg|jpeg|png)$/, '_thumb.webp') %> 600w"
+                sizes="(max-width: 768px) 300px, 600px">
+              
+              <%# Fallback version %>
+              <img class="gallery-thumbnail lazyload" 
+                   src="<%= item[:thumbnail].gsub(/\.(jpg|jpeg|png)$/, '_mobile.jpg') %>"
+                   srcset="<%= item[:thumbnail].gsub(/\.(jpg|jpeg|png)$/, '_mobile.jpg') %> 300w,
+                           <%= item[:thumbnail] %> 600w"
+                   sizes="(max-width: 768px) 300px, 600px"
+                   data-lightbox="<%= item[:src] %>"
+                   loading="lazy"
+                   decoding="async"
+                   alt="<%= item[:alt] %>">
+            </picture>
+          <% end %>
+          
+          <%# Hidden video preload for lightbox %>
+          <video preload="metadata" class="lightbox-video-preload" hidden
+                 <%= "poster=#{item[:thumbnail]}" if item[:thumbnail].present? %>>
+            <source src="<%= item[:src].present? ? item[:src].gsub('.mp4', '_mobile.mp4') : '' %>" 
+                    type="video/mp4" 
+                    media="(max-width: 768px)">
+            <source src="<%= item[:src] %>" 
+                    type="video/mp4">
+          </video>
+        <% else %>
+          <%# Image with responsive sizes %>
+          <picture>
+            <% thumb = item[:thumbnail].presence || item[:src] %>
+            <% if thumb.present? %>
+              <%# WebP version %>
+              <source
+                type="image/webp"
+                srcset="<%= thumb.gsub(/\.(jpg|jpeg|png)$/, '_mobile.webp') %> 300w,
+                        <%= thumb.gsub(/\.(jpg|jpeg|png)$/, '_thumb.webp') %> 600w"
+                sizes="(max-width: 768px) 300px, 600px">
+              
+              <%# Fallback version %>
+              <img class="gallery-thumbnail lazyload" 
+                   src="<%= thumb.gsub(/\.(jpg|jpeg|png)$/, '_mobile.jpg') %>"
+                   srcset="<%= thumb.gsub(/\.(jpg|jpeg|png)$/, '_mobile.jpg') %> 300w,
+                           <%= thumb %> 600w"
+                   sizes="(max-width: 768px) 300px, 600px"
+                   data-lightbox="<%= item[:src] %>"
+                   loading="lazy"
+                   decoding="async"
+                   alt="<%= item[:alt] %>">
+            <% end %>
+          </picture>
+        <% end %>
+        
+        <% if item[:caption_title].present? || item[:caption_description].present? %>
+          <div class="gallery-item-caption">
+            <% if item[:caption_title].present? %>
+              <h3 class="gallery-item-title"><%= item[:caption_title] %></h3>
+            <% end %>
+            <% if item[:caption_description].present? %>
+              <p class="gallery-item-description"><%= item[:caption_description] %></p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if defined?(footer_title) && footer_title.present? %>
+    <div class="media-showcase-footer">
+      <h3 class="media-showcase-footer-title"><%= footer_title %></h3>
+      <% if defined?(footer_description) && footer_description.present? %>
+        <div class="media-showcase-footer-description"><%= footer_description.html_safe %></div>
+      <% end %>
+    </div>
+  <% end %>
+</section> 

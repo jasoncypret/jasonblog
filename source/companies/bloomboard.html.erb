@@ -1,0 +1,91 @@
+---
+title: "BloomBoard - Jason Cypret"
+description: "Helping BloomBoard Grow Up - A journey of product transformation and design system evolution"
+---
+
+<%= partial "companies/shared/hero", locals: {
+  company: "BloomBoard",
+  logo: "media/companies/bloomboard/Bloomboard.svg",
+  title: "Helping BloomBoard Grow Up",
+  background_image: "media/homepage/bloom-splash.png",
+  description: "What began as a fast-paced R&D gig turned into a journey of deep product transformation. I helped launch new apps, prototype emerging ideas, and evolve BloomBoard's entire front-end stack—all while modernizing design culture and scaling consistency through systems. From Angular to React, from individual prototypes to BBUI, I was there at every pivotal shift—leading design, writing code, and introducing new ways of thinking."
+} %>
+
+<%= partial "companies/shared/stats_masonry", locals: {
+  content: [
+    {
+      type: "stats",
+      value: "Topsoil",
+      label: "Built & Launched in Months",
+      description: "Small team. Dual-role work. UX, front-end, and backend for a goal-setting app built from scratch. Fast iteration, real usage, live launch.",
+      color: "bg-bloomboard-light"
+    },
+    {
+      type: "stats",
+      value: "React",
+      label: "Introduced to the Company",
+      description: "Part of the founding team for 'Singular', a new coaching-based product. Helped move BloomBoard from Angular to React + Node, and built foundational patterns for future teams.",
+      color: "bg-bloomboard-light"
+    },
+    {
+      type: "image",
+      src: "media/companies/bloomboard/placeholder-1.webp",
+      alt: "BloomBoard interface prototype"
+    },
+    {
+      type: "stats",
+      value: "BBUI",
+      label: "Before Storybook Was a Thing",
+      description: "Created the first living style guide and taught the team atomic design principles. Built BBUI, a cross-product design system with reusable components before design systems were mainstream.",
+      color: "bg-bloomboard-light"
+    },
+    {
+      type: "stats",
+      value: "UX",
+      label: "Redefined Culture",
+      description: "Gave company-wide talks, migrated teams from LESS to Sass, and elevated front-end practices through mentorship and shared tools.",
+      color: "bg-bloomboard-light"
+    },
+    {
+      type: "video",
+      src: "media/companies/bloomboard/placeholder-video.mp4",
+      alt: "BloomBoard interface demonstration"
+    }
+  ]
+} %>
+
+<%= partial "companies/shared/media_showcase", locals: {
+  title: "Product Prototypes & System Design",
+  description: "A collection of interfaces, prototypes, and design system components that shaped BloomBoard's digital evolution.",
+  items: [
+    {
+      type: "image",
+      src: "media/companies/bloomboard/placeholder-2.webp",
+      title: "Topsoil UI",
+      description: "Goal-setting application interface"
+    },
+    {
+      type: "image",
+      src: "media/companies/bloomboard/placeholder-3.webp",
+      title: "Singular React Prototype",
+      description: "Early coaching platform interface"
+    },
+    {
+      type: "image",
+      src: "media/companies/bloomboard/placeholder-4.webp",
+      title: "BBUI Components",
+      description: "Design system component library"
+    },
+    {
+      type: "video",
+      src: "media/companies/bloomboard/placeholder-video-2.mp4",
+      title: "Interactive Prototypes",
+      description: "Motion and interaction experiments"
+    }
+  ]
+} %>
+
+<%# partial "companies/shared/quote", locals: {
+  quote: "A Company in Transition, A Designer in Motion",
+  description: "BloomBoard gave me space to explore, build, and influence across every layer of the stack. I didn't just ship features—I shaped foundations. What started as scrappy experimentation grew into a shared design culture and a product system that could scale with vision."
+} %> 
