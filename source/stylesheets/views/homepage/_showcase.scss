@@ -1,7 +1,10 @@
 .showcase {
   display: flex;
-  margin: $space_xl $space_sm;
+  margin: $space_xl $space_md;
   justify-content: center;
+  @include mobile_only {
+    margin: $space_xl $space_sm;
+  }
   &-container {
     scale: 1;
     transition-behavior: normal;
