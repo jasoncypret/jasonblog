@@ -2,6 +2,7 @@
   @include background_cover;
   width: 100%;
   height: 45%;
+  min-height: 450px;
   overflow: hidden;
   background-image: linear-gradient(120deg, #16144f 0%, #030c76 100%);
   position: relative;
@@ -19,6 +20,7 @@
 
   @include mobile_only {
     height: auto;
+    min-height: auto;
   }
 
   .wrap {
@@ -27,17 +29,16 @@
     background: rgba(black, 0.55);
     width: 100%;
     height: 100%;
-    padding-top: 180px;
+    padding: $space_sm 0;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-    @include mobile_only {
-      padding-top: 40px;
-      padding-bottom: 10%;
-    }
   }
 
   .icon-arrow-down {
-    display: block;
+    display: none;
     position: absolute;
     left: 50%;
     font-size: 50px;
@@ -46,6 +47,7 @@
     animation-delay: 2.5s;
     animation-fill-mode: forwards;
     color: rgba(white, 0.3);
+    transform: translateX(-50%);
 
     @include mobile_only {
       display: none;
@@ -89,7 +91,7 @@
     text-align: center;
     font-weight: normal;
     color: rgba(white, 0.7);
-    width: $reading-width;
+    max-width: $reading-width;
     margin: 0 auto;
     font-size: 20px;
     line-height: 30px;
@@ -132,7 +134,7 @@
         transition-timing-function: ease-in;
 
         @include mobile_only {
-          font-size: 40px;
+          font-size: 30px;
         }
 
         &:hover {
