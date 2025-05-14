@@ -5,7 +5,7 @@ date: 2025-05-14 16:32 UTC
 tags: AI, n8n
 image: articles/tiny-agents-not-agi-building-a-5-node-marketing-idea-generator-in-n8n/simple-n8n-workflow.webp
 open_graph_image: articles/tiny-agents-not-agi-building-a-5-node-marketing-idea-generator-in-n8n/simple-n8n-workflow.webp
-summary: A day of AI insights, highlighting its impact on productivity, customer experience, and the future of enterprise applications.
+summary: Agents sound intimidating, but the smallest useful one I've built fits neatly into a five-node n8n workflow that runs every Monday.
 
 ---
 
