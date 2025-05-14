@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>From Dad Bod to Hot Rod</title>
+  <title>Tiny Agents, Not AGI: Building a 5-Node Marketing-Idea Generator in n8n</title>
   <link href="../stylesheets/site-91e2397c.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -192,9 +192,9 @@
   font-weight: bold;
 }
   </style>
-  <body class="article x2016-01-04-my-journey-from-dad-bod-to-hot-rod x2016-01-04-my-journey-from-dad-bod-to-hot-rod_index">
+  <body class="article tiny-agents-not-agi-building-a-5-node-marketing-idea-generator-in-n8n tiny-agents-not-agi-building-a-5-node-marketing-idea-generator-in-n8n_index">
     <header class="post-header image-post">
-    <img src="../images/articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/address-the-bar.jpg" class="header-image lazyload lazyload" alt="" />
+    <img src="simple-n8n-workflow-c2115a68.webp" class="header-image lazyload lazyload" alt="" />
   <div class="wrap">
     <div class="nav">
   <a class="avatar" href="/">
@@ -208,56 +208,118 @@
   </ul>
 </div>
     <h1 class="article-title">
-      <a href="/2016-01-04-my-journey-from-dad-bod-to-hot-rod/">From Dad Bod to Hot Rod</a>
+      <a href="/tiny-agents-not-agi-building-a-5-node-marketing-idea-generator-in-n8n/">Tiny Agents, Not AGI: Building a 5-Node Marketing-Idea Generator in n8n</a>
     </h1>
-    <div class="article-summary">I started down the Paleo path. Kelly, my wife, thought I was crazy.</div>
-    <small class="article-date">January  4, 2016</small>
+    <div class="article-summary">A day of AI insights, highlighting its impact on productivity, customer experience, and the future of enterprise applications.</div>
+    <small class="article-date">May 14, 2025</small>
   </div>
 </header>
     <article class="post-content">
       <blockquote>
-<p>I was recently interviewed for CrossFit Waxahachie success stories section. It&rsquo;s always fun to look back and see how you compare in the past. You can easily get caught up in the now and totally forget where you started. I am super happy with my fitness progress over the last 4 years. I hope this inspires someone to take a step towards change. Originaly posted on <a href="http://www.crossfitwaxahachie.com/2015/12/jasons-journey-from-dad-bod-to-hot-rod/">CrossFit Waxahachie</a>. </p>
+<p><strong>tl;dr</strong> &quot;Agents&quot; sound intimidating, but the smallest useful one I&rsquo;ve built
+fits neatly into a five-node n8n workflow that runs every Monday, creates
+<em>fresh</em> marketing ideas for BoxBoard, and stores them for later use.</p>
 </blockquote>
 
-<p><img src="../images/articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/before-after.jpg" alt="Before &amp; After" class="lazyload" /></p>
+<hr>
 
-<h2>What brought you to CrossFit Waxahachie when you very first started?</h2>
+<h2>1. Wait—what <em>is</em> an &ldquo;agent&rdquo;?</h2>
 
-<p>One day I noticed I was out of shape. My office had a fire drill and all I had to do was walk down the stairs, but I was so winded. <strong>That was my wake up call</strong>, I knew I needed a change. A 20 something year old shouldn’t have been dying from just walking down stairs. My wife had just started working out and I joined her at our local gym. We did the typical legs day, arms day and tons of cardio on the treadmill. We were taking a trip to Hawaii and I had to “look good” and get in shape for that. Well, it worked, but didn’t last for long and I slipped back into my old ways and became pudgy again.</p>
+<p>If you&rsquo;ve opened LinkedIn or Product Hunt in the last year, you&rsquo;ve heard</p>
 
-<p>Several years later a work buddy of mine began drastically dropping weight and gaining muscle. I finally asked him what he was doing and he told me about the Paleo diet and Crossfit. Thinking that Crossfit wasn’t something I would be into, I started down the Paleo path. Kelly, my wife, thought I was crazy. The first week on the Paleo diet I lost around 10 pounds. Even though I was intimidated, I decided to try Crossfit Waxahachie in October 2011. That was one of the best decisions I’ve ever made.</p>
+<blockquote>
+<p>&ldquo;Our platform now supports <strong>agents</strong>!&rdquo;</p>
+</blockquote>
 
-<p><img src="../images/articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/burpee.jpg" alt="Burpee" class="lazyload" /></p>
+<p>Under the hood, most of those agents are just <strong>workflows</strong> that contain at
+least <em>one</em> step where an LLM makes a decision:</p>
 
-<h2>What has been your biggest life change since starting CrossFit Waxahachie?</h2>
+<ul>
+<li><strong>Trigger</strong> – something kicks the flow off<br></li>
+<li><strong>LLM call</strong> – the &ldquo;thinking&rdquo; step<br></li>
+<li><strong>Action</strong> – data is stored, sent, or transformed<br></li>
+</ul>
 
-<p>My whole outlook on my health and my family’s health has been impacted by
-Crossfit Waxahachie. I lost at least 20 pounds after starting and then began
-building muscle. I feel like I am healthier in my 30’s than I’ve ever been. I look
-forward to seeing what the WOD is every day and challenging myself to be better than I was yesterday.</p>
+<p>That&rsquo;s it. 90 % plumbing, 10 % AI.</p>
 
-<p><img src="../images/articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/rings.jpg" alt="Rings" class="lazyload" /></p>
+<hr>
 
-<h2>How has CFW had an effect on your family?</h2>
+<h2>2. My use-case: weekly marketing inspiration</h2>
 
-<p>Have you met Kelly Cypret??? Well that’s all my doing! Muahahahahah. No really, Kelly thought I was crazy and wouldn’t try Crossfit for the longest time, but I finally wore her down. Crossfit gives us something else in common that we can share together. Now my two kids are growing up at the box and I couldn’t be more proud. My son Carson does Crossfit Kids in the summer and my two year old daughter, Harper, knows what pull ups are and tries to do them. My entire family reaps the benefits of CFW.</p>
+<p>Every Monday I used to spend 20 minutes brainstorming LinkedIn ideas for
+BoxBoard. That&rsquo;s precisely the kind of low-leverage chore automations love.</p>
 
-<h2>Do you have a favorite workout or lift?</h2>
+<h3>The <em>initial</em> 4-node proof-of-concept</h3>
 
-<p>My favorite lift would have to be Overhead Squats. I also enjoy ring muscle ups and my favorite WOD is Helen.</p>
+<ol>
+<li><strong>Cron Trigger</strong> – fires at 08:00 on Mondays<br></li>
+<li><strong>OpenAI</strong> – &ldquo;Give me 10 marketing post ideas for BoxBoard.&rdquo;<br></li>
+<li><strong>Code</strong> – turn the JSON into rows<br></li>
+<li><strong>Postgres Insert</strong> – save into <code>marketing_ideas</code><br></li>
+</ol>
 
-<h2>What is your favorite thing about CrossFit Waxahachie?</h2>
+<p>It worked! But after week two the model repeated itself—classic LLM amnesia.</p>
 
-<p>The best thing about Crossfit Waxahachie is the community The people are what keeps me coming back, not just the work outs. I have made great friends from the box, friends that I wouldn’t have known without this place. Also the
-encouragement I’ve received by not only Coach Chris, but everyone in my 6am class.</p>
+<h3>The <em>current</em> 5-node version</h3>
 
-<p><img src="../images/articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/squat.jpg" alt="Squat" class="lazyload" /></p>
+<p>(Screenshot below)</p>
 
-<h2>What would you say to someone who is considering CrossFit Waxahachie as a place to get healthier and even more awesome?</h2>
+<ol>
+<li><strong>Cron Trigger</strong><br></li>
+<li><strong>Postgres Select</strong> – pull last week&rsquo;s ideas<br></li>
+<li><strong>OpenAI</strong> – <em>&ldquo;Give me 10 *</em>new** ideas not found in this list&hellip;&rdquo;*<br></li>
+<li><strong>Code</strong> – format rows<br></li>
+<li><strong>Postgres Insert</strong> – write the fresh set<br></li>
+</ol>
 
-<p>Just try it. Don’t wait don’t wait until you’re “fit.” Just come as you are. Scale as you need to. CFW will take you as you are! You’ll be amazed at what you can do and the encouragement that surrounds you. Your first year is full of amazing achievements that you never would’ve thought possible. Crossfit Waxahachie is an awesome place to be with some of the best people around!</p>
+<p><img src="simple-n8n-workflow-c2115a68.webp" title="Five-node n8n flow that generates new marketing ideas and stores them in Postgres" alt="n8n workflow: cron → Postgres select → OpenAI → code → Postgres insert" class="lazyload" /></p>
 
-<p><img src="../images/articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/friends.jpg" alt="Friends" class="lazyload" /></p>
+<hr>
+
+<h2>3. Why Postgres and not Sheets / Airtable?</h2>
+
+<ul>
+<li><strong>Deduping &amp; filtering</strong> – <code>SELECT DISTINCT</code> is trivial in SQL.<br></li>
+<li><strong>Joins</strong> – later I can enrich ideas with performance metrics.<br></li>
+<li><strong>Scalability</strong> – when this grows into a full &ldquo;marketing squad&rdquo; of flows,
+I already have a relational backbone.<br></li>
+<li><strong>Rails front-end</strong> – I surface the table in a lightweight admin panel; no
+zap-to-sheet gymnastics.</li>
+</ul>
+
+<p>Use whatever datastore fits your stack, but SQL saves future you a refactor.</p>
+
+<hr>
+
+<h2>4. Extending the agent</h2>
+
+<ul>
+<li><strong>Add a Slack node</strong> – DM myself the top idea every Monday morning.<br></li>
+<li><strong>Hook into Notion</strong> – auto-create a content brief with tone &amp; target
+audience filled in.<br></li>
+<li><strong>Feedback loop</strong> – after a post goes live, write engagement stats back to
+Postgres so the next prompt can prioritize high-performing themes.</li>
+</ul>
+
+<hr>
+
+<h2>5. Takeaways</h2>
+
+<ol>
+<li><em>Small is beautiful.</em> An &ldquo;agent&rdquo; can start with one LLM call and still
+deliver real value.<br></li>
+<li><em>Think like a PM.</em> Break ambitious ideas into tiny shippable tasks; wire
+them; iterate.<br></li>
+<li><em>Data matters.</em> Choosing a real database early unlocks smarter prompts and
+future automation layers.</li>
+</ol>
+
+<p>Where could a five-node flow erase your Monday busywork?</p>
+
+<hr>
+
+<p><em>Questions or war stories about your own tiny agents?<br>
+Ping me on Twitter—always happy to swap notes.</em></p>
 
     </article>
   </body>

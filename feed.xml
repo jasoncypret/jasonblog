@@ -5,10 +5,126 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2024-10-22T16:15:00-05:00</updated>
+  <updated>2025-05-14T11:32:00-05:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>Tiny Agents, Not AGI: Building a 5-Node Marketing-Idea Generator in n8n</title>
+    <link rel="alternate" href="http://blog.url.com/tiny-agents-not-agi-building-a-5-node-marketing-idea-generator-in-n8n/"/>
+    <id>http://blog.url.com/tiny-agents-not-agi-building-a-5-node-marketing-idea-generator-in-n8n/</id>
+    <published>2025-05-14T11:32:00-05:00</published>
+    <updated>2025-05-14T12:11:58-05:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt; &amp;quot;Agents&amp;quot; sound intimidating, but the smallest useful one I&amp;rsquo;ve built
+fits neatly into a five-node n8n workflow that runs every Monday, creates
+&lt;em&gt;fresh&lt;/em&gt; marketing ideas for BoxBoard, and stores them for later use.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;1. Wait—what &lt;em&gt;is&lt;/em&gt; an &amp;ldquo;agent&amp;rdquo;?&lt;/h2&gt;
+
+&lt;p&gt;If you&amp;rsquo;ve opened LinkedIn or Product Hunt in the last year, you&amp;rsquo;ve heard&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Our platform now supports &lt;strong&gt;agents&lt;/strong&gt;!&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Under the hood, most of those agents are just &lt;strong&gt;workflows&lt;/strong&gt; that contain at
+least &lt;em&gt;one&lt;/em&gt; step where an LLM makes a decision:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Trigger&lt;/strong&gt; – something kicks the flow off&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LLM call&lt;/strong&gt; – the &amp;ldquo;thinking&amp;rdquo; step&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Action&lt;/strong&gt; – data is stored, sent, or transformed&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That&amp;rsquo;s it. 90 % plumbing, 10 % AI.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;2. My use-case: weekly marketing inspiration&lt;/h2&gt;
+
+&lt;p&gt;Every Monday I used to spend 20 minutes brainstorming LinkedIn ideas for
+BoxBoard. That&amp;rsquo;s precisely the kind of low-leverage chore automations love.&lt;/p&gt;
+
+&lt;h3&gt;The &lt;em&gt;initial&lt;/em&gt; 4-node proof-of-concept&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Cron Trigger&lt;/strong&gt; – fires at 08:00 on Mondays&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OpenAI&lt;/strong&gt; – &amp;ldquo;Give me 10 marketing post ideas for BoxBoard.&amp;rdquo;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Code&lt;/strong&gt; – turn the JSON into rows&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Postgres Insert&lt;/strong&gt; – save into &lt;code&gt;marketing_ideas&lt;/code&gt;&lt;br&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;It worked! But after week two the model repeated itself—classic LLM amnesia.&lt;/p&gt;
+
+&lt;h3&gt;The &lt;em&gt;current&lt;/em&gt; 5-node version&lt;/h3&gt;
+
+&lt;p&gt;(Screenshot below)&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Cron Trigger&lt;/strong&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Postgres Select&lt;/strong&gt; – pull last week&amp;rsquo;s ideas&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OpenAI&lt;/strong&gt; – &lt;em&gt;&amp;ldquo;Give me 10 *&lt;/em&gt;new** ideas not found in this list&amp;hellip;&amp;rdquo;*&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Code&lt;/strong&gt; – format rows&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Postgres Insert&lt;/strong&gt; – write the fresh set&lt;br&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src="simple-n8n-workflow-c2115a68.webp" title="Five-node n8n flow that generates new marketing ideas and stores them in Postgres" alt="n8n workflow: cron → Postgres select → OpenAI → code → Postgres insert" class="lazyload" /&gt;&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;3. Why Postgres and not Sheets / Airtable?&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Deduping &amp;amp; filtering&lt;/strong&gt; – &lt;code&gt;SELECT DISTINCT&lt;/code&gt; is trivial in SQL.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Joins&lt;/strong&gt; – later I can enrich ideas with performance metrics.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Scalability&lt;/strong&gt; – when this grows into a full &amp;ldquo;marketing squad&amp;rdquo; of flows,
+I already have a relational backbone.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rails front-end&lt;/strong&gt; – I surface the table in a lightweight admin panel; no
+zap-to-sheet gymnastics.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Use whatever datastore fits your stack, but SQL saves future you a refactor.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;4. Extending the agent&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Add a Slack node&lt;/strong&gt; – DM myself the top idea every Monday morning.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hook into Notion&lt;/strong&gt; – auto-create a content brief with tone &amp;amp; target
+audience filled in.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Feedback loop&lt;/strong&gt; – after a post goes live, write engagement stats back to
+Postgres so the next prompt can prioritize high-performing themes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;5. Takeaways&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;Small is beautiful.&lt;/em&gt; An &amp;ldquo;agent&amp;rdquo; can start with one LLM call and still
+deliver real value.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Think like a PM.&lt;/em&gt; Break ambitious ideas into tiny shippable tasks; wire
+them; iterate.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Data matters.&lt;/em&gt; Choosing a real database early unlocks smarter prompts and
+future automation layers.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Where could a five-node flow erase your Monday busywork?&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;&lt;em&gt;Questions or war stories about your own tiny agents?&lt;br&gt;
+Ping me on Twitter—always happy to swap notes.&lt;/em&gt;&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>AI and the Future of UX: Key Takeaways from Gartner Day 2</title>
     <link rel="alternate" href="http://blog.url.com/gartner-2024-day-2/"/>
@@ -521,7 +637,7 @@ Reusable and can be dropped on any page. Great examples are lists, galleries, an
 &lt;p&gt;I was recently interviewed for CrossFit Waxahachie success stories section. It&amp;rsquo;s always fun to look back and see how you compare in the past. You can easily get caught up in the now and totally forget where you started. I am super happy with my fitness progress over the last 4 years. I hope this inspires someone to take a step towards change. Originaly posted on &lt;a href="http://www.crossfitwaxahachie.com/2015/12/jasons-journey-from-dad-bod-to-hot-rod/"&gt;CrossFit Waxahachie&lt;/a&gt;. &lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src="before-after-c6b9e599.jpg" alt="Before &amp;amp; After" class="lazyload" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/before-after.jpg" alt="Before &amp;amp; After" class="lazyload" /&gt;&lt;/p&gt;
 
 &lt;h2&gt;What brought you to CrossFit Waxahachie when you very first started?&lt;/h2&gt;
 
@@ -529,7 +645,7 @@ Reusable and can be dropped on any page. Great examples are lists, galleries, an
 
 &lt;p&gt;Several years later a work buddy of mine began drastically dropping weight and gaining muscle. I finally asked him what he was doing and he told me about the Paleo diet and Crossfit. Thinking that Crossfit wasn’t something I would be into, I started down the Paleo path. Kelly, my wife, thought I was crazy. The first week on the Paleo diet I lost around 10 pounds. Even though I was intimidated, I decided to try Crossfit Waxahachie in October 2011. That was one of the best decisions I’ve ever made.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src="burpee-a2f76738.jpg" alt="Burpee" class="lazyload" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/burpee.jpg" alt="Burpee" class="lazyload" /&gt;&lt;/p&gt;
 
 &lt;h2&gt;What has been your biggest life change since starting CrossFit Waxahachie?&lt;/h2&gt;
 
@@ -538,7 +654,7 @@ Crossfit Waxahachie. I lost at least 20 pounds after starting and then began
 building muscle. I feel like I am healthier in my 30’s than I’ve ever been. I look
 forward to seeing what the WOD is every day and challenging myself to be better than I was yesterday.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src="rings-4fb563b4.jpg" alt="Rings" class="lazyload" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/rings.jpg" alt="Rings" class="lazyload" /&gt;&lt;/p&gt;
 
 &lt;h2&gt;How has CFW had an effect on your family?&lt;/h2&gt;
 
@@ -553,53 +669,13 @@ forward to seeing what the WOD is every day and challenging myself to be better 
 &lt;p&gt;The best thing about Crossfit Waxahachie is the community The people are what keeps me coming back, not just the work outs. I have made great friends from the box, friends that I wouldn’t have known without this place. Also the
 encouragement I’ve received by not only Coach Chris, but everyone in my 6am class.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src="squat-ff117edf.jpg" alt="Squat" class="lazyload" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/squat.jpg" alt="Squat" class="lazyload" /&gt;&lt;/p&gt;
 
 &lt;h2&gt;What would you say to someone who is considering CrossFit Waxahachie as a place to get healthier and even more awesome?&lt;/h2&gt;
 
 &lt;p&gt;Just try it. Don’t wait don’t wait until you’re “fit.” Just come as you are. Scale as you need to. CFW will take you as you are! You’ll be amazed at what you can do and the encouragement that surrounds you. Your first year is full of amazing achievements that you never would’ve thought possible. Crossfit Waxahachie is an awesome place to be with some of the best people around!&lt;/p&gt;
 
-&lt;p&gt;&lt;img src="friends-6e1df164.jpg" alt="Friends" class="lazyload" /&gt;&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>The Squint Test</title>
-    <link rel="alternate" href="http://blog.url.com/2015-10-01-the-squint-test/"/>
-    <id>http://blog.url.com/2015-10-01-the-squint-test/</id>
-    <published>2015-10-01T11:33:00-05:00</published>
-    <updated>2025-03-31T17:07:15-05:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;I gave a presentation this week where I mentioned the squint test. As I went through it I started to think how ridiculous this may sound to someone who&amp;rsquo;s not a designer or in UX. Then again, it could seem crazy to just about anyone. However, I’ve noticed I do the squint test quite frequently when I’m designing interfaces. Especially the more I’m unsure of my decisions.&lt;/p&gt;
-
-&lt;p&gt;The squint test is not complicated. In fact it’s probably not worth this post, but I figured I&amp;rsquo;d at least reference it here for myself later or for those who may be interested.&lt;/p&gt;
-
-&lt;p&gt;When looking at a design simply de-focus your eyes. If you can&amp;rsquo;t defocus your eyes (is that a skill?) try squinting until everything becomes hard to distinguish. If you did either one of those you are now an expert of the squint test. Congrats, make sure and list me as a reference on your resume.&lt;/p&gt;
-
-&lt;p&gt;Ok, ok so what can you use this seemly useless skill for? Answer&amp;hellip;lots of things. In my presentation I was highlighting the use of the squint test to compare the contrast between 2 card designs.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="cards-6b53e71d.png" alt="Cards" class="lazyload" /&gt;&lt;/p&gt;
-
-&lt;p&gt;Since these cards have a similar shape and orientation of actions one could easily confuse one with the other if the presentation is not carefully thought through. I ended up designing one card using mostly dark colors and white text and the other card light colors, more whitespace, and dark grey text.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="blur-ff44edd0.png" alt="Blured Cards" class="lazyload" /&gt;&lt;/p&gt;
-
-&lt;p&gt;By squinting you should be able to distinguish between the 2 cards clearly without reading any of the text, images or actions. If you can distinguish between the two the squint test passes. YAY! If not you should look carefully at the design. If you&amp;rsquo;re not willing to compromise your &lt;em&gt;killer design skills&lt;/em&gt; for UX then perhaps consider another non design/color related approach &amp;hellip; &lt;strong&gt;MICROCOPY&lt;/strong&gt;!&lt;/p&gt;
-
-&lt;p&gt;I also use this method for CTA’s and Homepage design. For example, once you get past your card design exercise start thinking about page focus and the goal. I’m sure you have this in mind, so what is the main thing you would like your user to do? Ok, now squint and see if that action or path is easy to spot. This is pretty easy with CTA’s since you&amp;rsquo;re mainly looking to see if they stand out enough.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Trust is built with consistency.&lt;/strong&gt; - Lincoln Chafee&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;But seriously, if you&amp;rsquo;re striving to keep your app consistent, your users&amp;rsquo; pattern recondition is extremely important in these factors:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Discovery and Learning:&lt;/strong&gt; It&amp;rsquo;s really hard to fall in love with an app that you can’t figure out. A good user experience should be able to guide the user through the app with minimal instruction. Pattern recondition is key when showing the user repeat information&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Retention:&lt;/strong&gt; Homie, if your app is hard to learn, or you keep changing patterns on your users you might find it hard to retain your users. Over the years the trend has been to simplify, but not at the expense of UX. Lets simplify when it enhances the experience, not from trends. Having a clear focus about consistency and core value with help you retain users and keep them feeling like badasses!&lt;/p&gt;
-
-&lt;p&gt;Now you know if you see me staring at my screen with a glazed look on my face, I&amp;rsquo;m not high! Although I could be exhausted from late night Netflix benge watching with my wife. More than likely I’m just doing the squint test. For me, the squint test works well for general layout problems, color questions, pattern recognition and CTA focus. It can be used for so many things…I just don’t recommend it for staring directly into the sun.&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/friends.jpg" alt="Friends" class="lazyload" /&gt;&lt;/p&gt;
 </content>
   </entry>
 </feed>
