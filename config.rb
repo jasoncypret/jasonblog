@@ -93,6 +93,28 @@ configure :development do
         end
       end
     end
+
+    # Process article images
+    Dir.glob("source/articles/**/*.{jpg,jpeg,png}").each do |image_path|
+      next if image_path.include?('_thumb') # Skip existing thumbnails
+      next if image_path.end_with?('.webp') # Skip webp files
+      
+      # Create webp version
+      webp_path = image_path.gsub(/\.(jpg|jpeg|png)$/, '.webp')
+      
+      # Skip if webp already exists
+      next if File.exist?(webp_path)
+      
+      puts "Converting article image to webp: #{image_path}"
+      original = MiniMagick::Image.open(image_path)
+      original.format 'webp'
+      original.write webp_path
+      
+      # Backup original to desktop
+      desktop_path = File.expand_path("~/Desktop")
+      backup_path = File.join(desktop_path, File.basename(image_path))
+      FileUtils.mv(image_path, backup_path) if File.exist?(image_path)
+    end
   end
 end
 
