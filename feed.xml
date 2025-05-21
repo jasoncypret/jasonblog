@@ -5,10 +5,157 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2025-05-14T11:32:00-05:00</updated>
+  <updated>2025-05-21T09:59:00-05:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>Your Job Isn't Gone—Your Job Description Is</title>
+    <link rel="alternate" href="http://blog.url.com/your-job-isn-t-gone-your-job-description-is/"/>
+    <id>http://blog.url.com/your-job-isn-t-gone-your-job-description-is/</id>
+    <published>2025-05-21T09:59:00-05:00</published>
+    <updated>2025-05-21T10:25:18-05:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;*&lt;em&gt;tl;dr *&lt;/em&gt;AI isn&amp;rsquo;t coming for your job—it&amp;rsquo;s coming for the &lt;em&gt;version&lt;/em&gt; of your
+job that hasn&amp;rsquo;t evolved. The people who thrive will wield AI to stretch
+beyond a single specialty and stitch together value in unexpected ways.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;1 Why the &amp;ldquo;single-lane&amp;rdquo; career is fading&lt;/h2&gt;
+
+&lt;p&gt;Early in my career I wore tidy labels—designer, then front-end dev, then UX
+leader. That worked when tooling friction kept each craft in its silo.&lt;br&gt;
+Today:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Text-to-image tools draft logos in seconds.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;Code copilots stub features while you sip coffee.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;LLMs brainstorm 100 marketing angles before lunch.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Result:&lt;/strong&gt; what used to be an expensive hand-off chain is now a solo flight
+with AI riding shotgun.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;2 Four hats, one (busy) week&lt;/h2&gt;
+
+&lt;p&gt;The outputs below all happened in &lt;em&gt;small pockets of time&lt;/em&gt; during the same week.
+AI handled the grunt work; I played editor-in-chief.&lt;/p&gt;
+
+&lt;h3&gt;2.1 Logo exploration&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="../articles/your-job-isn-t-gone-your-job-description-is/logos.webp" title="Logo concepts generated with Midjourney + Figma tweaks" alt="AI-assisted logo sheet" class="lazyload" /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Prompt:&lt;/em&gt; &lt;em&gt;&amp;ldquo;Generate abstract logomarks for a real-estate market-comparison app
+called &amp;lsquo;SmartComps&amp;rsquo;; style: bold, geometric.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I iterated on the best mark in Figma, refined curves, and exported variants.
+Hands-on time: ≈ 25 min.&lt;/p&gt;
+
+&lt;h3&gt;2.2 Landing-page draft&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="../articles/your-job-isn-t-gone-your-job-description-is/boxboard-lp.webp" title="Landing page scaffolded with Lovable + Cursor and styled in Tailwind" alt="AI-generated landing page" class="lazyload" /&gt;&lt;/p&gt;
+
+&lt;p&gt;Workflow:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Lovable&lt;/strong&gt; to spark layout &amp;amp; copy ideas.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cursor&lt;/strong&gt; to translate the best concept into React/Tailwind code.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;Quick polish pass for brand tone, then push to a preview branch.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Design &lt;em&gt;and&lt;/em&gt; front-end boxes checked in under an hour.&lt;/p&gt;
+
+&lt;h3&gt;2.3 Marketing-idea factory&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="../articles/your-job-isn-t-gone-your-job-description-is/ideas.webp" title="Notion board filled by n8n + OpenAI" alt="List of AI-generated content ideas" class="lazyload" /&gt;&lt;/p&gt;
+
+&lt;p&gt;My &lt;strong&gt;n8n&lt;/strong&gt; flow:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Cron trigger (Monday 08:00)&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;Postgres &lt;code&gt;SELECT&lt;/code&gt; to avoid duplicates&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;OpenAI: &lt;em&gt;&amp;ldquo;Give me 10 *&lt;/em&gt;new** social posts for BoxBoard&amp;hellip;&amp;rdquo;*&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;Insert rows back into &lt;code&gt;marketing_ideas&lt;/code&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;Slack DM the top idea to me&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Five nodes = one less weekly chore.&lt;/p&gt;
+
+&lt;h3&gt;2.4 Code-enhancement sprint&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="../articles/your-job-isn-t-gone-your-job-description-is/code.webp" title="Cursor.ai pair-programming session" alt="Code diff with AI suggestions" class="lazyload" /&gt;&lt;/p&gt;
+
+&lt;p&gt;Cursor.ai nudged me through test stubs, edge-case handling, and a small
+refactor—more output, less keyboard time.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;3 Patterns I&amp;rsquo;m leaning on&lt;/h2&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Pattern&lt;/th&gt;
+&lt;th&gt;Why it works&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Prompt → Draft → Human polish&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;AI gets ~80 %; I inject taste &amp;amp; domain nuance.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;One source of truth&lt;/strong&gt; (Postgres)&lt;/td&gt;
+&lt;td&gt;Multiple &amp;ldquo;agents&amp;rdquo; read/write without spreadsheet chaos.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Componentized thinking&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Each task is a Lego brick; future flows can chain them.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;4 From specialist to &amp;ldquo;Swiss-army-knife&amp;rdquo; teammate&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;m not abandoning UX leadership; I&amp;rsquo;m &lt;em&gt;augmenting&lt;/em&gt; it. The evolving baseline
+stack:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Core craft&lt;/strong&gt; (design, dev, PM, etc.)&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Prompt literacy&lt;/strong&gt; (coax the best from LLMs)&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Workflow design&lt;/strong&gt; (thinking in nodes, triggers, data stores)&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rapid experimentation mindset&lt;/strong&gt; (ship → measure → tweak)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Companies will prize people who glide across that spectrum—handoff overhead is
+now effectively free.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;5 Try it yourself&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Pick a dormant skill&lt;/strong&gt; you haven&amp;rsquo;t touched in years.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Draft a micro-project&lt;/strong&gt; that takes &amp;lt; 1 hr with AI help.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ship&lt;/strong&gt;—even if it&amp;rsquo;s rough.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reflect:&lt;/strong&gt; What felt slow? Automate that next.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Where could &lt;em&gt;you&lt;/em&gt; add value once the boilerplate melts away?&lt;br&gt;
+Share a win (or face-plant) in the comments—let&amp;rsquo;s trade notes. 🚀&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks for reading—now go make something weird (with a little help from the
+machines).&lt;/em&gt;&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Tiny Agents, Not AGI: Building a 5-Node Marketing-Idea Generator in n8n</title>
     <link rel="alternate" href="http://blog.url.com/tiny-agents-not-agi-building-a-5-node-marketing-idea-generator-in-n8n/"/>
@@ -623,59 +770,5 @@ Reusable and can be dropped on any page. Great examples are lists, galleries, an
   &lt;span class="c1"&gt;// local variable (might want to encapsulate in a class)&lt;/span&gt;
   &lt;span class="nv"&gt;$mobile-card-height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="m"&gt;175px&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>From Dad Bod to Hot Rod</title>
-    <link rel="alternate" href="http://blog.url.com/2016-01-04-my-journey-from-dad-bod-to-hot-rod/"/>
-    <id>http://blog.url.com/2016-01-04-my-journey-from-dad-bod-to-hot-rod/</id>
-    <published>2016-01-04T10:35:00-06:00</published>
-    <updated>2024-04-24T20:45:24-05:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;I was recently interviewed for CrossFit Waxahachie success stories section. It&amp;rsquo;s always fun to look back and see how you compare in the past. You can easily get caught up in the now and totally forget where you started. I am super happy with my fitness progress over the last 4 years. I hope this inspires someone to take a step towards change. Originaly posted on &lt;a href="http://www.crossfitwaxahachie.com/2015/12/jasons-journey-from-dad-bod-to-hot-rod/"&gt;CrossFit Waxahachie&lt;/a&gt;. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src="../images/articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/before-after.jpg" alt="Before &amp;amp; After" class="lazyload" /&gt;&lt;/p&gt;
-
-&lt;h2&gt;What brought you to CrossFit Waxahachie when you very first started?&lt;/h2&gt;
-
-&lt;p&gt;One day I noticed I was out of shape. My office had a fire drill and all I had to do was walk down the stairs, but I was so winded. &lt;strong&gt;That was my wake up call&lt;/strong&gt;, I knew I needed a change. A 20 something year old shouldn’t have been dying from just walking down stairs. My wife had just started working out and I joined her at our local gym. We did the typical legs day, arms day and tons of cardio on the treadmill. We were taking a trip to Hawaii and I had to “look good” and get in shape for that. Well, it worked, but didn’t last for long and I slipped back into my old ways and became pudgy again.&lt;/p&gt;
-
-&lt;p&gt;Several years later a work buddy of mine began drastically dropping weight and gaining muscle. I finally asked him what he was doing and he told me about the Paleo diet and Crossfit. Thinking that Crossfit wasn’t something I would be into, I started down the Paleo path. Kelly, my wife, thought I was crazy. The first week on the Paleo diet I lost around 10 pounds. Even though I was intimidated, I decided to try Crossfit Waxahachie in October 2011. That was one of the best decisions I’ve ever made.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="../images/articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/burpee.jpg" alt="Burpee" class="lazyload" /&gt;&lt;/p&gt;
-
-&lt;h2&gt;What has been your biggest life change since starting CrossFit Waxahachie?&lt;/h2&gt;
-
-&lt;p&gt;My whole outlook on my health and my family’s health has been impacted by
-Crossfit Waxahachie. I lost at least 20 pounds after starting and then began
-building muscle. I feel like I am healthier in my 30’s than I’ve ever been. I look
-forward to seeing what the WOD is every day and challenging myself to be better than I was yesterday.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="../images/articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/rings.jpg" alt="Rings" class="lazyload" /&gt;&lt;/p&gt;
-
-&lt;h2&gt;How has CFW had an effect on your family?&lt;/h2&gt;
-
-&lt;p&gt;Have you met Kelly Cypret??? Well that’s all my doing! Muahahahahah. No really, Kelly thought I was crazy and wouldn’t try Crossfit for the longest time, but I finally wore her down. Crossfit gives us something else in common that we can share together. Now my two kids are growing up at the box and I couldn’t be more proud. My son Carson does Crossfit Kids in the summer and my two year old daughter, Harper, knows what pull ups are and tries to do them. My entire family reaps the benefits of CFW.&lt;/p&gt;
-
-&lt;h2&gt;Do you have a favorite workout or lift?&lt;/h2&gt;
-
-&lt;p&gt;My favorite lift would have to be Overhead Squats. I also enjoy ring muscle ups and my favorite WOD is Helen.&lt;/p&gt;
-
-&lt;h2&gt;What is your favorite thing about CrossFit Waxahachie?&lt;/h2&gt;
-
-&lt;p&gt;The best thing about Crossfit Waxahachie is the community The people are what keeps me coming back, not just the work outs. I have made great friends from the box, friends that I wouldn’t have known without this place. Also the
-encouragement I’ve received by not only Coach Chris, but everyone in my 6am class.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="../images/articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/squat.jpg" alt="Squat" class="lazyload" /&gt;&lt;/p&gt;
-
-&lt;h2&gt;What would you say to someone who is considering CrossFit Waxahachie as a place to get healthier and even more awesome?&lt;/h2&gt;
-
-&lt;p&gt;Just try it. Don’t wait don’t wait until you’re “fit.” Just come as you are. Scale as you need to. CFW will take you as you are! You’ll be amazed at what you can do and the encouragement that surrounds you. Your first year is full of amazing achievements that you never would’ve thought possible. Crossfit Waxahachie is an awesome place to be with some of the best people around!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="../images/articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/friends.jpg" alt="Friends" class="lazyload" /&gt;&lt;/p&gt;
-</content>
   </entry>
 </feed>
