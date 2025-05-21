@@ -4,7 +4,7 @@
 set :fonts_dir,  'fonts'
 set :css_dir, 'stylesheets'
 set :markdown_engine, :redcarpet
-set :markdown, fenced_code_blocks: true, smartypants: true
+set :markdown, fenced_code_blocks: true, smartypants: true, tables: true
 
 # Add video files to the list of binary files
 set :binary_files, %w(.m4v .mp4 .webm .ogv)
