@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.url.com/your-job-isn-t-gone-your-job-description-is/"/>
     <id>http://blog.url.com/your-job-isn-t-gone-your-job-description-is/</id>
     <published>2025-05-21T09:59:00-05:00</published>
-    <updated>2025-05-21T10:25:18-05:00</updated>
+    <updated>2025-05-21T10:33:57-05:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -50,7 +50,7 @@ AI handled the grunt work; I played editor-in-chief.&lt;/p&gt;
 
 &lt;h3&gt;2.1 Logo exploration&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src="../articles/your-job-isn-t-gone-your-job-description-is/logos.webp" title="Logo concepts generated with Midjourney + Figma tweaks" alt="AI-assisted logo sheet" class="lazyload" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/articles/your-job-isn-t-gone-your-job-description-is/logos.webp" title="Logo concepts generated with Midjourney + Figma tweaks" alt="AI-assisted logo sheet" class="lazyload" /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Prompt:&lt;/em&gt; &lt;em&gt;&amp;ldquo;Generate abstract logomarks for a real-estate market-comparison app
 called &amp;lsquo;SmartComps&amp;rsquo;; style: bold, geometric.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;
@@ -60,7 +60,7 @@ Hands-on time: ≈ 25 min.&lt;/p&gt;
 
 &lt;h3&gt;2.2 Landing-page draft&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src="../articles/your-job-isn-t-gone-your-job-description-is/boxboard-lp.webp" title="Landing page scaffolded with Lovable + Cursor and styled in Tailwind" alt="AI-generated landing page" class="lazyload" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/articles/your-job-isn-t-gone-your-job-description-is/boxboard-lp.webp" title="Landing page scaffolded with Lovable + Cursor and styled in Tailwind" alt="AI-generated landing page" class="lazyload" /&gt;&lt;/p&gt;
 
 &lt;p&gt;Workflow:&lt;/p&gt;
 
@@ -74,7 +74,7 @@ Hands-on time: ≈ 25 min.&lt;/p&gt;
 
 &lt;h3&gt;2.3 Marketing-idea factory&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src="../articles/your-job-isn-t-gone-your-job-description-is/ideas.webp" title="Notion board filled by n8n + OpenAI" alt="List of AI-generated content ideas" class="lazyload" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/articles/your-job-isn-t-gone-your-job-description-is/ideas.webp" title="Notion board filled by n8n + OpenAI" alt="List of AI-generated content ideas" class="lazyload" /&gt;&lt;/p&gt;
 
 &lt;p&gt;My &lt;strong&gt;n8n&lt;/strong&gt; flow:&lt;/p&gt;
 
@@ -90,7 +90,7 @@ Hands-on time: ≈ 25 min.&lt;/p&gt;
 
 &lt;h3&gt;2.4 Code-enhancement sprint&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src="../articles/your-job-isn-t-gone-your-job-description-is/code.webp" title="Cursor.ai pair-programming session" alt="Code diff with AI suggestions" class="lazyload" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/articles/your-job-isn-t-gone-your-job-description-is/code.webp" title="Cursor.ai pair-programming session" alt="Code diff with AI suggestions" class="lazyload" /&gt;&lt;/p&gt;
 
 &lt;p&gt;Cursor.ai nudged me through test stubs, edge-case handling, and a small
 refactor—more output, less keyboard time.&lt;/p&gt;
