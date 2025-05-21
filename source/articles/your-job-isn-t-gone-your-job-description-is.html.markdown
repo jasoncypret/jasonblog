@@ -2,8 +2,8 @@
 title: "Your Job Isn't Gone—Your Job Description Is"
 date: 2025-05-21 14:59 UTC
 tags: AI, future-of-work, productivity, skill-stacking
-image: articles/your-job-isn-t-gone-your-job-description-is/Post-large.webp
-open_graph_image: articles/your-job-isn-t-gone-your-job-description-is/Post-large.webp
+image: articles/your-job-isn-t-gone-your-job-description-is/post-large.webp
+open_graph_image: articles/your-job-isn-t-gone-your-job-description-is/post-large.webp
 summary: AI is blurring the lines between once-siloed roles. Here's how I used four different skill-sets—logo design, landing-page creation, marketing ideation, and coding—in the spare slices of a single week, with AI doing the heavy lifting.
 ---
 
