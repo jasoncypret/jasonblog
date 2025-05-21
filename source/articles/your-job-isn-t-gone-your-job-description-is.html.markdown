@@ -2,8 +2,8 @@
 title: "Your Job Isn't Gone—Your Job Description Is"
 date: 2025-05-21 14:59 UTC
 tags: AI, future-of-work, productivity, skill-stacking
-image: /articles/your-job-isn-t-gone-your-job-description-is/Post-large.webp
-open_graph_image: /articles/your-job-isn-t-gone-your-job-description-is/Post-large.webp
+image: articles/your-job-isn-t-gone-your-job-description-is/Post-large.webp
+open_graph_image: articles/your-job-isn-t-gone-your-job-description-is/Post-large.webp
 summary: AI is blurring the lines between once-siloed roles. Here's how I used four different skill-sets—logo design, landing-page creation, marketing ideation, and coding—in the spare slices of a single week, with AI doing the heavy lifting.
 ---
 
@@ -35,7 +35,7 @@ AI handled the grunt work; I played editor-in-chief.
 
 ### 2.1 Logo exploration
 
-![AI-assisted logo sheet](/articles/your-job-isn-t-gone-your-job-description-is/logos.webp "Logo concepts generated with Midjourney + Figma tweaks")
+![AI-assisted logo sheet](articles/your-job-isn-t-gone-your-job-description-is/logos.webp "Logo concepts generated with Midjourney + Figma tweaks")
 
 *Prompt:* *"Generate abstract logomarks for a real-estate market-comparison app
 called 'SmartComps'; style: bold, geometric."*
@@ -45,7 +45,7 @@ Hands-on time: ≈ 25 min.
 
 ### 2.2 Landing-page draft
 
-![AI-generated landing page](/articles/your-job-isn-t-gone-your-job-description-is/boxboard-lp.webp "Landing page scaffolded with Lovable + Cursor and styled in Tailwind")
+![AI-generated landing page](articles/your-job-isn-t-gone-your-job-description-is/boxboard-lp.webp "Landing page scaffolded with Lovable + Cursor and styled in Tailwind")
 
 Workflow:
 
@@ -57,7 +57,7 @@ Design *and* front-end boxes checked in under an hour.
 
 ### 2.3 Marketing-idea factory
 
-![List of AI-generated content ideas](/articles/your-job-isn-t-gone-your-job-description-is/ideas.webp "Notion board filled by n8n + OpenAI")
+![List of AI-generated content ideas](articles/your-job-isn-t-gone-your-job-description-is/ideas.webp "Notion board filled by n8n + OpenAI")
 
 My **n8n** flow:
 
@@ -71,7 +71,7 @@ Five nodes = one less weekly chore.
 
 ### 2.4 Code-enhancement sprint
 
-![Code diff with AI suggestions](/articles/your-job-isn-t-gone-your-job-description-is/code.webp "Cursor.ai pair-programming session")
+![Code diff with AI suggestions](articles/your-job-isn-t-gone-your-job-description-is/code.webp "Cursor.ai pair-programming session")
 
 Cursor.ai nudged me through test stubs, edge-case handling, and a small
 refactor—more output, less keyboard time.
