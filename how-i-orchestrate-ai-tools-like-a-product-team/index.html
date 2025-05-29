@@ -1,0 +1,382 @@
+<!doctype html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>How I Orchestrate AI Tools Like a Product Team</title>
+  <link href="../stylesheets/site-91e2397c.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml" />
+</head>
+  <style rel='stylesheet' type='text/css'>
+    .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .gp {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .gr {
+  color: #cc0000;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .sa {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .go {
+  color: #BBBBBB;
+}
+.highlight .nf, .highlight .fm {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi, .highlight .vm {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+  </style>
+  <body class="article how-i-orchestrate-ai-tools-like-a-product-team how-i-orchestrate-ai-tools-like-a-product-team_index">
+    <header class="post-header image-post">
+    <img src="ai-itteration-32bff9f6.webp" class="header-image lazyload lazyload" alt="" />
+  <div class="wrap">
+    <div class="nav">
+  <a class="avatar" href="/">
+    <i class="icon-angle-left"></i>
+    <div class="avatar"><img src="../media/site/avatar-5165620f.webp" class="lazyload lazyload" alt="" /></div>
+  </a>
+  <ul class="menu">
+      <li>
+        <a href="/resume/" class="menu-item resume">resume</a>
+      </li>
+  </ul>
+</div>
+    <h1 class="article-title">
+      <a href="/how-i-orchestrate-ai-tools-like-a-product-team/">How I Orchestrate AI Tools Like a Product Team</a>
+    </h1>
+    <div class="article-summary">Instead of relying on one AI tool to "do it all," I've found success treating each AI app like a teammate with a defined role—solution architect, developer, and creative support. Here's how I orchestrate ChatGPT, Cursor, Claude, and Figma into an AI-enhanced workflow.</div>
+    <small class="article-date">May 29, 2025</small>
+  </div>
+</header>
+    <article class="post-content">
+      <blockquote>
+<p><strong>tl;dr</strong> Don&rsquo;t wait for one tool that can do it all—build your own AI squad and assign each role. You&rsquo;ll move faster, stay in control, and spend more time on the parts of product development that actually excite you.</p>
+</blockquote>
+
+<hr>
+
+<h2>One AI to rule them all? That&rsquo;s a trap.</h2>
+
+<p>Everyone&rsquo;s waiting for <em>the one</em>: a magical AI tool that designs, writes, codes, and deploys while you sip cold brew.</p>
+
+<p>That&rsquo;s not how I work. And honestly, I&rsquo;m not sure I want it to be.</p>
+
+<p>Instead, I&rsquo;ve found a much more realistic—and scalable—approach: <strong>treat each AI tool like a teammate.</strong> Give it a specific role. Let it shine in the right part of the workflow. Stay involved in the things only you can do.</p>
+
+<hr>
+
+<h2>Here&rsquo;s how I orchestrate my &ldquo;AI team&rdquo;</h2>
+
+<p>When I kick off a new feature or idea, I think like a PM first.</p>
+
+<h3>1. <strong>ChatGPT = Solution Architect</strong></h3>
+
+<p>I always start by thinking like a product manager:<br>
+<em>&ldquo;As a user, I want [X] so that [Y].&rdquo;</em></p>
+
+<p>Then I describe the current context—what&rsquo;s in place, what&rsquo;s missing, and what the desired experience should feel like. I plug that into ChatGPT (or Claude) and ask it to play prompt engineer:  </p>
+
+<blockquote>
+<p>&ldquo;Turn this user story and background into a detailed technical brief.&rdquo;  </p>
+</blockquote>
+
+<p>ChatGPT excels here: it identifies edge cases, suggests data models, and sometimes even catches things I missed.</p>
+
+<p>I&rsquo;ll often prime the model with screenshots, style guidelines, or example interactions from Dribbble or my own app. This is where I shape the big picture.</p>
+
+<h3>2. <strong>Cursor = Senior Developer</strong></h3>
+
+<p>Once I have a solid brief, I move into the codebase with Cursor.  </p>
+
+<p>Cursor helps me:
+- Find relevant files across my Rails monolith
+- Scaffold new components or endpoints
+- Write tests I&rsquo;d otherwise forget
+- Catch inconsistencies or unhandled logic</p>
+
+<p>It works best when I&rsquo;ve already thought through the logic. Think of Cursor like a skilled dev—you still need to lead.</p>
+
+<h3>3. <strong>Me = Product/UX Lead</strong></h3>
+
+<p>Here&rsquo;s where human me steps in:
+- Review and refine UI in <strong>Figma</strong>
+- Pull references and patterns from the design system
+- Spot where brand, voice, or user flow needs love
+- Time-box feedback loops so I don&rsquo;t endlessly iterate</p>
+
+<p>The goal isn&rsquo;t perfection on pass one—it&rsquo;s momentum. Good enough is often great enough to ship, test, and then evolve later.</p>
+
+<hr>
+
+<h2>Why orchestration beats over-reliance</h2>
+
+<p>When you assign roles, a few good things happen:</p>
+
+<table><thead>
+<tr>
+<th>Benefit</th>
+<th>Why it matters</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Each tool stays in its lane</strong></td>
+<td>ChatGPT thinks big. Cursor stays close to code. Figma keeps the UI grounded.</td>
+</tr>
+<tr>
+<td><strong>You don&rsquo;t lose control</strong></td>
+<td>You&rsquo;re not handing the whole project to a single black box. You&rsquo;re staying in the loop.</td>
+</tr>
+<tr>
+<td><strong>You can upgrade in pieces</strong></td>
+<td>Swap Claude in for ChatGPT? Easy. Test new AI dev tools? Go for it. You&rsquo;re modular.</td>
+</tr>
+<tr>
+<td><strong>You can scale faster</strong></td>
+<td>Each tool adds leverage. Together, they 10x you—without replacing you.</td>
+</tr>
+</tbody></table>
+
+<hr>
+
+<h2>Pain points and workarounds</h2>
+
+<p>Yes, even orchestration has bumps.</p>
+
+<ul>
+<li><strong>Lost context?</strong> → Save prompt templates. Include links to brand, design, and past work.</li>
+<li><strong>AI goes rogue?</strong> → Define &ldquo;do not use&rdquo; libraries, patterns, or file paths.</li>
+<li><strong>Too many options?</strong> → Time-box decisions. If I&rsquo;m stuck more than 30 mins, I zoom out.</li>
+</ul>
+
+<hr>
+
+<h2>Recent &ldquo;wow&rdquo; moment</h2>
+
+<p>I&rsquo;d been avoiding a Stripe subscription bug—nervous it might mess with money.<br>
+But this time, I walked through it with Cursor + ChatGPT.</p>
+
+<p>We reviewed docs, explored the code, scaffolded a fix, and tested it—all in a single focused afternoon. No panic. No rabbit hole. Just fast, accurate work with great backup.</p>
+
+<hr>
+
+<h2>Advice I&rsquo;d give a junior teammate</h2>
+
+<p>If you&rsquo;re just getting started with this stack, here&rsquo;s what I&rsquo;d say:</p>
+
+<ol>
+<li><strong>Learn what makes a good user story.</strong> Break ideas down into small, testable pieces.</li>
+<li><strong>Use different tools for different hats.</strong> Treat ChatGPT like a PM, Cursor like a dev, and Figma like your UI pair.</li>
+<li><strong>Create chat &ldquo;roles.&rdquo;</strong> One conversation might be your solution architect. Another is a tech writer. Another is your QA. Label them. Revisit them.</li>
+</ol>
+
+<p>The clearer <em>you</em> are, the better your tools can support you.</p>
+
+<hr>
+
+<h2>Final thought</h2>
+
+<p>Don&rsquo;t wait for one tool to do it all.</p>
+
+<p>Orchestrate the tools you&rsquo;ve already got.<br>
+Assign them roles.<br>
+Stay in the loop.<br>
+And use your best human skills—judgment, taste, curiosity—to guide the whole show.</p>
+
+<p><img src="ai-itteration-32bff9f6.webp" title="Illustration: AI tools orbiting a laptop, representing orchestrated collaboration between ChatGPT, Cursor, Claude, and Figma" alt="Orchestration illustration" class="lazyload" /></p>
+
+<hr>
+
+<p><em>Got your own AI tool stack or orchestration tips? I&rsquo;d love to hear what&rsquo;s working for you—DM me or reply on <a href="https://www.linkedin.com/in/jasoncypret/">LinkedIn</a> or <a href="https://x.com/jasoncypret">X</a>.</em> 🚀</p>
+
+    </article>
+  </body>
+  <script src="../javascripts/site-f55a946a.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  // Initialize AOS
+  document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease',
+      once: true,
+      offset: 100
+    });
+  });
+
+  // Google Analytics
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-4581413-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</html>

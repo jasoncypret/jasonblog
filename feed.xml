@@ -5,10 +5,159 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2025-05-21T09:59:00-05:00</updated>
+  <updated>2025-05-29T11:27:00-05:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>How I Orchestrate AI Tools Like a Product Team</title>
+    <link rel="alternate" href="http://blog.url.com/how-i-orchestrate-ai-tools-like-a-product-team/"/>
+    <id>http://blog.url.com/how-i-orchestrate-ai-tools-like-a-product-team/</id>
+    <published>2025-05-29T11:27:00-05:00</published>
+    <updated>2025-05-29T11:33:00-05:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt; Don&amp;rsquo;t wait for one tool that can do it all—build your own AI squad and assign each role. You&amp;rsquo;ll move faster, stay in control, and spend more time on the parts of product development that actually excite you.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;One AI to rule them all? That&amp;rsquo;s a trap.&lt;/h2&gt;
+
+&lt;p&gt;Everyone&amp;rsquo;s waiting for &lt;em&gt;the one&lt;/em&gt;: a magical AI tool that designs, writes, codes, and deploys while you sip cold brew.&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s not how I work. And honestly, I&amp;rsquo;m not sure I want it to be.&lt;/p&gt;
+
+&lt;p&gt;Instead, I&amp;rsquo;ve found a much more realistic—and scalable—approach: &lt;strong&gt;treat each AI tool like a teammate.&lt;/strong&gt; Give it a specific role. Let it shine in the right part of the workflow. Stay involved in the things only you can do.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;Here&amp;rsquo;s how I orchestrate my &amp;ldquo;AI team&amp;rdquo;&lt;/h2&gt;
+
+&lt;p&gt;When I kick off a new feature or idea, I think like a PM first.&lt;/p&gt;
+
+&lt;h3&gt;1. &lt;strong&gt;ChatGPT = Solution Architect&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;I always start by thinking like a product manager:&lt;br&gt;
+&lt;em&gt;&amp;ldquo;As a user, I want [X] so that [Y].&amp;rdquo;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Then I describe the current context—what&amp;rsquo;s in place, what&amp;rsquo;s missing, and what the desired experience should feel like. I plug that into ChatGPT (or Claude) and ask it to play prompt engineer:  &lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Turn this user story and background into a detailed technical brief.&amp;rdquo;  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;ChatGPT excels here: it identifies edge cases, suggests data models, and sometimes even catches things I missed.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ll often prime the model with screenshots, style guidelines, or example interactions from Dribbble or my own app. This is where I shape the big picture.&lt;/p&gt;
+
+&lt;h3&gt;2. &lt;strong&gt;Cursor = Senior Developer&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;Once I have a solid brief, I move into the codebase with Cursor.  &lt;/p&gt;
+
+&lt;p&gt;Cursor helps me:
+- Find relevant files across my Rails monolith
+- Scaffold new components or endpoints
+- Write tests I&amp;rsquo;d otherwise forget
+- Catch inconsistencies or unhandled logic&lt;/p&gt;
+
+&lt;p&gt;It works best when I&amp;rsquo;ve already thought through the logic. Think of Cursor like a skilled dev—you still need to lead.&lt;/p&gt;
+
+&lt;h3&gt;3. &lt;strong&gt;Me = Product/UX Lead&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;Here&amp;rsquo;s where human me steps in:
+- Review and refine UI in &lt;strong&gt;Figma&lt;/strong&gt;
+- Pull references and patterns from the design system
+- Spot where brand, voice, or user flow needs love
+- Time-box feedback loops so I don&amp;rsquo;t endlessly iterate&lt;/p&gt;
+
+&lt;p&gt;The goal isn&amp;rsquo;t perfection on pass one—it&amp;rsquo;s momentum. Good enough is often great enough to ship, test, and then evolve later.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;Why orchestration beats over-reliance&lt;/h2&gt;
+
+&lt;p&gt;When you assign roles, a few good things happen:&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Benefit&lt;/th&gt;
+&lt;th&gt;Why it matters&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Each tool stays in its lane&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;ChatGPT thinks big. Cursor stays close to code. Figma keeps the UI grounded.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;You don&amp;rsquo;t lose control&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;You&amp;rsquo;re not handing the whole project to a single black box. You&amp;rsquo;re staying in the loop.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;You can upgrade in pieces&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Swap Claude in for ChatGPT? Easy. Test new AI dev tools? Go for it. You&amp;rsquo;re modular.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;You can scale faster&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Each tool adds leverage. Together, they 10x you—without replacing you.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;Pain points and workarounds&lt;/h2&gt;
+
+&lt;p&gt;Yes, even orchestration has bumps.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Lost context?&lt;/strong&gt; → Save prompt templates. Include links to brand, design, and past work.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI goes rogue?&lt;/strong&gt; → Define &amp;ldquo;do not use&amp;rdquo; libraries, patterns, or file paths.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Too many options?&lt;/strong&gt; → Time-box decisions. If I&amp;rsquo;m stuck more than 30 mins, I zoom out.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;Recent &amp;ldquo;wow&amp;rdquo; moment&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;d been avoiding a Stripe subscription bug—nervous it might mess with money.&lt;br&gt;
+But this time, I walked through it with Cursor + ChatGPT.&lt;/p&gt;
+
+&lt;p&gt;We reviewed docs, explored the code, scaffolded a fix, and tested it—all in a single focused afternoon. No panic. No rabbit hole. Just fast, accurate work with great backup.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;Advice I&amp;rsquo;d give a junior teammate&lt;/h2&gt;
+
+&lt;p&gt;If you&amp;rsquo;re just getting started with this stack, here&amp;rsquo;s what I&amp;rsquo;d say:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Learn what makes a good user story.&lt;/strong&gt; Break ideas down into small, testable pieces.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Use different tools for different hats.&lt;/strong&gt; Treat ChatGPT like a PM, Cursor like a dev, and Figma like your UI pair.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Create chat &amp;ldquo;roles.&amp;rdquo;&lt;/strong&gt; One conversation might be your solution architect. Another is a tech writer. Another is your QA. Label them. Revisit them.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The clearer &lt;em&gt;you&lt;/em&gt; are, the better your tools can support you.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;Final thought&lt;/h2&gt;
+
+&lt;p&gt;Don&amp;rsquo;t wait for one tool to do it all.&lt;/p&gt;
+
+&lt;p&gt;Orchestrate the tools you&amp;rsquo;ve already got.&lt;br&gt;
+Assign them roles.&lt;br&gt;
+Stay in the loop.&lt;br&gt;
+And use your best human skills—judgment, taste, curiosity—to guide the whole show.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="ai-itteration-32bff9f6.webp" title="Illustration: AI tools orbiting a laptop, representing orchestrated collaboration between ChatGPT, Cursor, Claude, and Figma" alt="Orchestration illustration" class="lazyload" /&gt;&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;&lt;em&gt;Got your own AI tool stack or orchestration tips? I&amp;rsquo;d love to hear what&amp;rsquo;s working for you—DM me or reply on &lt;a href="https://www.linkedin.com/in/jasoncypret/"&gt;LinkedIn&lt;/a&gt; or &lt;a href="https://x.com/jasoncypret"&gt;X&lt;/a&gt;.&lt;/em&gt; 🚀&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Your Job Isn't Gone—Your Job Description Is</title>
     <link rel="alternate" href="http://blog.url.com/your-job-isn-t-gone-your-job-description-is/"/>
@@ -552,223 +701,5 @@ Ping me on Twitter—always happy to swap notes.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;This post aims to provide a comprehensive guide on how to implement a structured and effective scorecard for UX teams, offering a blueprint that can be customized to meet the needs of various organizations and team sizes.&lt;/p&gt;
 </content>
-  </entry>
-  <entry>
-    <title>Atomic Design the Sassy Way</title>
-    <link rel="alternate" href="http://blog.url.com/2017-02-26-atomic-design-the-sassy-way/"/>
-    <id>http://blog.url.com/2017-02-26-atomic-design-the-sassy-way/</id>
-    <published>2017-02-26T17:52:00-06:00</published>
-    <updated>2024-04-24T20:45:24-05:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;I wrote this awhile ago for the folks at BloomBoard. UX, Design, and Dev all owned the styles so good collaboration and thought around how to break things down was key to keeping our code maintainable. Over the years we became even more dilligent about how to break apart pieces, and this article was the kickstarter.&lt;/p&gt;
-
-&lt;h1&gt;Writing Sass the atomic way&lt;/h1&gt;
-
-&lt;p&gt;When building a UI its important to go through the process of breaking down the components into small re-useable bits. This is crucial when building UI, but even more important when trying to build and maintain a design system. The process of breaking things down, naming things right, and documentatation is key to a successful Sassy stack.&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;h2&gt;Breaking bad&lt;/h2&gt;
-
-&lt;p&gt;You don&amp;rsquo;t need to be an expert at sass or atomic design to start breaking the ui apart. Start with separating layout from the UI. Flex props, floats, widths and percentages are a good indicator of something that has layout. Things that have layout are generally at the page level, or an organism. When done right atoms and molecules can stand alone, but may not be positioned quite right. This is common if we&amp;rsquo;ve done our job right. See this example below.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre class="highlight sass"&gt;&lt;code&gt;&lt;span class="c1"&gt;// organism (mostly layout properties)&lt;/span&gt;
-&lt;span class="nc"&gt;.data-list&lt;/span&gt;
-  &lt;span class="nl"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="m"&gt;500px&lt;/span&gt;
-  &lt;span class="nl"&gt;margin-top&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="m"&gt;10px&lt;/span&gt;
-  &lt;span class="c1"&gt;// organism takes responsibility of positioning &amp;amp; layout of atoms and molecules&lt;/span&gt;
-  &lt;span class="nc"&gt;.list-item&lt;/span&gt;
-    &lt;span class="nl"&gt;margin-bottom&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="m"&gt;10px&lt;/span&gt;
-    &lt;span class="nl"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="m"&gt;90%&lt;/span&gt;
-
-&lt;span class="c1"&gt;// molecule (self contained, but not including layout)&lt;/span&gt;
-&lt;span class="nc"&gt;.list-item&lt;/span&gt;
-  &lt;span class="nl"&gt;background&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mh"&gt;#fff&lt;/span&gt;
-  &lt;span class="nl"&gt;padding&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="m"&gt;10px&lt;/span&gt;
-  &lt;span class="nl"&gt;border-bottom&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="m"&gt;1px&lt;/span&gt; &lt;span class="nb"&gt;solid&lt;/span&gt; &lt;span class="mh"&gt;#ccc&lt;/span&gt;
-  &lt;span class="c1"&gt;// molecule takes responsibility of positioning &amp;amp; layout of atoms&lt;/span&gt;
-  &lt;span class="nc"&gt;.list-item-title&lt;/span&gt;
-    &lt;span class="nl"&gt;margin-top&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="m"&gt;10px&lt;/span&gt;
-
-&lt;span class="c1"&gt;// atom (very small and can stand alone)&lt;/span&gt;
-&lt;span class="nc"&gt;.list-item-title&lt;/span&gt;
-  &lt;span class="nl"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="no"&gt;blue&lt;/span&gt;
-  &lt;span class="nl"&gt;font-size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="m"&gt;14px&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;In the example the organism takes responsibility of positioning &amp;amp; layout of atoms and molecules. The molecule again stands alone and should be without layout. However the molecule controlls it&amp;rsquo;s childern and positions atoms contained inside.&lt;/p&gt;
-
-&lt;p&gt;Atoms are awesome and the most re-usable ui element, but 99% of the time they are paired within a molecule or organism. Rarely do they completely stand alone.&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s another example:&lt;/p&gt;
-
-&lt;h4&gt;Page:&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src="http://s.jasoncypret.com/1f043B222W0N/Image%202016-06-07%20at%2010.40.03%20AM.png" alt="" class="lazyload" /&gt;
-Page level overrides. Should be fairly small, but used for orchestration of all elements.&lt;/p&gt;
-
-&lt;h4&gt;Organism:&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src="http://s.jasoncypret.com/372m3Q2Z140F/Image%202016-06-07%20at%2010.34.25%20AM.png" alt="" class="lazyload" /&gt;
-Reusable and can be dropped on any page. Great examples are lists, galleries, and results.&lt;/p&gt;
-
-&lt;h4&gt;Molecule:&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src="http://s.jasoncypret.com/1m3V0N372G2D/Image%202016-06-07%20at%2010.39.11%20AM.png" alt="" class="lazyload" /&gt;&lt;/p&gt;
-
-&lt;h4&gt;Atoms:&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src="http://s.jasoncypret.com/0D2x0I101927/Image%202016-06-07%20at%2010.37.51%20AM.png" alt="" class="lazyload" /&gt;&lt;/p&gt;
-
-&lt;p&gt;Foreach/while statements are a great indicator that a organisms and molecules are needed. Typically the parent of the &amp;ldquo;foreach&amp;rdquo; is the organism and the &amp;ldquo;loop&amp;rdquo; is a molecule.&lt;/p&gt;
-
-&lt;p&gt;Figuing out organisms are pretty easy. Does it control layout? Ok, can that layout be reused, or is it specific to a page/view? If it can be reused, make it an organism. If it chas no reuse, add it to the page.&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;h2&gt;The Name Game&lt;/h2&gt;
-
-&lt;p&gt;Naming is an art. When is it best to chain a class, when to prefix. When to be specific, when to be generic. Here are some guidelines and helpers to help make naming a bit more clear. &lt;/p&gt;
-
-&lt;p&gt;Lets discuss prefixed classes and style bleeding, and chained classes first. Unexpected styles can occur when classes are changed together. &lt;code&gt;class=&amp;quot;pod green error disabled&amp;quot;&lt;/code&gt; Bleeding refers to the mixing of styles or behavior from one component to another. &lt;/p&gt;
-
-&lt;p&gt;Taking the chained classes approach, your CSS selectors might look something like this for a given set of components:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre class="highlight css"&gt;&lt;code&gt;&lt;span class="nc"&gt;.success&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="err"&gt;...&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="nc"&gt;.btn.success&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="err"&gt;..&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="nc"&gt;.alert.success&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="err"&gt;...&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Prefixed classes guide developers towards a simpler and more maintainable direction for building an extensive CSS design system. Here’s what we have if we take away the generic base class and scope things per component with prefixes:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre class="highlight css"&gt;&lt;code&gt;&lt;span class="nc"&gt;.btn-success&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="err"&gt;...&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="nc"&gt;.alert-success&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="err"&gt;...&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;We use a hyphenated lowercase classname convention here at BloomBoard. Every component of .pod is accessible by a css class that is prefixed with &lt;code&gt;pod-&lt;/code&gt;. Components that have a &lt;strong&gt;parent-to-many-children&lt;/strong&gt; relationship take on a singular/plural naming scheme, as in &lt;code&gt;pod-item&lt;/code&gt; and &lt;code&gt;pod-items&lt;/code&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre class="highlight html"&gt;&lt;code&gt;  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"pod"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;h3&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"pod-header"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;heading&lt;span class="nt"&gt;&amp;lt;/h3&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;ul&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"pod-items"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class="nt"&gt;&amp;lt;li&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"pod-item"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"pod-item-link"&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;"#"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Click me&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-      &lt;span class="nt"&gt;&amp;lt;li&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"pod-item"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"pod-item-link"&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;"#"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Click me&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
-  &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Use your best judgment here. Not everything should have a parent-to-many-children class name. Atoms used in many places will typically have a different class name.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre class="highlight html"&gt;&lt;code&gt;  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"pod"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;h3&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"featured-heading"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;I'm an atom! I'm used everywhere&lt;span class="nt"&gt;&amp;lt;/h3&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;ul&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"pod-items"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class="nt"&gt;&amp;lt;li&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"pod-item"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;img&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"pod-item-image"&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;"im-part-of-the-molecule"&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"btn-success"&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;"#"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;I'm an atom! I'm used everywhere&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-      &lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-      &lt;span class="nt"&gt;&amp;lt;li&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"pod-item"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;img&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"pod-item-image"&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;"im-part-of-the-molecule"&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"btn-success"&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;"#"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;I'm an atom! I'm used everywhere&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-      &lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
-  &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Naming correctly for how &amp;amp; where it is used is just as important as the structure. &lt;/p&gt;
-
-&lt;h3&gt;Good&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;list-controls&lt;/code&gt; related to list.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;list-control-actions&lt;/code&gt; child of &lt;code&gt;list-control&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;page-navigation&lt;/code&gt; describes what it does.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;visualizations&lt;/code&gt; &amp;amp; &lt;code&gt;visualization-pie&lt;/code&gt; visualizations could go anywhere.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;Bad&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;white-nav&lt;/code&gt; The color could change at some point.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;topnav-actions&lt;/code&gt; Position could change.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;admin-user-result&lt;/code&gt; Can only be used for user data?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Is it an atom? If yes it should be pretty generic as atoms can generally be used anywhere.&lt;/p&gt;
-
-&lt;p&gt;Is it a molecule? Yes, then will it be used anywhere else in the future. (The answer here should be yes). Ok then name it generically as possible while following conventions.&lt;/p&gt;
-
-&lt;p&gt;Need help naming? Ask a designer. They may be able to offer some help.&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;h2&gt;What the&amp;hellip;where the?&lt;/h2&gt;
-
-&lt;p&gt;Where to put things come after you&amp;rsquo;ve nailed down what it is an what to call it. From here you can start coding up your sass, and figure out where to put it.&lt;/p&gt;
-
-&lt;p&gt;We actually mirror these design practices and methods in our folder structure. It&amp;rsquo;s a great way to organize, and a constant reminder to break things down further. This is also helpful for discovery. A constant naming convention and folder structure makes it really easy to discover others mixins an variables.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre class="highlight shell"&gt;&lt;code&gt;|____atoms/
-| |_____animations.sass
-| |_____forms-elements.sass
-| |_____colors.sass
-| |_____reset.sass
-| |_____typography.sass
-| |_____buttons.sass
-| |_____index.sass
-|
-|____molecules/
-| |_____forms.sass
-| |_____grid.sass
-| |_____cards.sass
-| |_____index.sass
-| |_____nav.sass
-|
-|____organisms/
-| |_____index.sass
-| |_____search-list.sass
-| |_____welcome-index.sass
-|
-|____utilities/
-| |_____index.sass
-| |_____mixins.sass
-| |_____variables.sass
-| |_____vendor.sass
-| |____vendor/
-| |____mixins/
-|
-|____application.sass
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;As folders get full, subfolders get created. You should always feel comfortable optimizing the subfolders, renaming and regrouping. This helps make the folder structure easy to digest and manage. Prepare for this optimization with each project and our sass structure will stay nice and clean.&lt;/p&gt;
-
-&lt;h4&gt;Utilities&lt;/h4&gt;
-
-&lt;p&gt;The utilities contain mostly non-CSS outputs (i.e. mixins, variables). The exception to that rule is vendor libraries. We keep them separate from our codebase to elevate hacks and confusion.&lt;/p&gt;
-
-&lt;p&gt;Best way to think about what goes in utilities is if we forked a completely new project. We would include utilities and maybe some choice atoms. Most everything else would be left. This reflects exactly what our utilities do for us.&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;h2&gt;Mixins variables and others&lt;/h2&gt;
-
-&lt;p&gt;Utilities are mostly our global helper mixins, functions, and variables. Things that are cannot be reused can remain in other sass files, but if its a helpful mixin that can be used elsewhere, or a variable we want to control across files, place it in utilities.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Mixin examples:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre class="highlight sass"&gt;&lt;code&gt;&lt;span class="c1"&gt;// utilities/mixins (excellent global mixin)&lt;/span&gt;
-&lt;span class="nf"&gt;=multiline-text-truncate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$lines&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="nl"&gt;overflow&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;hidden&lt;/span&gt;
-  &lt;span class="nl"&gt;text-overflow&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ellipsis&lt;/span&gt;
-  &lt;span class="nl"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;webkit-box&lt;/span&gt;
-  &lt;span class="na"&gt;-webkit-line-clamp&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nv"&gt;$lines&lt;/span&gt;
-  &lt;span class="na"&gt;-webkit-box-orient&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;vertical&lt;/span&gt;
-
-&lt;span class="c1"&gt;// local mixin (Very specific to the molecule only)&lt;/span&gt;
-&lt;span class="nf"&gt;=resource-card-cover-image&lt;/span&gt;
-  &lt;span class="nl"&gt;transition&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;opacity&lt;/span&gt; &lt;span class="mi"&gt;.3s&lt;/span&gt; &lt;span class="n"&gt;ease&lt;/span&gt;
-  &lt;span class="nd"&gt;+background_cover&lt;/span&gt;
-  &lt;span class="nl"&gt;height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="m"&gt;160px&lt;/span&gt;
-  &lt;span class="nd"&gt;+border-top-radius&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;4px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;Variable examples:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre class="highlight sass"&gt;&lt;code&gt;&lt;span class="c1"&gt;// local variable&lt;/span&gt;
-&lt;span class="nv"&gt;$lines-to-show&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="m"&gt;6&lt;/span&gt;
-
-&lt;span class="c1"&gt;// global variable (utilities/variables)&lt;/span&gt;
-&lt;span class="nv"&gt;$collection-card-large-height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="m"&gt;325px&lt;/span&gt;
-
-&lt;span class="nc"&gt;.my-molecule&lt;/span&gt;
-  &lt;span class="c1"&gt;// local variable (might want to encapsulate in a class)&lt;/span&gt;
-  &lt;span class="nv"&gt;$mobile-card-height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="m"&gt;175px&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
   </entry>
 </feed>
