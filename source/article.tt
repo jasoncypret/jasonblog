@@ -1,0 +1,10 @@
+---
+title: "<%= @title %>"
+date: <%= @date.strftime('%Y-%m-%d %H:%M UTC') %>
+tags: <%= @tags.join(", ") %>
+image: articles/<%= @slug %>/
+open_graph_image: articles/<%= @slug %>/
+summary: 
+---
+
+<%= @content %> 

@@ -174,6 +174,7 @@ activate :blog do |blog|
   blog.permalink = "{title}.html"
   blog.sources = "articles/:title.html"
   blog.publish_future_dated = true
+  blog.new_article_template = File.expand_path("source/article.tt", __dir__)
 
   # Enable pagination
   blog.paginate = true
