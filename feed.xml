@@ -5,10 +5,143 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2025-05-29T11:27:00-05:00</updated>
+  <updated>2025-06-05T10:46:00-05:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>Shipping Fast, Breaking Less: Managing Tech Debt in the AI Era</title>
+    <link rel="alternate" href="http://blog.url.com/shipping-fast-breaking-less-managing-tech-debt-in-the-ai-era/"/>
+    <id>http://blog.url.com/shipping-fast-breaking-less-managing-tech-debt-in-the-ai-era/</id>
+    <published>2025-06-05T10:46:00-05:00</published>
+    <updated>2025-06-05T11:04:27-05:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt; AI can ship fast. Like… &lt;em&gt;really fast&lt;/em&gt;. But if you don’t layer in structure, intent, and human refinement, that speed can come at a steep cost.&lt;br&gt;
+Move fast—but pay your future self by building in check-ins, code patterns, and feedback loops from the start.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;1. “Vibe Coding” Is Real—and Risky&lt;/h2&gt;
+
+&lt;p&gt;Right now, we’re seeing people with no traditional coding background &lt;em&gt;vibe&lt;/em&gt; their way into working apps.&lt;br&gt;
+That’s a good thing—for speed, creativity, and access.&lt;br&gt;
+But…&lt;/p&gt;
+
+&lt;p&gt;AI is often great at making something &lt;strong&gt;work&lt;/strong&gt;, not making it &lt;strong&gt;right&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you rely purely on a single AI tool to generate your code (especially without proper structure), you’ll likely pay the price later:
+- In feature collisions
+- In unscalable patterns
+- In &amp;ldquo;where-the-heck-is-this&amp;rdquo; code chaos&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="good-vibes-1ebfa732.webp" alt="Good Vibes only" class="lazyload" /&gt;&lt;/p&gt;
+
+&lt;h2&gt;2. Speed ≠ Sloppiness&lt;/h2&gt;
+
+&lt;p&gt;Here’s the pattern I use when building fast features for BoxBoard while still keeping my codebase clean:&lt;/p&gt;
+
+&lt;h3&gt;✅ Small updates only&lt;/h3&gt;
+
+&lt;p&gt;Even though AI wants to do &lt;em&gt;a lot&lt;/em&gt; at once, I try to &lt;strong&gt;chunk my changes&lt;/strong&gt;. One idea per commit, even if it’s minor.&lt;/p&gt;
+
+&lt;h3&gt;✅ Refactor checkpoints&lt;/h3&gt;
+
+&lt;p&gt;After a set of commits, I take a beat and do &lt;strong&gt;human-driven polish&lt;/strong&gt;:
+- Break long views into partials or components
+- Normalize CSS
+- Re-structure messy logic
+- Apply naming consistency&lt;/p&gt;
+
+&lt;h3&gt;✅ Design first, refine later&lt;/h3&gt;
+
+&lt;p&gt;For views and layout:
+- I let the AI &lt;strong&gt;scaffold&lt;/strong&gt; the initial pass
+- Then I &lt;strong&gt;refine layout and CSS patterns&lt;/strong&gt; manually&lt;br&gt;
+Especially if it’s custom. Tailwind-based React projects? AI does great. Custom-markup Rails views? I take the lead.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;3. Use AI Tools as a &lt;em&gt;Team&lt;/em&gt;, Not a Single Brain&lt;/h2&gt;
+
+&lt;p&gt;If you’re just throwing code into one AI, you’ll miss the power of &lt;em&gt;roles&lt;/em&gt;.&lt;br&gt;
+Here’s how I think about it:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Builder AI&lt;/strong&gt; – ChatGPT or Cursor helps write initial logic&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reviewer AI&lt;/strong&gt; – Claude or even another ChatGPT instance checks for structure, naming, or optimization&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Me (Human)&lt;/strong&gt; – Guides structure, product vision, UX thinking, and subtle polish&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This approach prevents bad code from compounding. One AI builds. One reviews. I lead.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="code-dbce18c2.webp" alt="Code Refactor" class="lazyload" /&gt;&lt;/p&gt;
+
+&lt;h2&gt;4. Add Rules When You Find the Gaps&lt;/h2&gt;
+
+&lt;p&gt;AI learns from you—if you train it right.&lt;/p&gt;
+
+&lt;p&gt;Whenever I find myself &lt;strong&gt;fighting&lt;/strong&gt; an AI-generated pattern (especially with CSS or file placement), I create new rules:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;❌ &amp;ldquo;Don&amp;rsquo;t create random files in &lt;code&gt;app/assets&lt;/code&gt;.&amp;rdquo;&lt;br&gt;
+✅ &amp;ldquo;Use &lt;code&gt;app/frontend/components&lt;/code&gt; for reusable JS and CSS.&amp;rdquo;&lt;br&gt;
+✅ &amp;ldquo;All new views should use the &lt;code&gt;BoxboardLayout&lt;/code&gt; and follow X pattern.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I keep a &lt;strong&gt;living prompt primer&lt;/strong&gt; and reference it in each session.&lt;br&gt;
+I’ve even created &lt;strong&gt;diagrams&lt;/strong&gt; of my folder structure and included that as visual input to help the AI better understand the app.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;5. AI Is Speed. You Are Structure.&lt;/h2&gt;
+
+&lt;p&gt;The best way to think about it is this:&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;AI Strengths&lt;/th&gt;
+&lt;th&gt;Your Role&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Rapid scaffolding&lt;/td&gt;
+&lt;td&gt;Set the vision&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Syntax + boilerplate&lt;/td&gt;
+&lt;td&gt;Shape the structure&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Suggestions&lt;/td&gt;
+&lt;td&gt;Define the rules&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Getting unstuck&lt;/td&gt;
+&lt;td&gt;Know when to pause and rethink&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;6. Final Thought&lt;/h2&gt;
+
+&lt;p&gt;Yes—AI can help you ship a working MVP in a day.&lt;br&gt;
+But &lt;em&gt;someone&lt;/em&gt; is going to pay the tech debt bill eventually.&lt;br&gt;
+That someone might be you&amp;hellip; in two weeks.&lt;/p&gt;
+
+&lt;p&gt;So set the structure early. Build fast. Refactor often.&lt;br&gt;
+And treat your AI tools like junior engineers—great at execution, but always in need of guidance and a good product lead.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;&lt;em&gt;Got your own rules or ways to avoid AI-induced chaos?&lt;br&gt;
+Let me know what’s working (or not) in your workflow—DM me or connect over &lt;a href="https://www.linkedin.com/in/jasoncypret"&gt;LinkedIn&lt;/a&gt; or &lt;a href="https://x.com/jasoncypret"&gt;X&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>How I Orchestrate AI Tools Like a Product Team</title>
     <link rel="alternate" href="http://blog.url.com/how-i-orchestrate-ai-tools-like-a-product-team/"/>
@@ -621,85 +754,6 @@ Ping me on Twitter—always happy to swap notes.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="Day1-51da7534.webp" alt="Day 1" class="lazyload" /&gt;&lt;/p&gt;
 
 &lt;p&gt;Day 1 offered a wealth of insights into how AI is shaping the future of work and technology. It’s not just about embracing AI, but about strategically applying it to areas where it can deliver the greatest impact. As we look to the future, AI will continue to redefine productivity and experience in ways that demand both creativity and foresight.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Crafting a UX Scorecard</title>
-    <link rel="alternate" href="http://blog.url.com/crafting-a-ux-scorecard-a-blueprint-for-personal-development-in-design-teams/"/>
-    <id>http://blog.url.com/crafting-a-ux-scorecard-a-blueprint-for-personal-development-in-design-teams/</id>
-    <published>2024-05-09T18:52:00-05:00</published>
-    <updated>2024-05-09T17:58:42-05:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;In the dynamic field of UX design, continuous improvement and precise metrics are essential for both individual and team success. At Power, we are refining a detailed scorecard that systematically categorizes vital skills. This new tool will be invaluable not only for assessing current capabilities but also for planning the growth trajectory of our team members. This guide will explore each category in depth, offering insights on how you can tailor this structured approach to your team&amp;rsquo;s development.&lt;/p&gt;
-
-&lt;p&gt;We organize our core skills into four main groups: &lt;strong&gt;Craft&lt;/strong&gt;, &lt;strong&gt;Engineering&lt;/strong&gt;, &lt;strong&gt;Communication &amp;amp; Collaboration&lt;/strong&gt;, and &lt;strong&gt;Design Ops &amp;amp; Leadership&lt;/strong&gt;. The inclusion of Engineering is a deliberate choice, stemming from my background and our belief that a deeper understanding of how things are built leads to superior designs. While we don&amp;rsquo;t expect our designers to become full-time developers, we do equip them to build interfaces using our design system in code. I mention this to emphasize that while this guide is a robust starting point, it should be adapted to reflect the unique attributes and needs of your team. With that in mind, let&amp;rsquo;s dive in.&lt;/p&gt;
-
-&lt;h2&gt;Craft&lt;/h2&gt;
-
-&lt;p&gt;This category is foundational, focusing on the core artistic and technical skills a designer must possess:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Proficiency &amp;amp; Speed:&lt;/strong&gt; Mastery of design tools and methodologies, evaluated by speed and independence in execution.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Interface Design:&lt;/strong&gt; Ability to create intuitive and aesthetically pleasing user interfaces using system components, with a focus on innovation and adherence to design standards.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;UX Design:&lt;/strong&gt; Expertise in user-centric design processes, including extensive user research and the effective use of our design toolkit to deliver optimal user experiences.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Business Knowledge:&lt;/strong&gt; Understanding of the broader business context in which design decisions are made, ensuring alignment with organizational goals.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Engineering&lt;/h2&gt;
-
-&lt;p&gt;Technical acumen in software development that supports effective design implementation:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Engineering Knowledge:&lt;/strong&gt; Deep understanding of software principles and best practices, essential for making informed design decisions.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Engineering Demonstrated:&lt;/strong&gt; Practical application of engineering skills, contributing to development tasks and projects.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Engineering Ambassador:&lt;/strong&gt; Acts as a bridge between design and development teams, facilitating communication and problem resolution.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Technology Mindset:&lt;/strong&gt; Considers technical feasibility and implementation details in the design process, optimizing both design integrity and practical execution.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Communication + Collaboration&lt;/h2&gt;
-
-&lt;p&gt;Essential skills for working effectively within and across teams:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Communication &amp;amp; Presentation Skills:&lt;/strong&gt; Clear articulation of design concepts and decisions, using compelling storytelling to engage stakeholders.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Action &amp;amp; Impact:&lt;/strong&gt; Ability to translate design work into business value, fostering trust and influencing the strategic direction.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Collaboration:&lt;/strong&gt; Skill in building consensus and incorporating diverse perspectives into design solutions.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Organization &amp;amp; Priority Management:&lt;/strong&gt; Effective management of design workflows and stakeholder expectations, ensuring timely delivery of projects.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Design Ops &amp;amp; Leadership&lt;/h2&gt;
-
-&lt;p&gt;Strategic and operational capabilities that enhance team functionality and innovation:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Tooling &amp;amp; Standards:&lt;/strong&gt; Development and maintenance of design tools and standards that streamline workflows and improve output quality.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Systems Thinking:&lt;/strong&gt; Holistic approach to design, considering the impact of decisions on the system as a whole and promoting a culture of continuous improvement.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Hiring:&lt;/strong&gt; Engagement in the recruitment and development of new team members, shaping a diverse and dynamic design culture.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Performance Evaluation:&lt;/strong&gt; Implementation of rigorous evaluation methods to provide feedback and foster professional growth among team members.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Conclusion:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Our scorecard is designed to not just evaluate but also inspire our designers, pushing them to expand their skills and embrace new challenges. By adopting a similar scorecard, leaders in other organizations can provide clear pathways for designer development, ensuring that their teams not only meet but exceed their potential in creating exceptional user experiences.&lt;/p&gt;
-
-&lt;p&gt;This guide is meerly an overview, and provides a glimpse into our structured approach to skill development. We have each skill within the scorecard meticulously broken down by levels, tailored to guide and enhance the growth of our team members. In future posts, I plan to delve deeper into each skill, providing detailed breakdowns and examples to further aid in the application and customization of this framework to your specific needs.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Resources:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;To further explore the concepts discussed and gain additional perspectives on building effective design teams, consider the following resources:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://wadeshearer.medium.com/designing-work-developing-careers-53028aec9a82"&gt;Designing Work, Developing Careers by Wade Shearer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://progression.fyi/"&gt;Progression.fyi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.figma.com/blog/how-we-built-the-figma-design-team/"&gt;How Figma Built Their Design Team&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/buzzfeed/design/blob/master/product-design-roles.md"&gt;Buzzfeed&amp;rsquo;s Product Design Roles&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://medium.com/design-or-be-designed/developing-levels-on-a-design-team-5f8df0e462b8"&gt;Developing Levels on a Design Team by Mia Blume&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.designerfund.com/blog/a-design-teams-guide-to-leveling/"&gt;A Design Team’s Guide to Leveling by DesignerFund&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This post aims to provide a comprehensive guide on how to implement a structured and effective scorecard for UX teams, offering a blueprint that can be customized to meet the needs of various organizations and team sizes.&lt;/p&gt;
 </content>
   </entry>
 </feed>
