@@ -1,0 +1,94 @@
+// Buttons Showcase Styles
+.buttons-showcase {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $space_xl $space_md;
+  
+  h1 {
+    font-family: $font_family_base;
+    font-weight: $bold;
+    font-size: $heading_1;
+    color: $text_lt_default;
+    margin-bottom: $space_sm;
+  }
+  
+  > p {
+    font-family: $font_family_base;
+    font-weight: $light;
+    font-size: $text_large;
+    color: $text_lt_light;
+    margin-bottom: $space_xl;
+  }
+}
+
+.showcase-section {
+  margin-bottom: ($space_xl + $space_lg);
+  
+  h2 {
+    font-family: $font_family_base;
+    font-weight: $bold;
+    font-size: $text_larger;
+    color: $text_lt_default;
+    margin-bottom: $space_lg;
+    padding-bottom: $space_sm;
+    border-bottom: 1px solid $border_light;
+  }
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space_md;
+  align-items: center;
+  
+  @include mobile_only {
+    flex-direction: column;
+    align-items: stretch;
+    
+    .btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+// Additional button showcase specific styles
+.buttons-showcase {
+  .btn {
+    // Ensure consistent spacing in showcase
+    margin: 0;
+    
+    // Make sure icons have proper spacing
+    i {
+      margin-left: $space_xs;
+      
+      &.icon-arrow-left {
+        margin-left: 0;
+        margin-right: $space_xs;
+      }
+    }
+  }
+  
+  // Add some visual separation between sections
+  .showcase-section:not(:last-child) {
+    border-bottom: 1px solid $border_light;
+    padding-bottom: $space_xl;
+  }
+}
+
+// Container styling
+.container {
+  max-width: 100%;
+}
+
+// Code display for button classes (optional)
+.button-code {
+  background: $bg_light;
+  border: 1px solid $border_light;
+  border-radius: $space_xs;
+  padding: $space_sm;
+  margin-top: $space_sm;
+  font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+  font-size: $text_small;
+  color: $text_lt_light;
+} 

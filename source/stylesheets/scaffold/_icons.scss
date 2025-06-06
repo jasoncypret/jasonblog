@@ -12,6 +12,10 @@
 
 }
 
+[data-icon], [class^="icon-"], [class*=" icon-"] {
+  vertical-align: middle
+}
+
 [data-icon]:before {
   font-family: "jasonicon" !important;
   content: attr(data-icon);

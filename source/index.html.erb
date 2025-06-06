@@ -4,16 +4,17 @@ title: Jason Cypret
 
 <%= partial "homepage/image_hero" %>
 <%= partial "homepage/quick_summary" %>
-<div class="showcase-container">
+<div class="showcase-title-container">
   <h5 class="header-subtitle pt-3 mt-5">Selected Work & Impact</h5>
   <% portfolio_link = data.site.downloads.find { |d| d.title == "portfolio" } %>
   <% if portfolio_link %>
-    <%= link_to "Download my Portfolio <i class='icon-arrow-right'></i>".html_safe, portfolio_link.url, class: "showcase power active", target: "_blank" %>
+    <%= link_to "Download My Portfolio <i class='icon-arrow-right'></i>".html_safe, portfolio_link.url, class: "btn btn--link small no-shadow pr-0 pt-3 mt-5", target: "_blank" %>
   <% end %>
 </div>
 <%= partial "homepage/showcase_power" %>
 <%= partial "homepage/showcase_bloom" %>
 <%= partial "homepage/showcase_brain" %>
 <%= partial "homepage/showcase_box" %>
+<h5 class="header-subtitle pt-3 mt-5">Let's Build Something Together</h5>
 <%= partial "homepage/my_features" %>
 <%= partial "homepage/speaking" %>

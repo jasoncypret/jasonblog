@@ -1,8 +1,9 @@
 <div class="homepage-summary">
   <div class="row">
     <!-- Personal Approach Column -->
-    <div class="col-lg-4">
-      <div class="summary-section">
+    <div class="col-lg-4 mb-5">
+      <div class="summary-section first">
+        <h3 class="section-title header-subtitle">My Approach</h3>
         <% if data.site.personal_approach %>
           <p class="approach-text"><%= data.site.personal_approach.title %></p>
         <% end %>
@@ -10,15 +11,15 @@
     </div>
 
     <!-- Work Experience Column -->
-    <div class="col-lg-4">
+    <div class="col-lg-4 mb-5">
       <div class="summary-section">
-        <h3 class="section-title">WORK EXPERIENCE</h3>
+        <h3 class="section-title header-subtitle">WORK EXPERIENCE</h3>
         
         <% if data.site.work_experience %>
           <% data.site.work_experience.each do |job| %>
             <div class="work-item">
               <div class="work-years"><%= job.years %></div>
-              <h4 class="work-title"><%= job.title %> <span class="work-company">@ <%= job.company %></span></h4>
+              <h4 class="work-title"><%= job.title %> <span class="work-company"><%= job.company %></span></h4>
               <p class="work-description"><%= job.description %></p>
             </div>
           <% end %>
@@ -26,15 +27,15 @@
         
         <% resume_link = data.site.downloads.find { |d| d.title == "resume" } %>
         <% if resume_link %>
-          <%= link_to "See All Experience →", resume_link.url, class: "see-all-link", target: "_blank" %>
+          <%= link_to "See All Experience <i class='icon-arrow-right'></i>".html_safe, resume_link.url, class: "btn btn--link small no-shadow pl-0" %>
         <% end %>
       </div>
     </div>
 
     <!-- Blog Posts Column -->
-    <div class="col-lg-4">
+    <div class="col-lg-4 mb-5">
       <div class="summary-section">
-        <h3 class="section-title">FROM THE BLOG</h3>
+        <h3 class="section-title header-subtitle">FROM THE BLOG</h3>
         
         <% blog.articles[0...3].each do |article| %>
           <div class="blog-item">
@@ -44,16 +45,16 @@
               </div>
             <% end %>
             
-            <div class="blog-content">
-              <div class="blog-date"><%= article.date.strftime('%b %eth %Y').upcase %></div>
-              <h4 class="blog-title">
+            <div class="summary-blog-content">
+              <div class="summary-blog-date"><%= article.date.strftime('%b %eth %Y').upcase %></div>
+              <h4 class="summary-blog-title">
                 <%= link_to article.title, article.url %>
               </h4>
             </div>
           </div>
         <% end %>
         
-        <%= link_to "Go to Blog →", "/blog/", class: "see-all-link" %>
+        <%= link_to "Go to Blog <i class='icon-arrow-right'></i>".html_safe, "/blog/", class: "btn btn--link small no-shadow pl-0" %>
       </div>
     </div>
   </div>

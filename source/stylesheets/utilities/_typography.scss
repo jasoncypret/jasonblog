@@ -50,3 +50,11 @@
     @include hr(20%);
   }
 }
+
+.header-subtitle {
+  @include caption;
+  &.pink {
+    color: #F75A9A;
+    margin-bottom: $space_md;
+  }
+}

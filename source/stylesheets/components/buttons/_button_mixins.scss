@@ -29,9 +29,10 @@ $button_md_x_spacing: 18px;
     @include button-size(
       9px,
       15px,
-      $text_small,
+      $text_base,
       80%
     );
+    font-weight: 700;
   }
   &.x-small, .xs {
     @include button-size(
@@ -40,6 +41,7 @@ $button_md_x_spacing: 18px;
       $text_smallest,
       1em
     );
+    font-weight: 700;
   }
   &.white {
     color: white !important;
@@ -52,6 +54,9 @@ $button_md_x_spacing: 18px;
     &:hover {
       color: tint(black, 20%);
     }
+  }
+  &.no-shadow:hover {
+    box-shadow: none;
   }
 }
 

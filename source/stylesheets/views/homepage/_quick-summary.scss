@@ -1,75 +1,11 @@
-.blog-articles {
-  color: tint($black, 10%);
-  text-align: center;
-
-  .header-subtitle {
-    margin: $space_md 0;
-  }
-
-  .blog-article {
-    border-top: 1px solid shade($white, 10%);
-    padding: $space_lg 0;
-
-    &.first {
-      border-top: 0;
-    }
-
-    .article-image {
-      $article-avatar: 80px;
-      display: block;
-      width: $article-avatar;
-      height: $article-avatar;
-      margin: 0 auto $space_xs;
-      border-radius: $article-avatar;
-      img {
-        @include background_cover;
-        object-fit: cover;
-        border-radius: $article-avatar;
-        width: $article-avatar;
-        height: $article-avatar;
-        object-fit: cover;
-        display: block;
-      }
-    }
-
-    .article-title {
-      @include reading-mix;
-      margin-top: 0;
-      margin-bottom: $space_xs;
-
-      a {
-        color: tint($black, 10%);
-        transition-property: color;
-        transition-duration: 0.2s;
-        letter-spacing: -0.03em;
-
-        &:hover {
-          color: $main;
-        }
-      }
-    }
-
-    .article-summary {
-      color: $text_lt_light;
-      @include reading-mix;
-      @include serif;
-      margin-top: 0;
-      margin-bottom: $space_xs;
-    }
-
-    .article-date {
-      @include reading-mix;
-      color: $text_lt_lighter;
-      text-transform: uppercase;
-      font-weight: bold;
-      letter-spacing: 0.03em;
-    }
-  }
-}
-
 // Homepage Summary Styles
 .homepage-summary {
-  margin: ($space_xl + $space_lg) 0;
+  max-width: 1290px;
+  margin: ($space_xl + $space_lg) auto;
+
+  @media (max-width: 1290px) {
+    margin: $space_xl $space_sm;
+  }
   
   .row {
     margin-left: -#{$space_md};
@@ -89,51 +25,43 @@
 // Personal Approach Column
 .approach-text {
   font-family: $font_family_base;
-  font-weight: $regular;
+  font-weight: 500;
   font-size: $text_large;
-  line-height: 1.6;
+  line-height: 1.8;
   color: $text_lt_default;
   margin: 0;
 }
 
 // Section Titles
 .section-title {
-  font-family: $font_family_base;
-  font-weight: $light;
-  font-size: $text_base;
-  color: $text_lt_lighter;
-  text-transform: uppercase;
-  letter-spacing: $lspace_loose;
-  margin-bottom: $space_lg;
+  text-align: left;
+  margin-bottom: $space_md;
 }
 
 // Work Experience Styles
 .work-item {
-  margin-bottom: $space_xl;
-  
-  &:last-of-type {
-    margin-bottom: $space_lg;
-  }
+  margin-bottom: $space_md;
 }
 
 .work-years {
   font-family: $font_family_base;
   font-weight: $light;
-  font-size: $text_small;
-  color: $text_lt_lighter;
+  font-size: $text_smaller;
+  color: $primary;
   margin-bottom: $space_xs;
 }
 
 .work-title {
   font-family: $font_family_base;
   font-weight: $bold;
-  font-size: $text_large;
+  font-size: $text_base;
   color: $text_lt_default;
-  margin-bottom: $space_sm;
+  margin-bottom: $space_xs;
   line-height: 1.3;
   
   .work-company {
-    font-weight: $light;
+    font-size: $text_small;
+    font-weight: 500;
     color: $text_lt_light;
   }
 }
@@ -141,7 +69,7 @@
 .work-description {
   font-family: $font_family_base;
   font-weight: $regular;
-  font-size: $text_base;
+  font-size: $text_small - 1px;
   color: $text_lt_light;
   line-height: 1.5;
   margin-bottom: 0;
@@ -151,15 +79,11 @@
 .blog-item {
   display: flex;
   align-items: flex-start;
-  margin-bottom: $space_lg;
-  
-  &:last-of-type {
-    margin-bottom: $space_lg;
-  }
+  margin-bottom: $space_md;
 }
 
 .blog-image {
-  width: 60px;
+  width: 85px;
   height: 60px;
   border-radius: $space_xs;
   overflow: hidden;
@@ -178,11 +102,11 @@
   }
 }
 
-.blog-content {
+.summary-blog-content {
   flex: 1;
 }
 
-.blog-date {
+.summary-blog-date {
   font-family: $font_family_base;
   font-weight: $light;
   font-size: $text_smallest;
@@ -192,7 +116,7 @@
   margin-bottom: $space_xxs;
 }
 
-.blog-title {
+.summary-blog-title {
   font-family: $font_family_base;
   font-weight: $bold;
   font-size: $text_base;
@@ -226,7 +150,7 @@
 // Responsive Design
 @include mobile_only {
   .homepage-summary {
-    margin: $space_xl 0;
+    margin: $space_xl $space_sm;
     
     .row {
       margin-left: 0;
@@ -256,3 +180,4 @@
     margin-bottom: $space_md;
   }
 }
+

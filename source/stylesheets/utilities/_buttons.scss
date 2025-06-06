@@ -1,36 +1,24 @@
 // Button Utility Classes
 .btn {
   @include button-base;
-  
   &--black {
     @include button-black;
   }
-  
   &--white {
     @include button-white;
   }
+  &--ghost {
+    @include button-ghost;
+  }
+  &--link {
+    @include button-link;
+  }
+
 
   .icon {
     margin-left: 2px;
   }
   
-  // Size variants
-  &--sm {
-    font-size: 18px;
-    padding: 0 4px;
-  }
-  
-  &--lg {
-    font-size: 28px;
-    padding: 0 6px;
-  }
-  
-  // State variants
-  &--disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    pointer-events: none;
-  }
 
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
