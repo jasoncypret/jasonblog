@@ -3,6 +3,9 @@ function loadSite() {
   document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM Content Loaded");
 
+    // Initialize animations
+    initializeScrollAnimations();
+
     // Initialize video loading for stats masonry
     initializeStatsVideos();
 
@@ -130,6 +133,54 @@ function loadSite() {
       videoContainers.forEach(container => {
         videoObserver.observe(container);
       });
+    }
+
+    // Scroll-triggered animations
+    function initializeScrollAnimations() {
+      const animatedElements = document.querySelectorAll('[class*="fade-in"], [class*="slide-in"], [class*="scale-in"], .hero-title, .hero-subtitle, .hero-image, .showcase-copy, .showcase-image, .stagger-children');
+      
+      if (!animatedElements.length) return;
+
+      // Check for reduced motion preference
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      
+      if (prefersReducedMotion) {
+        // If user prefers reduced motion, show all elements immediately
+        animatedElements.forEach(el => el.classList.add('animate'));
+        return;
+      }
+
+      const animationObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const element = entry.target;
+            
+            // Add a small delay for better visual flow
+            setTimeout(() => {
+              element.classList.add('animate');
+            }, 100);
+            
+            // Stop observing once animated
+            animationObserver.unobserve(element);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px' // Trigger animation slightly before element is fully visible
+      });
+
+      // Observe all animated elements
+      animatedElements.forEach(element => {
+        animationObserver.observe(element);
+      });
+
+      // Trigger hero animations immediately for above-fold content
+      const heroElements = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-image');
+      if (heroElements.length > 0) {
+        setTimeout(() => {
+          heroElements.forEach(el => el.classList.add('animate'));
+        }, 500); // Small delay for page load
+      }
     }
 
     // Intersection Observer for lazy loading
