@@ -1,9 +1,67 @@
 {
   "navigation": [
     {
-      "title": "resume",
-      "url": "/resume.html"
+      "title": "blog",
+      "url": "/blog/"
+    },
+    {
+      "title": "work",
+      "url": "/resume/"
     }
   ],
-  "resume": "http://s.jasoncypret.com/3t0F3703133v/jason_cypret.pdf"
+  "work_experience": [
+    {
+      "title": "VP of UX",
+      "company": "Power",
+      "years": "2017-2025",
+      "description": "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet"
+    },
+    {
+      "title": "Sr. Principal Product Designer",
+      "company": "Bloomboard",
+      "years": "2017-2025",
+      "description": "Led the creation of a new product– an education tool for teacher credentialing– now used in school districts and higher education institutions nationwide."
+    }
+  ],
+  "personal_approach": {
+    "title": "My unique blend of design leadership and hands-on technical expertise allows me to bridge the gap between design and engineering, fostering collaboration and accelerating product development. I'm passionate about Lean UX methodologies and believe in creating beautiful, efficient, and user-centered designs."
+  },
+  "downloads": [
+    {
+      "title": "resume",
+      "url": "/media/resume/Jason-Cypret-UX-Product-Design-Leader.pdf"
+    },
+    {
+      "title": "portfolio",
+      "url": "https://www.figma.com/deck/6Z1iymrkN5CivHh43xsUB9/Portfolio"
+    }
+  ],
+  "social_links": [
+    {
+      "title": "dribbble",
+      "url": "http://dribbble.com/jasoncypret"
+    },
+    {
+      "title": "pinterest",
+      "url": "http://www.pinterest.com/jasoncypret/"
+    },
+    {
+      "title": "instagram",
+      "url": "https://www.instagram.com/jasoncypret/"
+    }
+  ],
+  "professional_links": [
+    {
+      "title": "linkedin",
+      "url": "http://linkedin.com/in/jasoncypret"
+    },
+    {
+      "title": "x-twitter",
+      "url": "http://twitter.com/JasonCypret"
+    },
+    {
+      "title": "github",
+      "url": "http://github.com/jasoncypret"
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 .showcase {
   display: flex;
-  margin: $space_xl $space_md;
+  margin: $space_xl $space_md $space_md $space_md;
   justify-content: center;
   @include mobile_only {
     margin: $space_xl $space_sm;
@@ -56,8 +56,14 @@
       font-size: $text_jumbo + 4px;
       text-transform: uppercase;
       letter-spacing: $lspace_looser;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       @include mobile_only {
         font-size: $text_largest;
+      }
+      img {
+        width: 80%;
       }
     }
     p {
@@ -79,7 +85,7 @@
       }
     }
     &-center {
-      flex: 2;
+      flex: 3;
     }
   }
   &-image {
@@ -108,7 +114,16 @@
   &.brain .showcase-container {
     background: linear-gradient(103.44deg, #00716E 1.5%, #30B3AD 97.38%);
   }
-  
+  &.box .showcase-container {
+    background: linear-gradient(135deg, #6A11CB 0%, #2575FC 99.89%);
+  }
+  &_quote {
+    font-size: $text_large;
+    font-weight: 700;
+    color: $text_lt_default;
+    text-align: center;
+    margin-bottom: $space_xl * 2;
+  }
   &.left .showcase-container {
     flex-direction: row-reverse;
     .showcase-image {
@@ -136,13 +151,27 @@
       position: relative;
     }
   }
+  &.box .showcase-image {
+    top: -112px;
+    width: 90%;
+    right: -2%;
+  }
+  &.bloom .showcase-copy h3 img {
+    width: 90%;
+  }
+  &.power .showcase-copy h3 {
+    align-items: center;
+    img {
+      width: 70%;
+    }
+  }
   @media (hover:hover) {  
-    &.power:hover .showcase-container {
+    &:hover .showcase-container {
       scale: 1.01;
     }
   }
   @media (hover:hover) {  
-    &.power:hover .showcase-container:after {
+    &:hover .showcase-container:after {
       opacity: 1;
     }
   }

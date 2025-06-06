@@ -1,0 +1,32 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Style settings are located 
+
+Color/Styles Settings: source/stylesheets/tokens
+Utility classes for the site: source/stylesheets/utilities
+New Views Should be added to the source/stylesheets/views folder and improted into source/stylesheets/site.css.scss
+
+Typography
+✅ Font Family: Using $font_family_base (Montserrat) instead of Rubik
+✅ Font Weights: Using $regular, $bold, $light from your tokens
+✅ Font Sizes: Using $heading_1, $text_base, $text_larger, etc.
+✅ Letter Spacing: Using $lspace_loose, $lspace_looser tokens
+Colors
+✅ Text Colors: Using $text_lt_default, $text_lt_light, $text_lt_lighter
+✅ Background: Using $card_light, $bg_light instead of hard-coded white
+✅ Borders: Using $border_light, $slate from your color system
+✅ Shadows: Using $shadow with your opacity tokens ($opacity_1, $opacity_2, etc.)
+Spacing
+✅ Margins/Padding: Using $space_xxs through $space_xl (4px to 40px)
+✅ Grid Gaps: Using your spacing tokens instead of arbitrary pixel values
+Buttons
+✅ Button System: Using your @include button-base and @include button-black mixins
+✅ Button Styling: Following your existing button patterns with proper hover effects
+Responsive Design
+✅ Breakpoints: Using @include mobile_only instead of hard-coded media queries
+✅ Mobile Spacing: Using your spacing tokens for responsive adjustments
+Border Radius
+✅ Consistent Radius: Using $space_sm (16px) for card radius to match your design system

@@ -4,10 +4,12 @@
     <div class="avatar"><%= image_tag 'media/site/avatar.webp', class: 'lazyload' %></div>
   </a>
   <ul class="menu">
-    <% data.site.navigation.each do |item| %>
-      <li>
-        <%= link_to item.title, item.url, class: "menu-item #{item.title}" %>
-      </li>
+    <% if data.site.navigation %>
+      <% data.site.navigation.each do |item| %>
+        <li>
+          <%= link_to item.title, item.url, class: "menu-item #{item.title}" %>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 </div>

@@ -1,0 +1,30 @@
+<div class="main">
+  <%= image_tag "media/homepage/hero.webp", class: 'hero lazyload' %>
+  <div class="wrap">
+    <div class="avatar"><%= image_tag '/media/site/avatar.webp', class: 'lazyload' %></div>
+    <h1><%= current_page.data.title %></h1>
+    <p class="desc">
+      <%= "VP of UX at " %>
+      <a href="http://powerhrg.com">Power</a><%= ". Founder of " %>
+      <a href="http://boxboard.io">BoxBoard</a><%= ", Core contributor of the " %>
+      <a href="http://expressionui.com">Playbook</a> design system.
+    </p>
+
+    <ul class="links">
+      <%# <li class="tweet">
+        <a class="icon-twitter" href="http://twitter.com/JasonCypret"></a>
+      </li> %>
+      <li class="git">
+        <a class="icon-github" href="http://github.com/jasoncypret"></a>
+      </li>
+      <li class="drib">
+        <a class="icon-dribbble" href="http://dribbble.com/jasoncypret"></a>
+      </li>
+      <li class="pin">
+        <a class="icon-pintrest" href="http://www.pinterest.com/jasoncypret/"></a>
+      </li>
+    </ul>
+
+    <div class="icon-arrow-down more fadeIn"></div>
+  </div>
+</div>

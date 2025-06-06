@@ -2,14 +2,14 @@
 title: From Dad Bod to Hot Rod
 date: 2016-01-04 16:35 UTC
 tags: CrossFit
-image: articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/address-the-bar.jpg
-open_graph_image: articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/address-the-bar.jpg
+image: articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/address-the-bar.webp
+open_graph_image: articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/address-the-bar.webp
 summary: I started down the Paleo path. Kelly, my wife, thought I was crazy.
 ---
 
 > I was recently interviewed for CrossFit Waxahachie success stories section. It's always fun to look back and see how you compare in the past. You can easily get caught up in the now and totally forget where you started. I am super happy with my fitness progress over the last 4 years. I hope this inspires someone to take a step towards change. Originaly posted on [CrossFit Waxahachie](http://www.crossfitwaxahachie.com/2015/12/jasons-journey-from-dad-bod-to-hot-rod/). 
 
-![Before & After](articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/before-after.jpg)
+![Before & After](articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/before-after.webp)
 
 ## What brought you to CrossFit Waxahachie when you very first started?
 
@@ -17,7 +17,7 @@ One day I noticed I was out of shape. My office had a fire drill and all I had t
 
 Several years later a work buddy of mine began drastically dropping weight and gaining muscle. I finally asked him what he was doing and he told me about the Paleo diet and Crossfit. Thinking that Crossfit wasn’t something I would be into, I started down the Paleo path. Kelly, my wife, thought I was crazy. The first week on the Paleo diet I lost around 10 pounds. Even though I was intimidated, I decided to try Crossfit Waxahachie in October 2011. That was one of the best decisions I’ve ever made.
 
-![Burpee](articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/burpee.jpg)
+![Burpee](articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/burpee.webp)
 
 ## What has been your biggest life change since starting CrossFit Waxahachie?
 
@@ -26,7 +26,7 @@ Crossfit Waxahachie. I lost at least 20 pounds after starting and then began
 building muscle. I feel like I am healthier in my 30’s than I’ve ever been. I look
 forward to seeing what the WOD is every day and challenging myself to be better than I was yesterday.
 
-![Rings](articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/rings.jpg)
+![Rings](articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/rings.webp)
 
 ## How has CFW had an effect on your family?
 
@@ -41,10 +41,10 @@ My favorite lift would have to be Overhead Squats. I also enjoy ring muscle ups 
 The best thing about Crossfit Waxahachie is the community The people are what keeps me coming back, not just the work outs. I have made great friends from the box, friends that I wouldn’t have known without this place. Also the
 encouragement I’ve received by not only Coach Chris, but everyone in my 6am class.
 
-![Squat](articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/squat.jpg)
+![Squat](articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/squat.webp)
 
 ## What would you say to someone who is considering CrossFit Waxahachie as a place to get healthier and even more awesome?
 
 Just try it. Don’t wait don’t wait until you’re “fit.” Just come as you are. Scale as you need to. CFW will take you as you are! You’ll be amazed at what you can do and the encouragement that surrounds you. Your first year is full of amazing achievements that you never would’ve thought possible. Crossfit Waxahachie is an awesome place to be with some of the best people around!
 
-![Friends](articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/friends.jpg)
+![Friends](articles/2016-01-04-my-journey-from-dad-bod-to-hot-rod/friends.webp)

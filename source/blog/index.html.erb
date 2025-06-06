@@ -1,44 +1,137 @@
 ---
 layout: layout
 pageable: true
-per_page: 2
+per_page: 8
 ---
 
-<% if paginate && num_pages > 1 %>
-  <p>Page <%= page_number %> of <%= num_pages %></p>
+<div class="blog-container">
+  <div class="blog-header">
+    <% if paginate && page_number > 1 %>
+      <h1 class="blog-title">Articles Continued</h1>
+    <% else %>
+      <h1 class="blog-title">Blog</h1>
+      <p class="blog-subtitle">Some other tagline</p>
+    <% end %>
+  </div>
 
-  <% if prev_page %>
-    <p><%= link_to 'Previous page', prev_page %></p>
-  <% end %>
-<% end %>
-
-
-<div class="blog-articles">
-  <div class="header-subtitle">Latest Blog Posts</div>
-  <% page_articles.each_with_index do |article, i| %>
-    <article class="blog-article <%= (i == 0) ? 'first' : '' %>">
-      <% if article.data.image %>
-        <% link_to article.url, class: "article-image" do %>
-          <%= image_tag article.data.image, class: "lazyload" %>
-        <% end %>
+  <div class="blog-content">
+    <div class="blog-articles">
+      <% featured_articles = page_articles.first(2) %>
+      <% remaining_articles = page_articles.drop(2) %>
+      
+      <% if featured_articles.any? %>
+        <!-- Featured Articles (First 2) -->
+        <div class="featured-articles">
+          <div class="row">
+            <% featured_articles.each do |article| %>
+              <div class="col-md-6">
+                <article class="blog-article blog-article--featured">
+                  <% if article.data.image %>
+                    <div class="article-image">
+                      <%= link_to image_tag(article.data.image, alt: article.title), article.url %>
+                    </div>
+                  <% end %>
+                  
+                  <div class="article-content">
+                    <small class="article-date"><%= article.date.strftime('%b %eth %Y').upcase %></small>
+                    
+                    <h2 class="article-title">
+                      <%= link_to article.title, article.url %>
+                    </h2>
+                    
+                    <% if article.data.summary %>
+                      <div class="article-summary"><%= article.data.summary %></div>
+                    <% end %>
+                    
+                    <% if article.tags.present? %>
+                      <div class="article-tags">
+                        <% article.tags.each do |tag| %>
+                          <%= link_to tag, tag_path(tag), class: "tag" %>
+                        <% end %>
+                      </div>
+                    <% end %>
+                  </div>
+                </article>
+              </div>
+            <% end %>
+          </div>
+        </div>
       <% end %>
-      <h1 class="article-title">
-        <%= link_to article.title, article.url %>
-      </h1>
-      <% if article.data.summary %>
-        <div class="article-summary"><%= article.data.summary %></div>
+      
+      <% if remaining_articles.any? %>
+        <!-- Remaining Articles (3-column grid) -->
+        <div class="grid-articles">
+          <div class="row">
+            <% remaining_articles.each do |article| %>
+              <div class="col-lg-4 col-md-6">
+                <article class="blog-article blog-article--grid">
+                  <% if article.data.image %>
+                    <div class="article-image">
+                      <%= link_to image_tag(article.data.image, alt: article.title), article.url %>
+                    </div>
+                  <% end %>
+                  
+                  <div class="article-content">
+                    <small class="article-date"><%= article.date.strftime('%b %eth %Y').upcase %></small>
+                    
+                    <h2 class="article-title">
+                      <%= link_to article.title, article.url %>
+                    </h2>
+                    
+                    <% if article.data.summary %>
+                      <div class="article-summary"><%= article.data.summary %></div>
+                    <% end %>
+                    
+                    <% if article.tags.present? %>
+                      <div class="article-tags">
+                        <% article.tags.each do |tag| %>
+                          <%= link_to tag, tag_path(tag), class: "tag" %>
+                        <% end %>
+                      </div>
+                    <% end %>
+                  </div>
+                </article>
+              </div>
+            <% end %>
+          </div>
+        </div>
       <% end %>
-      <small class="article-date"><%= article.date.strftime('%B %e, %Y') %></small>
-    </article>
+    </div>
+
+    <% unless paginate && page_number > 1 %>
+      <div class="blog-sidebar">
+        <h3>Browse Content</h3>
+        
+        <div class="content-card">
+          <a href="/calendar/" class="content-link">
+            <span class="icon">📅</span>
+            <div class="title">Articles by Year</div>
+          </a>
+        </div>
+        
+        <div class="content-card">
+          <a href="/tags/" class="content-link">
+            <span class="icon">🏷️</span>
+            <div class="title">Articles by Category</div>
+          </a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <% if paginate %>
+    <div class="pagination-nav">
+      <% if prev_page %>
+        <%= link_to "Previous Articles", prev_page, class: "prev-articles-btn" %>
+      <% end %>
+      
+      <% if next_page %>
+        <%= link_to "More Articles", next_page, class: "more-articles-btn" %>
+      <% elsif !paginate || page_number == 1 %>
+        <div class="blog-actions">
+          <%= link_to "More Articles", "#", class: "more-articles-btn" %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
-</div>
-
-<% if paginate %>
-  <% if next_page %>
-    <p><%= link_to 'Next page', next_page %></p>
-  <% end %>
-<% end %>
-
-
-
-
+</div> 

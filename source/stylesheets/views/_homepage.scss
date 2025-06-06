@@ -5,7 +5,7 @@ body.index {
   @import "homepage/speaking";
   @import "homepage/showcase";
   @import "homepage/bb-splash";
-  @import "homepage/blog-posts";
+  @import "homepage/quick-summary";
   @import "homepage/resume";
   a.avatar {
     visibility: hidden;
@@ -28,5 +28,195 @@ body.index {
       display: inline-block;
       margin: $space_xs;
     }
+  }
+}
+
+// Homepage Summary Styles
+.homepage-summary {
+  margin: ($space_xl + $space_lg) 0;
+  
+  .row {
+    margin-left: -#{$space_md};
+    margin-right: -#{$space_md};
+  }
+  
+  [class*="col-"] {
+    padding-left: $space_md;
+    padding-right: $space_md;
+  }
+}
+
+.summary-section {
+  height: 100%;
+}
+
+// Personal Approach Column
+.approach-text {
+  font-family: $font_family_base;
+  font-weight: $regular;
+  font-size: $text_large;
+  line-height: 1.6;
+  color: $text_lt_default;
+  margin: 0;
+}
+
+// Section Titles
+.section-title {
+  font-family: $font_family_base;
+  font-weight: $light;
+  font-size: $text_base;
+  color: $text_lt_lighter;
+  text-transform: uppercase;
+  letter-spacing: $lspace_loose;
+  margin-bottom: $space_lg;
+}
+
+// Work Experience Styles
+.work-item {
+  margin-bottom: $space_xl;
+  
+  &:last-of-type {
+    margin-bottom: $space_lg;
+  }
+}
+
+.work-years {
+  font-family: $font_family_base;
+  font-weight: $light;
+  font-size: $text_small;
+  color: $text_lt_lighter;
+  margin-bottom: $space_xs;
+}
+
+.work-title {
+  font-family: $font_family_base;
+  font-weight: $bold;
+  font-size: $text_large;
+  color: $text_lt_default;
+  margin-bottom: $space_sm;
+  line-height: 1.3;
+  
+  .work-company {
+    font-weight: $light;
+    color: $text_lt_light;
+  }
+}
+
+.work-description {
+  font-family: $font_family_base;
+  font-weight: $regular;
+  font-size: $text_base;
+  color: $text_lt_light;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+// Blog Items
+.blog-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: $space_lg;
+  
+  &:last-of-type {
+    margin-bottom: $space_lg;
+  }
+}
+
+.blog-image {
+  width: 60px;
+  height: 60px;
+  border-radius: $space_xs;
+  overflow: hidden;
+  margin-right: $space_sm;
+  flex-shrink: 0;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  a:hover img {
+    transform: scale(1.05);
+  }
+}
+
+.blog-content {
+  flex: 1;
+}
+
+.blog-date {
+  font-family: $font_family_base;
+  font-weight: $light;
+  font-size: $text_smallest;
+  color: $text_lt_lighter;
+  text-transform: uppercase;
+  letter-spacing: $lspace_loose;
+  margin-bottom: $space_xxs;
+}
+
+.blog-title {
+  font-family: $font_family_base;
+  font-weight: $bold;
+  font-size: $text_base;
+  color: $text_lt_default;
+  line-height: 1.3;
+  margin: 0;
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+    
+    &:hover {
+      color: $charcoal;
+    }
+  }
+}
+
+// See All Links
+.see-all-link {
+  font-family: $font_family_base;
+  font-weight: $regular;
+  font-size: $text_base;
+  color: $primary;
+  text-decoration: none;
+  
+  &:hover {
+    color: $charcoal;
+  }
+}
+
+// Responsive Design
+@include mobile_only {
+  .homepage-summary {
+    margin: $space_xl 0;
+    
+    .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    
+    [class*="col-"] {
+      padding-left: 0;
+      padding-right: 0;
+      margin-bottom: $space_xl;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  .approach-text {
+    font-size: $text_base;
+  }
+  
+  .work-item {
+    margin-bottom: $space_lg;
+  }
+  
+  .blog-item {
+    margin-bottom: $space_md;
   }
 }
