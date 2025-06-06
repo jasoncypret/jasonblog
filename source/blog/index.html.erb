@@ -6,11 +6,34 @@ per_page: 8
 
 <div class="blog-container">
   <div class="blog-header">
-    <% if paginate && page_number > 1 %>
-      <h1 class="blog-title">Articles Continued</h1>
-    <% else %>
-      <h1 class="blog-title">Blog</h1>
-      <p class="blog-subtitle">Some other tagline</p>
+    <div class="blog-header-content">
+      <% if paginate && page_number > 1 %>
+        <h1 class="blog-title">Articles Continued</h1>
+      <% else %>
+        <h1 class="blog-title">Blog</h1>
+        <p class="blog-subtitle">Reflections on building better teams, systems, and products.</p>
+      <% end %>
+    </div>
+    <% unless paginate && page_number > 1 %>
+      <div class="blog-sidebar">
+        <h3>Browse Content</h3>
+        
+        <div class="blog-sidebar-content-cards">
+          <div class="content-card">
+            <a href="/calendar/" class="content-link">
+              <i class='icon icon-calendar-alt'></i>
+              <div class="title">Articles by Year</div>
+            </a>
+          </div>
+          
+          <div class="content-card">
+            <a href="/tags/" class="content-link">
+              <i class='icon icon-tag'></i>
+              <div class="title">Articles by Category</div>
+            </a>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
 
@@ -26,12 +49,11 @@ per_page: 8
             <% featured_articles.each do |article| %>
               <div class="col-md-6">
                 <article class="blog-article blog-article--featured">
-                  <% if article.data.image %>
-                    <div class="article-image">
+                  <div class="article-image">
+                    <% if article.data.image %>
                       <%= link_to image_tag(article.data.image, alt: article.title), article.url %>
-                    </div>
-                  <% end %>
-                  
+                    <% end %>
+                  </div>
                   <div class="article-content">
                     <small class="article-date"><%= article.date.strftime('%b %eth %Y').upcase %></small>
                     
@@ -65,11 +87,13 @@ per_page: 8
             <% remaining_articles.each do |article| %>
               <div class="col-lg-4 col-md-6">
                 <article class="blog-article blog-article--grid">
-                  <% if article.data.image %>
-                    <div class="article-image">
+                  
+                  <div class="article-image">
+                    <% if article.data.image %>
                       <%= link_to image_tag(article.data.image, alt: article.title), article.url %>
-                    </div>
-                  <% end %>
+                    <% end %>
+                  </div>
+                  
                   
                   <div class="article-content">
                     <small class="article-date"><%= article.date.strftime('%b %eth %Y').upcase %></small>
@@ -78,17 +102,7 @@ per_page: 8
                       <%= link_to article.title, article.url %>
                     </h2>
                     
-                    <% if article.data.summary %>
-                      <div class="article-summary"><%= article.data.summary %></div>
-                    <% end %>
                     
-                    <% if article.tags.present? %>
-                      <div class="article-tags">
-                        <% article.tags.each do |tag| %>
-                          <%= link_to tag, tag_path(tag), class: "tag" %>
-                        <% end %>
-                      </div>
-                    <% end %>
                   </div>
                 </article>
               </div>
@@ -97,39 +111,19 @@ per_page: 8
         </div>
       <% end %>
     </div>
-
-    <% unless paginate && page_number > 1 %>
-      <div class="blog-sidebar">
-        <h3>Browse Content</h3>
-        
-        <div class="content-card">
-          <a href="/calendar/" class="content-link">
-            <span class="icon">📅</span>
-            <div class="title">Articles by Year</div>
-          </a>
-        </div>
-        
-        <div class="content-card">
-          <a href="/tags/" class="content-link">
-            <span class="icon">🏷️</span>
-            <div class="title">Articles by Category</div>
-          </a>
-        </div>
-      </div>
-    <% end %>
   </div>
 
   <% if paginate %>
     <div class="pagination-nav">
       <% if prev_page %>
-        <%= link_to "Previous Articles", prev_page, class: "prev-articles-btn" %>
+        <%= link_to "<i class='icon-arrow-left'></i> Previous Articles".html_safe, prev_page, class: "btn btn--black" %>
       <% end %>
       
       <% if next_page %>
-        <%= link_to "More Articles", next_page, class: "more-articles-btn" %>
+        <%= link_to "More Articles <i class='icon-arrow-right'></i>".html_safe, next_page, class: "btn btn--black" %>
       <% elsif !paginate || page_number == 1 %>
         <div class="blog-actions">
-          <%= link_to "More Articles", "#", class: "more-articles-btn" %>
+          <%= link_to "More Articles <i class='icon-arrow-right'></i>".html_safe, "#", class: "btn btn--black" %>
         </div>
       <% end %>
     </div>

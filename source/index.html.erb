@@ -8,7 +8,7 @@ title: Jason Cypret
   <h5 class="header-subtitle pt-3 mt-5">Selected Work & Impact</h5>
   <% portfolio_link = data.site.downloads.find { |d| d.title == "portfolio" } %>
   <% if portfolio_link %>
-    <%= link_to "Download My Portfolio <i class='icon-arrow-right'></i>".html_safe, portfolio_link.url, class: "btn btn--link small no-shadow pr-0 pt-3 mt-5", target: "_blank" %>
+    <%= link_to "Download My Portfolio <i class='icon-download'></i>".html_safe, portfolio_link.url, class: "btn btn--link small no-shadow pr-0 pt-3 mt-5", target: "_blank" %>
   <% end %>
 </div>
 <%= partial "homepage/showcase_power" %>
