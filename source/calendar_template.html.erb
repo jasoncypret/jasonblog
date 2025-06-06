@@ -1,33 +1,93 @@
 ---
 pageable: true
 ---
-<h1>Archive for
-  <% case page_type
-     when 'day' %>
-    <%= Date.new(year, month, day).strftime('%b %e %Y') %>
-  <% when 'month' %>
-    <%= Date.new(year, month, 1).strftime('%b %Y') %>
-  <% when 'year' %>
-    <%= year %>
-  <% end %>
-</h1>
 
-<% if paginate && num_pages > 1 %>
-  <p>Page <%= page_number %> of <%= num_pages %></p>
+<div class="blog-container">
+  <div class="blog-header">
+    <div class="blog-header-content">
+      <% 
+        archive_title = case page_type
+                       when 'day'
+                         Date.new(year, month, day).strftime('%b %e %Y')
+                       when 'month'
+                         Date.new(year, month, 1).strftime('%b %Y')
+                       when 'year'
+                         year.to_s
+                       end
+      %>
+      <h1 class="blog-title">Archive for <%= archive_title %></h1>
+      <% if paginate && num_pages > 1 %>
+        <p class="blog-subtitle">Page <%= page_number %> of <%= num_pages %></p>
+      <% end %>
+      <%= link_to "<i class='icon-arrow-left'></i> Back to Blog".html_safe, "/blog/", class: "btn btn--link small no-shadow pl-0" %>
+    </div>
+    
+    <div class="blog-sidebar">
+      <h3>Browse Content</h3>
+      
+      <div class="blog-sidebar-content-cards">
+        <div class="content-card active">
+          <a href="/calendar/" class="content-link">
+            <i class='icon icon-calendar-alt'></i>
+            <div class="title">Articles by Year</div>
+          </a>
+        </div>
+        
+        <div class="content-card">
+          <a href="/tags/" class="content-link">
+            <i class='icon icon-tag'></i>
+            <div class="title">Articles by Category</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <% if prev_page %>
-    <p><%= link_to 'Previous page', prev_page %></p>
-  <% end %>
-<% end %>
+  <div class="blog-content">
+    <div class="blog-articles">
+      <% if page_articles.any? %>
+        <!-- Calendar Articles Grid -->
+        <div class="grid-articles">
+          <div class="row">
+            <% page_articles.each do |article| %>
+              <div class="col-lg-4 col-md-6">
+                <article class="blog-article blog-article--grid">
+                  <div class="article-image">
+                    <% if article.data.image %>
+                      <%= link_to image_tag(article.data.image, alt: article.title), article.url %>
+                    <% end %>
+                  </div>
+                  
+                  <div class="article-content">
+                    <small class="article-date"><%= article.date.strftime('%b %eth %Y').upcase %></small>
+                    
+                    <h2 class="article-title">
+                      <%= link_to article.title, article.url %>
+                    </h2>
+                    
+                  </div>
+                </article>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% else %>
+        <div class="no-articles">
+          <p>No articles found for this time period.</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-<ul>
-  <% page_articles.each_with_index do |article, i| %>
-    <li><%= link_to article.title, article %> <span><%= article.date.strftime('%b %e') %></span></li>
+  <% if paginate %>
+    <div class="pagination-nav">
+      <% if prev_page %>
+        <%= link_to "<i class='icon-arrow-left'></i> Previous".html_safe, prev_page, class: "btn btn--black" %>
+      <% end %>
+      
+      <% if next_page %>
+        <%= link_to "Next <i class='icon-arrow-right'></i>".html_safe, next_page, class: "btn btn--black" %>
+      <% end %>
+    </div>
   <% end %>
-</ul>
-
-<% if paginate %>
-  <% if next_page %>
-    <p><%= link_to 'Next page', next_page %></p>
-  <% end %>
-<% end %>
+</div>

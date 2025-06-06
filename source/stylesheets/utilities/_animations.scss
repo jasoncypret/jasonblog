@@ -3,3 +3,146 @@
   animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
 }
+
+// Animation utilities
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  
+  &.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  
+  &.animate {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  
+  &.animate {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+  
+  &.animate {
+    opacity: 1;
+  }
+}
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  
+  &.animate {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.slide-in-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  
+  &.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Staggered animations for child elements
+.stagger-children {
+  .stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  
+  &.animate .stagger-item {
+    opacity: 1;
+    transform: translateY(0);
+    
+    // Stagger delay for each child
+    &:nth-child(1) { transition-delay: 0.1s; }
+    &:nth-child(2) { transition-delay: 0.2s; }
+    &:nth-child(3) { transition-delay: 0.3s; }
+    &:nth-child(4) { transition-delay: 0.4s; }
+    &:nth-child(5) { transition-delay: 0.5s; }
+    &:nth-child(6) { transition-delay: 0.6s; }
+  }
+}
+
+// Hero specific animations
+.hero-title {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  
+  &.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-subtitle {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition-delay: 0.2s;
+  
+  &.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Showcase specific animations
+.showcase-copy {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  
+  &.animate {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Reduce motion for accessibility
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up,
+  .fade-in-left,
+  .fade-in-right,
+  .fade-in,
+  .scale-in,
+  .slide-in-up,
+  .hero-title,
+  .hero-subtitle,
+  .hero-image,
+  .showcase-copy,
+  .showcase-image,
+  .stagger-children .stagger-item {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}

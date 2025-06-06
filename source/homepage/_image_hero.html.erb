@@ -1,16 +1,16 @@
 <div class="main">
-  <%= image_tag "media/homepage/hero.webp", class: 'hero lazyload' %>
+  <%= image_tag "media/homepage/hero.webp", class: 'hero lazyload hero-image' %>
   <div class="wrap">
     <div class="avatar"><%= image_tag '/media/site/avatar.webp', class: 'lazyload' %></div>
-    <h1><%= current_page.data.title %></h1>
-    <p class="desc">
+    <h1 class="hero-title"><%= current_page.data.title %></h1>
+    <p class="desc hero-subtitle">
       <%= "VP of UX at " %>
       <a href="http://powerhrg.com">Power</a><%= ". Founder of " %>
       <a href="http://boxboard.io">BoxBoard</a><%= ", Core contributor of the " %>
       <a href="http://expressionui.com">Playbook</a> design system.
     </p>
 
-    <ul class="links">
+    <ul class="links hero-subtitle">
       <%# <li class="tweet">
         <a class="icon-twitter" href="http://twitter.com/JasonCypret"></a>
       </li> %>
@@ -25,6 +25,6 @@
       </li>
     </ul>
 
-    <div class="icon-arrow-down more fadeIn"></div>
+    <div class="icon-arrow-down more fadeIn hero-subtitle"></div>
   </div>
 </div>

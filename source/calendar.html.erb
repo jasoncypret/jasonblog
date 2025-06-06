@@ -3,15 +3,80 @@ layout: layout
 title: Calendar
 ---
 
-<ul>
-  <% blog.articles.group_by {|a| a.date.year }.each do |year, articles| %>
-    <li>
-      <h5><%= year %></h5>
-      <ul>
-        <% articles.each do |article| %>
-          <li><a href="<%= article.url %>"><%= article.title %></a></li>
+<div class="blog-container">
+  <div class="blog-header">
+    <div class="blog-header-content">
+      <h1 class="blog-title">Articles by Year</h1>
+      <p class="blog-subtitle">Browse all articles organized chronologically</p>
+      <%= link_to "<i class='icon-arrow-left'></i> Back to Blog".html_safe, "/blog/", class: "btn btn--link small no-shadow pl-0" %>
+    </div>
+    
+    <div class="blog-sidebar">
+      <h3>Browse Content</h3>
+      
+      <div class="blog-sidebar-content-cards">
+        <div class="content-card active">
+          <a href="/calendar/" class="content-link">
+            <i class='icon icon-calendar-alt'></i>
+            <div class="title">Articles by Year</div>
+          </a>
+        </div>
+        
+        <div class="content-card">
+          <a href="/tags/" class="content-link">
+            <i class='icon icon-tag'></i>
+            <div class="title">Articles by Category</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-content">
+    <div class="blog-articles">
+      <div class="calendar-years">
+        <% blog.articles.group_by {|a| a.date.year }.sort.reverse.each do |year, articles| %>
+          <div class="calendar-year-section">
+            <div class="calendar-year-header">
+              <h2 class="calendar-year-title">
+                <%= link_to year, blog_year_path(year) %>
+                <span class="article-count">(<%= articles.count %> <%= articles.count == 1 ? 'article' : 'articles' %>)</span>
+              </h2>
+            </div>
+            
+            <div class="calendar-articles-grid">
+              <div class="row">
+                <% articles.first(6).each do |article| %>
+                  <div class="col-lg-4 col-md-6">
+                    <article class="blog-article blog-article--grid blog-article--calendar">
+                      <div class="article-image">
+                        <% if article.data.image %>
+                          <%= link_to image_tag(article.data.image, alt: article.title), article.url %>
+                        <% end %>
+                      </div>
+                      
+                      <div class="article-content">
+                        <small class="article-date"><%= article.date.strftime('%b %eth %Y').upcase %></small>
+                        
+                        <h3 class="article-title">
+                          <%= link_to article.title, article.url %>
+                        </h3>
+                        
+                      </div>
+                    </article>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            
+            <% if articles.count > 6 %>
+              <div class="calendar-view-all">
+                <%= link_to "View all #{year} articles <i class='icon-arrow-right'></i>".html_safe, blog_year_path(year), class: "btn btn--black btn--small" %>
+              </div>
+            <% end %>
+          </div>
         <% end %>
-      </ul>
-    </li>
-  <% end %>
-</ul>
+      </div>
+    </div>
+  </div>
+</div>

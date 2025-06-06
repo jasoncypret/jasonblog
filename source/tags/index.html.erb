@@ -3,10 +3,51 @@ layout: layout
 title: "Tags"
 ---
 
-<h1>All Tags</h1>
+<div class="blog-container">
+  <div class="blog-header">
+    <div class="blog-header-content">
+      <h1 class="blog-title">Categories</h1>
+      <p class="blog-subtitle">Browse all articles organized by topic and theme</p>
+      <%= link_to "<i class='icon-arrow-left'></i> Back to Blog".html_safe, "/blog/", class: "btn btn--link small no-shadow pl-0" %>
+    </div>
+    
+    <div class="blog-sidebar">
+      <h3>Browse Content</h3>
+      
+      <div class="blog-sidebar-content-cards">
+        <div class="content-card">
+          <a href="/calendar/" class="content-link">
+            <i class='icon icon-calendar-alt'></i>
+            <div class="title">Articles by Year</div>
+          </a>
+        </div>
+        
+        <div class="content-card active">
+          <a href="/tags/" class="content-link">
+            <i class='icon icon-tag'></i>
+            <div class="title">Articles by Category</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<ul>
-  <% blog.tags.each do |tag, posts| %>
-    <li><%= link_to tag, "/tags/#{tag.downcase.gsub(' ', '-')}/" %></li>
-  <% end %>
-</ul>
+  <div class="blog-content">
+    <div class="blog-articles">
+      <div class="tags-cloud">
+        <% blog.tags.sort_by{|tag, posts| -posts.length}.each do |tag, posts| %>
+          <div class="tag-item">
+            <div class="tag-link-wrapper">
+              <a href="<%= tag_path(tag) %>" class="tag-link">
+                <span class="tag-name"><%= tag %></span>
+                <span class="tag-count">(<%= posts.length %> <%= posts.length == 1 ? 'article' : 'articles' %>)</span>
+              </a>
+            </div>
+            
+          
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
