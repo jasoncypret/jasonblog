@@ -27,7 +27,7 @@
         
         <% resume_link = data.site.downloads.find { |d| d.title == "resume" } %>
         <% if resume_link %>
-          <%= link_to "See All Experience <i class='icon-arrow-right'></i>".html_safe, resume_link.url, class: "btn btn--link small no-shadow pl-0" %>
+          <%= link_to "See All Experience <i class='icon-arrow-right'></i>".html_safe, "/resume/", class: "btn btn--link small no-shadow pl-0" %>
         <% end %>
       </div>
     </div>
@@ -37,7 +37,7 @@
       <div class="summary-section">
         <h3 class="section-title header-subtitle">FROM THE BLOG</h3>
         
-        <% blog.articles[0...3].each do |article| %>
+        <% blog.articles[0...5].each do |article| %>
           <div class="blog-item">
             <% if article.data.image %>
               <div class="blog-image">

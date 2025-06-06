@@ -18,9 +18,15 @@
     },
     {
       "title": "Sr. Principal Product Designer",
-      "company": "Bloomboard",
+      "company": "BloomBoard",
       "years": "2014-2017",
       "description": "Led design for a credentialing platform that brought R&D to market, now used by school districts and universities nationwide. Shaped product direction through research, iteration, and hands-on delivery."
+    },
+    {
+      "title": "Founder & Creator",
+      "company": "BoxBoard",
+      "years": "2014-Present",
+      "description": "A solo-built CrossFit workout platform used by gyms across the U.S., with 60K+ scores logged. Designed, coded, and shipped the product end to end — from backend architecture to mobile UI and AI integrations."
     }
   ],
   "personal_approach": {
