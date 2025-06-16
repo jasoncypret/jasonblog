@@ -2,11 +2,68 @@
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <% if current_page.metadata[:page].try(:[], 'open_graph_image') %>
-    <meta property="og:image" content="<%= current_page.metadata[:page]['open_graph_image'] %>"/>
+  
+  <!-- SEO Meta Tags -->
+  <title><%= current_page.data.title ? "#{current_page.data.title} - Jason Cypret" : "Jason Cypret - VP of UX & Product Design Leader | Building User-Centered Digital Experiences" %></title>
+  <meta name="description" content="<%= current_page.data.description || "Jason Cypret is a VP of UX and Product Design Leader with 10+ years of experience building user-centered digital experiences. Currently scaling UX teams and launching innovative products at Power." %>">
+  <meta name="keywords" content="<%= current_page.data.keywords || "UX Design, Product Design, Design Leadership, User Experience, Digital Product Design, Design Systems, Lean UX, Jason Cypret" %>">
+  <meta name="author" content="Jason Cypret">
+  <link rel="canonical" href="<%= "https://jasoncypret.com#{current_page.url}" %>">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="<%= current_page.data.og_type || (current_page.data.date ? 'article' : 'website') %>">
+  <meta property="og:url" content="<%= "https://jasoncypret.com#{current_page.url}" %>">
+  <meta property="og:title" content="<%= current_page.data.og_title || current_page.data.title || "Jason Cypret - VP of UX & Product Design Leader" %>">
+  <meta property="og:description" content="<%= current_page.data.og_description || current_page.data.description || "Jason Cypret is a VP of UX and Product Design Leader with 10+ years of experience building user-centered digital experiences." %>">
+  <meta property="og:image" content="<%= current_page.data.og_image || current_page.metadata[:page].try(:[], 'open_graph_image') || "https://jasoncypret.com/media/jason-cypret-og-image.jpg" %>">
+  <meta property="og:site_name" content="Jason Cypret">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="<%= current_page.data.twitter_card || 'summary_large_image' %>">
+  <meta name="twitter:site" content="@JasonCypret">
+  <meta name="twitter:creator" content="@JasonCypret">
+  <meta name="twitter:title" content="<%= current_page.data.twitter_title || current_page.data.title || "Jason Cypret - VP of UX & Product Design Leader" %>">
+  <meta name="twitter:description" content="<%= current_page.data.twitter_description || current_page.data.description || "VP of UX and Product Design Leader with 10+ years of experience building user-centered digital experiences." %>">
+  <meta name="twitter:image" content="<%= current_page.data.twitter_image || current_page.data.og_image || "https://jasoncypret.com/media/jason-cypret-og-image.jpg" %>">
+  
+  <!-- Additional SEO -->
+  <meta name="robots" content="<%= current_page.data.robots || 'index, follow' %>">
+  <% if current_page.data.date %>
+  <% date_obj = current_page.data.date.is_a?(String) ? Time.parse(current_page.data.date) : current_page.data.date %>
+  <meta property="article:published_time" content="<%= date_obj.iso8601 %>">
+  <meta property="article:author" content="Jason Cypret">
   <% end %>
-  <%# <meta content="" name="description" /> %>
-  <title><%= current_page.data.title || "Jason Cypret - Unlocking Potential Through UX" %></title>
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "<%= current_page.data.date ? 'BlogPosting' : 'Person' %>",
+    <% if current_page.data.date %>
+    <% date_obj = current_page.data.date.is_a?(String) ? Time.parse(current_page.data.date) : current_page.data.date %>
+    "headline": "<%= current_page.data.title %>",
+    "description": "<%= current_page.data.description %>",
+    "author": {
+      "@type": "Person",
+      "name": "Jason Cypret"
+    },
+    "datePublished": "<%= date_obj.iso8601 %>",
+    "url": "<%= "https://jasoncypret.com#{current_page.url}" %>"
+    <% else %>
+    "name": "Jason Cypret",
+    "jobTitle": "VP of UX",
+    "description": "VP of UX and Product Design Leader with 10+ years of experience building user-centered digital experiences",
+    "url": "https://jasoncypret.com",
+    "sameAs": [
+      "https://linkedin.com/in/jasoncypret",
+      "https://twitter.com/JasonCypret",
+      "https://github.com/jasoncypret",
+      "https://dribbble.com/jasoncypret"
+    ]
+    <% end %>
+  }
+  </script>
+  
   <%= stylesheet_link_tag "site" %>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

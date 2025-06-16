@@ -185,6 +185,11 @@ activate :blog do |blog|
   blog.calendar_template = "calendar_template.html"
 end
 
+# SEO Configuration
+set :url_root, 'https://jasoncypret.com'
+activate :search_engine_sitemap
+activate :meta_tags
+
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
 configure :build do

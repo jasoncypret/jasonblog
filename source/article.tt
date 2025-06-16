@@ -2,9 +2,16 @@
 title: "<%= @title %>"
 date: <%= @date.strftime('%Y-%m-%d %H:%M UTC') %>
 tags: <%= @tags.join(", ") %>
+description: "Brief description of the article for SEO and social sharing"
+keywords: "keyword1, keyword2, keyword3, <%= @tags.join(", ") %>"
 image: articles/<%= @slug %>/
 open_graph_image: articles/<%= @slug %>/
-summary: 
+og_title: "<%= @title %> - Jason Cypret"
+og_description: "Brief description optimized for social sharing"
+twitter_title: "<%= @title %>"
+twitter_description: "Brief description optimized for Twitter (max 160 chars)"
+twitter_image: articles/<%= @slug %>/twitter-card.jpg
+summary: ""
 ---
 
 <%= @content %> 
