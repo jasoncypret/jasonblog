@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://jasoncypret.com/sitemap.xml
+
+# Block access to admin areas if any
+Disallow: /admin/
+Disallow: /.git/
+
+# Allow all other content
+Allow: /media/
+Allow: /stylesheets/
+Allow: /javascripts/ 
