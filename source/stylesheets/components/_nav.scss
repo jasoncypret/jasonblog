@@ -1,44 +1,231 @@
+// Navigation styles for hero page
 .nav {
-  position: absolute;
-  top: $space_xs/3;
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 100%;
-  z-index: $z-10;
-  display: flex;
-  justify-content: space-between;
-  padding: $space_xs $space_sm;
-  a.avatar {
-    transition: transform 0.2s;
-    &:hover {
-      transform: scale(1.1);
-      transition: transform 0.2s;
-    }
-    $avatar: 40px;
-    width: $avatar;
-    height: $avatar;
+  right: 0;
+  background: rgba($card_light, 0.25);
+  backdrop-filter: blur(20px) saturate(180%) contrast(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%) contrast(120%);
+  border-bottom: 1px solid rgba($border_light, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  
+  // Enhanced glass effect on scroll
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.1) 0%, 
+      rgba(255, 255, 255, 0.05) 50%, 
+      rgba(255, 255, 255, 0.02) 100%
+    );
+    backdrop-filter: blur(25px) brightness(110%);
+    -webkit-backdrop-filter: blur(25px) brightness(110%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  &-container {
+    max-width: 1290px;
+    margin: 0 auto;
+    padding: 0 $space_md;
     display: flex;
     align-items: center;
-    img {
-      border-radius: $avatar;
-      width: $avatar;
-      height: $avatar;
-      object-fit: cover;
-    }
-    .icon-angle-left {
-      font-size: 20px;
-      color: $white;
-      margin-right: $space-xxs;
+    justify-content: space-between;
+    height: 70px;
+    
+    // Mobile menu open state
+    @include mobile_only {
+      &.nav-open {
+        .nav-menu {
+          display: flex;
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+      }
     }
   }
-  ul.menu {
-    li {
-      display: inline-block;
-      a.menu-item {
-        @include outline-button($white);
-        @include button-size($space_xs/1.5, $space_xs, $text_smallest, 80%);
-        border-radius: 100px;
-        color: $white;
-        border-color: rgba($white, 0.1);
+
+  &-logo {
+    display: flex;
+    align-items: center;
+    gap: $space_sm;
+    text-decoration: none;
+    color: $text_lt_default;
+    font-weight: $bold;
+    transition: all 0.3s ease;
+    width: 141px;
+
+    &:hover {
+      color: $royal;
+    }
+  }
+
+
+  &-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: $space_lg;
+    
+    &.social {
+      gap: 0;
+    }
+
+    @include mobile_only {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: rgba($card_light, 0.75);
+      backdrop-filter: blur(25px) saturate(180%) contrast(120%);
+      -webkit-backdrop-filter: blur(25px) saturate(180%) contrast(120%);
+      border-bottom: 1px solid rgba($border_light, 0.3);
+      flex-direction: column;
+      padding: $space_lg $space_md;
+      gap: $space_md;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-20px);
+      transition: all 0.3s ease;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      
+      // Enhanced glass effect for mobile menu
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, 
+          rgba(255, 255, 255, 0.12) 0%, 
+          rgba(255, 255, 255, 0.06) 50%, 
+          rgba(255, 255, 255, 0.03) 100%
+        );
+        backdrop-filter: blur(30px) brightness(115%);
+        -webkit-backdrop-filter: blur(30px) brightness(115%);
+        pointer-events: none;
+        z-index: -1;
+      }
+      
+      &.social {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        background: none;
+        border: none;
+        box-shadow: none;
+        padding: $space_sm 0 0 0;
+        margin-top: $space_sm;
+        border-top: 1px solid $border_light;
+        opacity: 1;
+        display: none !important;
+        transform: none;
+      }
+    }
+  }
+
+  &-menu-item {
+    margin: 0;
+    
+    @include mobile_only {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &-link {
+    text-decoration: none;
+    color: $text_lt_default;
+    font-weight: 600;
+    font-size: $text_base;
+    letter-spacing: $lspace_loose;
+    padding: $space_xs $space_sm;
+    border-radius: $space_xs;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: $royal;
+      background: rgba($royal, $opacity_1);
+    }
+
+    @include mobile_only {
+      display: block;
+      padding: $space_sm $space_md;
+      font-size: $text_large;
+      border-radius: $space_sm;
+    }
+  }
+
+  &-social {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  &-social-link {
+    color: $text_lt_default;
+    font-size: $text_large*1.2;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    width: 47px;
+    height: 47px;
+    line-height: 47px;
+    text-align: center;
+
+    &:hover {
+      color: $royal;
+      background: rgba($royal, $opacity_1);
+      transform: translateY(-2px);
+    }
+  }
+
+  &-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: $space_xs;
+    gap: 4px;
+    z-index: 1001;
+
+    @include mobile_only {
+      display: flex;
+    }
+
+    span {
+      width: 25px;
+      height: 2px;
+      background: $text_lt_default;
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+    
+    // Hamburger animation when active
+    &.active {
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+      
+      span:nth-child(2) {
+        opacity: 0;
+        transform: scale(0);
+      }
+      
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
       }
     }
   }

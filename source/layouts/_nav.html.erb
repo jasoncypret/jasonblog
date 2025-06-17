@@ -1,15 +1,71 @@
-<div class="nav">
-  <a class="avatar" href="/">
-    <i class="icon-angle-left"></i>
-    <div class="avatar"><%= image_tag 'media/site/avatar.webp', class: 'lazyload' %></div>
-  </a>
-  <ul class="menu">
-    <% if data.site.navigation %>
-      <% data.site.navigation.each do |item| %>
-        <li>
-          <%= link_to item.title, item.url, class: "menu-item #{item.title}" %>
-        </li>
+<nav class="nav">
+  <div class="nav-container">
+    <a class="nav-logo" href="/">
+      <div class="nav-avatar">
+        <%= image_tag '/media/homepage/JC-logo.svg', class: 'nav-avatar-img lazyload', alt: 'Jason Cypret' %>
+      </div>  
+    </a>
+    
+    <ul class="nav-menu">
+      <% if data.site.navigation %>
+        <% data.site.navigation.each do |item| %>
+          <li class="nav-menu-item">
+            <%= link_to item.title.capitalize, item.url, class: "nav-link #{item.title}" %>
+          </li>
+        <% end %>
       <% end %>
-    <% end %>
-  </ul>
-</div>
+    </ul>
+    <ul class="nav-menu social">
+      <% if data.site.professional_links %>
+        <% data.site.professional_links.each do |link| %>
+          <li class="nav-menu-item nav-social">
+            <%= link_to "<i class='icon-#{link.title}'></i>".html_safe, link.url, class: "nav-social-link", target: "_blank", title: link.title.capitalize %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+    
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const navToggle = document.querySelector('.nav-toggle');
+  const navContainer = document.querySelector('.nav-container');
+  
+  if (navToggle && navContainer) {
+    navToggle.addEventListener('click', function() {
+      navContainer.classList.toggle('nav-open');
+      navToggle.classList.toggle('active');
+      
+      // Toggle aria-expanded for accessibility
+      const isExpanded = navContainer.classList.contains('nav-open');
+      navToggle.setAttribute('aria-expanded', isExpanded);
+    });
+    
+    // Close menu when clicking on nav links (mobile)
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        navContainer.classList.remove('nav-open');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    
+    // Close menu when clicking outside (mobile)
+    document.addEventListener('click', function(event) {
+      if (!navContainer.contains(event.target) && navContainer.classList.contains('nav-open')) {
+        navContainer.classList.remove('nav-open');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+});
+</script>
