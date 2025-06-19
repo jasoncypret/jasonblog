@@ -55,6 +55,10 @@ Clear/delete build folder before this step
 ```sh
 rm -rf build/ && bundle exec rake publish ALLOW_DIRTY=true # Build and publish to Github Pages
 ```
+## Automated Deployment
+
+The site is automatically deployed using GitHub Actions whenever changes are pushed to the repository's primary branch. The workflow defined in `.github/workflows/deploy.yml` installs Ruby 3.2.2, runs `bundle install`, and executes `bundle exec rake publish` with `ALLOW_DIRTY=true`. The build directory is pushed to `gh-pages` using the built-in `GITHUB_TOKEN` secret, which has write permissions to the repo. If you prefer to use a personal token, ensure it has `contents: write` permission and add it as a secret.
+
 
 
 ## Configuration
