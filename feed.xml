@@ -5,10 +5,82 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2025-06-05T10:46:00-05:00</updated>
+  <updated>2025-06-30T12:07:00-05:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>Not Every Week Is a Big Launch (And That's Okay)</title>
+    <link rel="alternate" href="http://blog.url.com/not-every-week-is-a-big-launch-and-that-s-okay/"/>
+    <id>http://blog.url.com/not-every-week-is-a-big-launch-and-that-s-okay/</id>
+    <published>2025-06-30T12:07:00-05:00</published>
+    <updated>2025-06-30T13:59:42-05:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;In startup land, there&amp;rsquo;s a tendency to glorify the big launch, the shiny new feature, the growth spike, the viral moment. But the truth? Most weeks don&amp;rsquo;t look like that. Some weeks are just plain messy. And that&amp;rsquo;s when the real work happens.&lt;/p&gt;
+
+&lt;p&gt;Last week, I set out with a clear goal: ship a major onboarding improvement for &lt;a href="https://boxboard.io/?utm_source=jasonblog&amp;amp;utm_medium=blog&amp;amp;utm_campaign=article"&gt;BoxBoard&lt;/a&gt;. On paper, it was a straightforward win. But by midweek, I realized I was knee-deep in server configurations, struggling with AWS limits, and reevaluating tools I thought were locked in.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s what happened, and what I learned.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;h2&gt;🛠 When a “Simple” Tool Change Becomes a Full DevOps Saga&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src="code-e9396b21.webp" alt="Developer working late at night debugging server configurations and AWS setup issues" class="lazyload" /&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;d been juggling Google Analytics and Mixpanel to track user behavior and marketing leads, but they never gave me the visibility I wanted. So I decided to explore PostHog, a more customizable, all-in-one alternative.&lt;/p&gt;
+
+&lt;p&gt;I figured I&amp;rsquo;d self-host it on AWS for control and cost savings.&lt;/p&gt;
+
+&lt;p&gt;Spoiler: it did not go smoothly.&lt;/p&gt;
+
+&lt;p&gt;The install stalled repeatedly. EC2 configs weren&amp;rsquo;t enough. The server kept maxing out, and I found myself rebuilding the stack more than once just to maybe get the dashboard running. By the third rebuild, I finally stopped and asked: “Why am I burning a week on this?”&lt;/p&gt;
+
+&lt;p&gt;I pivoted to PostHog&amp;rsquo;s cloud version and got things up quickly. And it&amp;rsquo;s already proving useful, especially for tracking where my marketing leads are coming from.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;h2&gt;🧱 Shipping Foundations (Even If Nobody Sees Them)&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src="itterate-708ad5d3.webp" alt="Iterative development process showing multiple rounds of testing and refinement for BoxBoard features" class="lazyload" /&gt;&lt;/p&gt;
+
+&lt;p&gt;Beyond analytics, I shipped a new invite flow for gyms, now they can onboard members directly via CSV upload or email invite. It&amp;rsquo;s not a glamorous feature, but it&amp;rsquo;s a game-changer for busy gym owners.&lt;/p&gt;
+
+&lt;p&gt;And while I wanted to ship more, that one feature turned out to be several days of work: testing, UX polishing, and edge case handling. You know… software.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;h2&gt;📏 What I Learned&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src="loading-31bda24c.webp" alt="Loading screen or progress indicator representing the patience required during development setbacks" class="lazyload" /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Estimate x3 for unfamiliar tech.&lt;/strong&gt; I asked AI to help forecast time on my EC2 setup, but underestimated just how many edge cases I&amp;rsquo;d hit. When you&amp;rsquo;re outside your usual zone, pad your timeline more than you think.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Don&amp;rsquo;t let frustration snowball.&lt;/strong&gt; Midweek, I caught myself getting cranky. That&amp;rsquo;s when I stepped back, reframed the goal (“test PostHog” not “perfect PostHog setup”), and found a way forward.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reflect before you spiral.&lt;/strong&gt; I try to journal weekly. Some weeks feel like a slog in the moment, but when I zoom out, I see progress. And even if it&amp;rsquo;s not flashy, laying solid foundations is still a win.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;h2&gt;🎯 A Word for Fellow Solo Builders&lt;/h2&gt;
+
+&lt;p&gt;If your week didn&amp;rsquo;t result in a splashy demo or viral post, that&amp;rsquo;s okay. Progress often looks like wrangling a bug, refining infrastructure, or rethinking a process. It looks like momentum.&lt;/p&gt;
+
+&lt;p&gt;Celebrate that.&lt;/p&gt;
+
+&lt;p&gt;And when next week starts, sprinkle in some &amp;ldquo;candy&amp;rdquo;, the fun, energizing work that reminds you why you&amp;rsquo;re doing this. You&amp;rsquo;ve earned it.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Shipping Fast, Breaking Less: Managing Tech Debt in the AI Era</title>
     <link rel="alternate" href="http://blog.url.com/shipping-fast-breaking-less-managing-tech-debt-in-the-ai-era/"/>
@@ -652,108 +724,6 @@ Ping me on Twitter—always happy to swap notes.&lt;/em&gt;&lt;/p&gt;
 &lt;h1&gt;Final Thoughts&lt;/h1&gt;
 
 &lt;p&gt;Day 2 at Gartner was packed with insights, and while the AI buzz is undeniable, it’s clear that we’re still in the early stages of truly understanding its potential. What excites me most is not the technology itself, but the human potential it unlocks. Whether it’s simplifying our work, enhancing our lives at home, or taking us to space, AI is poised to transform our world in ways that go beyond what we can imagine today. And as UX leaders, we’ll have a crucial role in ensuring these technologies are designed with the human experience at the center.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Unlocking AI’s Potential: Key Insights from Gartner Symposium Day 1</title>
-    <link rel="alternate" href="http://blog.url.com/gartner-symposium-day-1/"/>
-    <id>http://blog.url.com/gartner-symposium-day-1/</id>
-    <published>2024-10-21T17:58:00-05:00</published>
-    <updated>2024-10-22T17:02:50-05:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;Today was all about diving into the opportunities AI presents, both for customer experiences and internal applications. I attended five talks, but let’s be real, one didn’t quite land for me. Still, the overall message from the day was crystal clear: AI is transforming how we work, think, and build—if we embrace it.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Talks I attended:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Pacing Yourself in the AI Races&lt;/strong&gt; – Hung LeHong &amp;amp; Mary Mesaglio&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Top Strategic Technology Trends for 2025&lt;/strong&gt;  – Gene Alvarez&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Key Trends Driving Customer Experience in 2025&lt;/strong&gt; – Michael Chiu&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Future of Enterprise Applications&lt;/strong&gt; – Anne Thomas&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Revenge of the Tipping Point&lt;/strong&gt; – Malcolm Gladwell&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;There’s so much potential for AI to not just enhance productivity but truly change how we work and engage with technology. I’m energized to encourage others to experiment more with AI and find ways to integrate it into future applications. AI isn’t just for the tech-savvy—it’s for all of us. Leaders have a real responsibility to set the tone and encourage healthy AI adoption across our teams. Here&amp;rsquo;s my recap:&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;h2&gt;Pacing Yourself in the AI Races&lt;/h2&gt;
-
-&lt;p&gt;&lt;em&gt;By Hung LeHong &amp;amp; Mary Mesaglio&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="Most-Productivity-c15f0d08.webp" alt="Most-Productivity" class="lazyload" /&gt;&lt;/p&gt;
-
-&lt;p&gt;This keynote introduced two critical AI races: the fast-paced race of technology vendors and the steadier race for organizations to successfully scale AI. Leaders must choose their pace and find the right balance to leverage AI effectively.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Key Takeaways:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Two AI Races:&lt;/strong&gt; Organizations need to decide whether to rush AI implementation or adopt a more thoughtful approach that aligns with their goals.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Sweet Spot for AI Productivity:&lt;/strong&gt; AI shines brightest in complex roles with experienced employees—finding that “deep productivity zone” is key.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Managing AI Costs:&lt;/strong&gt; It’s crucial to monitor Gen AI costs, especially during early proof-of-concept stages, to prevent spiraling expenses.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Key Trends Driving Customer Experience in 2025&lt;/h2&gt;
-
-&lt;p&gt;&lt;em&gt;By Michael Chiu&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="key-trends-cx-27b21a66.webp" alt="CX Trends" class="lazyload" /&gt;&lt;/p&gt;
-
-&lt;p&gt;Chiu’s focus was on simplifying customer experiences. His comparison of Apple’s one-button iPhone to the complexity of a Blackberry illustrated how subtraction can often lead to better design and usability.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Key Takeaways:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Simplicity is Key:&lt;/strong&gt; Reducing features often leads to more intuitive, user-friendly experiences.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Subtract to Improve:&lt;/strong&gt; Sometimes improving UX means taking away complexity, not adding to it.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Paradox of Choice:&lt;/strong&gt; Simplifying choices can lead to better customer engagement and decision-making.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Further Reading:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://hbr.org/2022/02/when-subtraction-adds-value"&gt;Subtraction Adds Value - Harvard Business Review&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Future of Enterprise Applications&lt;/h2&gt;
-
-&lt;p&gt;&lt;em&gt;By Anne Thomas&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="ambient-ux-c2819629.webp" alt="ambient ux" class="lazyload" /&gt;&lt;/p&gt;
-
-&lt;p&gt;Anne Thomas discussed the evolution of enterprise systems, where AI takes over mundane, repetitive tasks, allowing humans to focus on strategic, high-value work. She outlined five design principles for building intelligent applications, making the future of work feel both inspiring and actionable.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Key Takeaways:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI Shifts Work Balance:&lt;/strong&gt; AI will handle more routine tasks, giving people the freedom to focus on creative and strategic work.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Five Design Principles:&lt;/strong&gt; Intelligent applications will thrive on adaptability, automation, and connected data, leading to smarter systems that anticipate user needs.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Revenge of the Tipping Point&lt;/h2&gt;
-
-&lt;p&gt;&lt;em&gt;By Malcolm Gladwell&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="gladwell-36834da6.webp" alt="ambient ux" class="lazyload" /&gt;&lt;/p&gt;
-
-&lt;p&gt;Malcolm Gladwell’s talk took a fascinating turn by highlighting the power of outliers. His message was simple: the things that disproportionately affect outcomes are often found at the extremes, not the averages.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Key Takeaways:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Outliers Matter:&lt;/strong&gt; Rare events or individuals often have a much bigger impact than we assume.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Radical Distributions:&lt;/strong&gt; Many societal and business problems don’t follow the bell curve but are driven by a small percentage of extreme cases.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr&gt;
-
-&lt;h1&gt;Final Reflections&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src="Day1-51da7534.webp" alt="Day 1" class="lazyload" /&gt;&lt;/p&gt;
-
-&lt;p&gt;Day 1 offered a wealth of insights into how AI is shaping the future of work and technology. It’s not just about embracing AI, but about strategically applying it to areas where it can deliver the greatest impact. As we look to the future, AI will continue to redefine productivity and experience in ways that demand both creativity and foresight.&lt;/p&gt;
 </content>
   </entry>
 </feed>

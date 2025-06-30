@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://jasoncypret.com/resume/</loc>
-    <lastmod>2025-06-06T15:20:15-05:00</lastmod>
+    <lastmod>2025-06-30T12:41:35-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -75,6 +75,12 @@
   <url>
     <loc>https://jasoncypret.com/2013-03-25-the-context-aware-brain/</loc>
     <lastmod>2025-04-11T12:34:54-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://jasoncypret.com/not-every-week-is-a-big-launch-and-that-s-okay/</loc>
+    <lastmod>2025-06-30T13:59:42-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -235,7 +241,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://jasoncypret.com/tags/ai/</loc>
+    <loc>https://jasoncypret.com/tags/startup/</loc>
+    <lastmod>2025-06-06T16:51:39-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://jasoncypret.com/tags/development/</loc>
     <lastmod>2025-06-06T16:51:39-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -247,13 +259,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://jasoncypret.com/tags/coding/</loc>
+    <loc>https://jasoncypret.com/tags/ai/</loc>
     <lastmod>2025-06-06T16:51:39-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://jasoncypret.com/tags/development/</loc>
+    <loc>https://jasoncypret.com/tags/coding/</loc>
     <lastmod>2025-06-06T16:51:39-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -343,12 +355,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://jasoncypret.com/tags/startup/</loc>
-    <lastmod>2025-06-06T16:51:39-05:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://jasoncypret.com/tags/pitch/</loc>
     <lastmod>2025-06-06T16:51:39-05:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -374,6 +380,12 @@
   </url>
   <url>
     <loc>https://jasoncypret.com/2025/06/</loc>
+    <lastmod>2025-06-06T16:49:40-05:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://jasoncypret.com/2025/06/30/</loc>
     <lastmod>2025-06-06T16:49:40-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
