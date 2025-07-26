@@ -8,7 +8,7 @@ gem 'middleman-gh-pages'
 gem "redcarpet"
 gem 'middleman-syntax'
 gem 'middleman-livereload'
-gem 'middleman-meta-tags', '~> 0.4.0'
+gem 'middleman-meta-tags', '~> 0.7.0'
 gem 'middleman-search_engine_sitemap', '~> 1.4.0'
 gem 'mini_magick', '~> 4.12'
 gem 'terser', '~> 1.1'
