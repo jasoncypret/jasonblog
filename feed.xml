@@ -5,10 +5,65 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2025-06-30T12:07:00-05:00</updated>
+  <updated>2025-08-04T18:13:00-05:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>Big Moves, Big Vision: Why I Joined Worlds</title>
+    <link rel="alternate" href="http://blog.url.com/big-moves-big-vision-why-i-joined-worlds/"/>
+    <id>http://blog.url.com/big-moves-big-vision-why-i-joined-worlds/</id>
+    <published>2025-08-04T18:13:00-05:00</published>
+    <updated>2025-08-04T18:39:45-05:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;I&amp;rsquo;ve joined Worlds to lead Product Experience, helping shape the way users interact with one of the most ambitious AI platforms in the industry.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This role brings together everything I love: product strategy, front-end leadership, and design vision, all focused on making powerful, complex systems feel intuitive and human. The platform Worlds is building goes far beyond what&amp;rsquo;s currently possible in computer vision and automation, and I&amp;rsquo;m excited to play a part in how it comes to life.&lt;/p&gt;
+
+&lt;h2&gt;Why Worlds?&lt;/h2&gt;
+
+&lt;p&gt;From the moment I first explored what the team at Worlds was working on, I knew it wasn&amp;rsquo;t just another AI company. This is a team rethinking how people interact with live environments; not just capturing footage or triggering alerts, but building dynamic models that can observe, interpret, and act on what&amp;rsquo;s happening in real time.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;It&amp;rsquo;s the kind of platform that sounds like science fiction, but it&amp;rsquo;s already being deployed by major enterprises to solve real-world challenges.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;What excited me most was the chance to shape how people experience this technology. The UI is just the surface, underneath is a layered system of intelligence and inference that needs to be understood, trusted, and used by people in high-stakes environments.&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s where my work begins.&lt;/p&gt;
+
+&lt;h2&gt;First Impressions&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src="davo-32813b0b.webp" alt="" class="lazyload" /&gt;&lt;/p&gt;
+
+&lt;p&gt;My first week couldn&amp;rsquo;t have been better timed! I joined during a company-wide event, met the entire team in person, and got a full download of what&amp;rsquo;s happening across engineering, product, and design. It&amp;rsquo;s a rare chance to come in during a moment of reflection and re-alignment.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;It also felt like a bit of a homecoming.&lt;/strong&gt; I&amp;rsquo;m reuniting with a few of my favorite past collaborators, including Markie Arnold and Kevin Marvin, and we&amp;rsquo;ve already started identifying opportunities to improve workflows, simplify interfaces, and level up the front-end and product experience across the board.&lt;/p&gt;
+
+&lt;h2&gt;What&amp;rsquo;s Next&lt;/h2&gt;
+
+&lt;p&gt;We&amp;rsquo;re kicking off projects around:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Modernizing our design system and Figma practices&lt;/li&gt;
+&lt;li&gt;Strengthening the front-end architecture for scale and velocity&lt;/li&gt;
+&lt;li&gt;Building tighter feedback loops between UX, engineering, and field teams&lt;/li&gt;
+&lt;li&gt;Exploring how AI agents, visual models, and user goals come together in a single experience&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;At the same time, I&amp;rsquo;m resetting my own workflows, keeping my new work setup separate from personal projects like BoxBoard, and setting up a clean, AI-friendly environment that encourages automation and experimentation.&lt;/p&gt;
+
+&lt;p&gt;There&amp;rsquo;s more I want to share soon: from thoughts on MCP and agent tooling, to how we&amp;rsquo;re thinking about user trust in intelligent systems, to lessons from doing a full rewrite of BoxBoard&amp;rsquo;s iOS app (more on that later).&lt;/p&gt;
+
+&lt;p&gt;For now, I&amp;rsquo;m just excited to be here, surrounded by good people, big ideas, and the kind of problems that don&amp;rsquo;t have easy answers — just meaningful ones.&lt;/p&gt;
+
+&lt;h1&gt;Let&amp;rsquo;s build.&lt;/h1&gt;
+</content>
+  </entry>
   <entry>
     <title>Not Every Week Is a Big Launch (And That's Okay)</title>
     <link rel="alternate" href="http://blog.url.com/not-every-week-is-a-big-launch-and-that-s-okay/"/>
@@ -624,106 +679,6 @@ future automation layers.&lt;/li&gt;
 
 &lt;p&gt;&lt;em&gt;Questions or war stories about your own tiny agents?&lt;br&gt;
 Ping me on Twitter—always happy to swap notes.&lt;/em&gt;&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>AI and the Future of UX: Key Takeaways from Gartner Day 2</title>
-    <link rel="alternate" href="http://blog.url.com/gartner-2024-day-2/"/>
-    <id>http://blog.url.com/gartner-2024-day-2/</id>
-    <published>2024-10-22T16:15:00-05:00</published>
-    <updated>2025-03-31T17:20:32-05:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;Gartner 2024 Day 2: Exploring AI, the Future, and the Human Experience&lt;/p&gt;
-
-&lt;p&gt;Today marked the second day of the Gartner Symposium, and I managed to sit through six insightful talks. AI was once again a central theme, with topics ranging from its practical applications to far-reaching futuristic visions. While I’m starting to feel a bit of AI overload, there were standout sessions that left me thinking about the potential of AI in ways I hadn’t considered before. My favorite talks were those that encouraged a vision of the future beyond today’s immediate AI implementations and into the realms of space, robots, and transforming our daily lives.&lt;/p&gt;
-
-&lt;p&gt;Here’s a quick recap of the sessions I attended:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Interview with Jensen Huang&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Gartner’s Top Strategic Predictions for 2025 and Beyond: Riding the AI Whirlwind by Daryl Plummer&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Maverick Research: Being Human 2045 by Marty Resnick&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Executive Guide to AI Governance by Frances Karamouzis&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;UiPath: Unlock the Power of AI in Your Business with Automation with Dottie Dunn, Timothy Kim&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;The Future of AI: Less Talking, More Doing by Erick Brethenoux&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;While AI dominated the conversation, it was refreshing to hear broader visions of the future and a few key insights that connected AI to the human experience. Here are some of my takeaways from the day:&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;h2&gt;Interview with Jensen Huang: A Visionary Leader in AI Transformation&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src="Jensen-44f53abe.webp" alt="Jensen" class="lazyload" /&gt;&lt;/p&gt;
-
-&lt;p&gt;Jensen Huang’s interview was a standout. His advice to move from traditional CPU hardware to GPU-based solutions was compelling, not just for specialized tasks but for everyday computing, highlighting a 20x productivity boost. What struck me most was his emphasis on &lt;em&gt;just getting started&lt;/em&gt;—embracing AI experimentation to drive transformation across industries. Huang’s vision of AI-driven digital workers collaborating alongside human teams was an inspiring take on how AI can reshape work.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Key Takeaways:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Shift to GPUs&lt;/strong&gt;: Accelerated computing using GPUs can deliver up to 20x productivity gains, even in general computing.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Digital Workers&lt;/strong&gt;: A future workforce will include AI agents that assist human employees, particularly in areas like customer service.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI for Business&lt;/strong&gt;: AI isn’t just for external applications—use it to enhance internal processes like supply chain management and chip design.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Leadership in AI&lt;/strong&gt;: Leaders must embrace reinvention, pushing the boundaries of AI to stay relevant and future-proof their organizations.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Gartner’s Top Strategic Predictions for 2025 and Beyond: The AI Whirlwind&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src="predict-86fc1515.webp" alt="Predict" class="lazyload" /&gt;&lt;/p&gt;
-
-&lt;p&gt;Daryl Plummer’s talk took a broader look at where AI is headed in the coming years. While there weren’t immediate takeaways for me to implement, it painted a fascinating picture of AI’s expanding influence across industries—from AI agents negotiating contracts to AI-driven healthcare systems detecting emotional states. The session made me think deeply about the ethical considerations of AI, particularly as it continues to blur the lines between human and machine.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Key Takeaways:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI in Contracts&lt;/strong&gt;: AI is now capable of negotiating contracts, pointing to a future where even high-level business interactions are automated.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Emotional AI in Healthcare&lt;/strong&gt;: By 2027, emotional AI will play a critical role in detecting patients’ emotional states, potentially improving care.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI-Driven Flattening&lt;/strong&gt;: By 2026, AI could eliminate up to 50% of middle management roles, flattening organizational structures.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Maverick Research: Being Human 2045&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src="new-world-c60a2381.webp" alt="Predict" class="lazyload" /&gt;&lt;/p&gt;
-
-&lt;p&gt;Marty Resnick’s session was my favorite of the day. While AI was part of the conversation, the talk expanded into imaginative realms of space travel, household robots, and the blending of digital and physical worlds. This was more of a visionary exploration than a prescriptive session, which I loved. It painted a hopeful, exciting future—one where AI and robotics could truly transform our lives. Space travel and autonomous systems are becoming more of a reality every year, and the potential for household robots to assist with daily chores is something we may see by 2045.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Key Takeaways:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Household Robots&lt;/strong&gt;: By 2040, 50% of households could have robots assisting with tasks like cleaning or cooking.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Space Travel&lt;/strong&gt;: By 2045, 20% of the population may afford annual space vacations, driven by decreasing space travel costs.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Digital Personhood&lt;/strong&gt;: AI avatars could gain legal rights by 2045, prompting fascinating debates on the future of digital personhood.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;The Future of AI: Less Talking, More Doing&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src="quote-cb41825f.webp" alt="Predict" class="lazyload" /&gt;&lt;/p&gt;
-
-&lt;p&gt;Erick Brethenoux took a refreshingly practical approach to AI in his talk. His focus was on simplifying and enhancing human lives, reminding us that AI’s goal should be to free us from tedious tasks, not create additional complexity. I particularly liked his emphasis on starting small—ask your employees what they dislike most about their jobs and see if AI can automate those tasks. This human-first, simplicity-driven approach is something I think is key as we move forward with AI. His comparison to Apple’s minimalist design ethos—where fewer buttons often mean better user experiences—hit home for me as a UX leader.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Key Takeaways:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Human-First AI&lt;/strong&gt;: AI should enhance the human experience, simplifying tasks and making work more enjoyable.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Simplicity Over Complexity&lt;/strong&gt;: Less is more—like Apple’s approach to product design, AI should focus on usability and reducing complexity.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Employee-Centric AI&lt;/strong&gt;: Start by automating tasks that employees find tedious, improving job satisfaction and productivity.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr&gt;
-
-&lt;h1&gt;The Future of AI and UX&lt;/h1&gt;
-
-&lt;p&gt;As a UX leader, these sessions left me thinking about how AI will shape the future of user experience design. One of the key themes I noticed across the talks was simplicity. Whether it’s Huang’s vision of AI-driven digital workers or Brethenoux’s push for thoughtful AI implementation, the message was clear: AI should enhance, not complicate, the user experience. As we continue to push the boundaries of what AI can do, there’s a great opportunity for UX professionals to ensure that these advancements truly serve human needs.&lt;/p&gt;
-
-&lt;p&gt;One idea I’ve been exploring is the concept of &lt;strong&gt;“AI as a Design Partner,”&lt;/strong&gt; where AI assists in the design process by analyzing user behavior patterns and suggesting design improvements. This could revolutionize how we build user interfaces, allowing designers to focus on the bigger picture while AI handles the tedious but important work of data analysis. It’s an exciting time for UX, and as AI continues to evolve, our role in shaping user-centric, human-first experiences will be more important than ever.&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;h1&gt;Final Thoughts&lt;/h1&gt;
-
-&lt;p&gt;Day 2 at Gartner was packed with insights, and while the AI buzz is undeniable, it’s clear that we’re still in the early stages of truly understanding its potential. What excites me most is not the technology itself, but the human potential it unlocks. Whether it’s simplifying our work, enhancing our lives at home, or taking us to space, AI is poised to transform our world in ways that go beyond what we can imagine today. And as UX leaders, we’ll have a crucial role in ensuring these technologies are designed with the human experience at the center.&lt;/p&gt;
 </content>
   </entry>
 </feed>
