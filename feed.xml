@@ -5,63 +5,68 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2025-08-04T18:13:00-05:00</updated>
+  <updated>2026-04-02T07:00:00-05:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
   <entry>
-    <title>Big Moves, Big Vision: Why I Joined Worlds</title>
-    <link rel="alternate" href="http://blog.url.com/big-moves-big-vision-why-i-joined-worlds/"/>
-    <id>http://blog.url.com/big-moves-big-vision-why-i-joined-worlds/</id>
-    <published>2025-08-04T18:13:00-05:00</published>
-    <updated>2025-08-04T18:39:45-05:00</updated>
+    <title>Incredible Week at Convergence AI in Dallas</title>
+    <link rel="alternate" href="http://blog.url.com/incredible-week-at-convergence-ai-in-dallas/"/>
+    <id>http://blog.url.com/incredible-week-at-convergence-ai-in-dallas/</id>
+    <published>2026-04-02T07:00:00-05:00</published>
+    <updated>2026-04-02T18:36:12-05:00</updated>
     <author>
       <name>Article Author</name>
     </author>
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;I&amp;rsquo;ve joined Worlds to lead Product Experience, helping shape the way users interact with one of the most ambitious AI platforms in the industry.&lt;/p&gt;
-&lt;/blockquote&gt;
+    <content type="html">&lt;video autoplay muted loop playsinline preload="auto"&gt;
+  &lt;source src="teaser.mp4" type="video/mp4"&gt;
+&lt;/video&gt;
 
-&lt;p&gt;This role brings together everything I love: product strategy, front-end leadership, and design vision, all focused on making powerful, complex systems feel intuitive and human. The platform Worlds is building goes far beyond what&amp;rsquo;s currently possible in computer vision and automation, and I&amp;rsquo;m excited to play a part in how it comes to life.&lt;/p&gt;
+&lt;p&gt;Our team at Worlds just had one of those weeks where months of work finally meets the real world.&lt;/p&gt;
 
-&lt;h2&gt;Why Worlds?&lt;/h2&gt;
+&lt;p&gt;I spent this week at &lt;a href="https://convergencedallas.ai/"&gt;Convergence AI Dallas&lt;/a&gt;, our CEO Davo got on stage and demoed the product experience my team has been building for the past several months:&lt;/p&gt;
 
-&lt;p&gt;From the moment I first explored what the team at Worlds was working on, I knew it wasn&amp;rsquo;t just another AI company. This is a team rethinking how people interact with live environments; not just capturing footage or triggering alerts, but building dynamic models that can observe, interpret, and act on what&amp;rsquo;s happening in real time.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;It&amp;rsquo;s the kind of platform that sounds like science fiction, but it&amp;rsquo;s already being deployed by major enterprises to solve real-world challenges.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;What excited me most was the chance to shape how people experience this technology. The UI is just the surface, underneath is a layered system of intelligence and inference that needs to be understood, trusted, and used by people in high-stakes environments.&lt;/p&gt;
-
-&lt;p&gt;That&amp;rsquo;s where my work begins.&lt;/p&gt;
-
-&lt;h2&gt;First Impressions&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src="davo-32813b0b.webp" alt="" class="lazyload" /&gt;&lt;/p&gt;
-
-&lt;p&gt;My first week couldn&amp;rsquo;t have been better timed! I joined during a company-wide event, met the entire team in person, and got a full download of what&amp;rsquo;s happening across engineering, product, and design. It&amp;rsquo;s a rare chance to come in during a moment of reflection and re-alignment.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;It also felt like a bit of a homecoming.&lt;/strong&gt; I&amp;rsquo;m reuniting with a few of my favorite past collaborators, including Markie Arnold and Kevin Marvin, and we&amp;rsquo;ve already started identifying opportunities to improve workflows, simplify interfaces, and level up the front-end and product experience across the board.&lt;/p&gt;
-
-&lt;h2&gt;What&amp;rsquo;s Next&lt;/h2&gt;
-
-&lt;p&gt;We&amp;rsquo;re kicking off projects around:&lt;/p&gt;
+&lt;p&gt;&lt;img src="talk-c5b80f7c.webp" alt="Talk / session" class="lazyload" /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Modernizing our design system and Figma practices&lt;/li&gt;
-&lt;li&gt;Strengthening the front-end architecture for scale and velocity&lt;/li&gt;
-&lt;li&gt;Building tighter feedback loops between UX, engineering, and field teams&lt;/li&gt;
-&lt;li&gt;Exploring how AI agents, visual models, and user goals come together in a single experience&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Agentic search&lt;/strong&gt; - AI that doesn&amp;rsquo;t just return results, it reasons through them&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Customizable dashboarding framework&lt;/strong&gt; - not a fixed layout, a system users shape to how they actually work&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Advanced realtime spatialization&lt;/strong&gt; - grounding AI intelligence in physical space, in real time&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;At the same time, I&amp;rsquo;m resetting my own workflows, keeping my new work setup separate from personal projects like BoxBoard, and setting up a clean, AI-friendly environment that encourages automation and experimentation.&lt;/p&gt;
+&lt;p&gt;Watching that demo land with a live audience was something else. These aren&amp;rsquo;t concepts anymore. They&amp;rsquo;re real product, getting real reactions.&lt;/p&gt;
 
-&lt;p&gt;There&amp;rsquo;s more I want to share soon: from thoughts on MCP and agent tooling, to how we&amp;rsquo;re thinking about user trust in intelligent systems, to lessons from doing a full rewrite of BoxBoard&amp;rsquo;s iOS app (more on that later).&lt;/p&gt;
+&lt;h2&gt;The Design Story Behind It&lt;/h2&gt;
 
-&lt;p&gt;For now, I&amp;rsquo;m just excited to be here, surrounded by good people, big ideas, and the kind of problems that don&amp;rsquo;t have easy answers — just meaningful ones.&lt;/p&gt;
+&lt;p&gt;&lt;img src="booth-38a87dbb.webp" alt="Booth" class="lazyload" /&gt;&lt;/p&gt;
 
-&lt;h1&gt;Let&amp;rsquo;s build.&lt;/h1&gt;
+&lt;p&gt;I keep coming back to one idea that drives everything we&amp;rsquo;re doing on the product experience side:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;We&amp;rsquo;re not building dashboards for AI. We&amp;rsquo;re designing how humans understand and direct intelligent systems operating in the real world.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;That distinction matters. A lot of AI products stop at capability. They can do impressive things, but the interface is an afterthought. If the experience feels confusing, the AI doesn&amp;rsquo;t matter. Design is what gives intelligence a shape people can actually work with.&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s the work I&amp;rsquo;m most proud of. Not just that we shipped features, but that we shipped them with craft. Loading behavior, interaction polish, spatial awareness, the details that make people say &amp;ldquo;this feels good&amp;rdquo; instead of &amp;ldquo;this is complicated.&amp;rdquo;&lt;/p&gt;
+
+&lt;h2&gt;Beyond the Demo&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src="mark-cuban-0250d8cf.webp" alt="Mark Cuban" class="lazyload" /&gt;&lt;/p&gt;
+
+&lt;p&gt;The rest of the conference was electric. Robots on the floor. AI leaders from across the industry on stage. Conversations about where all of this is heading that genuinely surprised me.&lt;/p&gt;
+
+&lt;p&gt;And honestly, one of the best parts was reconnecting with friends and collaborators I haven&amp;rsquo;t seen in a while. The AI community in Dallas showed up.&lt;/p&gt;
+
+&lt;h2&gt;What I Took Away&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src="dave-me-7cda6568.webp" alt="Dave and me" class="lazyload" /&gt;&lt;/p&gt;
+
+&lt;p&gt;The companies that win the AI era won&amp;rsquo;t be the ones with the best models. They&amp;rsquo;ll be the ones that make intelligence usable, trustworthy, and human.&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s a design leadership problem. And it&amp;rsquo;s exactly where I want to be.&lt;/p&gt;
+
+&lt;video controls playsinline preload="metadata" class="portrait"&gt;
+  &lt;source src="robots.mp4" type="video/mp4"&gt;
+&lt;/video&gt;
 </content>
   </entry>
   <entry>
