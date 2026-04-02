@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+  {% include "head.njk" %}
+  <style rel='stylesheet' type='text/css'>
+    /* Prism syntax highlighting styles will be added by the plugin */
+  </style>
+  <body class="article {% if page_classes %}{{ page_classes }}{% endif %}">
+    {% include "post_header.njk" %}
+    <article class="post-content">
+      {{ content | safe }}
+    </article>
+  </body>
+  {% include "js_includes.njk" %}
+</html>

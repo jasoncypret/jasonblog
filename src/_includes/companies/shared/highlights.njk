@@ -1,0 +1,21 @@
+<div class="company-highlights">
+  <div class="company-container">
+    <div class="company-section-header">
+      <h2 class="company-section-title caption">Experience Overview</h2>
+    </div>
+
+    <div class="company-highlights-grid">
+      {% for highlight in highlights %}
+      <div class="company-highlight">
+        <div class="company-highlight-icon company-highlight-icon--{{ highlight.icon_color or 'blue' }}">
+          <i class="{{ highlight.icon }}"></i>
+        </div>
+        <div class="company-highlight-content">
+          <h3 class="company-highlight-title">{{ highlight.title }}</h3>
+          <p class="company-highlight-description">{{ highlight.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

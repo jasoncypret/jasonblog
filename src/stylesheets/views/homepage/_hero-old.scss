@@ -1,0 +1,147 @@
+.main {
+  @include background_cover;
+  width: 100%;
+  height: 45%;
+  min-height: 450px;
+  overflow: hidden;
+  background-image: linear-gradient(120deg, #16144f 0%, #030c76 100%);
+  position: relative;
+
+  img.hero {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  @include mobile_only {
+    height: auto;
+    min-height: auto;
+  }
+
+  .wrap {
+    z-index: 2;
+    overflow: hidden;
+    background: rgba(black, 0.55);
+    width: 100%;
+    height: 100%;
+    padding: $space_sm 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
+
+  .icon-arrow-down {
+    display: none;
+    position: absolute;
+    left: 50%;
+    font-size: 50px;
+    bottom: 10px;
+    opacity: 0;
+    animation-delay: 2.5s;
+    animation-fill-mode: forwards;
+    color: rgba(white, 0.3);
+    transform: translateX(-50%);
+
+    @include mobile_only {
+      display: none;
+    }
+  }
+
+  .avatar {
+    position: relative;
+    $avatar: 100px;
+    @include background_cover;
+    width: $avatar;
+    height: $avatar;
+    margin: $space_xs auto 0;
+    border-radius: $avatar;
+
+    img {
+      border-radius: $avatar;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+  }
+
+  h1 {
+    font-size: 36px;
+    color: white;
+    text-align: center;
+    padding: $space_sm 0;
+
+    @include mobile_only {
+      font-size: 32px;
+    }
+  }
+
+  p.desc {
+    text-align: center;
+    font-weight: normal;
+    color: rgba(white, 0.7);
+    max-width: $reading-width;
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 30px;
+    transition-property: color;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in;
+    text-shadow: rgba(black, 0.8) 0 1px 0;
+
+    a {
+      color: $main;
+      @include transition(0.225s);
+      &:hover {
+        color: $highlight;
+        @include transition(0.225s);
+      }
+    }
+
+    @include mobile_only {
+      width: auto;
+      margin: 0 $space_xs/2;
+      font-size: 16px;
+      line-height: 28px;
+    }
+  }
+
+  ul.links {
+    text-align: center;
+    margin-top: $space_sm;
+    padding: 0;
+
+    li {
+      display: inline-block;
+
+      a {
+        padding: 0 $space_sm;
+        font-size: 30px;
+        color: white;
+        transition-property: color;
+        transition-duration: 0.5s;
+        transition-timing-function: ease-in;
+
+        @include mobile_only {
+          font-size: 30px;
+        }
+
+        &:hover {
+          color: $highlight;
+          @include transition(0.225);
+        }
+      }
+    }
+  }
+}

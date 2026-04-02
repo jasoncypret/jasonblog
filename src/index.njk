@@ -1,0 +1,36 @@
+---
+title: Jason Cypret - VP of UX & Product Design Leader
+description: VP of UX and Product Design Leader with 10+ years of experience building user-centered digital experiences. Currently scaling UX teams and launching innovative products at Power.
+keywords: UX Design, Product Design, Design Leadership, User Experience, Digital Product Design, Design Systems, Lean UX, Jason Cypret, VP of UX
+og_title: Jason Cypret - VP of UX & Product Design Leader | Building User-Centered Digital Experiences
+og_description: VP of UX and Product Design Leader with 10+ years of experience. Led UX at Power, scaled teams from 1 to 30+, and launched multi-language open-source design systems.
+twitter_title: Jason Cypret - VP of UX & Product Design Leader
+twitter_description: VP of UX building user-centered digital experiences. Led UX at Power, scaled teams, launched design systems. 10+ years experience.
+layout: base
+page_classes: index
+---
+
+{% include "homepage/hero.njk" %}
+{% include "homepage/quick_summary.njk" %}
+{% include "homepage/quote_section.njk" %}
+<div class="showcase-title-container fade-in-up">
+  <h5 class="header-subtitle pt-3 mt-5">Selected Work & Impact</h5>
+  {% set portfolio_link = null %}
+  {% for download in site.downloads %}
+    {% if download.title == "portfolio" %}
+      {% set portfolio_link = download %}
+    {% endif %}
+  {% endfor %}
+  {% if portfolio_link %}
+    <a href="{{ portfolio_link.url }}" class="btn btn--link small no-shadow pr-0 pt-3 mt-5" target="_blank">
+      Download My Portfolio <i class='icon-download'></i>
+    </a>
+  {% endif %}
+</div>
+{% include "homepage/showcase_power.njk" %}
+{% include "homepage/showcase_box.njk" %}
+{% include "homepage/showcase_bloom.njk" %}
+{% include "homepage/showcase_brain.njk" %}
+<h5 class="header-subtitle pt-3 mt-5 fade-in-up">Let's Build Something Together</h5>
+{% include "homepage/my_features.njk" %}
+{% include "homepage/speaking.njk" %}

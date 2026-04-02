@@ -1,0 +1,16 @@
+<header class="post-header {% if image or open_graph_image %}image-post{% else %}no-image{% endif %}">
+  {% set headerImage = image or open_graph_image %}
+  {% if headerImage %}
+    <img src="{{ headerImage }}" class="header-image lazyload" alt="{{ title }}" loading="lazy">
+  {% endif %}
+  <div class="wrap">
+    {% include "nav.njk" %}
+    <h1 class="article-title">
+      <a href="{{ page.url }}">{{ title }}</a>
+    </h1>
+    {% if summary %}
+    <div class="article-summary">{{ summary }}</div>
+    {% endif %}
+    <small class="article-date">{{ date | dateReadable }}</small>
+  </div>
+</header>

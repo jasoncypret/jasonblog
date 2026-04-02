@@ -1,0 +1,92 @@
+{% if intro %}
+<div class="stats-masonry-intro">
+  {% if intro.logo %}
+    <img src="/{{ intro.logo }}" class="stats-masonry-intro-logo lazyload" alt="{{ title }} Logo" loading="lazy">
+  {% endif %}
+  {% if intro.quote %}
+    <p class="stats-masonry-intro-quote">{{ intro.quote }}</p>
+  {% endif %}
+</div>
+{% endif %}
+
+{% if content and content.length %}
+{% set layout_config = layout or [[0,1,2], [3,4], [5]] %}
+<div class="stats-masonry">
+  {% for column_indices in layout_config %}
+  <div class="stats-masonry__col">
+    {% for idx in column_indices %}
+      {% set item = content[idx] %}
+      {% if item %}
+        {% if item.type == 'stats' %}
+        <div class="stats-item stats-item--box {{ item.color or '' }}">
+          {% if item.subtitle %}
+            <p class="stats-item__subtitle">{{ item.subtitle }}</p>
+          {% endif %}
+          {% if item.icon %}
+            <i class="{{ item.icon }}"></i>
+          {% endif %}
+          <h4 class="stats-item__title{% if item.size %}_{{ item.size }}{% endif %}">{{ item.value }}</h4>
+          <p class="stats-item__description{% if item.size == 'sm' %}_small{% endif %}">
+            {{ item.label | safe }}
+          </p>
+          {% if item.icons %}
+          <div class="stats-item__icons">
+            {% for icon in item.icons %}
+            <i class="{{ icon }}"></i>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        {% elif item.type == 'image' %}
+        <div class="stats-item stats-item--image">
+          <img src="/{{ item.src }}" class="lazyload" alt="{{ item.alt }}" loading="lazy">
+        </div>
+        {% elif item.type == 'video' %}
+        {% set posterPath = item.src | videoPoster(item.poster) %}
+        <div class="stats-item stats-item--video" data-video-loaded="false" style="position: relative;">
+          <img class="video-poster lazyload"
+               src="/{{ posterPath }}"
+               alt="{{ item.alt }}"
+               loading="lazy"
+               style="width: 100%; opacity: 1; transition: opacity 0.3s ease; position: absolute; top: 0; left: 0;">
+          <video class="stats-video"
+                 playsinline
+                 preload="none"
+                 style="width: 100%; opacity: 0; transition: opacity 0.3s ease;"
+                 {% if item.poster %}poster="/{{ posterPath }}"{% endif %}>
+            <source src="/{{ item.src | replace('.mp4', '_mobile.mp4') }}" type="video/mp4" media="(max-width: 768px)">
+            <source src="/{{ item.src }}" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+        {% elif item.type == 'html' %}
+        <div class="stats-item stats-item--html">
+          {{ item.content | safe }}
+        </div>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% if footnote %}
+<p class="stats-masonry-footnote">{{ footnote }}</p>
+{% endif %}
+
+{% if cta %}
+<div class="stats-masonry-cta">
+  {% if cta.title %}
+  <h5 class="stats-masonry-cta-title">{{ cta.title }}</h5>
+  {% endif %}
+  {% if cta.button_text and cta.button_url %}
+  <a href="{{ cta.button_url }}" class="btn btn--black" target="_blank" rel="noopener">
+    {{ cta.button_text }} <i class="icon-arrow-up-right-from-square"></i>
+  </a>
+  {% endif %}
+  {% if cta.subtitle %}
+  <p class="stats-masonry-cta-subtitle">{{ cta.subtitle | safe }}</p>
+  {% endif %}
+</div>
+{% endif %}

@@ -1,0 +1,9 @@
+<!doctype html>
+<html>
+  {% include "head.njk" %}
+  <body class="{% if page_classes %}{{ page_classes }}{% endif %}">
+    {% include "nav.njk" %}
+    {{ content | safe }}
+  </body>
+  {% include "js_includes.njk" %}
+</html>

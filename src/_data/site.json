@@ -1,0 +1,73 @@
+{
+  "navigation": [
+    {
+      "title": "blog",
+      "url": "/blog/"
+    },
+    {
+      "title": "work",
+      "url": "/resume/"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "VP of UX",
+      "company": "Power",
+      "years": "2017-2025",
+      "description": "Led UX at Power from the ground up, scaling the team from 1 to 30+ and launching Playbook, a multi-language open-source design system. Shipped Power's first consumer app and modernized the enterprise platform. Championed Lean UX to move faster and deliver real impact."
+    },
+    {
+      "title": "Sr. Principal Product Designer",
+      "company": "BloomBoard",
+      "years": "2014-2017",
+      "description": "Led design for a credentialing platform that brought R&D to market, now used by school districts and universities nationwide. Shaped product direction through research, iteration, and hands-on delivery."
+    },
+    {
+      "title": "Founder & Creator",
+      "company": "BoxBoard",
+      "years": "2014-Present",
+      "description": "A solo-built CrossFit workout platform used by gyms across the U.S., with 60K+ scores logged. Designed, coded, and shipped the product end to end — from backend architecture to mobile UI and AI integrations."
+    }
+  ],
+  "personal_approach": {
+    "title": "My unique blend of design leadership and hands-on technical expertise allows me to bridge the gap between design and engineering, fostering collaboration and accelerating product development. I'm passionate about Lean UX methodologies and believe in creating beautiful, efficient, and user-centered designs."
+  },
+  "downloads": [
+    {
+      "title": "resume",
+      "url": "/media/resume/Jason-Cypret-UX-Product-Design-Leader.pdf"
+    },
+    {
+      "title": "portfolio",
+      "url": "https://www.figma.com/deck/6Z1iymrkN5CivHh43xsUB9/Portfolio"
+    }
+  ],
+  "social_links": [
+    {
+      "title": "dribbble",
+      "url": "http://dribbble.com/jasoncypret"
+    },
+    {
+      "title": "pinterest",
+      "url": "http://www.pinterest.com/jasoncypret/"
+    },
+    {
+      "title": "instagram",
+      "url": "https://www.instagram.com/jasoncypret/"
+    }
+  ],
+  "professional_links": [
+    {
+      "title": "linkedin",
+      "url": "http://linkedin.com/in/jasoncypret"
+    },
+    {
+      "title": "x-twitter",
+      "url": "http://twitter.com/JasonCypret"
+    },
+    {
+      "title": "github",
+      "url": "http://github.com/jasoncypret"
+    }
+  ]
+}

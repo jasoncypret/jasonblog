@@ -1,0 +1,55 @@
+---
+layout: base
+permalink: /tags/
+page_classes: tags
+---
+
+<div class="blog-container">
+  <div class="blog-header">
+    <div class="blog-header-content">
+      <h1 class="blog-title">Articles by Category</h1>
+      <p class="blog-subtitle">Browse articles by topic and category.</p>
+    </div>
+    
+    <div class="blog-sidebar">
+      <h3>Browse Content</h3>
+      
+      <div class="blog-sidebar-content-cards">
+        <div class="content-card">
+          <a href="/calendar/" class="content-link">
+            <i class='icon icon-calendar-alt'></i>
+            <div class="title">Articles by Year</div>
+          </a>
+        </div>
+        
+        <div class="content-card active">
+          <a href="/tags/" class="content-link">
+            <i class='icon icon-tag'></i>
+            <div class="title">Articles by Category</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-content">
+    <div class="blog-articles">
+      <div class="row">
+        {% if collections.tagList %}
+        {% for tag in collections.tagList %}
+          <div class="col-lg-4 col-md-6">
+            <div class="content-card">
+              <a href="/tags/{{ tag | slug }}/" class="content-link">
+                <i class='icon icon-tag'></i>
+                <div class="title">{{ tag }}</div>
+                {% set tagArticles = collections.articles | filterByTag(tag) %}
+                <div class="subtitle">{% if tagArticles %}{{ tagArticles.length }}{% else %}0{% endif %} article{% if tagArticles and tagArticles.length != 1 %}s{% endif %}</div>
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

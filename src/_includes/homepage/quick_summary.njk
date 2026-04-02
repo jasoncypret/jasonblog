@@ -1,0 +1,74 @@
+<div class="homepage-summary stagger-children">
+  <div class="row">
+    <!-- Personal Approach Column -->
+    <div class="col-lg-4 mb-5 stagger-item">
+      <div class="summary-section first">
+        <h3 class="section-title header-subtitle">My Approach</h3>
+        {% if site.personal_approach %}
+          <p class="approach-text">{{ site.personal_approach.title }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Work Experience Column -->
+    <div class="col-lg-4 mb-5 stagger-item">
+      <div class="summary-section">
+        <h3 class="section-title header-subtitle">WORK EXPERIENCE</h3>
+        
+        {% if site.work_experience %}
+          {% for job in site.work_experience %}
+            <div class="work-item">
+              <div class="work-years">{{ job.years }}</div>
+              <h4 class="work-title">{{ job.title }} <span class="work-company">{{ job.company }}</span></h4>
+              <p class="work-description">{{ job.description }}</p>
+            </div>
+          {% endfor %}
+        {% endif %}
+        
+        {% set resume_link = null %}
+        {% for download in site.downloads %}
+          {% if download.title == "resume" %}
+            {% set resume_link = download %}
+          {% endif %}
+        {% endfor %}
+        {% if resume_link %}
+          <a href="/resume/" class="btn btn--link small no-shadow pl-0">
+            See All Experience <i class='icon-arrow-right'></i>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Blog Posts Column -->
+    <div class="col-lg-4 mb-5 stagger-item">
+      <div class="summary-section">
+        <h3 class="section-title header-subtitle">FROM THE BLOG</h3>
+        
+        {% if collections.articles %}
+        {% for article in collections.articles | slice(0, 5) %}
+          <div class="blog-item">
+            {% if article.data.image %}
+              <div class="blog-image">
+                <a href="{{ article.url }}">
+                  <img src="{{ article.data.image }}" alt="{{ article.data.title }}" class="lazyload" loading="lazy">
+                </a>
+              </div>
+            {% endif %}
+            
+            <div class="summary-blog-content">
+              <div class="summary-blog-date">{{ article.date | dateFormat }}</div>
+              <h4 class="summary-blog-title">
+                <a href="{{ article.url }}">{{ article.data.title }}</a>
+              </h4>
+            </div>
+          </div>
+        {% endfor %}
+        {% endif %}
+        
+        <a href="/blog/" class="btn btn--link small no-shadow pl-0">
+          Go to Blog <i class='icon-arrow-right'></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

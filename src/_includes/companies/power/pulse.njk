@@ -1,0 +1,33 @@
+{% set layout_type = 'single-image' %}
+{% set title = "From Invisible to Indispensable: Launching Pulse" %}
+{% set description = "<p>Pulse was our first major consumer-facing product. It started with a vision: make the chaos of home remodeling feel calm. From kickoff to launch, we ran rapid UX research, stripped away complexity, and shipped an experience customers love.</p><p>The dashboard became a daily ritual for thousands. With over 567k users and 13k+ deep engagements, Pulse changed how we connected with customers—and proved that internal systems can lead to external delight.</p><blockquote>&ldquo;Pulse didn't just track the project. It gave customers control.&rdquo;</blockquote>" %}
+{% set media_items = [{ type: 'image', src: 'media/homepage/power-splash.png', alt: 'Pulse Dashboard' }] %}
+{% include "companies/shared/photo_content.njk" %}
+
+{% set intro = { logo: 'media/companies/power/pulse/project-pulse-logo.svg', quote: "" } %}
+{% set title = "Pulse Highlights" %}
+{% set content = [
+  { type: 'stats', value: '570k+', label: 'Since Creation<br/>(Launch - March 2025)', color: 'black', size: 'sm' },
+  { type: 'stats', value: '13k+', label: 'Users in First Month', size: 'sm' },
+  { type: 'image', src: 'media/companies/power/pulse/pulse-logo.svg', alt: 'Pulse Logo' },
+  { type: 'video', src: 'media/companies/power/pulse/project-pulse-ad.mp4', alt: 'Project Pulse Ad' }
+] %}
+{% set layout = [[0, 1, 2], [3]] %}
+{% include "companies/shared/stats_masonry.njk" %}
+
+{% set title = "Designed Around the User" %}
+{% set description = "<p>We started with listening: interviews, surveys, field visits. Users wanted less jargon, more transparency, and fewer surprises. So we mapped every moment of the remodeling journey, designed flows around natural touchpoints, and shipped fast.</p><p>The result was a clean, mobile-first dashboard that let users preview doors, confirm details, and feel confident every step of the way. Pulse became a surprise delight in a space where expectations were low.</p>" %}
+{% set items = [
+  { type: 'image', src: 'media/companies/power/pulse/pulse-dashboard.webp', thumbnail: 'media/companies/power/pulse/pulse-dashboard_thumb.webp', alt: 'Pulse Dashboard', caption_title: 'Dashboard', caption_description: 'Central hub for every step in the customer journey—simplified and designed for clarity.', span: 'span-2' },
+  { type: 'image', src: 'media/companies/power/pulse/pulse-mobile.webp', thumbnail: 'media/companies/power/pulse/pulse-mobile_thumb.webp', alt: 'Mobile Interface', caption_title: 'Mobile First', caption_description: 'Optimized for access on the go, keeping customers connected from anywhere.' },
+  { type: 'image', src: 'media/companies/power/pulse/pulse-magic-link.webp', thumbnail: 'media/companies/power/pulse/pulse-magic-link_thumb.webp', alt: 'Magic Link', caption_title: 'Magic Link', caption_description: 'One-tap login with no passwords—reducing friction while boosting trust.', span: 'span-2' },
+  { type: 'image', src: 'media/companies/power/pulse/pulse-detail.webp', thumbnail: 'media/companies/power/pulse/pulse-detail_thumb.webp', alt: 'Detail', caption_title: 'Project Details', caption_description: 'Key info delivered clearly—timeline, milestones, and confirmations in one place.' },
+  { type: 'image', src: 'media/companies/power/pulse/pulse-3d-door.webp', thumbnail: 'media/companies/power/pulse/pulse-3d-door_thumb.webp', alt: '3D Door', caption_title: '3D Door Preview', caption_description: 'Lets users explore their actual product with an interactive, photorealistic view.', span: 'span-2' },
+  { type: 'image', src: 'media/companies/power/pulse/pulse-payment-confirm.webp', thumbnail: 'media/companies/power/pulse/pulse-payment-confirm_thumb.webp', alt: 'Payment Confirmation', caption_title: 'Payment Confirmation', caption_description: 'A complex workflow made simple—secure payments handled directly in Pulse.' },
+  { type: 'image', src: 'media/companies/power/pulse/pulse-onboard.webp', thumbnail: 'media/companies/power/pulse/pulse-onboard_thumb.webp', alt: 'Pulse Onboarding', caption_title: 'Onboarding Flow', caption_description: 'A guided setup experience that helps homeowners start with confidence.' },
+  { type: 'video', src: 'media/companies/power/pulse/pulse-before-after.mp4', thumbnail: 'media/companies/power/pulse/pulse-before-after_thumb.webp', alt: 'Dashboard Before & After', caption_title: 'Before & After', caption_description: 'How user research shaped the dashboard—showing the evolution from clutter to clarity.' },
+  { type: 'video', src: 'media/companies/power/pulse/pulse-signature.mp4', thumbnail: 'media/companies/power/pulse/pulse-signature_thumb.webp', alt: 'Signature', caption_title: 'Signature', caption_description: 'An intuitive flow that lets users sign documents with clarity and peace of mind.' }
+] %}
+{% set footer_title = "Pulse transformed how we connect with customers." %}
+{% set footer_description = "<p>By focusing on user needs and stripping away complexity, we created an experience that customers love. Pulse became more than a tool—it became a trusted companion throughout the remodeling journey.</p><p>The success of Pulse proved that even in a traditionally offline industry, thoughtful digital experiences can create meaningful connections and drive business growth.</p>" %}
+{% include "companies/shared/media_showcase.njk" %}

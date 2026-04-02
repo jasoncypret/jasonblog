@@ -1,0 +1,58 @@
+@mixin outline-button($color: white) {
+  @include btn-styles;
+  border: 2px solid $color;
+  border-radius: $border_rad_heavy;
+  background: none;
+  color: $black;
+  &:focus, &.focus {
+    @include outline-button-hover($color);
+  }
+  &:hover {
+    @include outline-button-hover($color);
+  }
+  &:active, &.active, .open > &.dropdown-toggle {
+    @include outline-button-hover($color);
+    &:hover, &:focus, &.focus {
+      @include btn-hover($color);
+    }
+  }
+  &:active, &.active, .open > &.dropdown-toggle {
+    background-image: none;
+  }
+  &.disabled, &[disabled], fieldset[disabled] & {
+    &, &:hover, &:focus, &.focus, &:active, &.active {
+      @include outline-button-disabled($color);
+    }
+  }
+}
+
+@mixin outline-button-hover($color, $active: false) {
+  text-decoration: none;
+  outline: 0;
+  @if $active {
+    background: tint($color, 10%);
+    @include text_color(tint($color, 10%), $more_contrast: true);
+    border-color: tint($color, 10%);
+  }
+  @else {
+    background: $color;
+    @include text_color($color, false, $more_contrast: true);
+    border-color: $color;
+  }
+}
+
+@mixin outline-button-disabled($color) {
+  cursor: not-allowed;
+  opacity: $opacity-7;
+  background: none;
+  color: $color;
+  text-decoration: none;
+}
+
+@mixin outline-button-colors($colors-list) {
+  @each $name, $color in $colors-list {
+    &-#{$name}-outline {
+      @include outline-button($color);
+    }
+  }
+}

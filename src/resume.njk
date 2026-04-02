@@ -1,0 +1,61 @@
+---
+layout: base
+title: Resume - Jason Cypret
+permalink: /resume/
+page_classes: resume resume_index
+---
+
+<div class="resume-container">
+  <div class="resume-header">
+    <h1 class="resume-title">Jason Cypret</h1>
+    <p class="resume-subtitle">VP of UX & Product Design Leader</p>
+  </div>
+
+  <div class="resume-content">
+    <div class="resume-section">
+      <h2 class="section-title">Work Experience</h2>
+      {% if site.work_experience %}
+        {% for job in site.work_experience %}
+          <div class="work-item">
+            <div class="work-header">
+              <h3 class="work-title">{{ job.title }}</h3>
+              <span class="work-company">{{ job.company }}</span>
+              <span class="work-years">{{ job.years }}</span>
+            </div>
+            <p class="work-description">{{ job.description }}</p>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <div class="resume-section">
+      <h2 class="section-title">Downloads</h2>
+      {% if site.downloads %}
+        <ul class="downloads-list">
+          {% for download in site.downloads %}
+            <li>
+              <a href="{{ download.url }}" class="btn btn--black" {% if download.url | startsWith('http') %}target="_blank"{% endif %}>
+                {{ download.title | capitalize }} <i class="icon-download"></i>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+
+    <div class="resume-section">
+      <h2 class="section-title">Connect</h2>
+      {% if site.professional_links %}
+        <ul class="social-links">
+          {% for link in site.professional_links %}
+            <li>
+              <a href="{{ link.url }}" target="_blank" class="social-link">
+                <i class="icon-{{ link.title }}"></i> {{ link.title | capitalize }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+</div>

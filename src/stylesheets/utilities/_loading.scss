@@ -1,0 +1,9 @@
+.lazyload, .lazyloading {
+  opacity: 0;
+  transition: opacity 400ms;
+}
+
+img.lazyloaded {
+  opacity: 1;
+  transition: opacity 400ms;
+}

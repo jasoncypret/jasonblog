@@ -1,0 +1,36 @@
+---
+layout: base
+title: "BloomBoard - Jason Cypret"
+description: "Helping BloomBoard Grow Up - A journey of product transformation and design system evolution"
+permalink: /companies/bloomboard/
+page_classes: company company-bloomboard
+---
+
+{% set company = "BloomBoard" %}
+{% set logo = "media/companies/bloomboard/Bloomboard.svg" %}
+{% set title = "Helping BloomBoard Grow Up" %}
+{% set background_image = "media/homepage/bloom-splash.png" %}
+{% set description = "What began as a fast-paced R&D gig turned into a journey of deep product transformation. I helped launch new apps, prototype emerging ideas, and evolve BloomBoard's entire front-end stack—all while modernizing design culture and scaling consistency through systems. From Angular to React, from individual prototypes to BBUI, I was there at every pivotal shift—leading design, writing code, and introducing new ways of thinking." %}
+
+{% include "companies/shared/hero.njk" %}
+
+{% set content = [
+  { type: 'stats', value: 'Topsoil', label: 'Built & Launched in Months', color: 'bg-bloomboard-light' },
+  { type: 'stats', value: 'React', label: 'Introduced to the Company', color: 'bg-bloomboard-light' },
+  { type: 'image', src: 'media/companies/bloomboard/placeholder-1.webp', alt: 'BloomBoard interface prototype' },
+  { type: 'stats', value: 'BBUI', label: 'Before Storybook Was a Thing', color: 'bg-bloomboard-light' },
+  { type: 'stats', value: 'UX', label: 'Redefined Culture', color: 'bg-bloomboard-light' },
+  { type: 'video', src: 'media/companies/bloomboard/placeholder-video.mp4', alt: 'BloomBoard interface demonstration' }
+] %}
+{% set layout = [[0, 1, 2], [3, 4], [5]] %}
+{% include "companies/shared/stats_masonry.njk" %}
+
+{% set title = "Product Prototypes & System Design" %}
+{% set description = "A collection of interfaces, prototypes, and design system components that shaped BloomBoard's digital evolution." %}
+{% set items = [
+  { type: 'image', src: 'media/companies/bloomboard/placeholder-2.webp', alt: 'Topsoil UI', caption_title: 'Topsoil UI', caption_description: 'Goal-setting application interface' },
+  { type: 'image', src: 'media/companies/bloomboard/placeholder-3.webp', alt: 'Singular React Prototype', caption_title: 'Singular React Prototype', caption_description: 'Early coaching platform interface' },
+  { type: 'image', src: 'media/companies/bloomboard/placeholder-4.webp', alt: 'BBUI Components', caption_title: 'BBUI Components', caption_description: 'Design system component library' },
+  { type: 'video', src: 'media/companies/bloomboard/placeholder-video-2.mp4', alt: 'Interactive Prototypes', caption_title: 'Interactive Prototypes', caption_description: 'Motion and interaction experiments', thumbnail: 'media/companies/bloomboard/placeholder-2.webp' }
+] %}
+{% include "companies/shared/media_showcase.njk" %}

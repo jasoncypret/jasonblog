@@ -1,0 +1,30 @@
+{
+  "name": "jasoncypret-blog",
+  "version": "1.0.0",
+  "description": "Jason Cypret's personal blog and portfolio site",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve",
+    "images:portfolio": "node scripts/process-portfolio-images.js",
+    "videos:process": "node scripts/process-videos.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-img": "^4.0.0",
+    "@11ty/eleventy-plugin-rss": "^2.0.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "luxon": "^3.4.0",
+    "markdown-it": "^14.0.0",
+    "markdown-it-eleventy-img": "^0.10.2",
+    "sass": "^1.80.0",
+    "sharp": "^0.33.0"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0",
+    "glob": "^10.3.0"
+  }
+}

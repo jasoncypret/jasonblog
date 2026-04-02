@@ -1,0 +1,117 @@
+{% set layout_classes = { 'default': 'photo-content--two-column', 'single-image': 'photo-content--single-image', 'centered-image': 'photo-content--centered' } %}
+<section class="photo-content {{ layout_classes[layout_type] or layout_classes['default'] }}">
+  <div class="container">
+    {% if layout_type == 'centered-image' %}
+    <h2 class="title" data-aos="fade-up">{{ title }}</h2>
+    <div class="image-container" data-aos="fade-up" data-aos-delay="100">
+      {% if media_items[0] %}
+      <div class="gallery-item">
+        {% if media_items[0].type == 'video' %}
+        <video class="gallery-thumbnail"
+               src="/{{ media_items[0].src }}"
+               {% if media_items[0].poster %}poster="/{{ media_items[0].poster }}"{% endif %}
+               {% if media_items[0].controls != false %}controls{% endif %}
+               {% if media_items[0].autoplay %}autoplay{% endif %}
+               {% if media_items[0].muted != false %}muted{% endif %}
+               {% if media_items[0].loop != false %}loop{% endif %}
+               playsinline>
+        </video>
+        {% else %}
+        <img class="gallery-thumbnail lazyload" src="/{{ media_items[0].src }}" alt="{{ media_items[0].alt }}" loading="lazy" {% if media_items.length > 1 %}data-lightbox="{{ title }}"{% endif %}>
+        {% endif %}
+        {% if media_items[0].caption %}
+        <p class="caption">{{ media_items[0].caption }}</p>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+    <div class="description-wide" data-aos="fade-up" data-aos-delay="200">
+      {{ description | safe }}
+    </div>
+
+    {% elif layout_type == 'single-image' %}
+    <div class="content-wrapper">
+      <div class="content-primary" data-aos="fade-up">
+        <h2 class="title">{{ title }}</h2>
+        <div class="description">
+          {{ description | safe }}
+        </div>
+      </div>
+      <div class="content-secondary" data-aos="fade-up" data-aos-delay="100">
+        {% if media_items[0] %}
+        <div class="gallery-item">
+          {% if media_items[0].type == 'video' %}
+          <video class="gallery-thumbnail"
+                 src="/{{ media_items[0].src }}"
+                 {% if media_items[0].poster %}poster="/{{ media_items[0].poster }}"{% endif %}
+                 {% if media_items[0].controls != false %}controls{% endif %}
+                 {% if media_items[0].autoplay %}autoplay{% endif %}
+                 {% if media_items[0].muted != false %}muted{% endif %}
+                 {% if media_items[0].loop != false %}loop{% endif %}
+                 playsinline>
+          </video>
+          {% else %}
+          <img class="gallery-thumbnail lazyload" src="/{{ media_items[0].src }}" alt="{{ media_items[0].alt }}" loading="lazy">
+          {% endif %}
+          {% if media_items[0].caption %}
+          <p class="caption">{{ media_items[0].caption }}</p>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    {% else %}
+    <div class="content-wrapper">
+      <div class="content-primary" data-aos="fade-up">
+        <h2 class="title">{{ title }}</h2>
+        <div class="description">
+          {{ description | safe }}
+        </div>
+        {% if media_items[0] %}
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+          {% if media_items[0].type == 'video' %}
+          <video class="gallery-thumbnail"
+                 src="/{{ media_items[0].src }}"
+                 {% if media_items[0].poster %}poster="/{{ media_items[0].poster }}"{% endif %}
+                 {% if media_items[0].controls != false %}controls{% endif %}
+                 {% if media_items[0].autoplay %}autoplay{% endif %}
+                 {% if media_items[0].muted != false %}muted{% endif %}
+                 {% if media_items[0].loop != false %}loop{% endif %}
+                 playsinline>
+          </video>
+          {% else %}
+          <img class="gallery-thumbnail lazyload" src="/{{ media_items[0].src }}" alt="{{ media_items[0].alt }}" loading="lazy" {% if media_items.length > 1 %}data-lightbox="{{ title }}"{% endif %}>
+          {% endif %}
+          {% if media_items[0].caption %}
+          <p class="caption">{{ media_items[0].caption }}</p>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+      <div class="content-secondary">
+        {% if media_items[1] %}
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+          {% if media_items[1].type == 'video' %}
+          <video class="gallery-thumbnail"
+                 src="/{{ media_items[1].src }}"
+                 {% if media_items[1].poster %}poster="/{{ media_items[1].poster }}"{% endif %}
+                 {% if media_items[1].controls != false %}controls{% endif %}
+                 {% if media_items[1].autoplay %}autoplay{% endif %}
+                 {% if media_items[1].muted != false %}muted{% endif %}
+                 {% if media_items[1].loop != false %}loop{% endif %}
+                 playsinline>
+          </video>
+          {% else %}
+          <img class="gallery-thumbnail lazyload" src="/{{ media_items[1].src }}" alt="{{ media_items[1].alt }}" loading="lazy" {% if media_items.length > 1 %}data-lightbox="{{ title }}"{% endif %}>
+          {% endif %}
+          {% if media_items[1].caption %}
+          <p class="caption">{{ media_items[1].caption }}</p>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>

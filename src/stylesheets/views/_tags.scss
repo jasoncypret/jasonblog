@@ -1,0 +1,173 @@
+.tags {
+
+// Tags page styles extending blog layout
+.tags-cloud {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: $space_lg;
+  margin-bottom: $space_xl;
+  
+  // Responsive grid
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space_md;
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space_sm;
+  }
+  
+  @include mobile_only {
+    grid-template-columns: 1fr;
+    gap: $space_sm;
+  }
+  
+  .tag-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .tag-link-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+  }
+  
+  .tag-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    padding: $space_md;
+    background: $card_light;
+    border: 1px solid $border_light;
+    border-radius: $space_xs;
+    transition: all 0.3s ease;
+    width: 100%;
+    height: 100%;
+    min-height: 120px;
+    flex: 1;
+    
+    &:hover {
+      background: $primary;
+      border-color: $primary;
+      transform: translateY(-2px);
+      box-shadow: $shadow;
+      
+      .tag-name {
+        color: $white;
+      }
+      
+      .tag-count {
+        color: rgba($white, 0.8);
+      }
+    }
+    
+    .tag-name {
+      font-family: $font_family_base;
+      font-weight: $bold;
+      font-size: $text_large;
+      color: $text_lt_default;
+      margin-bottom: $space_xs;
+      transition: color 0.3s ease;
+      text-align: center;
+    }
+    
+    .tag-count {
+      font-family: $font_family_base;
+      font-weight: $regular;
+      font-size: $text_base;
+      color: $text_lt_light;
+      transition: color 0.3s ease;
+      text-align: center;
+    }
+  }
+  
+  .tag-preview-articles {
+    margin-bottom: $space_md;
+  }
+  
+  .tag-view-all {
+    text-align: center;
+    margin-top: $space_lg;
+  }
+}
+
+// Tag-specific article cards
+.blog-article--tag-preview {
+  .article-image {
+    height: 180px;
+    
+    @include mobile_only {
+      height: 140px;
+    }
+  }
+  
+  .article-title {
+    font-size: $text_base;
+    line-height: 1.4;
+    
+    @include mobile_only {
+      font-size: $text_small;
+    }
+  }
+  
+  .article-content {
+    padding: $space_sm;
+    
+    @include mobile_only {
+      padding: $space_xs;
+    }
+  }
+  
+  .article-date {
+    font-size: $text_smallest;
+    margin-bottom: $space_xs;
+  }
+}
+
+// Tags cloud responsive adjustments
+@include mobile_only {
+  .tags-cloud {
+    .tag-link {
+      padding: $space_sm;
+      min-height: 100px;
+      
+      .tag-name {
+        font-size: $text_base;
+        margin-bottom: $space_xxs;
+      }
+      
+      .tag-count {
+        font-size: $text_small;
+      }
+    }
+  }
+}
+
+// Individual tag page styles
+.blog-container {
+  // Tag-specific header adjustments
+  .blog-header {
+    .blog-header-content {
+      .blog-title {
+        // Ensure tag titles don't get too long on mobile
+        @include mobile_only {
+          font-size: $heading_3;
+          line-height: 1.3;
+        }
+      }
+    }
+  }
+} 
+
+}

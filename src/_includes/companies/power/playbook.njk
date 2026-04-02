@@ -1,0 +1,41 @@
+{% set layout_type = 'single-image' %}
+{% set title = "Designing & Scaling Playbook" %}
+{% set description = "<p>Playbook started as a <strong>scrappy style guide</strong> and became a multi-language design system powering every PR in Nitro. We went from Bootstrap overrides to a fully responsive system in Rails, React, and Swift—adopted across teams and trusted by engineering.</p><p>By pairing live code with <strong>Figma kits</strong> and prioritizing usability, we shipped faster and more consistently. The system now gets <strong>2M+ downloads</strong> a year and supports everything from dashboards to mobile apps to internal tooling.</p><blockquote>&ldquo;Playbook isn't just a system of components. <br/><br/>It's a system of thinking.&rdquo;</blockquote>" %}
+{% set media_items = [{ type: 'image', src: 'media/companies/power/playbook/playbook-computer.webp', alt: 'Playbook Homepage' }] %}
+{% include "companies/shared/photo_content.njk" %}
+
+{% set intro = { logo: 'media/companies/power/playbook/pb-logo.svg', quote: "The largest design system ever built for Ruby on Rails." } %}
+{% set title = "" %}
+{% set content = [
+  { type: 'stats', subtitle: '*Power Stats', icon: 'icon-charging-station', value: '95%', label: 'Adoption in legacy platform', color: 'black', size: 'sm' },
+  { type: 'stats', subtitle: '*Power Stats', icon: 'icon-cubes', value: '+23K', label: 'Components used across all apps', color: 'black', size: 'sm' },
+  { type: 'stats', icon: 'icon-cloud-arrow-down', value: '+2M', label: 'Downloads', color: 'blue' },
+  { type: 'stats', value: '+350', label: 'Customizable<br/>Components' },
+  { type: 'stats', value: '5', label: 'Core<br/>Platforms', size: 'xl', icons: ['icon-rails', 'icon-html-5', 'icon-swift', 'icon-figma', 'icon-react'] },
+  { type: 'video', src: 'media/companies/power/playbook/playbook-components.mp4', alt: 'Playbook Design System Demo' }
+] %}
+{% set layout = [[0, 1, 2], [3, 4], [5]] %}
+{% set footnote = "*Estimates based on stats from main platform ecosystem, Quote based on the number of view components available to the public" %}
+{% set cta = { title: 'Explore Playbook Live', button_text: 'Browse the Website', button_url: 'https://playbook.powerapp.cloud', subtitle: 'Browse the code <a href="https://github.com/powerhome/playbook">Web</a> | <a href="https://github.com/powerhome/playbook-swift">Swift</a>' } %}
+{% include "companies/shared/stats_masonry.njk" %}
+
+{% set title = "Designing for Designers <br/>and Developers" %}
+{% set description = "" %}
+{% set items = [
+  { type: 'image', src: 'media/companies/power/playbook/Playbook-Figma.webp', thumbnail: 'media/companies/power/playbook/Playbook-Figma_thumb.webp', alt: 'Playbook Figma Library', caption_title: 'Figma Library', caption_description: 'Visual source of truth for designers — every Playbook component, documented and ready to use.', span: 'span-2' },
+  { type: 'image', src: 'media/companies/power/playbook/playbook-cross-platform.webp', thumbnail: 'media/companies/power/playbook/playbook-cross-platform_thumb.webp', alt: 'Cross Platform', caption_title: 'Cross-Platform Consistency', caption_description: 'Shared styles and behaviors implemented across Rails, React, Swift, and Figma.', span: 'span-2' },
+  { type: 'image', src: 'media/companies/power/playbook/playbook-top-components.webp', thumbnail: 'media/companies/power/playbook/playbook-top-components_thumb.webp', alt: 'Top Components Overview', caption_title: 'Top Components', caption_description: "A glance at the most-used Playbook elements across the Nitro platform." },
+  { type: 'video', src: 'media/companies/power/playbook/playbook-starraiting.mp4', thumbnail: 'media/companies/power/playbook/playbook-starraiting_thumb.webp', alt: 'Star Rating Component', caption_title: 'Star Rating', caption_description: 'Interactive, accessible UI pattern used in surveys, reviews, and forms.' },
+  { type: 'video', src: 'media/companies/power/playbook/playbook-playgrounds.mp4', thumbnail: 'media/companies/power/playbook/playbook-playgrounds_thumb.webp', alt: 'Component Playgrounds', caption_title: 'Component Playgrounds', caption_description: 'Live testing environments where devs can explore, tweak, and QA components.' },
+  { type: 'video', src: 'media/companies/power/playbook/playbook-kittracker.mp4', thumbnail: 'media/companies/power/playbook/playbook-kittracker_thumb.webp', alt: 'Kit Tracker', caption_title: 'Kit Tracker', caption_description: 'Behind-the-scenes tool to track component usage across apps and teams.' },
+  { type: 'video', src: 'media/companies/power/playbook/playbook-home-and-code.mp4', thumbnail: 'media/companies/power/playbook/playbook-home-and-code_thumb.webp', alt: 'Home and Code', caption_title: 'Home + Code', caption_description: 'Homepage interface with direct code access — bridging design and engineering.', span: 'span-2' },
+  { type: 'video', src: 'media/companies/power/playbook/playbook-gauge.mp4', thumbnail: 'media/companies/power/playbook/playbook-gauge_thumb.webp', alt: 'Gauge Component', caption_title: 'Gauge', caption_description: 'Lightweight data viz component for real-time metrics and status.' },
+  { type: 'video', src: 'media/companies/power/playbook/playbook-expandable-selectable-table.mp4', thumbnail: 'media/companies/power/playbook/playbook-expandable-selectable-table_thumb.webp', alt: 'Expandable Table', caption_title: 'Expandable Table', caption_description: 'Complex table component supporting expand/collapse, multi-select, and actions.' },
+  { type: 'video', src: 'media/companies/power/playbook/playbook-draggable.mp4', thumbnail: 'media/companies/power/playbook/playbook-draggable_thumb.webp', alt: 'Draggable Component', caption_title: 'Draggable', caption_description: 'Flexible drag-and-drop pattern powering reordering, sorting, and layout controls.' },
+  { type: 'video', src: 'media/companies/power/playbook/playbook-group-hover.mp4', thumbnail: 'media/companies/power/playbook/playbook-group-hover_thumb.webp', alt: 'Group Hover', caption_title: 'Group Hover', caption_description: 'Coordinated hover states for layered interaction design.' },
+  { type: 'video', src: 'media/companies/power/playbook/playbook-typeahead.mp4', thumbnail: 'media/companies/power/playbook/playbook-typeahead_thumb.webp', alt: 'Typeahead Component', caption_title: 'Typeahead', caption_description: 'Predictive search and filter component with keyboard support.' },
+  { type: 'video', src: 'media/companies/power/playbook/playbook-templates.mp4', thumbnail: 'media/companies/power/playbook/playbook-templates_thumb.webp', alt: 'Playbook Templates', caption_title: 'Templates System', caption_description: 'Pre-built page-level layouts, helping developers scaffold full views in minutes.' }
+] %}
+{% set footer_title = "Think about systems, not just screens." %}
+{% set footer_description = "<p>We built Playbook for scale, speed, and joy. Every component is tested, documented, and extensible. Developers can implement in seconds; designers can test ideas in real time. And because it lives in code and Figma, it meets teams where they are.</p><p>The system became a shared language. It reduced churn between design and engineering. It helped us prototype ideas in hours, not weeks. And it became a foundation for AI prototyping, templates, and new workflows.</p>" %}
+{% include "companies/shared/media_showcase.njk" %}

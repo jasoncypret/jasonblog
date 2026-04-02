@@ -1,105 +1,84 @@
-# Jason's Blog
+# Jason Cypret Blog
 
-Welcome to My Blog! This is a simple and powerful Middleman application that does amazing things.
+Personal blog and portfolio site built with Eleventy.
 
-## Getting started
+## Setup
 
-To get started with my blog, follow these steps:
+This project uses [asdf](https://asdf-vm.com/) for version management and [yarn](https://yarnpkg.com/) for package management.
 
-1. Clone this repository to your local machine.
-  ```sh
-  git clone https://github.com/jasoncypret/jasonblog.git
-  ```
+### Prerequisites
 
-2. Navigate to the project directory.
-  ```sh
-  cd jasonblog
-  ```
+- [asdf](https://asdf-vm.com/) installed
+- [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs) plugin installed
+- [yarn](https://yarnpkg.com/) installed (via asdf or system)
 
-3. This site runs on asdf. Make sure you have that installed with ruby and run:
-  ```sh
-  asdf install
-  ```
+### Installation
 
-4. Once run you can bundle like normal.
-  ```sh
-  bundle install
-  ```
+1. Install Node.js version (managed by asdf):
+   ```bash
+   asdf install
+   ```
 
-## Run the site
+2. Install dependencies:
+   ```bash
+   yarn install
+   ```
 
-1. Run the Middleman server
-  ```sh
-  bundle exec middleman server
-  ```
+## Development
 
-2. Open your web browser and visit `http://localhost:4567` to see the app in action. Visit `http://localhost:4567/__middleman` to see the config settings.
-
-## Write a New Post
-
-```sh
-bundle exec middleman article "Launching my blog"
-```
-
-## Test Build before Publishing to GitHub Pages
-
-```sh
-bundle exec rake build # Compile all files into the build directory
-```
-
-
-## Publish to GitHub Pages
-
-Clear/delete build folder before this step
-
-```sh
-rm -rf build/ && bundle exec rake publish ALLOW_DIRTY=true # Build and publish to Github Pages
-```
-## Automated Deployment
-
-The site is automatically deployed using GitHub Actions whenever changes are pushed to the repository's primary branch. The workflow defined in `.github/workflows/deploy.yml` installs Ruby 3.2.2, runs `bundle install`, and executes `bundle exec rake publish` with `ALLOW_DIRTY=true`. The build directory is pushed to `gh-pages` using the built-in `GITHUB_TOKEN` secret, which has write permissions to the repo. If you prefer to use a personal token, ensure it has `contents: write` permission and add it as a secret.
-
-
-
-## Configuration
-
-You can configure My Blog by modifying the `config.rb` file in the project root directory. Make sure to update the necessary settings before running the application.
-
-This is a [good starter template](https://github.com/middleman/middleman-templates-blog) to study.
-
-# Image Gallery
-
-The site includes an image gallery feature with lightbox functionality. Images are automatically processed to create optimized thumbnails.
-
-## Image Processing
-
-### Thumbnail Generation
-- Thumbnails are generated at 2x resolution (400x500) for retina displays
-- Quality is set to 90% for optimal file size/quality balance
-- Thumbnails are automatically generated during build and server startup
-- Thumbnail files are named with `_thumb` suffix (e.g., `image.jpg` → `image_thumb.jpg`)
-
-### Regenerating Thumbnails
-To regenerate all thumbnails (e.g., after changing image processing settings):
-
+Start the development server:
 ```bash
-bundle exec rake images:regenerate_thumbnails
+yarn dev
 ```
 
-This will:
-1. Delete all existing thumbnails
-2. Generate new thumbnails at the current settings
-3. Process all images in the `source/media/companies` directory
+The site will be available at `http://localhost:8080`
 
-### Image Gallery Usage
+## Building
 
-The gallery will:
-- Display thumbnails in a responsive grid
-- Open full-size images in a lightbox on click
-- Support keyboard navigation (ESC to close)
-- Maintain page scroll position when opening/closing
+Build the site for production:
+```bash
+yarn build
+```
 
-### Image Requirements
-- Original images should be placed in `source/media/companies/[company]/`
-- Supported formats: JPG, JPEG, PNG
-- Recommended minimum size: 800x1000 pixels (for 2x thumbnails)
+The output will be in the `_site/` directory.
+
+## Portfolio Image Processing
+
+Process portfolio images (local-only, not part of build):
+```bash
+yarn images:portfolio
+```
+
+Process videos:
+```bash
+yarn videos:process
+```
+
+## Deployment
+
+This site is configured to deploy to Netlify. The build command is set in `netlify.toml`.
+
+## Project Structure
+
+```
+src/
+├── _includes/        # Layouts and partials
+├── _data/            # Global data files
+├── articles/         # Blog posts (markdown)
+├── blog/             # Blog listing page
+├── companies/         # Company case study pages
+├── tags/             # Tag pages
+├── media/            # Images and videos
+├── stylesheets/      # SCSS files
+└── javascripts/      # JavaScript files
+```
+
+## Tech Stack
+
+- **Static Site Generator**: Eleventy
+- **Templating**: Nunjucks
+- **Styling**: SCSS
+- **Image Processing**: Sharp (local scripts), Eleventy Image (blog posts)
+- **Syntax Highlighting**: Prism
+- **Package Manager**: Yarn
+- **Version Management**: asdf

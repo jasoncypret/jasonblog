@@ -1,0 +1,61 @@
+<section class="media-showcase">
+  {% if title %}
+  <h2 class="media-showcase-header-title">{{ title | safe }}</h2>
+  {% endif %}
+
+  {% if description %}
+  <p class="media-showcase-header-description">{{ description | safe }}</p>
+  {% endif %}
+
+  <div class="media-showcase-grid">
+    {% for item in items %}
+    <div class="media-showcase-grid-item gallery-item {{ item.span or '' }}">
+      {% if item.type == 'video' %}
+        {% set thumb = item.thumbnail or item.src %}
+        {% if thumb %}
+        <img class="gallery-thumbnail lazyload"
+             src="/{{ thumb }}"
+             data-lightbox="/{{ item.src }}"
+             loading="lazy"
+             decoding="async"
+             alt="{{ item.alt }}">
+        {% endif %}
+        <video preload="metadata" class="lightbox-video-preload" hidden {% if item.thumbnail %}poster="/{{ item.thumbnail }}"{% endif %}>
+          <source src="/{{ item.src | replace('.mp4', '_mobile.mp4') }}" type="video/mp4" media="(max-width: 768px)">
+          <source src="/{{ item.src }}" type="video/mp4">
+        </video>
+      {% else %}
+        {% set thumb = item.thumbnail or item.src %}
+        {% if thumb %}
+        <img class="gallery-thumbnail lazyload"
+             src="/{{ thumb }}"
+             data-lightbox="/{{ item.src }}"
+             loading="lazy"
+             decoding="async"
+             alt="{{ item.alt }}">
+        {% endif %}
+      {% endif %}
+
+      {% if item.caption_title or item.caption_description or item.title or item.description %}
+      <div class="gallery-item-caption">
+        {% if item.caption_title or item.title %}
+        <h3 class="gallery-item-title">{{ item.caption_title or item.title }}</h3>
+        {% endif %}
+        {% if item.caption_description or item.description %}
+        <p class="gallery-item-description">{{ item.caption_description or item.description }}</p>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+
+  {% if footer_title %}
+  <div class="media-showcase-footer">
+    <h3 class="media-showcase-footer-title">{{ footer_title }}</h3>
+    {% if footer_description %}
+    <div class="media-showcase-footer-description">{{ footer_description | safe }}</div>
+    {% endif %}
+  </div>
+  {% endif %}
+</section>

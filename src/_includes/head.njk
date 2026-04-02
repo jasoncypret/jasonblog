@@ -1,0 +1,73 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <!-- SEO Meta Tags -->
+  <title>{% if title %}{{ title }} - Jason Cypret{% else %}Jason Cypret - VP of UX & Product Design Leader | Building User-Centered Digital Experiences{% endif %}</title>
+  <meta name="description" content="{{ description or "Jason Cypret is a VP of UX and Product Design Leader with 10+ years of experience building user-centered digital experiences. Currently scaling UX teams and launching innovative products at Power." }}">
+  <meta name="keywords" content="{{ keywords or "UX Design, Product Design, Design Leadership, User Experience, Digital Product Design, Design Systems, Lean UX, Jason Cypret" }}">
+  <meta name="author" content="Jason Cypret">
+  <link rel="canonical" href="https://jasoncypret.com{{ page.url }}">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="{% if date %}article{% else %}website{% endif %}">
+  {% if date %}
+  <meta property="article:published_time" content="{{ date | dateISO }}">
+  <meta property="article:author" content="Jason Cypret">
+  {% endif %}
+  <meta property="og:url" content="https://jasoncypret.com{{ page.url }}">
+  <meta property="og:title" content="{{ og_title or title or "Jason Cypret - VP of UX & Product Design Leader" }}">
+  <meta property="og:description" content="{{ og_description or description or "Jason Cypret is a VP of UX and Product Design Leader with 10+ years of experience building user-centered digital experiences." }}">
+  <meta property="og:image" content="{% if og_image %}{{ og_image }}{% elif open_graph_image %}{{ open_graph_image }}{% else %}https://jasoncypret.com/media/jason-cypret-og-image.jpg{% endif %}">
+  <meta property="og:site_name" content="Jason Cypret">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="{{ twitter_card or 'summary_large_image' }}">
+  <meta name="twitter:site" content="@JasonCypret">
+  <meta name="twitter:creator" content="@JasonCypret">
+  <meta name="twitter:title" content="{{ twitter_title or title or "Jason Cypret - VP of UX & Product Design Leader" }}">
+  <meta name="twitter:description" content="{{ twitter_description or description or "VP of UX and Product Design Leader with 10+ years of experience building user-centered digital experiences." }}">
+  <meta name="twitter:image" content="{% if twitter_image %}{{ twitter_image }}{% elif og_image %}{{ og_image }}{% elif open_graph_image %}{{ open_graph_image }}{% else %}https://jasoncypret.com/media/jason-cypret-og-image.jpg{% endif %}">
+  
+  <!-- Additional SEO -->
+  <meta name="robots" content="{{ robots or 'index, follow' }}">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "{% if date %}BlogPosting{% else %}Person{% endif %}",
+    {% if date %}
+    "headline": "{{ title }}",
+    "description": "{{ description }}",
+    "author": {
+      "@type": "Person",
+      "name": "Jason Cypret"
+    },
+    "datePublished": "{{ date | dateISO }}",
+    "url": "https://jasoncypret.com{{ page.url }}"
+    {% else %}
+    "name": "Jason Cypret",
+    "jobTitle": "VP of UX",
+    "description": "VP of UX and Product Design Leader with 10+ years of experience building user-centered digital experiences",
+    "url": "https://jasoncypret.com",
+    "sameAs": [
+      "https://linkedin.com/in/jasoncypret",
+      "https://twitter.com/JasonCypret",
+      "https://github.com/jasoncypret",
+      "https://dribbble.com/jasoncypret"
+    ]
+    {% endif %}
+  }
+  </script>
+  
+  <link rel="stylesheet" href="/stylesheets/site.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml" />
+</head>

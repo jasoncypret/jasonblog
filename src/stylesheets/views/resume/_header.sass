@@ -1,0 +1,110 @@
+.header
+  $page-breakpoint: 760px
+  $avatar: 150px
+  background-image: url(../media/resume/resume-header.jpg)
+  +background_cover
+  margin-bottom: 100px
+  +break_at($page-breakpoint)
+    margin-bottom: 150px
+  .nav .resume
+    background: rgba($white, 0.6)
+    color: rgba($black, 0.8)
+  .wrap
+    max-width: $resume-width
+    margin: auto
+    padding: $space-xl*3 0
+    position: relative
+    &-left
+      display: flex
+      margin-right: (350px + $space-sm)
+      position: relative
+      padding-left: $space-xs
+    &-right
+      width: 350px
+      position: absolute
+      bottom: -50px
+      right: 10px
+      img
+        width: 100%
+        height: auto
+    +break_at($page-breakpoint)
+      width: auto
+      margin: auto calc(#{$space-sm} / 6)
+      padding: $space-sm*2 0 0 0
+      &-left
+        display: block
+        margin: 0 calc(#{$space-sm} / 6)
+      &-right
+        width: 320px
+        position: relative
+        left: inherit
+        margin: auto
+
+  &-avatar 
+    img
+      display: block
+      object-fit: cover
+      width: $avatar
+      height: $avatar
+      border-radius: $avatar
+      margin-top: -($space-sm)
+  &-title
+    margin-left: $space-sm
+    color: $white
+    font-size: $text-jumbo
+    margin-bottom: $space-sm/3
+  &-subtitle
+    margin-left: $space-sm
+    color: rgba($white, 0.6)
+    margin-top: 0
+    font-weight: $regular
+    font-size: $text-large
+  &-details
+    flex: 1
+    .header-contacts
+      margin-top: $space-md
+      margin-left: $space-sm
+    .header-contact
+      color: $main
+      margin-right: $space-sm
+      font-weight: bold
+      &:hover
+        color: $highlight
+        +transition(0.225)
+  &-links
+    margin-left: $space-sm
+    text-align: left
+    margin-top: $space-md
+    a
+      display: inline-block
+      margin: 0 $space-sm 0 0
+      transition: transform 0.2s
+      &:hover
+        transform: scale(1.1)
+        transition: transform 0.2s
+  +break_at($page-breakpoint)
+    &-avatar img
+      position: static
+      margin: auto
+      width: ($avatar / 1.5)
+      height: ($avatar / 1.5)
+      font-size: ($text-jumbo - 3px)
+    &-title
+      text-align: center
+      margin-left: $space-sm/3
+      margin-right: $space-sm/3
+      font-size: $text-large
+    &-subtitle
+      margin-left: $space-sm/3
+      margin-right: $space-sm/3
+      text-align: center
+    &-contacts
+      margin-left: $space-sm/3
+      margin-right: $space-sm/3
+      text-align: center
+    &-links
+      text-align: center
+      margin-left: $space-sm/3
+      margin-right: $space-sm/3
+      a
+        margin: 0 $space-sm/2

@@ -1,0 +1,78 @@
+// Module styles – full-bleed so background reaches viewport edges (body has padding: 50px)
+.company-hero {
+	width: calc(100% + 100px);
+	margin-left: -50px;
+	margin-right: -50px;
+	padding: 3.4375rem $space_md $space_xs;
+	overflow: hidden;
+	text-align: center;
+	@media (min-width: 768px) {
+		padding-left: $space_xl;
+		padding-right: $space_xl + 8px;
+	}
+	@media (min-width: 992px) {
+		padding-top: 7.5rem;
+		padding-bottom: $space_sm;
+	}
+	&.power {
+    background: linear-gradient(103.44deg, #1a458f 1.5%, #357af1 97.38%);
+  }
+	&.bloomboard {
+		background: linear-gradient(103.44deg, #6D5AB9 1.5%, #0D33CB 97.38%);
+	}
+	&.brain {
+		background: linear-gradient(103.44deg, #00716E 1.5%, #30B3AD 97.38%);
+	}
+	.company-container {
+		width: 100%;
+		max-width: 1140px;
+		margin: 0 auto;
+		padding: 0 $space_md;
+		@media (min-width: 768px) {
+			padding: 0 $space_lg;
+		}
+	}
+	.company-content {
+		max-width: 700px;
+		margin: 0 auto;
+		text-align: center;
+		.company-logo {
+			height: 64px;
+			margin-bottom: 3.25rem;
+			vertical-align: middle;
+		}
+		.company-title {
+			margin-bottom: 1.3rem;
+			font-style: normal;
+			font-weight: 700;
+			font-size: 20px;
+			line-height: 25px;
+			text-align: center;
+			color: $white;
+			line-height: 1.2;
+		}
+		.company-description {
+			margin-bottom: 2rem;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 25px;
+			text-align: center;
+			color: rgba($white, 0.8);
+		}
+	}
+	.company-mockup {
+		width: 100%;
+		max-width: 1100px;
+		height: 58vh;
+		max-height: 620px;
+		object-fit: cover;
+		object-position: center top;
+		margin: 0 auto;
+		margin-bottom: -12rem;
+		display: block;
+		@media (max-width: 700px) {
+			margin-bottom: -5rem;
+		}
+	}
+}

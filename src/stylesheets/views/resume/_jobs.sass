@@ -1,0 +1,62 @@
+section.jobs
+  width: $resume-width
+  margin: auto
+  background: $white
+  +break_at($resume-width)
+    width: auto
+    margin: auto $space-sm/6
+  .job-list 
+    $logo: 60px
+    list-style: none;
+    padding-bottom: $space-xl
+    &-item
+      margin-bottom: $space-xl
+      position: relative
+      &-logo
+        position: absolute
+        margin-top: -2px
+        width: $logo
+        img
+          width: 100%
+          height: auto
+        +mobile_only
+          position: static
+          display: block
+          margin-left: $space-sm/3
+          margin-right: $space-sm/3
+      &-title
+        margin-left: ($logo + $space-md)
+        position: relative
+        font-weight: bold
+        font-size: ($text-large + 6px)
+        color: $text_lt_default
+        .year
+          position: absolute
+          right: 0
+          top: 2px
+          color: $text_lt_light
+          font-size: $text-base
+        +mobile_only
+          margin-left: $space-sm/3
+          margin-right: $space-sm/3
+          .year
+            font-size: $text-small
+            position: static
+            display: inline-block
+            margin-left: $space-sm/6
+      &-company
+        margin-left: ($logo + $space-md)
+        color: $text_lt_light
+        font-size: ($text-large + 2px)
+        +mobile_only
+          margin-left: $space-sm/3
+          margin-right: $space-sm/3
+      &-description
+        margin-left: ($logo + $space-md)
+        +serif
+        color: $text_lt_default
+        margin-top: $space-sm/2
+        +mobile_only
+          margin-left: $space-sm/3
+          margin-right: $space-sm/3
+  

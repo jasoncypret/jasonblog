@@ -1,0 +1,113 @@
+.calendar, [class^="x"][class$="_index"] {
+
+// Calendar page styles extending blog layout
+.calendar-years {
+  .calendar-year-section {
+    margin-bottom: $space_xl;
+    padding-bottom: $space_xl;
+    border-bottom: 1px solid $border_light;
+    
+    &:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+  
+  .calendar-year-header {
+    margin-bottom: $space_lg;
+    text-align: center;
+    
+    @include mobile_only {
+      margin-bottom: $space_md;
+    }
+  }
+  
+  .calendar-year-title {
+    font-family: $font_family_base;
+    font-weight: $bold;
+    font-size: $heading_2;
+    color: $text_lt_default;
+    margin: 0;
+    
+    a {
+      color: $text_lt_default;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      
+      &:hover {
+        color: $primary;
+      }
+    }
+    
+    .article-count {
+      font-weight: $regular;
+      font-size: $text_base;
+      color: $text_lt_light;
+      margin-left: $space_sm;
+    }
+  }
+  
+  .calendar-articles-grid {
+    margin-bottom: $space_md;
+  }
+  
+  .calendar-view-all {
+    text-align: center;
+    margin-top: $space_lg;
+  }
+}
+
+// Calendar-specific article cards
+.blog-article--calendar {
+  .article-image {
+    height: 200px;
+    
+    @include mobile_only {
+      height: 160px;
+    }
+  }
+  
+  .article-title {
+    font-size: $text_large;
+    line-height: 1.4;
+    
+    @include mobile_only {
+      font-size: $text_base;
+    }
+  }
+  
+  .article-summary {
+    font-size: $text_small;
+    line-height: 1.5;
+  }
+}
+
+// No articles state
+.no-articles {
+  text-align: center;
+  padding: $space_xl 0;
+  
+  p {
+    font-family: $font_family_base;
+    font-size: $text_large;
+    color: $text_lt_light;
+    margin: 0;
+  }
+}
+
+// Archive specific header adjustments
+.blog-container {
+  .blog-header {
+    .blog-header-content {
+      .blog-title {
+        // Ensure archive titles don't get too long on mobile
+        @include mobile_only {
+          font-size: $heading_3;
+          line-height: 1.3;
+        }
+      }
+    }
+  }
+} 
+}

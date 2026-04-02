@@ -1,0 +1,147 @@
+---
+layout: base
+page_classes: blog
+pagination:
+  data: collections.articles
+  size: 8
+  alias: articles
+permalink: "blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber }}/{% endif %}index.html"
+---
+{% if not collections.articles %}
+  {% set articles = [] %}
+{% endif %}
+
+<div class="blog-container">
+  <div class="blog-header">
+    <div class="blog-header-content">
+      {% if pagination.pageNumber > 0 %}
+        <h1 class="blog-title">Articles Continued</h1>
+      {% else %}
+        <h1 class="blog-title">Blog</h1>
+        <p class="blog-subtitle">Reflections on building better teams, systems, and products.</p>
+      {% endif %}
+    </div>
+    {% if pagination.pageNumber == 0 %}
+      <div class="blog-sidebar">
+        <h3>Browse Content</h3>
+        
+        <div class="blog-sidebar-content-cards">
+          <div class="content-card">
+            <a href="/calendar/" class="content-link">
+              <i class='icon icon-calendar-alt'></i>
+              <div class="title">Articles by Year</div>
+            </a>
+          </div>
+          
+          <div class="content-card">
+            <a href="/tags/" class="content-link">
+              <i class='icon icon-tag'></i>
+              <div class="title">Articles by Category</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="blog-content">
+    <div class="blog-articles">
+      {% set featured_articles = articles | slice(0, 2) %}
+      {% set remaining_articles = articles | slice(2) %}
+      {% if featured_articles and featured_articles.length > 0 %}
+        <!-- Featured Articles (First 2) -->
+        <div class="featured-articles">
+          <div class="row">
+            {% for article in featured_articles %}
+              <div class="col-md-6">
+                <article class="blog-article blog-article--featured">
+                  <div class="article-image">
+                    {% if article.data.image %}
+                      <a href="{{ article.url }}">
+                        <img src="{{ article.data.image }}" alt="{{ article.data.title }}" class="lazyload" loading="lazy">
+                      </a>
+                    {% endif %}
+                  </div>
+                  <div class="article-content">
+                    <small class="article-date">{{ article.date | dateFormat }}</small>
+                    
+                    <h2 class="article-title">
+                      <a href="{{ article.url }}">{{ article.data.title }}</a>
+                    </h2>
+                    
+                    {% if article.data.summary %}
+                      <div class="article-summary">{{ article.data.summary }}</div>
+                    {% endif %}
+                    
+                    {% if article.data.tags and article.data.tags.length > 0 %}
+                      <div class="article-tags">
+                        {% for tag in article.data.tags %}
+                          <a href="/tags/{{ tag | slug }}/" class="tag">{{ tag }}</a>
+                        {% endfor %}
+                      </div>
+                    {% endif %}
+                  </div>
+                </article>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+      
+      {% if remaining_articles and remaining_articles.length > 0 %}
+        <!-- Remaining Articles (3-column grid) -->
+        <div class="grid-articles">
+          <div class="row">
+            {% for article in remaining_articles %}
+              <div class="col-lg-4 col-md-6">
+                <article class="blog-article blog-article--grid">
+                  
+                  <div class="article-image">
+                    {% if article.data.image %}
+                      <a href="{{ article.url }}">
+                        <img src="{{ article.data.image }}" alt="{{ article.data.title }}" class="lazyload" loading="lazy">
+                      </a>
+                    {% endif %}
+                  </div>
+                  
+                  
+                  <div class="article-content">
+                    <small class="article-date">{{ article.date | dateFormat }}</small>
+                    
+                    <h2 class="article-title">
+                      <a href="{{ article.url }}">{{ article.data.title }}</a>
+                    </h2>
+                    
+                    
+                  </div>
+                </article>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if pagination.pages.length > 1 %}
+    <div class="pagination-nav">
+      {% if pagination.previousPageHref %}
+        <a href="{{ pagination.previousPageHref }}" class="btn btn--black">
+          <i class='icon-arrow-left'></i> Previous Articles
+        </a>
+      {% endif %}
+      
+      {% if pagination.nextPageHref %}
+        <a href="{{ pagination.nextPageHref }}" class="btn btn--black">
+          More Articles <i class='icon-arrow-right'></i>
+        </a>
+      {% elif pagination.pageNumber == 0 %}
+        <div class="blog-actions">
+          <a href="#" class="btn btn--black">
+            More Articles <i class='icon-arrow-right'></i>
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>

@@ -1,0 +1,33 @@
+---
+layout: false
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Jason Cypret - Blog</title>
+  <subtitle>Reflections on building better teams, systems, and products.</subtitle>
+  <id>https://jasoncypret.com/</id>
+  <link href="https://jasoncypret.com/feed.xml" rel="self"/>
+  <link href="https://jasoncypret.com/"/>
+  <updated>{% if collections.articles and collections.articles[0] %}{{ collections.articles[0].date | dateISO }}{% else %}{{ "now" | dateISO }}{% endif %}</updated>
+  <author>
+    <name>Jason Cypret</name>
+  </author>
+  {% if collections.articles %}
+  {% for article in collections.articles | slice(0, 10) %}
+  <entry>
+    <title>{{ article.data.title }}</title>
+    <link href="https://jasoncypret.com{{ article.url }}" rel="alternate"/>
+    <id>https://jasoncypret.com{{ article.url }}</id>
+    <published>{{ article.date | dateISO }}</published>
+    <updated>{{ article.date | dateISO }}</updated>
+    <author>
+      <name>Jason Cypret</name>
+    </author>
+    <content type="html"><![CDATA[{{ article.templateContent }}]]></content>
+  </entry>
+  {% endfor %}
+  {% endif %}
+</feed>

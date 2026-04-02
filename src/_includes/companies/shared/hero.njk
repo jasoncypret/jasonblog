@@ -1,0 +1,12 @@
+<div class="company-hero {{ company | lower }}">
+  <div class="company-container">
+    <div class="company-content">
+      <img src="/{{ logo }}" class="lazyload company-logo" alt="{{ company }} Logo" loading="lazy">
+      <h1 class="company-title">{{ title }}</h1>
+      <p class="company-description">{{ description }}</p>
+    </div>
+  </div>
+  {% if background_image %}
+    <img src="/{{ background_image }}" class="company-mockup lazyload" alt="{{ company }} showcase" loading="lazy">
+  {% endif %}
+</div>
