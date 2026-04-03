@@ -193,7 +193,9 @@ activate :meta_tags
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
 configure :build do
-  activate :asset_hash
+  # _thumb files are referenced via raw HTML poster= attributes which Middleman's
+  # URL rewriter does not rewrite, so keep their filenames stable.
+  activate :asset_hash, ignore: [/_thumb\./]
   activate :minify_css
   # activate :minify_javascript
   activate :relative_assets

@@ -57,6 +57,6 @@ The companies that win the AI era won't be the ones with the best models. They'l
 
 That's a design leadership problem. And it's exactly where I want to be.
 
-<video controls playsinline preload="metadata" class="portrait">
+<video controls playsinline preload="metadata" poster="robots_thumb.jpg" class="portrait">
   <source src="robots.mp4" type="video/mp4">
 </video>
