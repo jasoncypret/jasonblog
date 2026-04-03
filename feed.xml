@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.url.com/incredible-week-at-convergence-ai-in-dallas/"/>
     <id>http://blog.url.com/incredible-week-at-convergence-ai-in-dallas/</id>
     <published>2026-04-02T07:00:00-05:00</published>
-    <updated>2026-04-02T18:36:12-05:00</updated>
+    <updated>2026-04-02T20:20:49-05:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -64,7 +64,7 @@
 
 &lt;p&gt;That&amp;rsquo;s a design leadership problem. And it&amp;rsquo;s exactly where I want to be.&lt;/p&gt;
 
-&lt;video controls playsinline preload="metadata" class="portrait"&gt;
+&lt;video controls playsinline preload="metadata" poster="robots_thumb.jpg" class="portrait"&gt;
   &lt;source src="robots.mp4" type="video/mp4"&gt;
 &lt;/video&gt;
 </content>
