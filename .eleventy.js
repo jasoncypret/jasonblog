@@ -170,7 +170,13 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addFilter("dateISO", function(date) {
-    return new Date(date).toISOString();
+    const d =
+      date === "now" || date === "Now"
+        ? new Date()
+        : date instanceof Date
+          ? date
+          : new Date(date);
+    return d.toISOString();
   });
 
   eleventyConfig.addFilter("dateReadable", function(date) {
