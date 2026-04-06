@@ -7,13 +7,14 @@ page_classes: tags
 <div class="blog-container">
   <div class="blog-header">
     <div class="blog-header-content">
-      <h1 class="blog-title">Articles by Category</h1>
-      <p class="blog-subtitle">Browse articles by topic and category.</p>
+      <h1 class="blog-title">Categories</h1>
+      <p class="blog-subtitle">Browse all articles organized by topic and theme</p>
+      <a href="/blog/" class="back-link"><i class="icon-arrow-left"></i> Back to Blog</a>
     </div>
-    
+
     <div class="blog-sidebar">
       <h3>Browse Content</h3>
-      
+
       <div class="blog-sidebar-content-cards">
         <div class="content-card">
           <a href="/calendar/" class="content-link">
@@ -21,7 +22,7 @@ page_classes: tags
             <div class="title">Articles by Year</div>
           </a>
         </div>
-        
+
         <div class="content-card active">
           <a href="/tags/" class="content-link">
             <i class='icon icon-tag'></i>
@@ -33,23 +34,20 @@ page_classes: tags
   </div>
 
   <div class="blog-content">
-    <div class="blog-articles">
-      <div class="row">
-        {% if collections.tagList %}
-        {% for tag in collections.tagList %}
-          <div class="col-lg-4 col-md-6">
-            <div class="content-card">
-              <a href="/tags/{{ tag | slug }}/" class="content-link">
-                <i class='icon icon-tag'></i>
-                <div class="title">{{ tag }}</div>
-                {% set tagArticles = collections.articles | filterByTag(tag) %}
-                <div class="subtitle">{% if tagArticles %}{{ tagArticles.length }}{% else %}0{% endif %} article{% if tagArticles and tagArticles.length != 1 %}s{% endif %}</div>
-              </a>
-            </div>
+    <div class="tags-cloud">
+      {% if collections.tagList %}
+      {% for tag in collections.tagList %}
+        <div class="tag-item">
+          <div class="tag-link-wrapper">
+            <a href="/tags/{{ tag | slug }}/" class="tag-link">
+              {% set tagArticles = collections.articles | filterByTag(tag) %}
+              <div class="tag-name">{{ tag }}</div>
+              <div class="tag-count">({% if tagArticles %}{{ tagArticles.length }}{% else %}0{% endif %} article{% if tagArticles and tagArticles.length != 1 %}s{% endif %})</div>
+            </a>
           </div>
-        {% endfor %}
-        {% endif %}
-      </div>
+        </div>
+      {% endfor %}
+      {% endif %}
     </div>
   </div>
 </div>

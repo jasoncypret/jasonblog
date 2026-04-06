@@ -16,7 +16,7 @@ eleventyExcludeFromCollections: true
     <name>Jason Cypret</name>
   </author>
   {% if collections.articles %}
-  {% for article in collections.articles | slice(0, 10) %}
+  {% for article in collections.articles | limit(10) %}
   <entry>
     <title>{{ article.data.title }}</title>
     <link href="https://jasoncypret.com{{ article.url }}" rel="alternate"/>

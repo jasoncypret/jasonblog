@@ -46,8 +46,8 @@ permalink: "blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber
 
   <div class="blog-content">
     <div class="blog-articles">
-      {% set featured_articles = articles | slice(0, 2) %}
-      {% set remaining_articles = articles | slice(2) %}
+      {% set featured_articles = articles | limit(2) %}
+      {% set remaining_articles = articles | offset(2) %}
       {% if featured_articles and featured_articles.length > 0 %}
         <!-- Featured Articles (First 2) -->
         <div class="featured-articles">

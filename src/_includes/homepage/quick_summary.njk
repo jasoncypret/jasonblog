@@ -45,7 +45,7 @@
         <h3 class="section-title header-subtitle">FROM THE BLOG</h3>
         
         {% if collections.articles %}
-        {% for article in collections.articles | slice(0, 5) %}
+        {% for article in collections.articles | limit(5) %}
           <div class="blog-item">
             {% if article.data.image %}
               <div class="blog-image">

@@ -52,7 +52,7 @@ page_classes: calendar
             
             <div class="calendar-articles-grid">
               <div class="row">
-                {% for article in yearArticles | slice(0, 6) %}
+                {% for article in yearArticles | limit(6) %}
                   <div class="col-lg-4 col-md-6">
                     <article class="blog-article blog-article--grid blog-article--calendar">
                       <div class="article-image">

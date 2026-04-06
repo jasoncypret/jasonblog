@@ -5,19 +5,14 @@ pagination:
   data: collections.tagList
   size: 1
   alias: tag
-permalink: /tags/{{ tag | slug }}/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber }}/{% endif %}index.html
+permalink: "/tags/{{ tag | slug }}/index.html"
 ---
 
 <div class="blog-container">
   <div class="blog-header">
     <div class="blog-header-content">
       <h1 class="blog-title">Articles tagged '{{ tag }}'</h1>
-      {% if pagination.pages.length > 1 %}
-        <p class="blog-subtitle">Page {{ pagination.pageNumber + 1 }} of {{ pagination.pages.length }}</p>
-      {% endif %}
-      <a href="/tags/" class="btn btn--link small no-shadow pl-0">
-        <i class='icon-arrow-left'></i> Back to Categories
-      </a>
+<a href="/tags/" class="back-link"><i class="icon-arrow-left"></i> Back to Categories</a>
     </div>
     
     <div class="blog-sidebar">

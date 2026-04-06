@@ -6,6 +6,17 @@ const rssPlugin = require("@11ty/eleventy-plugin-rss");
 const markdownIt = require("markdown-it");
 const markdownItEleventyImg = require("markdown-it-eleventy-img");
 
+/** Same rules as the Nunjucks `slug` filter — used to dedupe tags that differ only by case/spacing. */
+function slugify(str) {
+  if (!str) return "";
+  return str
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .trim();
+}
+
 module.exports = function(eleventyConfig) {
   // Compile SCSS after every build (so dev --serve has CSS and build has CSS)
   eleventyConfig.on("eleventy.after", () => {
@@ -24,6 +35,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/javascripts");
   eleventyConfig.addPassthroughCopy("src/CNAME");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
+
+  // Article media files (images, videos in article subdirectories)
+  eleventyConfig.addPassthroughCopy("src/articles/**/*.{webp,jpg,jpeg,png,gif,svg,mp4,mov,pdf}");
 
   // Plugins
   eleventyConfig.addPlugin(syntaxHighlight);
@@ -46,7 +60,7 @@ module.exports = function(eleventyConfig) {
     globalAttributes: {
       loading: "lazy",
       class: "lazyload",
-      sizes: "100vw",
+      sizes: "(max-width: 575px) 94vw, 700px",
     },
     resolvePath: function(imagePath, inputPath) {
       const path = require('path');
@@ -84,9 +98,9 @@ module.exports = function(eleventyConfig) {
       .sort((a, b) => b.date - a.date);
   });
 
-  // Tag collection
+  // Tag collection (one entry per slug so "AI" and "ai" do not emit duplicate tag pages)
   eleventyConfig.addCollection("tagList", function(collectionApi) {
-    let tagSet = new Set();
+    const tagBySlug = new Map();
     collectionApi.getAll().forEach(function(item) {
       if ("tags" in item.data) {
         let tags = item.data.tags;
@@ -94,19 +108,25 @@ module.exports = function(eleventyConfig) {
           tags = [tags];
         }
         if (Array.isArray(tags)) {
-          tags.forEach(tag => tagSet.add(tag));
+          tags.forEach((tag) => {
+            const key = slugify(tag);
+            if (key && !tagBySlug.has(key)) {
+              tagBySlug.set(key, tag);
+            }
+          });
         }
       }
     });
-    return Array.from(tagSet).sort();
+    return Array.from(tagBySlug.values()).sort();
   });
 
-  // Filter by tag
+  // Filter by tag (match by slug so pages line up with deduped tagList)
   eleventyConfig.addFilter("filterByTag", function(articles, tag) {
-    return articles.filter(article => {
+    const needle = slugify(tag);
+    return articles.filter((article) => {
       const tags = article.data.tags || [];
       const tagArray = Array.isArray(tags) ? tags : [tags];
-      return tagArray.includes(tag);
+      return tagArray.some((t) => slugify(t) === needle);
     });
   });
 
@@ -179,14 +199,7 @@ module.exports = function(eleventyConfig) {
     return age;
   });
 
-  eleventyConfig.addFilter("slug", function(str) {
-    if (!str) return "";
-    return str.toLowerCase()
-      .replace(/[^\w\s-]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/-+/g, '-')
-      .trim();
-  });
+  eleventyConfig.addFilter("slug", slugify);
 
   eleventyConfig.addFilter("find", function(array, key, value) {
     if (!array) return null;
@@ -212,6 +225,16 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("replace", function(str, search, replacement) {
     if (!str || typeof str !== "string") return "";
     return str.split(search).join(replacement);
+  });
+
+  eleventyConfig.addFilter("limit", function(array, n) {
+    if (!array) return [];
+    return array.slice(0, n);
+  });
+
+  eleventyConfig.addFilter("offset", function(array, n) {
+    if (!array) return [];
+    return array.slice(n);
   });
 
   // Shortcodes

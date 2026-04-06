@@ -1,13 +1,13 @@
 // section.hero only (imported inside body.index, so compiles to body.index section.hero).
 // Avoids body.index body.index section.hero which would never match.
 section.hero {
-  padding-top: calc($space_xl + 90px); /* top spacing to match reference */
+  padding-top: 0;
   padding-bottom: $space_xl;
   position: relative;
   overflow: hidden;
 
   @include mobile_only {
-    padding-top: calc($space_lg + 80px);
+    padding-top: 0;
     padding-bottom: $space_lg;
   }
 
@@ -191,8 +191,6 @@ section.hero {
     position: relative;
     max-width: 600px;
     width: 100%;
-    border-radius: $space_sm;
-    overflow: hidden;
     @media (min-width: 1290px) {
       position: fixed;
       max-width: fit-content;
@@ -226,7 +224,7 @@ section.hero {
   .hero-avatar {
     width: 100%;
     height: auto;
-    border-radius: $space_sm;
+    border-radius: $space_lg;
     position: relative;
     z-index: 2;
     transition: all 0.3s ease;

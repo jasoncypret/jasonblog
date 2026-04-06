@@ -13,8 +13,8 @@ We had spent weeks crafting not just our pitch deck, but this video that would h
 
 Looking back at this video now, it's fascinating to see how some of our early ideas about context-aware task management were ahead of their time. The core vision—making task management smarter and more intuitive—still feels relevant today.
 
-<div style="text-align: center;">
-  <iframe width="100%" height="500" src="https://www.youtube.com/embed/KqJHCMUPCUk" frameborder="0" allowfullscreen></iframe>
+<div class="post-embed">
+  <iframe src="https://www.youtube.com/embed/KqJHCMUPCUk" frameborder="0" allowfullscreen></iframe>
 </div>
 
 
