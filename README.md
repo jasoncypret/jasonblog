@@ -60,14 +60,9 @@ yarn videos:process
 
 Before merging to `master` and going live on Netlify, complete these steps:
 
-**1. Disable the old GitHub Pages workflow**
+**1. GitHub Actions**
 
-The file `.github/workflows/deploy.yml` runs a Ruby/Middleman build on every push to `master`. It must be removed (or the branch condition changed) before merge — otherwise it will fail and compete with Netlify.
-
-```bash
-rm .github/workflows/deploy.yml
-git add -A && git commit -m "Remove old GitHub Pages deploy workflow"
-```
+The old Middleman → GitHub Pages deploy workflow was removed. CI now runs `yarn build` on pushes and PRs to `master` (see `.github/workflows/ci.yml`). Netlify remains the host for the live site.
 
 **2. Visual QA — compare key pages against production**
 
@@ -106,11 +101,12 @@ Run `yarn dev` locally and check each page side-by-side with [jasoncypret.com](h
 
 1. Go to [app.netlify.com](https://app.netlify.com) → **Add new site** → **Import an existing project**
 2. Connect your GitHub account and select this repo (`jason_cypret/jasonblog`)
-3. Netlify will auto-detect `netlify.toml` — verify these settings:
+3. Set **Production branch** to `master` (site source and CI use this branch).
+4. Netlify will auto-detect `netlify.toml` — verify these settings:
    - **Build command:** `yarn build`
    - **Publish directory:** `_site`
    - **Node version:** `20.18.0` (set in `netlify.toml`)
-4. Click **Deploy site** — first deploy will take a few minutes
+5. Click **Deploy site** — first deploy will take a few minutes
 
 ### Configure Custom Domain
 
@@ -124,6 +120,7 @@ Run `yarn dev` locally and check each page side-by-side with [jasoncypret.com](h
 
 - Confirm `https://jasoncypret.com` loads the new Eleventy site
 - Test a few article URLs to confirm no broken links
+- If this repo still had **GitHub Pages** enabled (Settings → Pages), disable publishing there so only Netlify serves the site
 - Submit updated sitemap to Google Search Console: `https://jasoncypret.com/sitemap.xml`
 
 ## Project Structure
