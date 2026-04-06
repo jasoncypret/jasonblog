@@ -178,7 +178,12 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addFilter("date", function(date, format) {
-    const d = new Date(date);
+    const d =
+      date === "now" || date === "Now"
+        ? new Date()
+        : date instanceof Date
+          ? date
+          : new Date(date);
     if (format && format.includes("%Y-%m-%d")) {
       const year = d.getFullYear();
       const month = String(d.getMonth() + 1).padStart(2, '0');
