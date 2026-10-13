@@ -1,0 +1,111 @@
+{
+  "_comment": "Resume roles, extracted from the hand-coded markup that used to live in src/resume.njk so the page is a loop over data rather than nine copies of the same block.",
+  "intro": {
+    "avatar": "/media/resume/avatar-alt.webp",
+    "portrait": "/media/resume/NitroCasino-2.jpg",
+    "email": "jason@jasoncypret.com",
+    "resumePdf": "/media/resume/Jason-Cypret-UX-Product-Design-Leader.pdf"
+  },
+  "roles": [
+    {
+      "title": "Head of Product Experience",
+      "company": "Worlds",
+      "years": "2025—Present",
+      "logo": "/media/logos/worlds-logo-blk.svg",
+      "logoDark": "/media/logos/worlds-logo-wht.svg",
+      "logoClass": "worlds",
+      "href": "https://worlds.io",
+      "description": "Leading design and front-end engineering for a physical-AI platform. Unified three codebases into one product, brought design in-house, hired the team and shipped AI-native features, from voice agents to dashboards that agents build over MCP."
+    },
+    {
+      "title": "Vice President of User Experience",
+      "company": "Power",
+      "years": "2017—2025",
+      "logo": "/media/resume/logos/power-blk.svg",
+      "logoDark": "/media/resume/logos/power-wht.svg",
+      "logoClass": "power",
+      "href": "http://powerhrg.com",
+      "description": "Leads the UX group, including world-class designers and the UX Engineering team responsible for building all UI across Power's platforms. Visionary behind Playbook, Power's open-source design system. Provided the space for its creation, contributed to its early development, and continues to guide the roadmap and future direction."
+    },
+    {
+      "title": "Founder & Creator",
+      "company": "BoxBoard",
+      "years": "2014—Present",
+      "logo": "/media/resume/logos/boxboard-blk.svg",
+      "logoDark": "/media/resume/logos/boxboard-wht.svg",
+      "logoClass": "boxboard",
+      "href": "https://boxboard.io/?utm_source=jasonblog&utm_medium=resume&utm_campaign=portfolio",
+      "description": "Launched a CrossFit workout tracking app from the ground up — used by gyms across the U.S. Over 70,000 logged scores and 15,000+ workouts. Designed, coded, and scaled the entire platform solo, blending AI features, design systems, and modern Rails + React architecture."
+    },
+    {
+      "title": "Senior Principal Product Designer",
+      "company": "BloomBoard",
+      "years": "2014—2017",
+      "logo": "/media/resume/logos/bloomboard-blk.svg",
+      "logoDark": "/media/resume/logos/bloomboard-wht.svg",
+      "logoClass": "bloomboard",
+      "href": "http://bloomboard.com",
+      "description": "Initially part of an EdTech innovation R&D team developing productivity tools for professionals. Later led the creation of a new B2B SaaS product—an education tool for teacher credentialing—now used in school districts and higher education institutions nationwide."
+    },
+    {
+      "title": "Principal Product Designer",
+      "company": "Brainspace",
+      "years": "2012—2014",
+      "logo": "/media/resume/logos/brainspace-blk.svg",
+      "logoDark": "/media/resume/logos/brainspace-wht.svg",
+      "logoClass": "brainspace",
+      "href": "http://brainspace.com",
+      "description": "Worked on multiple AI and machine learning tools. Contributed to Pure Discovery, a LegalTech tool helping lawyers search massive datasets, and co-created Brainspace, which aggregated global research articles. Both tools were part of a merger and are now known as Reveal Brainspace."
+    },
+    {
+      "title": "Principal UX Consultant",
+      "company": "Improving",
+      "years": "2010—2012",
+      "logo": "/media/resume/logos/improving-blk.svg",
+      "logoDark": "/media/resume/logos/improving-wht.svg",
+      "logoClass": "improving",
+      "href": "http://improving.com",
+      "description": "Consulted with a range of clients on UX strategy and product development, working across startups and enterprise teams to rapidly prototype, validate, and deliver digital solutions. Known for fast delivery, clean design, and cross-disciplinary collaboration."
+    },
+    {
+      "title": "Director of User Experience",
+      "company": "Medfactory",
+      "years": "2010",
+      "logo": "/media/resume/logos/medfactory-blk.svg",
+      "logoDark": "/media/resume/logos/medfactory-wht.svg",
+      "logoClass": "medfactory",
+      "href": null,
+      "description": "Led UX strategy and design for a HealthTech SaaS platform focused on physician recruiting and placement. Designed end-to-end experiences for both hospitals and candidates, enabling profile-based search, job discovery, and application workflows. Conducted user research, prototyping, and cross-functional collaboration to accelerate delivery. Helped shape acquisition and conversion strategies while modernizing the B2B and B2C digital experience in a niche healthcare market."
+    },
+    {
+      "title": "Senior UX Designer & Developer",
+      "company": "Metric Interactive — True.com",
+      "years": "2008—2010",
+      "logo": "/media/resume/logos/true-blk.svg",
+      "logoDark": "/media/resume/logos/true-wht.svg",
+      "logoClass": "true",
+      "href": null,
+      "description": "Led UX and front-end development for True.com, a consumer-facing dating platform, focusing on onboarding, user profiles, and matching experiences. Designed and coded interactive marketing sites, landing pages, and promotional tools for major B2B and B2C clients including Sherwin-Williams, Nokia, Acer, and RadioShack. Delivered component libraries and responsive UIs, enabling faster launches and better engagement."
+    },
+    {
+      "company": "Hilton Hotels Corp.",
+      "years": "2005—2008",
+      "logo": "/media/resume/logos/hilton-blk.svg",
+      "logoDark": "/media/resume/logos/hilton-wht.svg",
+      "logoClass": "hilton",
+      "href": null,
+      "positions": [
+        {
+          "title": "Manager of Brand Content",
+          "years": "2007—2008",
+          "description": "Managed Hilton's hotel landing page team, supporting digital content execution across brands like DoubleTree and Embassy Suites. Oversaw web content publishing and alignment with national campaigns, ensuring visual consistency across seasonal promotions and advertising. Served as creative lead and point of contact for custom landing pages."
+        },
+        {
+          "title": "Senior UX Designer",
+          "years": "2005—2007",
+          "description": "Designed and developed custom hotel landing pages to highlight amenities, promotions, and local attractions across Hilton's global brands. Partnered with individual hotel teams to translate marketing goals into rich, interactive content. Created scalable page layouts and integrated light Flash elements to enhance engagement."
+        }
+      ]
+    }
+  ]
+}

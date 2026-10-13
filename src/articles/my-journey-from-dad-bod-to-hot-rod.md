@@ -2,7 +2,7 @@
 title: From Dad Bod to Hot Rod
 date: 2016-01-04T16:35:00Z
 tags: [CrossFit]
-layout: post
+layout: ds-post
 permalink: /my-journey-from-dad-bod-to-hot-rod/
 image: /articles/my-journey-from-dad-bod-to-hot-rod/address-the-bar.webp
 open_graph_image: /articles/my-journey-from-dad-bod-to-hot-rod/address-the-bar.webp

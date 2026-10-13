@@ -1,148 +1,90 @@
 ---
-layout: base
-title: Jason Cypret
+layout: ds
+title: Experience — Jason Cypret
+description: Twenty years of UX, product and development experience across Worlds, Power, BloomBoard, Brainspace and more.
 permalink: /resume/
-page_classes: resume resume_index
 ---
+{% from "ds/components.njk" import button, iconButton %}
 
-<header class="header">
-  <div class="wrap">
-    <div class="wrap-left">
-      <div class="header-avatar">
-        <div class="avatar"><img src="/media/resume/avatar-alt.webp" class="lazyload" loading="lazy" alt="Jason Cypret"></div>
-      </div>
-      <div class="header-details">
-        <h1 class="header-title">Jason Cypret</h1>
-        <h4 class="header-subtitle">
-          {{ "2005-02-01" | age }}+ years of UX, product,
-          <span style="white-space: nowrap">&amp; development experience</span>
-        </h4>
-        <div class="header-contacts">
-          <a class="header-contact" href="mailto:jason@jasoncypret.com">jason@jasoncypret.com</a>
-        </div>
-        <div class="header-links">
-          <a href="https://www.linkedin.com/in/jasoncypret/"><img src="/media/resume/in.svg" class="in lazyload" loading="lazy" alt="LinkedIn"></a>
-          <a href="https://github.com/jasoncypret"><img src="/media/resume/git.svg" class="git lazyload" loading="lazy" alt="GitHub"></a>
-          <a href="https://dribbble.com/jasoncypret"><img src="/media/resume/drib.svg" class="drib lazyload" loading="lazy" alt="Dribbble"></a>
-        </div>
-      </div>
+<header class="resume__head">
+  <div>
+    <img class="resume__avatar" src="{{ resume.intro.avatar }}" alt="Jason Cypret" loading="eager">
+    <h1 class="resume__name">Jason Cypret</h1>
+    <p class="resume__tagline">
+      20+ years of UX, product
+      <span style="white-space: nowrap;">&amp; development experience</span>
+    </p>
+    <div class="resume__contact">
+      <a class="resume__email" href="mailto:{{ resume.intro.email }}">{{ resume.intro.email }}</a>
+      {% for s in home.social %}{{ iconButton(s.title, s.label or s.title, s.url, "sm") }}{% endfor %}
     </div>
-    <div class="wrap-right">
-      <img src="/media/resume/NitroCasino-2.jpg" class="resume-img lazyload" loading="lazy" alt="Jason Cypret">
+    <div class="resume__actions">
+      {{ button("Get in touch", "mailto:" + resume.intro.email, "primary", "md", "rounded", "", "arrow-right") }}
+      {# Hidden for now — the PDF is out of date and this live page covers it. Re-enable by uncommenting.
+      {{ button("Download resume", resume.intro.resumePdf, "secondary", "md", "rounded", "download", "", true) }}
+      #}
     </div>
   </div>
+  <img class="resume__portrait" src="{{ resume.intro.portrait }}" alt="Jason Cypret speaking" loading="lazy">
 </header>
 
-<section class="jobs">
-  <ul class="job-list">
-    <li class="job-list-item">
-      <a class="job-list-item-logo" href="http://powerhrg.com">
-        <img src="/media/resume/power-logo.svg" class="lazyload" loading="lazy" alt="Power">
-      </a>
-      <div class="job-list-item-title">
-        Vice President of User Experience
-        <span class="year">2017-2025</span>
-      </div>
-      <a class="job-list-item-company" href="http://powerhrg.com">Power</a>
-      <div class="job-list-item-description">
-        Leads the UX group, including world-class designers and the UX Engineering team responsible for building all UI across Power's platforms. Visionary behind Playbook, Power's open-source design system. Provided the space for its creation, contributed to its early development, and continues to guide the roadmap and future direction.
-      </div>
-    </li>
-
-    <li class="job-list-item">
-      <a class="job-list-item-logo mt-xs" href="https://boxboard.io/?utm_source=jasonblog&utm_medium=resume&utm_campaign=portfolio">
-        <img src="/media/resume/boxboard-logo.svg" class="lazyload" loading="lazy" alt="BoxBoard">
-      </a>
-      <div class="job-list-item-title">
-        Founder &amp; Creator
-        <span class="year">2014-Present</span>
-      </div>
-      <a class="job-list-item-company" href="https://boxboard.io/?utm_source=jasonblog&utm_medium=resume&utm_campaign=portfolio">BoxBoard</a>
-      <div class="job-list-item-description">Launched a CrossFit workout tracking app from the ground up — used by gyms across the U.S. Over 60,000 logged scores and 10,000+ workouts. Designed, coded, and scaled the entire platform solo, blending AI features, design systems, and modern Rails + React architecture.</div>
-    </li>
-
-    <li class="job-list-item">
-      <a class="job-list-item-logo" href="http://bloomboard.com">
-        <img src="/media/resume/bloom-logo.jpg" class="lazyload" loading="lazy" alt="BloomBoard">
-      </a>
-      <div class="job-list-item-title">
-        Senior Principal Product Designer
-        <span class="year">2014-2017</span>
-      </div>
-      <a class="job-list-item-company" href="http://bloomboard.com">BloomBoard</a>
-      <div class="job-list-item-description">Initially part of an EdTech innovation R&amp;D team developing productivity tools for professionals. Later led the creation of a new B2B SaaS product—an education tool for teacher credentialing—now used in school districts and higher education institutions nationwide.</div>
-    </li>
-
-    <li class="job-list-item">
-      <a class="job-list-item-logo" href="http://brainspace.com">
-        <img src="/media/resume/brainspace.png" class="lazyload" loading="lazy" alt="Brainspace">
-      </a>
-      <div class="job-list-item-title">
-        Principal Product Designer
-        <span class="year">2012-2014</span>
-      </div>
-      <a class="job-list-item-company" href="http://brainspace.com">Brainspace</a>
-      <div class="job-list-item-description">Worked on multiple AI and machine learning tools. Contributed to Pure Discovery, a LegalTech tool helping lawyers search massive datasets, and co-created Brainspace, which aggregated global research articles. Both tools were part of a merger and are now known as Reveal Brainspace.</div>
-    </li>
-
-    <li class="job-list-item">
-      <a class="job-list-item-logo" href="http://improving.com">
-        <img src="/media/resume/improving.png" class="lazyload" loading="lazy" alt="Improving">
-      </a>
-      <div class="job-list-item-title">
-        Principal UX Consultant
-        <span class="year">2010-2012</span>
-      </div>
-      <a class="job-list-item-company" href="http://improving.com">Improving</a>
-      <div class="job-list-item-description">Consulted with a range of clients on UX strategy and product development, working across startups and enterprise teams to rapidly prototype, validate, and deliver digital solutions. Known for fast delivery, clean design, and cross-disciplinary collaboration.</div>
-    </li>
-
-    <li class="job-list-item">
-      <div class="job-list-item-logo">
-        <img src="/media/resume/med.png" class="lazyload" loading="lazy" alt="Medfactory">
-      </div>
-      <div class="job-list-item-title">
-        Director of User Experience
-        <span class="year">2010</span>
-      </div>
-      <div class="job-list-item-company">Medfactory</div>
-      <div class="job-list-item-description">Led UX strategy and design for a HealthTech SaaS platform focused on physician recruiting and placement. Designed end-to-end experiences for both hospitals and candidates, enabling profile-based search, job discovery, and application workflows. Conducted user research, prototyping, and cross-functional collaboration to accelerate delivery. Helped shape acquisition and conversion strategies while modernizing the B2B and B2C digital experience in a niche healthcare market.</div>
-    </li>
-
-    <li class="job-list-item">
-      <div class="job-list-item-logo mt-xs">
-        <img src="/media/resume/true.png" class="lazyload" loading="lazy" alt="True.com">
-      </div>
-      <div class="job-list-item-title">
-        Senior UX Designer &amp; Developer
-        <span class="year">2008-2010</span>
-      </div>
-      <div class="job-list-item-company">Metric Interactive - True.com</div>
-      <div class="job-list-item-description">Led UX and front-end development for True.com, a consumer-facing dating platform, focusing on onboarding, user profiles, and matching experiences. Designed and coded interactive marketing sites, landing pages, and promotional tools for major B2B and B2C clients including Sherwin-Williams, Nokia, Acer, and RadioShack. Delivered component libraries and responsive UIs, enabling faster launches and better engagement. Collaborated cross-functionally in an Agile environment to create user-friendly digital products across diverse industries.</div>
-    </li>
-
-    <li class="job-list-item">
-      <div class="job-list-item-logo mt-xs">
-        <img src="/media/resume/hilton.png" class="lazyload" loading="lazy" alt="Hilton Hotels">
-      </div>
-      <div class="job-list-item-title">
-        Manager of Brand Content
-        <span class="year">2007-2008</span>
-      </div>
-      <div class="job-list-item-company">Hilton Hotels Corp.</div>
-      <div class="job-list-item-description">Managed Hilton's hotel landing page team, supporting digital content execution across brands like DoubleTree and Embassy Suites. Oversaw web content publishing and alignment with national campaigns, ensuring visual consistency across seasonal promotions and advertising. Served as creative lead and point of contact for custom landing pages, collaborating directly with property stakeholders to reflect local offers and amenities. Introduced themed templates to streamline production and scale content delivery across a high volume of requests.</div>
-    </li>
-
-    <li class="job-list-item">
-      <div class="job-list-item-logo mt-xs">
-        <img src="/media/resume/hilton.png" class="lazyload" loading="lazy" alt="Hilton Hotels">
-      </div>
-      <div class="job-list-item-title">
-        Senior UX Designer
-        <span class="year">2005-2007</span>
-      </div>
-      <div class="job-list-item-company">Hilton Hotels Corp.</div>
-      <div class="job-list-item-description">Designed and developed custom hotel landing pages to highlight amenities, promotions, and local attractions across Hilton's global brands. Partnered with individual hotel teams to translate marketing goals into rich, interactive content. Created scalable page layouts and integrated light Flash elements to enhance engagement. Supported cross-channel brand marketing efforts by aligning digital deliverables with print and TV campaigns.</div>
-    </li>
-  </ul>
-</section>
+<div class="resume">
+  <section class="resume__section">
+    <p class="resume__label">Work history</p>
+    <div class="resume__roles">
+      {% for role in resume.roles %}
+        <div class="resume__role{{ ' resume__role--grouped' if role.positions }}">
+          <div class="resume__aside">
+            {% if role.logo %}
+              {% set logoMarkup %}
+                <img class="resume__logo resume__logo--light{{ ' resume__logo--' + role.logoClass if role.logoClass }}" src="{{ role.logo }}" alt="{{ role.company }}" loading="lazy">
+                {% if role.logoDark %}
+                  <img class="resume__logo resume__logo--dark{{ ' resume__logo--' + role.logoClass if role.logoClass }}" src="{{ role.logoDark }}" alt="" aria-hidden="true" loading="lazy">
+                {% endif %}
+              {% endset %}
+              {% if role.href %}
+                <a href="{{ role.href }}" target="_blank" rel="noopener">{{ logoMarkup | safe }}</a>
+              {% else %}
+                {{ logoMarkup | safe }}
+              {% endif %}
+            {% endif %}
+          </div>
+          <div>
+            {% if role.positions %}
+              <div class="resume__titlerow">
+                <h2 class="resume__title">
+                  {% if role.href %}
+                    <a href="{{ role.href }}" target="_blank" rel="noopener">{{ role.company }}</a>
+                  {% else %}{{ role.company }}{% endif %}
+                </h2>
+                <span class="resume__years">{{ role.years }}</span>
+              </div>
+              <div class="resume__positions">
+                {% for position in role.positions %}
+                  <div class="resume__position">
+                    <div class="resume__positionrow">
+                      <h3 class="resume__position__title">{{ position.title }}</h3>
+                      <span class="resume__position__years">{{ position.years }}</span>
+                    </div>
+                    <p class="resume__desc">{{ position.description }}</p>
+                  </div>
+                {% endfor %}
+              </div>
+            {% else %}
+              <div class="resume__titlerow">
+                <h2 class="resume__title">{{ role.title }}</h2>
+                <span class="resume__years">{{ role.years }}</span>
+              </div>
+              <p class="resume__company">
+                {% if role.href %}
+                  <a href="{{ role.href }}" target="_blank" rel="noopener">{{ role.company }}</a>
+                {% else %}{{ role.company }}{% endif %}
+              </p>
+              <p class="resume__desc">{{ role.description }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>

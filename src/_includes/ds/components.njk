@@ -1,0 +1,178 @@
+{#
+  Design-system components, ported 1:1 from the Claude Design project's React
+  components to Nunjucks macros. Same class names, same DOM shape — so the
+  vendored CSS in stylesheets/ds/_components.scss applies unchanged, and a
+  future port to JSX/Astro is a mechanical translation rather than a redesign.
+
+  Import with:  {% from "ds/components.njk" import button, articleCard %}
+#}
+
+{#- Button — pill by default; shape="rounded" matches the hero CTA. -#}
+{% macro button(label, href="", variant="primary", size="md", shape="pill", icon="", iconRight="", newTab=false) -%}
+  {%- set cls = "jc-btn jc-btn--" + variant + " jc-btn--" + size + (" jc-btn--rounded" if shape == "rounded" else "") -%}
+  <a class="{{ cls }}" href="{{ href }}"{% if newTab %} target="_blank" rel="noopener"{% endif %}>
+    {%- if icon %}<i class="icon-{{ icon }}" aria-hidden="true"></i>{% endif -%}
+    <span>{{ label }}</span>
+    {%- if iconRight %}<i class="icon-{{ iconRight }}" aria-hidden="true"></i>{% endif -%}
+  </a>
+{%- endmacro %}
+
+{#- Circular icon-only button — the nav and footer social rows. -#}
+{% macro iconButton(icon, label, href, size="md", variant="plain") -%}
+  {%- set cls = "jc-iconbtn" + (" jc-iconbtn--sm" if size == "sm" else "") + (" jc-iconbtn--" + variant if variant != "plain" else "") -%}
+  <a class="{{ cls }}" href="{{ href }}" target="_blank" rel="noopener" aria-label="{{ label }}">
+    <i class="icon-{{ icon }}" aria-hidden="true"></i>
+  </a>
+{%- endmacro %}
+
+{#- Mute/unmute toggle overlaid on an autoplaying hero video. Starts muted
+    (required for autoplay); the script in layouts/ds.njk wires up the click
+    and toggles the two SVG states via the `is-unmuted` class. -#}
+{% macro muteToggle() -%}
+  <button type="button" class="video-mute" data-video-mute aria-pressed="false" aria-label="Turn on sound">
+    <svg class="video-mute__off" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polygon points="3 9 3 15 8 15 13 20 13 4 8 9 3 9" fill="currentColor" stroke="none"></polygon>
+      <line x1="16" y1="9" x2="22" y2="15"></line>
+      <line x1="22" y1="9" x2="16" y2="15"></line>
+    </svg>
+    <svg class="video-mute__on" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polygon points="3 9 3 15 8 15 13 20 13 4 8 9 3 9" fill="currentColor" stroke="none"></polygon>
+      <path d="M16 8a5 5 0 0 1 0 8"></path>
+      <path d="M19 5a9 9 0 0 1 0 14"></path>
+    </svg>
+  </button>
+{%- endmacro %}
+
+{#- Small uppercase label — article tags. -#}
+{% macro badge(text, href="", tone="neutral", shape="square") -%}
+  {%- set cls = "jc-badge jc-badge--" + tone + (" jc-badge--pill" if shape == "pill" else "") -%}
+  {%- if href -%}
+    <a class="{{ cls }}" href="{{ href }}">{{ text }}</a>
+  {%- else -%}
+    <span class="{{ cls }}">{{ text }}</span>
+  {%- endif -%}
+{%- endmacro %}
+
+{#-
+  Showcase banner — the full-bleed brand panel used for major work.
+  `item` keys: brand, logo, name, title, description, image, href, side, cta, years
+  `size="compact"` is the two-up "Earlier Chapters" scale: logo stays pinned at
+  the top, years+title+cta group at the bottom, cta is hover-revealed.
+-#}
+{% macro showcaseBanner(item, size="full") -%}
+  {%- set external = item.href | startsWith("http") -%}
+  <a class="jc-showcase jc-showcase--{{ item.brand }}{{ ' jc-showcase--left' if item.side == 'left' else '' }}{{ ' jc-showcase--compact' if size == 'compact' else '' }}"
+     href="{{ item.href }}"{% if external %} target="_blank" rel="noopener"{% endif %}>
+    <div class="jc-showcase__container">
+      <div class="jc-showcase__copy">
+        <div class="jc-showcase__brand">
+          {% if item.logo %}
+            <img class="jc-showcase__logo" src="{{ item.logo }}" alt="{{ item.name }}">
+          {% else %}
+            <div class="jc-showcase__name">{{ item.name }}</div>
+          {% endif %}
+        </div>
+        <div class="jc-showcase__body">
+          {% if item.years %}<span class="jc-showcase__years">{{ item.years }}</span>{% endif %}
+          {% if item.title %}<h4 class="jc-showcase__title">{{ item.title }}</h4>{% endif %}
+          <div class="jc-showcase__reveal">
+            <div class="jc-showcase__revealInner">
+              {% if item.description %}<p class="jc-showcase__desc">{{ item.description }}</p>{% endif %}
+              <span class="jc-showcase__cta">{{ item.cta or "Explore" }} <i class="icon-arrow-right" aria-hidden="true"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% if item.image %}
+        <img class="jc-showcase__image" src="{{ item.image }}" alt="{{ item.name }} product screens" loading="lazy">
+      {% endif %}
+    </div>
+  </a>
+{%- endmacro %}
+
+{#- One role in the work-experience column. -#}
+{% macro workItem(role) -%}
+  <div class="jc-work">
+    <div class="jc-work__years">{{ role.years }}</div>
+    <h4 class="jc-work__title">{{ role.title }} <span class="jc-work__company">{{ role.company }}</span></h4>
+    {% if role.description %}<p class="jc-work__desc">{{ role.description }}</p>{% endif %}
+  </div>
+{%- endmacro %}
+
+{#-
+  Blog post teaser. `variant` is featured | grid | compact.
+  `post` keys: title, url, date, summary, image, tags
+-#}
+{% macro articleCard(post, variant="grid") -%}
+  <article class="jc-article jc-article--{{ variant }}">
+    <div class="jc-article__image">
+      {% if post.image %}
+        <a href="{{ post.url }}" tabindex="-1" aria-hidden="true">
+          <img src="{{ post.image }}" alt="" loading="lazy">
+        </a>
+      {% endif %}
+    </div>
+    <div class="jc-article__content">
+      {% if post.date %}<div class="jc-article__date">{{ post.date }}</div>{% endif %}
+      <h3 class="jc-article__title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+      {% if post.summary %}<p class="jc-article__summary">{{ post.summary }}</p>{% endif %}
+      {% if post.tags %}
+        <div class="jc-article__tags">
+          {% for tag in post.tags %}{{ badge(tag, "/tags/" + (tag | slug) + "/") }}{% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </article>
+{%- endmacro %}
+
+{#- Fixed frosted-glass site header. -#}
+{% macro siteNav(logo, links, social, current="") -%}
+  <nav class="jc-nav">
+    <div class="jc-nav__container">
+      <a class="jc-nav__logo" href="/"><img src="{{ logo }}" alt="Jason Cypret"></a>
+      <ul class="jc-nav__menu">
+        {% for link in links %}
+          <li>
+            <a class="jc-nav__link" href="{{ link.url }}"{% if current == link.url %} aria-current="page"{% endif %}>{{ link.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+      <div class="jc-nav__right">
+        {% for s in social %}{{ iconButton(s.title, s.label or s.title, s.url) }}{% endfor %}
+        <button class="jc-themetoggle" type="button" data-theme-toggle aria-label="Switch between light and dark theme">
+          <span class="jc-themetoggle__moon" aria-hidden="true">&#9789;</span>
+          <span class="jc-themetoggle__sun" aria-hidden="true">&#9788;</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+{%- endmacro %}
+
+{#- Site footer: wordmark, link columns, social row, copyright. -#}
+{% macro siteFooter(logo, columns, social, legal) -%}
+  <footer class="jc-footer">
+    <div class="jc-footer__inner">
+      <div class="jc-footer__brand">
+        {% if logo %}<img src="{{ logo }}" alt="">{% endif %}
+        <span class="jc-footer__wordmark">Jason Cypret</span>
+      </div>
+      <div class="jc-footer__cols">
+        {% for col in columns %}
+          <div class="jc-footer__col">
+            <span class="jc-footer__heading">{{ col.heading }}</span>
+            {% for link in col.links %}
+              <a class="jc-footer__link" href="{{ link.url }}">{{ link.title }}</a>
+            {% endfor %}
+          </div>
+        {% endfor %}
+        <div class="jc-footer__col">
+          <span class="jc-footer__heading">Elsewhere</span>
+          <div class="jc-footer__social">
+            {% for s in social %}{{ iconButton(s.title, s.label or s.title, s.url, "sm") }}{% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="jc-footer__legal">{{ legal }}</div>
+  </footer>
+{%- endmacro %}

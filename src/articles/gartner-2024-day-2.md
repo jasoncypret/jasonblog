@@ -2,7 +2,7 @@
 title: "AI and the Future of UX: Key Takeaways from Gartner Day 2"
 date: 2024-10-22T21:15:00Z
 tags: [UX, Design, AI]
-layout: post
+layout: ds-post
 permalink: /gartner-2024-day-2/
 image: /articles/gartner-2024-day-2/Jensen.webp
 open_graph_image: /articles/gartner-2024-day-2/Jensen.webp

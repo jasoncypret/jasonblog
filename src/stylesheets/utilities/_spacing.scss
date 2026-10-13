@@ -1,19 +1,21 @@
+@use "../tokens/spacing";
+
 .mt-xs {
-  margin-top: $space-xs !important;
+  margin-top: spacing.$space-xs !important;
 }
 
 .mt-sm {
-  margin-top: $space-sm !important;
+  margin-top: spacing.$space-sm !important;
 }
 
 .mt-md {
-  margin-top: $space-md !important;
+  margin-top: spacing.$space-md !important;
 }
 
 .mt-lg {
-  margin-top: $space-lg !important;
+  margin-top: spacing.$space-lg !important;
 }
 
 .mt-xl {
-  margin-top: $space-xl !important;
+  margin-top: spacing.$space-xl !important;
 }

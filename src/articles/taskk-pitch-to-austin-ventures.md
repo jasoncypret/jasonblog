@@ -2,7 +2,7 @@
 title: Taskk Pitch to Austin Ventures
 date: 2013-04-15T00:00:00Z
 tags: [taskk, startup, pitch, austin ventures]
-layout: post
+layout: ds-post
 permalink: /taskk-pitch-to-austin-ventures/
 summary: Looking back at our pitch video for Austin Ventures, where we shared our vision for making task management more contextual and human.
 ---

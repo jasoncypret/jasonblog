@@ -2,7 +2,7 @@
 title: "Unlocking AI's Potential: Key Insights from Gartner Symposium Day 1"
 date: 2024-10-21T22:58:00Z
 tags: [UX, Design, AI]
-layout: post
+layout: ds-post
 permalink: /gartner-symposium-day-1/
 image: /articles/gartner-symposium-day-1/Day1.webp
 open_graph_image: /articles/gartner-symposium-day-1/Day1.webp

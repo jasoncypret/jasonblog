@@ -217,7 +217,7 @@ $neutral:             $slate !default;
 $neutral_secondary:   color.adjust($neutral, $lightness: 10%) !default;
 $neutral_subtle:      rgba($neutral, $opacity_1) !default;
 $primary:             $primary !default;
-$primary_secondary:   lighten($primary, 10%) !default;
+$primary_secondary:   color.adjust($primary, $lightness: 10%) !default;
 
 $status_colors: (
   success:            $success,
@@ -245,7 +245,7 @@ $status_colors: (
 $status_color_text: (
   success:            $success,
   success_sm:         $text_lt_success_sm,
-  warning:            darken($warning, 10%),
+  warning:            color.adjust($warning, $lightness: -10%),
   error:              $error,
   info:               $info,
   neutral:            $text_lt_light,
@@ -256,10 +256,10 @@ $status_color_text: (
 $status_color_text_dark: (
   success:            $success,
   success_sm:         $text_dk_success_sm,
-  warning:            darken($warning, 10%),
+  warning:            color.adjust($warning, $lightness: -10%),
   error:              $error,
   info:               $info,
-  neutral:            darken($neutral, 15%),
+  neutral:            color.adjust($neutral, $lightness: -15%),
   primary:            $primary
 );
 
@@ -373,7 +373,7 @@ $category_colors: (
 $transparent: transparent !default;
 
 @function tint($color, $percentage) {
-  @return mix($white, $color, $percentage);
+  @return color.mix($white, $color, $percentage);
 }
 
 @mixin gradient($start: $gradient_start, $end: $gradient_end) {

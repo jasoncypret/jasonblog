@@ -1,0 +1,595 @@
+@use "tokens";
+
+/* =============================================================================
+   Component layer — vendored from the Claude Design project.
+   Core primitives, layout chrome, then content components.
+   Every component reads from tokens only; no hard-coded colour outside brand.
+   ========================================================================== */
+
+/* --- Core: button -------------------------------------------------------- */
+.jc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  font-family: var(--font-sans);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-loose);
+  border: 2px solid transparent;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  appearance: none;
+  user-select: none;
+  transition: all var(--dur-slow) var(--ease-button);
+}
+.jc-btn--md { padding: var(--space-sm) var(--space-md); font-size: 17px; line-height: 1em; }
+.jc-btn--sm { padding: 9px 15px; font-size: var(--text-base); line-height: 1em; }
+.jc-btn--lg { padding: 18px 32px; font-size: 19px; line-height: 1em; }
+.jc-btn--rounded { border-radius: var(--space-sm); }
+.jc-btn--primary { background: var(--action-primary); color: var(--action-primary-text); border-color: var(--action-primary); }
+.jc-btn--primary:hover { transform: var(--lift-sm); box-shadow: var(--shadow-cta); color: var(--action-primary-text); }
+.jc-btn--secondary { background: transparent; color: var(--text-secondary); border: 1px solid var(--border); }
+.jc-btn--secondary:hover { color: var(--action-accent); border-color: var(--action-accent); background: var(--action-hover-wash); }
+.jc-btn--inverse { background: var(--white); color: var(--black); border-color: var(--white); }
+.jc-btn--inverse:hover { transform: var(--lift-sm); color: var(--black); }
+.jc-btn--link { background: none; border: 0; color: var(--text-link); padding-left: 0; padding-right: 0; letter-spacing: var(--tracking-loose); }
+.jc-btn--link:hover { color: var(--text-link-hover); }
+.jc-btn[disabled] { opacity: .4; cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* --- Core: icon button --------------------------------------------------- */
+.jc-iconbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 47px;
+  height: 47px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: var(--text-body);
+  border-radius: var(--radius-circle);
+  font-size: var(--text-md);
+  transition: all var(--dur-slow) var(--ease-standard);
+}
+.jc-iconbtn:hover { color: var(--action-accent); background: var(--action-hover-wash); transform: var(--lift-sm); }
+.jc-iconbtn--sm { width: 36px; height: 36px; font-size: var(--text-base); }
+.jc-iconbtn--outline { border: 1px solid var(--border); }
+.jc-iconbtn--onDark { color: var(--white); }
+.jc-iconbtn--onDark:hover { background: rgba(255, 255, 255, .14); color: var(--white); }
+
+/* --- Core: video mute toggle ---------------------------------------------
+   Overlaid on an autoplaying hero video (which has to start muted to
+   autoplay at all) — the only way a visitor can actually turn on the sound.
+   Positioned by the parent — see .wsplash__shot / .wHero__video. */
+.video-mute {
+  position: absolute;
+  z-index: 2;
+  bottom: calc(var(--space-md) + 16px);
+  right: calc(var(--space-md) + 16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: var(--radius-circle);
+  background: rgba(10, 10, 12, .55);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  color: var(--white);
+  cursor: pointer;
+  transition: background var(--dur-slow) var(--ease-standard), transform var(--dur-slow) var(--ease-standard);
+}
+.video-mute:hover { background: rgba(10, 10, 12, .75); transform: var(--lift-sm); }
+.video-mute__on { display: none; }
+.video-mute.is-unmuted .video-mute__on { display: block; }
+.video-mute.is-unmuted .video-mute__off { display: none; }
+
+/* --- Core: badge --------------------------------------------------------- */
+.jc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xxs);
+  padding: var(--space-xxs) var(--space-xs);
+  border-radius: var(--radius-xs);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-loose);
+  text-transform: uppercase;
+  background: var(--surface-sunken);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: background var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard);
+}
+.jc-badge--pill { border-radius: var(--radius-pill); padding: var(--space-xxs) 10px; }
+.jc-badge--accent { background: var(--action-hover-wash); color: var(--action-accent); }
+.jc-badge--solid { background: var(--action-primary); color: var(--action-primary-text); }
+a.jc-badge:hover { background: var(--border-strong); color: var(--text-body); }
+
+/* --- Core: card ---------------------------------------------------------- */
+.jc-card {
+  background: var(--surface-card);
+  border-radius: var(--radius-bento);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: transform var(--dur-slow) var(--ease-standard),
+              box-shadow var(--dur-slow) var(--ease-standard),
+              background var(--dur-slow) var(--ease-standard);
+}
+.jc-card--flush { border: 0; }
+.jc-card--tile { background: var(--surface-tile); border: 0; }
+.jc-card--interactive { cursor: pointer; }
+.jc-card--interactive:hover { transform: var(--lift-sm); box-shadow: var(--shadow-ambient); }
+.jc-card__media { display: block; width: 100%; object-fit: cover; }
+.jc-card__body { padding: var(--space-md); }
+
+/* --- Core: theme toggle -------------------------------------------------- */
+.jc-themetoggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-left: var(--space-xs);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-circle);
+  background: transparent;
+  color: var(--text-body);
+  cursor: pointer;
+  font-size: var(--text-base);
+  line-height: 1;
+  transition: all var(--dur-slow) var(--ease-standard);
+}
+.jc-themetoggle:hover { color: var(--action-accent); border-color: var(--action-accent); background: var(--action-hover-wash); }
+/* Show the icon for the theme you'd switch TO. */
+.jc-themetoggle__moon { display: inline; }
+.jc-themetoggle__sun { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .jc-themetoggle__moon { display: none; }
+  :root:not([data-theme="light"]) .jc-themetoggle__sun { display: inline; }
+}
+[data-theme="dark"] .jc-themetoggle__moon { display: none; }
+[data-theme="dark"] .jc-themetoggle__sun { display: inline; }
+[data-theme="light"] .jc-themetoggle__moon { display: inline; }
+[data-theme="light"] .jc-themetoggle__sun { display: none; }
+
+/* --- Layout: site nav ---------------------------------------------------- */
+.jc-nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--surface-glass);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border-bottom: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-glass);
+}
+.jc-nav__container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+.jc-nav__logo { display: flex; align-items: center; gap: var(--space-sm); width: 141px; color: var(--text-body); }
+.jc-nav__logo img { height: 34px; width: auto; }
+.jc-nav__logo img,
+.jc-footer__brand img {
+  @include tokens.when-dark { filter: brightness(0) invert(1); }
+}
+.jc-nav__logo:hover { color: var(--action-accent); }
+.jc-nav__menu { display: flex; align-items: center; gap: var(--space-lg); }
+.jc-nav__link {
+  color: var(--text-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-base);
+  letter-spacing: var(--tracking-loose);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--space-xs);
+  transition: all var(--dur-slow) var(--ease-standard);
+}
+.jc-nav__link:hover,
+.jc-nav__link[aria-current="page"] { color: var(--action-accent); background: var(--action-hover-wash); }
+.jc-nav__right { display: flex; align-items: center; gap: var(--space-xs); }
+
+@media (max-width: 720px) {
+  .jc-nav__menu { gap: var(--space-sm); }
+  .jc-nav__link { padding: var(--space-xs); font-size: var(--text-body-sm); }
+  /* Drop the social row, keep the theme toggle — it's a control, not a link. */
+  .jc-nav__right .jc-iconbtn { display: none; }
+  .jc-nav__logo { width: auto; }
+}
+
+/* --- Layout: footer ------------------------------------------------------ */
+.jc-footer { border-top: 1px solid var(--border); padding: var(--space-xl) var(--space-md) var(--space-lg); }
+.jc-footer__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.jc-footer__brand { display: flex; align-items: center; gap: var(--space-sm); }
+.jc-footer__brand img { height: 32px; }
+.jc-footer__wordmark { font-size: var(--text-md); font-weight: var(--weight-bold); letter-spacing: var(--tracking-tight); color: var(--text-heading); }
+.jc-footer__cols { display: flex; gap: var(--space-2xl); flex-wrap: wrap; }
+.jc-footer__col { display: flex; flex-direction: column; gap: var(--space-xs); }
+.jc-footer__heading {
+  font-size: var(--text-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-looser);
+  color: var(--text-tertiary);
+  font-weight: var(--weight-bold);
+  margin-bottom: var(--space-xxs);
+}
+.jc-footer__link { color: var(--text-secondary); font-size: var(--text-body-sm); font-weight: var(--weight-medium); }
+.jc-footer__link:hover { color: var(--text-heading); }
+.jc-footer__social { display: flex; margin-left: -10px; }
+.jc-footer__legal {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: var(--space-lg) auto 0;
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--border);
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+}
+
+/* --- Content: article card ----------------------------------------------- */
+.jc-article { display: flex; flex-direction: column; height: 100%; border-radius: var(--space-sm); transition: transform var(--dur-base) var(--ease-standard); }
+.jc-article:hover { transform: var(--lift-sm); }
+.jc-article__image { border-radius: var(--space-sm); overflow: hidden; background: var(--grad-article); }
+.jc-article__image img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--space-sm); transition: transform var(--dur-slow) var(--ease-standard); }
+.jc-article:hover .jc-article__image img { transform: scale(1.05); }
+.jc-article--featured .jc-article__image { height: 240px; }
+.jc-article--grid .jc-article__image { height: 180px; }
+.jc-article--compact .jc-article__image { height: 140px; }
+.jc-article__content { display: flex; flex-direction: column; flex: 1; margin-top: var(--space-sm); }
+.jc-article__date {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-regular);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-loose);
+  margin-bottom: var(--space-xs);
+}
+.jc-article__title { font-weight: var(--weight-bold); color: var(--text-body); line-height: var(--leading-heading); letter-spacing: var(--tracking-tight); }
+.jc-article--featured .jc-article__title { font-size: var(--text-h5); margin-bottom: var(--space-sm); }
+.jc-article--grid .jc-article__title { font-size: var(--text-md); margin-bottom: var(--space-xs); }
+.jc-article--compact .jc-article__title { font-size: var(--text-base); margin-bottom: var(--space-xs); }
+.jc-article__title a { color: inherit; }
+.jc-article__title a:hover { color: var(--action-accent); }
+.jc-article__summary { color: var(--text-secondary); font-weight: var(--weight-medium); flex: 1; }
+.jc-article--featured .jc-article__summary { font-size: var(--text-base); line-height: 1.6; }
+.jc-article--grid .jc-article__summary {
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-normal);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  /* Must not grow: the inherited `flex: 1` stretches the -webkit-box to the
+     card's full height, which lets extra lines render and get sliced mid-glyph
+     instead of clamping at two. Tags still pin to the bottom via margin-top. */
+  flex: none;
+}
+.jc-article__tags { display: flex; flex-wrap: wrap; gap: var(--space-xxs); margin-top: auto; padding-top: var(--space-sm); }
+
+/* --- Content: work item -------------------------------------------------- */
+.jc-work { display: flex; flex-direction: column; gap: var(--space-xxs); }
+.jc-work__years { font-size: var(--text-xs); font-weight: var(--weight-regular); color: var(--action-accent); }
+.jc-work__title { font-size: var(--text-base); font-weight: var(--weight-bold); color: var(--text-body); line-height: var(--leading-heading); }
+.jc-work__company { font-size: var(--text-body-sm); font-weight: var(--weight-medium); color: var(--text-secondary); }
+.jc-work__desc { font-size: 13px; font-weight: var(--weight-medium); color: var(--text-secondary); line-height: var(--leading-normal); }
+
+/* --- Content: showcase banner -------------------------------------------- */
+.jc-showcase { display: block; margin: var(--space-xl) auto; max-width: var(--container-max); }
+.jc-showcase__container {
+  position: relative;
+  display: flex;
+  height: 600px;
+  border-radius: var(--radius-showcase);
+  overflow: hidden;
+  transition: scale var(--dur-base) var(--ease-standard);
+}
+.jc-showcase:hover .jc-showcase__container { scale: 1.01; }
+.jc-showcase--left .jc-showcase__container { flex-direction: row-reverse; }
+.jc-showcase--power .jc-showcase__container { background: var(--grad-power); }
+.jc-showcase--bloomboard .jc-showcase__container { background: var(--grad-bloomboard); }
+.jc-showcase--brainspace .jc-showcase__container { background: var(--grad-brainspace); }
+.jc-showcase--boxboard .jc-showcase__container { background: var(--grad-boxboard); }
+.jc-showcase--worlds .jc-showcase__container { background: var(--grad-worlds); }
+/* Copy column: 25% basis is load-bearing, not cosmetic. The product shot is
+   absolutely positioned at 80% width with a -10% overhang, so a wider column
+   runs underneath it. At 25% the two clear each other by ~15px. */
+.jc-showcase__copy {
+  position: relative;
+  z-index: 2;
+  flex-basis: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: var(--space-2xl) var(--space-lg) var(--space-2xl) var(--space-2xl);
+  color: var(--white);
+}
+.jc-showcase--left .jc-showcase__copy { margin: var(--space-2xl) var(--space-2xl) var(--space-2xl) var(--space-lg); }
+
+/* Logo block takes 1 share, copy takes 3 — this is what pulls the wordmark up
+   toward the top and keeps the text tight beneath it. */
+.jc-showcase__brand { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; }
+.jc-showcase__body { flex: 3; }
+.jc-showcase__logo {
+  width: 80%;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: left center;
+}
+.jc-showcase--power .jc-showcase__brand { align-items: center; }
+.jc-showcase--power .jc-showcase__logo { width: 70%; }
+.jc-showcase--bloomboard .jc-showcase__logo { width: 90%; }
+.jc-showcase--worlds .jc-showcase__logo { width: 65%; }
+
+.jc-showcase__name { font-size: var(--text-h2); text-transform: uppercase; letter-spacing: var(--tracking-looser); color: var(--white); margin-bottom: var(--space-lg); }
+.jc-showcase__title {
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  color: var(--white);
+  line-height: 1.5;
+  margin-bottom: var(--space-sm);
+}
+.jc-showcase__desc {
+  font-size: var(--text-base);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, .7);
+  font-weight: var(--weight-regular);
+  margin-bottom: var(--space-sm);
+}
+.jc-showcase__cta { display: inline-flex; align-items: center; gap: var(--space-sm); color: var(--white); font-weight: var(--weight-semibold); font-size: var(--text-base); }
+/* Height-collapsing wrapper around desc+cta — a no-op at full size (always
+   expanded); the compact variant below collapses it to 0 and grows it on
+   hover, which is what makes the title above it shift up as it grows. */
+.jc-showcase__reveal { display: grid; grid-template-rows: 1fr; }
+.jc-showcase__revealInner { overflow: hidden; min-height: 0; }
+.jc-showcase__image {
+  position: absolute;
+  z-index: 1;
+  width: 80%;
+  top: 90px;
+  right: -10%;
+  transition: top var(--dur-base) var(--ease-standard);
+}
+.jc-showcase--left .jc-showcase__image { right: auto; left: -10%; }
+
+/* BoxBoard's render is a near-square cluster of phones — it needs to be larger
+   and pulled up above the frame so the devices fill the panel and crop at the
+   bottom, rather than shrinking to fit and leaving the copy side empty. */
+.jc-showcase--boxboard .jc-showcase__image { top: -112px; width: 90%; right: -2%; }
+
+.jc-showcase--worlds .jc-showcase__image {
+  border-radius: var(--radius-2xl);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, .55);
+  border: 1px solid rgba(255, 255, 255, .12);
+  top: 70px;
+}
+
+/* Narrower desktops: drop the shot so it clears the copy as the column tightens. */
+@media (max-width: 1240px) {
+  .jc-showcase__image { top: 170px; }
+}
+
+@media (max-width: 1130px) {
+  .jc-showcase__container { flex-direction: column !important; height: auto; }
+  .jc-showcase__copy { flex: 1; }
+  .jc-showcase__brand { width: 100%; display: flex; align-items: center; margin-bottom: var(--space-xl); }
+  .jc-showcase__logo,
+  .jc-showcase--power .jc-showcase__logo,
+  .jc-showcase--bloomboard .jc-showcase__logo { width: auto; max-width: 260px; }
+  .jc-showcase__image,
+  .jc-showcase--boxboard .jc-showcase__image {
+    position: relative;
+    top: auto;
+    bottom: -20px;
+    right: auto;
+    left: auto;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .jc-showcase--boxboard .jc-showcase__image { width: 100%; }
+}
+
+/* --- Content: showcase banner, compact scale ("Earlier Chapters") --------
+   Same brand panel + bleeding product shot as the full banner above, at a
+   two-up scale. Differences from full size, all deliberate:
+   - logo stays pinned top, years+title group at the bottom (space-between)
+   - the cta is a hover reveal, not a permanent fixture, at this size
+   - the shot bleeds bigger, tilts a few degrees, and fades at its near edge
+     via a mask instead of a hard clip
+   - the copy block gets its own soft scrim so text stays legible regardless
+     of how light the brand gradient runs at that corner */
+.jc-showcase--compact {
+  /* The base rule centers a single full-width card with auto margins — inside
+     a 2-up grid cell that makes the card hug its own content width and leave
+     a huge gap between the two. A grid item needs a real margin to stretch. */
+  margin: 0;
+  max-width: none;
+}
+.jc-showcase--compact .jc-showcase__container {
+  height: auto;
+  min-height: 460px;
+  border-radius: var(--radius-showcase);
+}
+/* Scrim: anchored to the bottom edge, between the image (z 0) and the copy
+   (z 2) — a protect-bottom wash, not a diagonal one, since the text itself
+   lives at the bottom and grows taller (toward the middle) on hover. */
+.jc-showcase--compact .jc-showcase__container::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 75%;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(0, 0, 0, .55) 0%, rgba(0, 0, 0, .26) 45%, transparent 100%);
+  pointer-events: none;
+}
+.jc-showcase--compact .jc-showcase__copy { flex-basis: 55%; justify-content: space-between; margin: var(--space-xl); }
+.jc-showcase--compact .jc-showcase__brand { flex: 0 0 auto; }
+.jc-showcase--compact .jc-showcase__logo { width: auto; height: 42px; max-width: 85%; }
+.jc-showcase--compact .jc-showcase__body { flex: 0 0 auto; }
+.jc-showcase--compact .jc-showcase__years {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .6);
+  margin-bottom: var(--space-sm);
+}
+.jc-showcase--compact .jc-showcase__title {
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: var(--tracking-display-md);
+  margin-bottom: 0;
+}
+/* Title sits flush at the bottom of the card by default — .jc-showcase__reveal
+   is collapsed to 0 height, so nothing is reserved below it. On hover the
+   reveal wrapper grows to its content height; because .jc-showcase__body is
+   the bottom item in a space-between copy column, growing it pushes its own
+   top edge — the title — upward rather than growing the card itself. */
+.jc-showcase--compact .jc-showcase__reveal {
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur-slower) var(--ease-standard);
+}
+.jc-showcase--compact:hover .jc-showcase__reveal { grid-template-rows: 1fr; }
+.jc-showcase--compact .jc-showcase__desc {
+  max-width: 38ch;
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-normal);
+  margin: var(--space-sm) 0 0;
+}
+.jc-showcase--compact .jc-showcase__cta { margin-top: var(--space-md); }
+
+.jc-showcase--compact .jc-showcase__image {
+  z-index: 0;
+  width: 85%;
+  top: 7%;
+  right: -14%;
+  transform: perspective(1200px) rotateY(-16deg) rotateX(2deg) scale(1.04);
+  transform-origin: right center;
+  mask-image: linear-gradient(100deg, transparent 0%, black 32%);
+  -webkit-mask-image: linear-gradient(100deg, transparent 0%, black 32%);
+}
+.jc-showcase--compact.jc-showcase--left .jc-showcase__image {
+  right: auto;
+  left: -14%;
+  transform: perspective(1200px) rotateY(16deg) rotateX(2deg) scale(1.04);
+  transform-origin: left center;
+  mask-image: linear-gradient(-100deg, transparent 0%, black 32%);
+  -webkit-mask-image: linear-gradient(-100deg, transparent 0%, black 32%);
+}
+
+@media (max-width: 700px) {
+  .jc-showcase--compact .jc-showcase__container { flex-direction: column !important; height: auto; min-height: 0; }
+  .jc-showcase--compact .jc-showcase__container::before { display: none; }
+  .jc-showcase--compact .jc-showcase__copy { margin: var(--space-lg); }
+  .jc-showcase--compact .jc-showcase__reveal { grid-template-rows: 1fr; }
+  .jc-showcase--compact .jc-showcase__image {
+    position: relative;
+    top: auto; right: auto; left: auto;
+    width: 100%;
+    order: -1;
+    transform: none;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+}
+
+/* --- Content: prose (article body) --------------------------------------- */
+.jc-prose {
+  max-width: var(--reading-width);
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: var(--leading-prose);
+  color: var(--text-body);
+}
+.jc-prose h2 { font-size: 26px; line-height: var(--leading-snug); margin: 35px 0 25px; letter-spacing: var(--tracking-display); }
+.jc-prose h3 { font-size: 20px; margin: 35px 0 25px; }
+.jc-prose h4 { font-size: 18px; margin: 30px 0 20px; }
+.jc-prose p,
+.jc-prose ul,
+.jc-prose ol,
+.jc-prose blockquote,
+.jc-prose pre,
+.jc-prose figure { margin: 0 0 25px; }
+.jc-prose ul, .jc-prose ol { padding-left: 30px; list-style: disc; }
+.jc-prose ol { list-style: decimal; }
+.jc-prose li { margin-bottom: 8px; }
+.jc-prose a { color: var(--text-link); text-decoration: underline; text-underline-offset: 3px; }
+.jc-prose a:hover { color: var(--text-heading); }
+.jc-prose strong { font-weight: var(--weight-bold); color: var(--text-heading); }
+.jc-prose blockquote {
+  color: var(--text-secondary);
+  font-style: italic;
+  font-size: 120%;
+  border-left: 6px solid var(--action-accent);
+  padding-left: 20px;
+  margin-left: 0;
+}
+.jc-prose img,
+.jc-prose video { width: 100%; height: auto; border-radius: var(--space-sm); }
+.jc-prose hr { display: block; width: 20%; margin: 32px auto; border: 0; border-top: 1px solid var(--border); }
+.jc-prose pre {
+  background: var(--surface-tile);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  overflow-x: auto;
+  font-size: var(--text-body-sm);
+  line-height: 1.6;
+  font-family: var(--font-mono);
+}
+.jc-prose :not(pre) > code {
+  background: var(--surface-tile);
+  border-radius: var(--radius-xs);
+  padding: 2px 6px;
+  font-size: 0.9em;
+  font-family: var(--font-mono);
+}
+.jc-prose table { width: 100%; border-collapse: collapse; margin: 0 0 25px; font-size: var(--text-sm); }
+.jc-prose th, .jc-prose td { border-bottom: 1px solid var(--border); padding: 10px 12px; text-align: left; }
+.jc-prose th { font-weight: var(--weight-bold); color: var(--text-heading); }
+
+/* --- Content: tag tile --------------------------------------------------- */
+.jc-tagtile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 120px;
+  padding: var(--space-md);
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: all var(--dur-slow) var(--ease-standard);
+}
+.jc-tagtile:hover { background: var(--action-accent); border-color: var(--action-accent); transform: var(--lift-sm); box-shadow: var(--shadow-ambient); }
+.jc-tagtile__name { font-size: var(--text-md); font-weight: var(--weight-bold); color: var(--text-body); margin-bottom: var(--space-xs); transition: color var(--dur-slow) var(--ease-standard); }
+.jc-tagtile__count { font-size: var(--text-body-sm); font-weight: var(--weight-medium); color: var(--text-secondary); transition: color var(--dur-slow) var(--ease-standard); }
+.jc-tagtile:hover .jc-tagtile__name,
+.jc-tagtile:hover .jc-tagtile__count { color: var(--white); }
+
+/* --- Content: pagination ------------------------------------------------- */
+.jc-pagination { display: flex; justify-content: center; gap: var(--space-md); margin-top: var(--space-xl); padding-bottom: var(--space-4xl); flex-wrap: wrap; }

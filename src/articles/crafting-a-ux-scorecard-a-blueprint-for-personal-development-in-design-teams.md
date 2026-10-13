@@ -2,7 +2,7 @@
 title: Crafting a UX Scorecard
 date: 2024-05-09T23:52:00Z
 tags: [UX Design, Leadership]
-layout: post
+layout: ds-post
 permalink: /crafting-a-ux-scorecard-a-blueprint-for-personal-development-in-design-teams/
 summary:  A Blueprint for Personal Development in Design Teams.
 image: /articles/crafting-a-ux-scorecard-a-blueprint-for-personal-development-in-design-teams/radar.webp

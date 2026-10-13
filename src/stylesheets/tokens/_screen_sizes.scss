@@ -1,3 +1,4 @@
+@use "sass:map";
 $screen-xs-min: 575px !default;
 $screen-xs-max: $screen-xs-min - 1 !default;
 $screen-sm-min: 576px !default;
@@ -58,5 +59,5 @@ $breakpoints_max_only: (
 
 
 @function breakpoint($breakpoint_name) {
-  @return map-get($breakpoints, $breakpoint_name);
+  @return map.get($breakpoints, $breakpoint_name);
 }

@@ -1,3 +1,8 @@
+@use "../../mixins/typography";
+@use "../../tokens/colors";
+@use "../../tokens/typography" as typography2;
+@use "../../mixins/functions";
+
 // $button_md_y_spacing: ($space_xs + 2px);
 // $button_md_x_spacing: ($space_sm - 4px);
 $button_md_y_spacing: 10px;
@@ -21,7 +26,7 @@ $button_md_x_spacing: 18px;
     @include button-size(
       18px,
       18px,
-      ($text_large - 1px),
+      (typography2.$text_large - 1px),
       80%
     );
   }
@@ -29,7 +34,7 @@ $button_md_x_spacing: 18px;
     @include button-size(
       9px,
       15px,
-      $text_base,
+      typography2.$text_base,
       80%
     );
     font-weight: 700;
@@ -38,7 +43,7 @@ $button_md_x_spacing: 18px;
     @include button-size(
       6px,
       10px,
-      $text_smallest,
+      typography2.$text_smallest,
       1em
     );
     font-weight: 700;
@@ -50,9 +55,9 @@ $button_md_x_spacing: 18px;
     }
   }
   &.black {
-    color: tint(black, 20%) !important;
+    color: functions.tint(black, 20%) !important;
     &:hover {
-      color: tint(black, 20%);
+      color: functions.tint(black, 20%);
     }
   }
   &.no-shadow:hover {
@@ -64,29 +69,29 @@ $button_md_x_spacing: 18px;
 // Button Disabled State (Might need different versions for styles)
 @mixin btn-disabled($base-color) {
   cursor: not-allowed;
-  opacity: $opacity-7;
+  opacity: colors.$opacity-7;
   background: $gray-2;
   border-color: $gray-2;
-  @include text-color($gray-2, false);
+  @include typography.text-color($gray-2, false);
   box-shadow: none;
   text-shadow: none;
   text-decoration: none;
 }
 
 @mixin btn-hover($base_color) {
-  $hover_color: shade($base_color, 20%);
+  $hover_color: functions.shade($base_color, 20%);
   background: $hover_color;
   border-color: $hover_color;
-  @include text_color($base_color, $more_contrast: true);
+  @include typography.text_color($base_color, $more_contrast: true);
   text-shadow: none;
   text-decoration: none;
 }
 
 @mixin btn-active($base_color) {
-  $active_color: tint($base_color, 10%);
+  $active_color: functions.tint($base_color, 10%);
   background: $active_color;
   border-color: $active_color;
-  @include text-color($active_color, $more_contrast: true);
+  @include typography.text-color($active_color, $more_contrast: true);
   text-shadow: none;
   text-decoration: none;
 }
@@ -97,12 +102,12 @@ $button_md_x_spacing: 18px;
   @include button-size(
     $button_md_y_spacing,
     $button_md_x_spacing,
-    ($text_base + 1px),
+    (typography2.$text_base + 1px),
     1em
   );
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-weight: $bold;
+  font-weight: typography2.$bold;
   white-space: nowrap;
   outline: 0;
   text-align: center;

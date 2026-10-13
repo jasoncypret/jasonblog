@@ -1,3 +1,5 @@
+@use "../../tokens/colors";
+
 .media-showcase {
   margin: 120px auto;
   padding: 0 24px;
@@ -15,7 +17,7 @@
       font-size: 48px;
       line-height: 1.1;
       font-weight: 600;
-      color: $text_lt_default;
+      color: colors.$text_lt_default;
       margin-bottom: 16px;
 
       @media (max-width: 768px) {
@@ -26,7 +28,7 @@
     &-description {
       font-size: 21px;
       line-height: 1.5;
-      color: $text_lt_light;
+      color: colors.$text_lt_light;
 
       @media (max-width: 768px) {
         font-size: 18px;
@@ -54,7 +56,7 @@
       position: relative;
       border-radius: 14px;
       overflow: hidden;
-      background: $white;
+      background: colors.$white;
       transition: transform 0.3s ease;
       cursor: pointer;
       aspect-ratio: 1;
@@ -135,7 +137,7 @@
       font-size: 32px;
       line-height: 1.2;
       font-weight: 500;
-      color: $text_lt_default;
+      color: colors.$text_lt_default;
       margin-bottom: 16px;
 
       @media (max-width: 768px) {
@@ -146,7 +148,7 @@
     &-description {
       font-size: 18px;
       line-height: 1.5;
-      color: $text_lt_light;
+      color: colors.$text_lt_light;
       display: flex;
       gap: 48px;
       text-align: left;

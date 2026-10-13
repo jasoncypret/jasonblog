@@ -2,7 +2,7 @@
 title: "Incredible Week at Convergence AI in Dallas"
 date: 2026-04-02T12:00:00Z
 tags: [AI, UX, design, conference, leadership]
-layout: post
+layout: ds-post
 permalink: /incredible-week-at-convergence-ai-in-dallas/
 description: "Our CEO demoed live at Convergence AI Dallas — agentic search, customizable dashboards, and real-time spatialization. Here's what it felt like to watch months of product work land with a real audience, and what I took away from the week."
 keywords: "Convergence AI Dallas, AI conference, UX design, product design, design leadership, agentic AI, Worlds, Jason Cypret"

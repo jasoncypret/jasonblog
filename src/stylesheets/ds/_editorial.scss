@@ -1,0 +1,98 @@
+// =============================================================================
+// Editorial sections for the company case-study pages.
+//
+// These sections (hero, media showcase, photo content, stats masonry,
+// highlights, image gallery, lightbox) are carried over from the legacy
+// stylesheet UNCHANGED so the company pages keep working while they move onto
+// the design-system chrome — nav, footer, fonts and theme now match the rest
+// of the site.
+//
+// They still use the legacy Sass variables rather than DS tokens, which means
+// they do NOT respond to the dark-mode toggle. Most are dark gradient panels
+// already, so they read fine either way. Redesigning them onto the DS
+// editorial components is the natural next pass.
+//
+// Each partial below declares its own token dependencies via @use, so this
+// file is just the manifest of editorial sections.
+// =============================================================================
+
+// `.caption` is a plain CSS class that lives in mixins/_typography.scss despite
+// the filename — the highlights and photo-content sections both use it.
+@use "../mixins/typography";
+
+@use "../views/companies/hero";
+@use "../views/companies/highlights";
+@use "../views/companies/photo_content";
+@use "../views/companies/stats_masonry";
+@use "../views/companies/image_gallery";
+@use "../views/companies/media_showcase";
+@use "../components/lightbox";
+
+// -----------------------------------------------------------------------------
+// Fixes for carrying these sections onto the DS layout.
+// -----------------------------------------------------------------------------
+
+// The legacy gallery thumbnails start at `opacity: 0` and are only revealed
+// when lazysizes adds `.lazyloaded`. The DS layout doesn't load lazysizes, so
+// every gallery image rendered invisible. The images have real `src`
+// attributes and need no lazy-loading shim, so make them visible by default —
+// content visibility should never depend on a third-party script.
+.gallery-thumbnail,
+.media-showcase-grid .gallery-thumbnail,
+.image-gallery .gallery-thumbnail {
+  opacity: 1;
+}
+
+// Theme-awareness --------------------------------------------------------
+// These sections were written against fixed light-mode colours. Re-point them
+// at DS tokens whose LIGHT values are byte-identical to the originals
+// (--text-body #242B42, --text-secondary #687887, --surface-card #FFFFFF,
+// --surface-tile #F2F4F7), so light mode is unchanged and dark mode works.
+//
+// Deliberately NOT re-pointed: white text that sits on a brand gradient or a
+// black/blue stat tile, and the caption overlay on top of an image. Those are
+// white in both themes by design.
+
+.media-showcase-header-title,
+.media-showcase-footer-title,
+.stats-masonry-intro-quote,
+.stats-masonry-cta-title,
+.image-gallery .gallery-item .gallery-item-title {
+  color: var(--text-body);
+}
+
+.media-showcase-header-description,
+.media-showcase-footer-description,
+.stats-masonry-footnote,
+.stats-masonry-cta-subtitle,
+.stats-masonry .stats-item__icons i,
+.image-gallery .gallery-item .gallery-item-description,
+.caption {
+  color: var(--text-secondary);
+}
+
+.media-showcase-grid-item,
+.image-gallery .gallery-item {
+  background: var(--surface-card);
+}
+
+.stats-masonry .stats-item {
+  background: var(--surface-tile);
+}
+
+// The undefined custom properties these sections reference (--color-headings,
+// --color-texts-opacity, --bg-6) were dead in the legacy site too — the
+// declarations resolved to nothing. Define them from tokens so the rules do
+// what they always intended, and follow the theme.
+:root {
+  --color-headings: var(--text-heading);
+  --color-texts-opacity: var(--text-secondary);
+  --color-primary: var(--action-accent);
+  --bg-6: var(--surface-sunken);
+}
+
+// Section dividers and any residual white section backgrounds.
+.media-showcase,
+.image-gallery,
+.stats-masonry,
+.photo-content { background: transparent; }

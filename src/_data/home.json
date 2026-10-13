@@ -1,0 +1,213 @@
+{
+  "_comment": "Homepage content, ported from the Claude Design project's home-data.js. Blog posts are NOT listed here — the homepage reads collections.articles so it never goes stale.",
+  "_todo_links": "Destinations now match the live site: BoxBoard links externally, BloomBoard/Brainspace are Earlier Chapters (external), Power and Worlds have their own /companies/ pages. Only /speaking/ is still missing (statement band points at /resume/).",
+  "nav": [
+    {
+      "title": "Work",
+      "url": "/resume/"
+    },
+    {
+      "title": "Blog",
+      "url": "/blog/"
+    },
+    {
+      "title": "Contact",
+      "url": "mailto:jason@jasoncypret.com"
+    }
+  ],
+  "social": [
+    {
+      "title": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://linkedin.com/in/jasoncypret"
+    },
+    {
+      "title": "x-twitter",
+      "label": "X",
+      "url": "https://twitter.com/JasonCypret"
+    },
+    {
+      "title": "github",
+      "label": "GitHub",
+      "url": "https://github.com/jasoncypret"
+    }
+  ],
+  "hero": {
+    "eyebrow": "Jason Cypret",
+    "title": "I build the interface between humans and AI.",
+    "image": "/media/site/avatar.webp",
+    "badgeLogo": "/media/logos/worlds-brand-blk.svg",
+    "badgeText": "Head of Product Experience",
+    "ctaLabel": "Get in touch",
+    "ctaUrl": "mailto:jason@jasoncypret.com"
+  },
+  "approach": "I've spent twenty years on both sides of the handoff, leading design and engineering orgs and writing the code myself. AI collapsed that gap. Today I take ideas from concept to production directly, and I build the systems and team habits that let a small team use AI to move like a big one.",
+  "work": [
+    {
+      "years": "2025—Present",
+      "title": "Head of Product Experience",
+      "company": "Worlds",
+      "description": "Leading design and front-end engineering for a physical-AI platform. Unified three codebases into one product, brought design in-house, hired the team and shipped AI-native features, from voice agents to dashboards that agents build over MCP."
+    },
+    {
+      "years": "2014—Present",
+      "title": "Founder & Creator",
+      "company": "BoxBoard",
+      "description": "Built and run a CrossFit platform for gyms across the U.S. and abroad, owning product, design, code and AI coaching end to end."
+    },
+    {
+      "years": "2017—2025",
+      "title": "VP of UX",
+      "company": "Power",
+      "description": "Grew the UX org from 1 to 30+, launched 20+ products including Power's first consumer app, and created Playbook, an open-source design system with 2M+ downloads."
+    },
+    {
+      "years": "2014—2017",
+      "title": "Sr. Principal Product Designer",
+      "company": "BloomBoard",
+      "description": "Took a credentialing platform from R&D to market. It's now used by school districts and universities nationwide."
+    }
+  ],
+  "worlds": {
+    "eyebrow": "What I'm building now",
+    "mark": "/media/logos/worlds-brand-wht.svg",
+    "title": "Making physical AI usable.",
+    "description": "I lead Product Experience at Worlds, covering design and front-end engineering for a platform where organizations direct, search and act on their physical AI in real time, with agentic workflows and reasoning AI across live camera networks.",
+    "description2": "In my first year, three codebases became one product on one design system, design moved in-house, the demo went live in any environment, and AI agents can now build dashboards on their own. Along the way the product helped win national retail, QSR, logistics and federal customers.",
+    "href": "/companies/worlds/",
+    "secondaryLabel": "Visit Worlds",
+    "secondaryUrl": "https://worlds.io",
+    "image": "/media/companies/worlds/year-in-review_thumb.jpg",
+    "imageAlt": "Worlds IQ — searching a live camera network and mapping results in real time",
+    "video": "/media/companies/worlds/year-in-review.mp4",
+    "specs": [
+      {
+        "k": "Codebases unified into one product",
+        "v": "3 → 1"
+      },
+      {
+        "k": "Dashboard widgets, all buildable by AI",
+        "v": "~100"
+      },
+      {
+        "k": "Design brought in-house",
+        "v": "Agency → in-house"
+      }
+    ]
+  },
+  "major": [
+    {
+      "brand": "power",
+      "logo": "/media/companies/power/shared/power-logo.svg",
+      "name": "Power",
+      "title": "Built the team. Built the system. Built what's next.",
+      "description": "Grew UX from 1 to 30+ and launched 20+ products, from customer-facing apps to internal HR, learning and in-home sales platforms. Created Playbook, an open-source design system with 2M+ downloads across Ruby, React and SwiftUI.",
+      "image": "/media/homepage/power-splash.png",
+      "href": "/companies/power/",
+      "quote": "Built for speed, refined through iteration. That mindset still shapes how I work.",
+      "side": "left"
+    },
+    {
+      "brand": "boxboard",
+      "logo": "/media/companies/boxboard/boxboard-white-logo.svg",
+      "name": "BoxBoard",
+      "title": "One person. Whole product. Real gyms.",
+      "description": "Founder and creator. I designed, coded and shipped a CrossFit platform end to end: custom-trained AI coaching, native iOS and Android apps, and live chat. 70,000+ scores and 15,000+ workouts logged.",
+      "image": "/media/homepage/boxboard-splash.png",
+      "href": "https://boxboard.io/?utm_source=jasonblog&utm_medium=homepage&utm_campaign=showcase",
+      "quote": "It started as one person's side project. Now it's part of how gyms train.",
+      "side": "right"
+    }
+  ],
+  "earlierChapters": [
+    {
+      "brand": "bloomboard",
+      "logo": "/media/companies/bloomboard/Bloomboard.svg",
+      "name": "BloomBoard",
+      "years": "2014—2017",
+      "title": "Turning R&D into real products educators trust.",
+      "description": "Led design for a micro-credentialing platform now used by districts nationwide — from prototyping ideas to launching the full platform.",
+      "image": "/media/homepage/bloom-splash.png",
+      "href": "https://bloomboard.com/"
+    },
+    {
+      "brand": "brainspace",
+      "logo": "/media/companies/brainspace/Brainspace-white-logo.svg",
+      "name": "Brainspace",
+      "years": "2012—2014",
+      "title": "Making machine learning legible, a decade early.",
+      "description": "Investigative analytics for teams working through millions of documents — designing and iterating through four product evolutions.",
+      "image": "/media/homepage/brain-splash.png",
+      "href": "https://www.revealdata.com/product/brainspace"
+    }
+  ],
+  "statement": {
+    "title": "Make it bold. Make it clear. Make it last.",
+    "body": "From first sketch to launch-ready platform, I turn ambiguity into systems, and systems into momentum — on the team, and on the stage in front of a few thousand people.",
+    "linkLabel": "Speaking & workshops",
+    "linkUrl": "mailto:jason@jasoncypret.com",
+    "strip": [
+      {
+        "src": "/media/homepage/hero.webp",
+        "alt": "Jason speaking at Nitro Create"
+      },
+      {
+        "src": "/media/homepage/workshop.webp",
+        "alt": "Running a design workshop"
+      },
+      {
+        "src": "/media/companies/bloomboard/sightglass.webp",
+        "alt": "Working session"
+      }
+    ]
+  },
+  "footer": {
+    "logo": "/media/homepage/JC-logo.svg",
+    "legal": "© Jason Cypret",
+    "columns": [
+      {
+        "heading": "Work",
+        "links": [
+          {
+            "title": "Power",
+            "url": "/companies/power/"
+          },
+          {
+            "title": "Worlds",
+            "url": "/companies/worlds/"
+          },
+          {
+            "title": "All experience",
+            "url": "/resume/"
+          }
+        ]
+      },
+      {
+        "heading": "Writing",
+        "links": [
+          {
+            "title": "Blog",
+            "url": "/blog/"
+          },
+          {
+            "title": "Tags",
+            "url": "/tags/"
+          }
+        ]
+      },
+      {
+        "heading": "Contact",
+        "links": [
+          {
+            "title": "Email",
+            "url": "mailto:jason@jasoncypret.com"
+          },
+          {
+            "title": "LinkedIn",
+            "url": "https://linkedin.com/in/jasoncypret"
+          }
+        ]
+      }
+    ]
+  }
+}

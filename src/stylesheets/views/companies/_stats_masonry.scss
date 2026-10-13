@@ -1,3 +1,8 @@
+@use "sass:color";
+@use "../../tokens/colors";
+@use "../../tokens/spacing";
+@use "../../tokens/typography";
+
 .stats-masonry-intro {
   display: flex;
   flex-direction: column;
@@ -14,7 +19,7 @@
     line-height: 1.5;
     text-align: center;
     margin-bottom: 1.5rem;
-    color: $text_lt_default;
+    color: colors.$text_lt_default;
   }
 }
 
@@ -61,12 +66,12 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: $space_sm 0;
+    padding: spacing.$space_sm 0;
     height: 100%;  // Ensure items fill their container
 
     &--html {
       text-align: left;
-      padding: $space_sm;
+      padding: spacing.$space_sm;
     }
 
     &--image, &--video {
@@ -82,11 +87,11 @@
     }
 
     i {
-      color: $white;
+      color: colors.$white;
       position: absolute;
-      top: $space_sm;
-      left: $space_sm;
-      font-size: $text_large;
+      top: spacing.$space_sm;
+      left: spacing.$space_sm;
+      font-size: typography.$text_large;
     }
 
     &__title {
@@ -112,32 +117,32 @@
     }
 
     &__icons {
-      margin-top: $space_sm;
+      margin-top: spacing.$space_sm;
       i {
         position: static;
-        margin-top: $space_sm;
-        color: $text_lt_light;
-        margin: $space_xxs;
+        margin-top: spacing.$space_sm;
+        color: colors.$text_lt_light;
+        margin: spacing.$space_xxs;
       }
     }
 
     &.black {
       background: #000;
       .stats-item__title, .stats-item__title_sm {
-        color: $white;
+        color: colors.$white;
       }
       .stats-item__subtitle, .stats-item__description_small {
-        color: rgba($white, 0.7);
+        color: rgba(colors.$white, 0.7);
       }
     }
 
     &.blue {
       background: #3300FF;
       .stats-item__title, .stats-item__title_sm {
-        color: $white;
+        color: colors.$white;
       }
       .stats-item__subtitle, .stats-item__description {
-        color: rgba($white, 0.7);
+        color: rgba(colors.$white, 0.7);
       }
     }
   }
@@ -167,7 +172,7 @@
   padding: 0 10px;
   margin: auto;
   font-size: 14px;
-  color: $text_lt_light;
+  color: colors.$text_lt_light;
 }
 
 .stats-masonry-cta {
@@ -180,21 +185,21 @@
 
   &-title {
     font-size: 36px;
-    color: $text_lt_default;
+    color: colors.$text_lt_default;
     margin-bottom: 1rem;
   }
 
   &-subtitle {
     font-size: 15px;
-    color: $text_lt_light;
+    color: colors.$text_lt_light;
     margin-top: 1.5rem;
     margin-bottom: 2rem;
     a {
-      color: $royal;
+      color: colors.$royal;
       text-decoration: underline;
       font-weight: bold;
       &:hover {
-        color: darken($royal, 10%);
+        color: color.adjust(colors.$royal, $lightness: -10%);
       }
     }
   }

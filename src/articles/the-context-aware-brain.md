@@ -2,7 +2,7 @@
 title: Taskk & The Context Aware Brain
 date: 2013-03-25T00:00:00Z
 tags: [technology]
-layout: post
+layout: ds-post
 permalink: /the-context-aware-brain/
 image: /articles/the-context-aware-brain/taskk.webp
 open_graph_image: /articles/the-context-aware-brain/taskk.webp

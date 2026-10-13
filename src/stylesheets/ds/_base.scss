@@ -1,0 +1,87 @@
+/* =============================================================================
+   Element defaults for pages on the design-system layout.
+
+   Scoped-by-bundle, not by selector: this file only ships in ds.css, which is
+   loaded by layouts/ds.njk. Legacy pages on layouts/base.njk keep site.css and
+   are completely unaffected.
+   ========================================================================== */
+
+*, *:before, *:after { box-sizing: border-box; }
+
+html { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
+  color: var(--text-body);
+  background: var(--canvas);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-display);
+  color: var(--text-heading);
+}
+
+p { margin: 0; }
+
+a {
+  color: var(--text-link);
+  text-decoration: none;
+  transition: color var(--dur-base) var(--ease-standard);
+}
+a:hover { color: var(--text-link-hover); }
+
+img, svg, video { display: block; max-width: 100%; }
+
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+button { font: inherit; color: inherit; }
+
+:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+
+/* Respect the OS-level reduced-motion preference for every transition and
+   transform the component layer introduces. */
+@media (prefers-reduced-motion: reduce) {
+  *, *:before, *:after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Skip link — the design system's nav is sticky, so keyboard users need a way
+   past it. Visible only on focus. */
+.ds-skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1100;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--action-primary);
+  color: var(--action-primary-text);
+  font-weight: var(--weight-bold);
+  border-radius: 0 0 var(--radius-lg) 0;
+}
+.ds-skip:focus {
+  left: 0;
+  color: var(--action-primary-text);
+}
+
+/* The legacy editorial sections on the company pages bleed past their
+   container by design (.photo-content is `width: calc(100% + 100px)` with a
+   -50px left margin). Where the container is already full-width that tipped
+   the whole page into horizontal scroll. Clip the bleed instead — `clip`
+   rather than `hidden` so no scroll container is created and the sticky nav,
+   which lives outside <main>, is unaffected. */
+main { overflow-x: clip; }

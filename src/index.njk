@@ -1,36 +1,177 @@
 ---
-title: Jason Cypret - VP of UX & Product Design Leader
-description: VP of UX and Product Design Leader with 10+ years of experience building user-centered digital experiences. Currently scaling UX teams and launching innovative products at Power.
-keywords: UX Design, Product Design, Design Leadership, User Experience, Digital Product Design, Design Systems, Lean UX, Jason Cypret, VP of UX
-og_title: Jason Cypret - VP of UX & Product Design Leader | Building User-Centered Digital Experiences
-og_description: VP of UX and Product Design Leader with 10+ years of experience. Led UX at Power, scaled teams from 1 to 30+, and launched multi-language open-source design systems.
-twitter_title: Jason Cypret - VP of UX & Product Design Leader
-twitter_description: VP of UX building user-centered digital experiences. Led UX at Power, scaled teams, launched design systems. 10+ years experience.
-layout: base
-page_classes: index
+title: Jason Cypret — Building the interface between humans and AI
+description: Head of Product Experience at Worlds. Twenty years shipping product as an AI orchestrator with deep product, design and engineering roots.
+og_title: Jason Cypret — Building the interface between humans and AI
+og_description: Head of Product Experience at Worlds. Twenty years shipping product — product, design and engineering in one loop instead of three handoffs.
+layout: ds
 ---
 
-{% include "homepage/hero.njk" %}
-{% include "homepage/quick_summary.njk" %}
-{% include "homepage/quote_section.njk" %}
-<div class="showcase-title-container fade-in-up">
-  <h5 class="header-subtitle pt-3 mt-5">Selected Work & Impact</h5>
-  {% set portfolio_link = null %}
-  {% for download in site.downloads %}
-    {% if download.title == "portfolio" %}
-      {% set portfolio_link = download %}
-    {% endif %}
-  {% endfor %}
-  {% if portfolio_link %}
-    <a href="{{ portfolio_link.url }}" class="btn btn--link small no-shadow pr-0 pt-3 mt-5" target="_blank">
-      Download My Portfolio <i class='icon-download'></i>
-    </a>
+{% from "ds/components.njk" import button, showcaseBanner, workItem, articleCard, muteToggle %}
+
+{# collections.articles is sorted newest-first in .eleventy.js #}
+{% set latest = collections.articles | first %}
+
+{# ---------------------------------------------------------------- Hero -- #}
+<section class="heroA">
+  <div>
+    <p class="eyebrow">{{ home.hero.eyebrow }}</p>
+    <h1 class="heroA__h">{{ home.hero.title }}</h1>
+    <p class="heroA__lede">
+      <strong>Twenty years and 30+ products shipped</strong> as a product and design executive.
+      Today I work as an AI orchestrator: I lead the team, set the direction and write a lot
+      of the code myself, so product, design and engineering run as one continuous loop
+      instead of three handoffs.
+    </p>
+    <div class="heroA__actions">
+      {{ button(home.hero.ctaLabel, home.hero.ctaUrl, "primary", "md", "rounded", "", "arrow-right") }}
+      <a class="inline-link" href="#work">See the work <i class="icon-arrow-down" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <div class="heroA__media">
+    <img class="heroA__img" src="{{ home.hero.image }}" alt="Jason Cypret" width="800" height="1000">
+    <div class="heroA__badge">
+      <img src="{{ home.hero.badgeLogo }}" alt="Worlds">
+      <span class="heroA__badgeTxt">{{ home.hero.badgeText }}</span>
+    </div>
+  </div>
+</section>
+
+{# -------------------------------------------------------- Latest post -- #}
+{% if latest %}
+<a class="latest" href="{{ latest.url }}">
+  {% if latest.data.image %}
+    <img class="latest__thumb" src="{{ latest.data.image }}" alt="" loading="lazy">
   {% endif %}
+  <span class="latest__body">
+    <span class="latest__kicker">Latest from the blog <span class="latest__dot">·</span> {{ latest.date | dateReadable }}</span>
+    <span class="latest__t">{{ latest.data.title }}</span>
+  </span>
+  <span class="latest__cta">Read the post <i class="icon-arrow-right" aria-hidden="true"></i></span>
+</a>
+{% endif %}
+
+{# ------------------------------------------------------ Worlds splash -- #}
+<div data-theme="dark">
+  <section class="wsplash">
+    <div class="wsplash__in">
+      <p class="wsplash__eyebrow">{{ home.worlds.eyebrow }}</p>
+      <img class="wsplash__mark" src="{{ home.worlds.mark }}" alt="Worlds">
+      <h2 class="wsplash__h">{{ home.worlds.title }}</h2>
+      <p class="wsplash__lede">{{ home.worlds.description }}</p>
+      {% if home.worlds.description2 %}<p class="wsplash__lede">{{ home.worlds.description2 }}</p>{% endif %}
+      <div class="wsplash__actions">
+        {{ button("See the work", home.worlds.href, "inverse", "md", "rounded", "", "arrow-right") }}
+        <a class="wsplash__link" href="{{ home.worlds.secondaryUrl }}" target="_blank" rel="noopener">
+          {{ home.worlds.secondaryLabel }} <i class="icon-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+    {% if home.worlds.video %}
+      <div class="wsplash__shot">
+        <video autoplay muted loop playsinline preload="auto" poster="{{ home.worlds.image }}">
+          <source src="{{ home.worlds.video }}" type="video/mp4">
+        </video>
+        {{ muteToggle() }}
+      </div>
+    {% elif home.worlds.image %}
+      <div class="wsplash__shot">
+        <img src="{{ home.worlds.image }}" alt="{{ home.worlds.imageAlt }}" loading="lazy">
+      </div>
+    {% endif %}
+  </section>
+  <div class="specband">
+    <div class="specband__in">
+      {% for spec in home.worlds.specs %}
+        <div>
+          <p class="specband__k">{{ spec.k }}</p>
+          <p class="specband__v">{{ spec.v }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 </div>
-{% include "homepage/showcase_power.njk" %}
-{% include "homepage/showcase_box.njk" %}
-{% include "homepage/showcase_bloom.njk" %}
-{% include "homepage/showcase_brain.njk" %}
-<h5 class="header-subtitle pt-3 mt-5 fade-in-up">Let's Build Something Together</h5>
-{% include "homepage/my_features.njk" %}
-{% include "homepage/speaking.njk" %}
+
+{# ----------------------------------------------------- Selected work -- #}
+<div id="work">
+  <div class="sectionTop">
+    <div>
+      <p class="eyebrow">What else I've built</p>
+      <h2>Selected work &amp; impact.</h2>
+    </div>
+    {# Hidden for now — re-enable by uncommenting if we bring the portfolio download back.
+    {% for download in site.downloads %}
+      {% if download.title == "portfolio" %}
+        {{ button("Download my portfolio", download.url, "secondary", "md", "rounded", "download", "", true) }}
+      {% endif %}
+    {% endfor %}
+    #}
+  </div>
+
+  <div class="showcase-stack">
+    {% for company in home.major %}
+      {{ showcaseBanner(company) }}
+      <p class="quoteline">&ldquo;{{ company.quote }}&rdquo;</p>
+    {% endfor %}
+  </div>
+
+  <div class="chaptersTop">
+    <p class="eyebrow">Earlier chapters</p>
+  </div>
+  <div class="chapters">
+    {% for item in home.earlierChapters %}{{ showcaseBanner(item, "compact") }}{% endfor %}
+  </div>
+
+</div>
+
+{# --------------------------------------------------------- Statement -- #}
+<section class="speak">
+  <h2 class="speak__h">{{ home.statement.title }}</h2>
+  <p class="speak__p">{{ home.statement.body }}</p>
+  <div class="speak__strip">
+    {% for shot in home.statement.strip %}
+      <img src="{{ shot.src }}" alt="{{ shot.alt }}" loading="lazy">
+    {% endfor %}
+  </div>
+  <a class="speak__link" href="{{ home.statement.linkUrl }}">
+    {{ home.statement.linkLabel }} <i class="icon-arrow-right" aria-hidden="true"></i>
+  </a>
+</section>
+
+{# ---------------------------------------------- Approach + experience -- #}
+<div class="twoCol">
+  <div>
+    <p class="eyebrow">My approach</p>
+    <h2>Leadership that ships.</h2>
+    <p>{{ home.approach }}</p>
+    <a class="inline-link" href="/resume/">See all experience <i class="icon-arrow-right" aria-hidden="true"></i></a>
+  </div>
+  <div>
+    <p class="eyebrow" style="margin-bottom: 24px;">Work experience</p>
+    <div class="twoCol__roles">
+      {% for role in home.work %}{{ workItem(role) }}{% endfor %}
+    </div>
+  </div>
+</div>
+
+{# -------------------------------------------------------------- Blog -- #}
+<div>
+  <div class="sectionTop" style="padding-top: 0;">
+    <div>
+      <p class="eyebrow">From the blog</p>
+      <h2>What I'm thinking about.</h2>
+    </div>
+    <a class="inline-link" href="/blog/">Go to blog <i class="icon-arrow-right" aria-hidden="true"></i></a>
+  </div>
+  <div class="bloggrid">
+    {% for post in collections.articles | limit(3) %}
+      {{ articleCard({
+        title: post.data.title,
+        url: post.url,
+        date: post.date | dateReadable,
+        summary: post.data.summary,
+        image: post.data.image,
+        tags: post.data.tags
+      }, "grid") }}
+    {% endfor %}
+  </div>
+</div>

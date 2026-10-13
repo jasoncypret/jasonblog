@@ -2,7 +2,7 @@
 title: "Shipping Fast, Breaking Less: Managing Tech Debt in the AI Era"
 date: 2025-06-05T15:46:00Z
 tags: [AI, productivity, coding, development, tech debt]
-layout: post
+layout: ds-post
 permalink: /shipping-fast-breaking-less-managing-tech-debt-in-the-ai-era/
 image: /articles/shipping-fast-breaking-less-managing-tech-debt-in-the-ai-era/good-vibes-hero.webp
 open_graph_image: /articles/shipping-fast-breaking-less-managing-tech-debt-in-the-ai-era/good-vibes-hero.webp

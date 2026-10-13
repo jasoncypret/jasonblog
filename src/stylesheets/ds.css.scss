@@ -1,0 +1,24 @@
+// =============================================================================
+// ds.css — stylesheet for pages on the design-system layout (layouts/ds.njk).
+//
+// Deliberately a SEPARATE bundle from site.css. The legacy Middleman-era
+// stylesheet carries its own reset, grid and utility classes that fight the
+// design system's element defaults, so the two never load on the same page.
+// Pages migrate to the new system one at a time by switching their layout.
+//
+// Load order matters: tokens define the custom properties everything else
+// reads, so they come first.
+// =============================================================================
+
+@use "ds/tokens";
+
+// The jasonicon webfont and its .icon-* glyph classes are shared with the
+// legacy stylesheet — one source of truth, imported into both bundles.
+@use "scaffold/icons";
+
+@use "ds/base";
+@use "ds/components";
+@use "ds/home";
+@use "ds/pages";
+@use "ds/worlds";
+@use "ds/editorial";

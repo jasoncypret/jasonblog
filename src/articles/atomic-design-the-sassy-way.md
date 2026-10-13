@@ -2,7 +2,7 @@
 title: Atomic Design the Sassy Way
 date: 2017-02-26T23:52:00Z
 tags: [Sass, Atomic Design]
-layout: post
+layout: ds-post
 permalink: /atomic-design-the-sassy-way/
 summary: Atomic design and Sass...the perfect pair.
 ---

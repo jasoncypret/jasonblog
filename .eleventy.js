@@ -18,12 +18,21 @@ function slugify(str) {
 }
 
 module.exports = function(eleventyConfig) {
-  // Compile SCSS after every build (so dev --serve has CSS and build has CSS)
+  // Compile SCSS after every build (so dev --serve has CSS and build has CSS).
+  // Two independent bundles: site.css for legacy pages, ds.css for pages on the
+  // design-system layout. They are never loaded together — see ds.css.scss.
+  const STYLESHEET_BUNDLES = [
+    ["src/stylesheets/site.css.scss", "_site/stylesheets/site.css"],
+    ["src/stylesheets/ds.css.scss", "_site/stylesheets/ds.css"],
+  ];
+
   eleventyConfig.on("eleventy.after", () => {
     const cwd = process.cwd();
-    const input = path.join(cwd, "src/stylesheets/site.css.scss");
-    const output = path.join(cwd, "_site/stylesheets/site.css");
-    execSync(`npx sass "${input}" "${output}"`, { stdio: "inherit", cwd });
+    for (const [from, to] of STYLESHEET_BUNDLES) {
+      const input = path.join(cwd, from);
+      const output = path.join(cwd, to);
+      execSync(`npx sass "${input}" "${output}"`, { stdio: "inherit", cwd });
+    }
   });
 
   // Watch stylesheets so SCSS changes trigger a rebuild (and thus recompile)

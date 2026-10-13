@@ -1,78 +1,37 @@
 ---
-layout: base
-page_classes: calendar
+layout: ds
 pagination:
   data: collections.years
   size: 1
   alias: year
 permalink: /calendar/{{ year }}/index.html
+eleventyComputed:
+  title: "Archive for {{ year }} — Jason Cypret"
+  description: "Every article published in {{ year }}."
 ---
+{% from "ds/browse.njk" import browseCards %}
+{% set yearArticles = collections.articlesByYear[year] %}
 
-<div class="blog-container">
-  <div class="blog-header">
-    <div class="blog-header-content">
-      <h1 class="blog-title">Archive for {{ year }}</h1>
-      <a href="/blog/" class="btn btn--link small no-shadow pl-0">
-        <i class='icon-arrow-left'></i> Back to Blog
+<div class="pagehead">
+  <div class="pagehead__main">
+    <p class="eyebrow">Archive</p>
+    <h1 class="pagehead__title">{{ year }}</h1>
+    <p class="pagehead__sub">{{ yearArticles.length }} article{% if yearArticles.length != 1 %}s{% endif %} published this year.</p>
+    <a class="pagehead__back" href="/calendar/"><i class="icon-arrow-left" aria-hidden="true"></i> All years</a>
+  </div>
+  {{ browseCards("calendar") }}
+</div>
+
+<div class="yearlist">
+  <section class="yeargroup">
+    {% for article in yearArticles %}
+      <a class="postrow" href="{{ article.url }}">
+        <span class="postrow__date">{{ article.date | dateReadable }}</span>
+        <span>
+          <span class="postrow__t">{{ article.data.title }}</span>
+          {% if article.data.summary %}<span class="postrow__s">{{ article.data.summary }}</span>{% endif %}
+        </span>
       </a>
-    </div>
-    
-    <div class="blog-sidebar">
-      <h3>Browse Content</h3>
-      
-      <div class="blog-sidebar-content-cards">
-        <div class="content-card active">
-          <a href="/calendar/" class="content-link">
-            <i class='icon icon-calendar-alt'></i>
-            <div class="title">Articles by Year</div>
-          </a>
-        </div>
-        
-        <div class="content-card">
-          <a href="/tags/" class="content-link">
-            <i class='icon icon-tag'></i>
-            <div class="title">Articles by Category</div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="blog-content">
-    <div class="blog-articles">
-      {% set yearArticles = collections.articlesByYear[year] %}
-      {% if yearArticles and yearArticles.length > 0 %}
-        <div class="grid-articles">
-          <div class="row">
-            {% for article in yearArticles %}
-              <div class="col-lg-4 col-md-6">
-                <article class="blog-article blog-article--grid">
-                  <div class="article-image">
-                    {% if article.data.image %}
-                      <a href="{{ article.url }}">
-                        <img src="{{ article.data.image }}" alt="{{ article.data.title }}" class="lazyload" loading="lazy">
-                      </a>
-                    {% endif %}
-                  </div>
-                  
-                  <div class="article-content">
-                    <small class="article-date">{{ article.date | dateFormat }}</small>
-                    
-                    <h2 class="article-title">
-                      <a href="{{ article.url }}">{{ article.data.title }}</a>
-                    </h2>
-                    
-                  </div>
-                </article>
-              </div>
-            {% endfor %}
-          </div>
-        </div>
-      {% else %}
-        <div class="no-articles">
-          <p>No articles found for {{ year }}.</p>
-        </div>
-      {% endif %}
-    </div>
-  </div>
+    {% endfor %}
+  </section>
 </div>

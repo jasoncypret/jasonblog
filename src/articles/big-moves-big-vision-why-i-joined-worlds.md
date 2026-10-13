@@ -2,7 +2,7 @@
 title: "Big Moves, Big Vision: Why I Joined Worlds"
 date: 2025-08-04T23:13:00Z
 tags: [career, ai, product-experience, leadership]
-layout: post
+layout: ds-post
 permalink: /big-moves-big-vision-why-i-joined-worlds/
 description: "Why I joined Worlds to lead Product Experience and help shape the future of AI-powered computer vision."
 keywords: "AI, computer vision, product experience, leadership, Worlds, Jason Cypret"

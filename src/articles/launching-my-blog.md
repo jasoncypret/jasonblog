@@ -2,7 +2,7 @@
 title: Re-Launching My Blog
 date: 2015-09-23T14:40:00Z
 tags: []
-layout: post
+layout: ds-post
 permalink: /launching-my-blog/
 image: /articles/launching-my-blog/omg.gif
 summary: OMG! I'm blogging again! Well, maybe it's not that big of a deal, but I'm excited.

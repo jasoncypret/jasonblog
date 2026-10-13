@@ -81,8 +81,9 @@
   <h5 class="stats-masonry-cta-title">{{ cta.title }}</h5>
   {% endif %}
   {% if cta.button_text and cta.button_url %}
-  <a href="{{ cta.button_url }}" class="btn btn--black" target="_blank" rel="noopener">
-    {{ cta.button_text }} <i class="icon-arrow-up-right-from-square"></i>
+  {# DS button — the legacy .btn classes live in site.css, which these pages no longer load #}
+  <a href="{{ cta.button_url }}" class="jc-btn jc-btn--primary jc-btn--md" target="_blank" rel="noopener">
+    <span>{{ cta.button_text }}</span> <i class="icon-arrow-up-right-from-square" aria-hidden="true"></i>
   </a>
   {% endif %}
   {% if cta.subtitle %}

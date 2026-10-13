@@ -2,7 +2,7 @@
 title: The Squint Test
 date: 2015-10-01T16:33:00Z
 tags: [UX, Design]
-layout: post
+layout: ds-post
 permalink: /the-squint-test/
 image: /articles/the-squint-test/blur.webp
 open_graph_image: /articles/the-squint-test/blur.webp

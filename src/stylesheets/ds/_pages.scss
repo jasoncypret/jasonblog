@@ -1,0 +1,389 @@
+@use "tokens";
+
+/* =============================================================================
+   Page patterns shared by every non-home page on the design-system layout:
+   blog listing, tag index, tag pages, calendar, resume and articles.
+
+   One header pattern and one listing grid, so the whole site reads as a set.
+   ========================================================================== */
+
+/* --- Page header --------------------------------------------------------- */
+.pagehead {
+  max-width: var(--measure-wide);
+  margin: 0 auto;
+  padding: 72px var(--space-md) var(--space-xl);
+  display: flex;
+  gap: var(--space-xl);
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.pagehead__main { flex: 1 1 420px; min-width: 0; }
+.pagehead__title {
+  font-size: clamp(38px, 4.6vw, 60px);
+  line-height: 1.05;
+  letter-spacing: -.035em;
+  font-weight: var(--weight-bold);
+  color: var(--text-heading);
+  margin: 10px 0 0;
+  text-wrap: balance;
+}
+.pagehead__sub {
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary);
+  margin: var(--space-sm) 0 0;
+  max-width: 52ch;
+}
+.pagehead__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--text-secondary);
+}
+.pagehead__back:hover { color: var(--action-accent); }
+
+/* Browse cards that sit beside the page title on listing pages. */
+.browse { display: flex; flex-direction: column; gap: var(--space-xs); flex: 0 0 auto; }
+.browse__heading {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-looser);
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-xxs);
+}
+.browse__card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  min-width: 240px;
+  padding: 14px var(--space-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-bento);
+  background: var(--surface-card);
+  color: var(--text-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-body-sm);
+  transition: all var(--dur-slow) var(--ease-standard);
+}
+.browse__card:hover { color: var(--action-accent); border-color: var(--action-accent); transform: var(--lift-sm); }
+.browse__card i { font-size: var(--text-md); color: var(--action-accent); }
+.browse__card[aria-current="page"] { background: var(--surface-tile); border-color: var(--border-strong); }
+
+/* --- Listing grids ------------------------------------------------------- */
+.listing {
+  max-width: var(--measure-wide);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: grid;
+  gap: var(--space-lg) var(--space-md);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.listing--featured { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-bottom: var(--space-xl); }
+.listing__empty {
+  max-width: var(--measure-wide);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md) var(--space-4xl);
+  color: var(--text-secondary);
+}
+
+/* --- Tag cloud ----------------------------------------------------------- */
+.tagcloud {
+  max-width: var(--measure-wide);
+  margin: 0 auto;
+  padding: 0 var(--space-md) var(--space-4xl);
+  display: grid;
+  gap: var(--space-sm);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+/* --- Article page --------------------------------------------------------
+   The header is a full-bleed banner: the article image as background under a
+   scrim, title/summary/date centred in white on top. Articles without an image
+   fall back to the brand gradient. This is carried over from the legacy
+   article layout deliberately — it's the strongest thing about the old page.  */
+.posthead {
+  position: relative;
+  text-align: center;
+  color: var(--white);
+  background: var(--grad-article);
+  overflow: hidden;
+}
+.posthead__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+.posthead__inner {
+  position: relative;
+  z-index: 2;
+  max-width: var(--reading-width);
+  margin: 0 auto;
+  padding: 140px var(--space-md);
+}
+/* Scrim only when there's a photo behind the type. */
+.posthead--image .posthead__inner { background: transparent; }
+.posthead--image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.55);
+}
+.posthead__meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+.posthead__title {
+  font-size: clamp(32px, 4.4vw, 42px);
+  line-height: 1.12;
+  letter-spacing: -.03em;
+  font-weight: var(--weight-bold);
+  color: var(--white);
+  margin: var(--space-md) 0 0;
+  text-wrap: balance;
+}
+.posthead__sub {
+  font-size: 18px;
+  line-height: var(--leading-normal);
+  color: rgba(255, 255, 255, 0.7);
+  margin: var(--space-md) auto 0;
+  max-width: 60ch;
+}
+.posthead__tags { display: flex; flex-wrap: wrap; gap: var(--space-xxs); justify-content: center; margin-top: var(--space-md); }
+.posthead__tags .jc-badge { background: rgba(255, 255, 255, 0.16); color: rgba(255, 255, 255, 0.9); }
+.posthead__tags a.jc-badge:hover { background: rgba(255, 255, 255, 0.3); color: var(--white); }
+
+.post {
+  max-width: var(--reading-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md) var(--space-lg);
+}
+
+/* Media breaks out of the reading column — the legacy layout let videos and
+   embeds run to 1120px, and losing that is the main reason the new page felt
+   cramped. `.post-embed` is the wrapper the articles already use for YouTube. */
+.post video,
+.post .post-embed,
+.post figure.wide {
+  display: block;
+  width: 100%;
+  max-width: var(--measure-wide);
+  height: auto;
+  margin: var(--space-xl) auto;
+  border-radius: var(--radius-bento);
+}
+/* Break past the 700px column when the viewport allows it. */
+@media (min-width: 780px) {
+  .post video,
+  .post .post-embed,
+  .post figure.wide {
+    width: calc(100vw - 2 * var(--space-md));
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+  .post video.portrait { width: 100%; }
+}
+.post video.portrait { max-width: 420px; }
+
+.post .post-embed {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+.post .post-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  transform: none;
+  border: 0;
+}
+
+.postfoot {
+  max-width: var(--reading-width);
+  margin: var(--space-xl) auto 0;
+  /* Generous bottom padding — this row used to butt straight into the footer. */
+  padding: var(--space-lg) var(--space-md) var(--space-4xl);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* --- Calendar ------------------------------------------------------------ */
+.yearlist {
+  max-width: var(--measure-wide);
+  margin: 0 auto;
+  padding: 0 var(--space-md) var(--space-4xl);
+}
+.yeargroup { border-top: 1px solid var(--border); padding: var(--space-lg) 0; }
+.yeargroup__year {
+  font-size: var(--text-h2);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-display);
+  color: var(--text-heading);
+  margin-bottom: var(--space-md);
+}
+.postrow {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: var(--space-md);
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.postrow:last-child { border-bottom: 0; }
+.postrow__date { font-size: var(--text-xs); font-weight: var(--weight-bold); letter-spacing: .1em; text-transform: uppercase; color: var(--text-secondary); }
+.postrow__t { font-size: var(--text-md); font-weight: var(--weight-bold); letter-spacing: var(--tracking-tight); color: var(--text-heading); margin: 0 0 4px; }
+.postrow:hover .postrow__t { color: var(--action-accent); }
+.postrow__s { font-size: var(--text-body-sm); line-height: var(--leading-normal); color: var(--text-secondary); margin: 0; max-width: 68ch; }
+
+/* --- Resume -------------------------------------------------------------- */
+.resume { max-width: var(--measure-wide); margin: 0 auto; padding: 0 var(--space-md) var(--space-4xl); }
+
+/* Header: identity block on the left, portrait on the right — the shape the
+   legacy resume used, rebuilt on DS tokens. */
+.resume__head {
+  max-width: var(--measure-wide);
+  margin: 0 auto;
+  padding: 64px var(--space-md) var(--space-xl);
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+.resume__avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: var(--radius-circle);
+  object-fit: cover;
+  margin-bottom: var(--space-md);
+}
+.resume__name {
+  font-size: clamp(38px, 4.4vw, 56px);
+  line-height: 1.03;
+  letter-spacing: -.035em;
+  font-weight: var(--weight-bold);
+  color: var(--text-heading);
+  margin: 0;
+}
+.resume__tagline {
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary);
+  margin: var(--space-sm) 0 0;
+  max-width: 46ch;
+}
+.resume__contact {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-top: var(--space-md);
+}
+.resume__email { font-weight: var(--weight-semibold); color: var(--text-body); }
+.resume__email:hover { color: var(--action-accent); }
+.resume__actions { display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-top: var(--space-lg); }
+.resume__portrait {
+  width: 100%;
+  border-radius: var(--radius-showcase);
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
+.resume__section { border-top: 1px solid var(--border); padding: var(--space-xl) 0; }
+.resume__label {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-looser);
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-lg);
+}
+.resume__roles { display: flex; flex-direction: column; gap: var(--space-xl); }
+.resume__role { display: grid; grid-template-columns: 120px 1fr; gap: var(--space-lg); }
+.resume__aside { display: flex; align-items: flex-start; justify-content: center; }
+/* True black/white pairs now (see src/media/resume/logos) — one image per
+   theme, swapped by visibility rather than filtered, so every mark keeps
+   its real linework. Each company gets its own height: the raw marks vary
+   wildly in density (a thin dotted swirl vs. a solid wordmark), so a single
+   shared box makes some read as tiny and others as oversized. */
+.resume__logo {
+  /* These are tiny vector files (some with a ~40px native viewBox), so a
+     max-height alone never scales them UP to fill the box — only down.
+     Setting an explicit height per mark is what actually normalizes them. */
+  max-width: 120px;
+  width: auto;
+  height: 48px;
+  object-fit: contain;
+  object-position: left top;
+  display: block;
+}
+.resume__logo--dark { display: none; @include tokens.when-dark { display: block; } }
+.resume__logo--light { @include tokens.when-dark { display: none; } }
+
+.resume__logo--worlds { height: 66px; }
+.resume__logo--power { height: 66px; }
+.resume__logo--boxboard { height: 40px; }
+/* The star kicks out past the bracket on the right, so the glyph's own
+   optical center sits left of its bounding box — nudge it right to balance. */
+.resume__logo--bloomboard { height: 66px; margin-left: 8px; }
+.resume__logo--brainspace { height: 58px; }
+.resume__logo--improving { height: 54px; }
+.resume__logo--medfactory { height: 58px; }
+.resume__logo--true { height: 32px; }
+.resume__logo--hilton { height: 28px; }
+
+.resume__titlerow { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-md); margin-bottom: 2px; }
+.resume__years { font-size: var(--text-body-sm); font-weight: var(--weight-semibold); color: var(--action-accent); white-space: nowrap; }
+.resume__title { font-size: var(--text-lead); font-weight: var(--weight-bold); letter-spacing: var(--tracking-tight); color: var(--text-heading); margin: 0; }
+.resume__title a { color: inherit; }
+.resume__company { font-size: var(--text-base); font-weight: var(--weight-semibold); color: var(--text-secondary); margin: 0 0 var(--space-xs); }
+
+/* Grouped roles (e.g. two titles at one company) — one logo/header, each
+   position nested below with its own sub-heading, like LinkedIn collapses
+   back-to-back roles at the same employer. */
+.resume__positions { display: flex; flex-direction: column; gap: var(--space-md); margin-top: var(--space-sm); padding-left: var(--space-md); border-left: 2px solid var(--border); }
+.resume__positionrow { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-md); margin-bottom: 2px; }
+.resume__position__title { font-size: var(--text-base); font-weight: var(--weight-bold); color: var(--text-heading); margin: 0; }
+.resume__position__years { font-size: var(--text-xs); font-weight: var(--weight-semibold); color: var(--text-tertiary); white-space: nowrap; }
+.resume__desc { font-size: var(--text-base); line-height: var(--leading-normal); color: var(--text-secondary); margin: 0; max-width: 68ch; }
+
+@media (max-width: 900px) {
+  .resume__head { grid-template-columns: 1fr; padding-top: 40px; }
+  .resume__portrait { aspect-ratio: 16 / 10; }
+}
+
+/* --- Responsive ---------------------------------------------------------- */
+@media (max-width: 1000px) {
+  .listing { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .pagehead { padding-top: 48px; gap: var(--space-lg); }
+  .listing,
+  .listing--featured { grid-template-columns: 1fr; }
+  .browse { width: 100%; }
+  .browse__card { min-width: 0; }
+  .postrow { grid-template-columns: 1fr; gap: var(--space-xxs); }
+  .resume__role { grid-template-columns: 1fr; gap: var(--space-sm); }
+  .resume__titlerow,
+  .resume__positionrow { flex-direction: column; align-items: flex-start; gap: 2px; }
+  .posthead__inner { padding: 80px var(--space-md); }
+}

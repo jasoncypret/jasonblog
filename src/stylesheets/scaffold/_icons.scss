@@ -54,6 +54,13 @@
 .icon-github:before {
   content: "\62";
 }
+/* The GitHub glyph was exported with more built-in padding than its
+   siblings (LinkedIn, X), so it reads smaller at the same font-size —
+   scale it up in place to visually match. */
+.icon-github {
+  display: inline-block;
+  transform: scale(1.3);
+}
 .icon-arrow-down:before {
   content: "\64";
 }

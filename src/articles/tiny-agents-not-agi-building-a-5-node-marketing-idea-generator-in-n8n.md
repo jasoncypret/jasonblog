@@ -2,7 +2,7 @@
 title: "Tiny Agents, Not AGI: Building a 5-Node Marketing-Idea Generator in n8n"
 date: 2025-05-14T16:32:00Z
 tags: [AI, n8n]
-layout: post
+layout: ds-post
 permalink: /tiny-agents-not-agi-building-a-5-node-marketing-idea-generator-in-n8n/
 image: /articles/tiny-agents-not-agi-building-a-5-node-marketing-idea-generator-in-n8n/simple-n8n-workflow.webp
 open_graph_image: /articles/tiny-agents-not-agi-building-a-5-node-marketing-idea-generator-in-n8n/simple-n8n-workflow.webp

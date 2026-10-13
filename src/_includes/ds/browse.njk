@@ -1,0 +1,9 @@
+{# Browse-content cards shared by the blog, tag and calendar listings.
+   `active` is "calendar" or "tags". #}
+{% macro browseCards(active="") -%}
+  <div class="browse">
+    <span class="browse__heading">Browse content</span>
+    <a class="browse__card" href="/calendar/"{% if active == "calendar" %} aria-current="page"{% endif %}><i class="icon-calendar-alt" aria-hidden="true"></i> Articles by year</a>
+    <a class="browse__card" href="/tags/"{% if active == "tags" %} aria-current="page"{% endif %}><i class="icon-tag" aria-hidden="true"></i> Articles by category</a>
+  </div>
+{%- endmacro %}

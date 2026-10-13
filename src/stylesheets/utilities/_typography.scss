@@ -1,28 +1,34 @@
+@use "../mixins/animations";
+@use "../mixins/typography";
+@use "../tokens/colors";
+@use "../tokens/spacing";
+@use "../mixins/functions";
+
 .serif {
-  @include serif;
+  @include typography.serif;
 }
 
 .post-style {
-  @include post-style;
-  @include serif;
-  color: tint(black, 30%);
+  @include typography.post-style;
+  @include typography.serif;
+  color: functions.tint(black, 30%);
   line-height: 1.98;
 
   pre {
-    padding: $space_xs 0;
+    padding: spacing.$space_xs 0;
 
     code {
-      @include reading-mix;
+      @include typography.reading-mix;
       display: block;
     }
   }
 
   p, h1, h2, h3, h4, h5, h6, ul, ol, dl, hr, blockquote, table {
-    @include reading-mix;
+    @include typography.reading-mix;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @include font_stack;
+    @include typography.font_stack;
     letter-spacing: -0.03em;
   }
 
@@ -37,24 +43,24 @@
   }
 
   a {
-    color: $tip;
-    @include transition(0.2);
+    color: colors.$tip;
+    @include animations.transition(0.2);
     text-decoration: underline;
 
     &:hover {
-      color: $black;
+      color: colors.$black;
     }
   }
 
   hr {
-    @include hr(20%);
+    @include typography.hr(20%);
   }
 }
 
 .header-subtitle {
-  @include caption;
+  @include typography.caption;
   &.pink {
     color: #F75A9A;
-    margin-bottom: $space_md;
+    margin-bottom: spacing.$space_md;
   }
 }

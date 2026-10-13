@@ -1,17 +1,19 @@
+@use "../components/buttons/all";
+
 // Button Utility Classes
 .btn {
-  @include button-base;
+  @include all.button-base;
   &--black {
-    @include button-black;
+    @include all.button-black;
   }
   &--white {
-    @include button-white;
+    @include all.button-white;
   }
   &--ghost {
-    @include button-ghost;
+    @include all.button-ghost;
   }
   &--link {
-    @include button-link;
+    @include all.button-link;
   }
 
 

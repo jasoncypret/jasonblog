@@ -1,3 +1,10 @@
+@use "sass:color";
+@use "../tokens/colors";
+@use "../tokens/spacing";
+@use "../tokens/typography";
+@use "functions";
+@use "screen_sizes";
+
 @mixin amp {
   font-family: Baskerville, "Goudy Old Style", serif;
   font-weight: normal;
@@ -7,8 +14,8 @@
 @mixin hr($width: 20%) {
   display: block;
   width: $width;
-  margin: calc(#{$space_xs} / 6) auto calc(#{$space_xs} / 6) auto;
-  border: 1px solid shade($background, 20%);
+  margin: calc(#{spacing.$space_xs} / 6) auto calc(#{spacing.$space_xs} / 6) auto;
+  border: 1px solid functions.shade(colors.$background, 20%);
 }
 
 @mixin trans-up {
@@ -33,11 +40,11 @@
 }
 
 @mixin font-stack {
-  font-family: $font_family_base;
+  font-family: typography.$font_family_base;
 }
 
 @mixin serif {
-  font-family: $font_family_accent;
+  font-family: typography.$font_family_accent;
 }
 
 @mixin mon-font {
@@ -89,20 +96,20 @@
 }
 
 @mixin text-color($base_color, $shadow: false, $more_contrast: false) {
-  @if lightness($base_color) > 75% {
+  @if color.lightness($base_color) > 75% {
     @if $more_contrast {
-      color: shade($base_color, 80%);
+      color: functions.shade($base_color, 80%);
     } @else {
-      color: shade($base_color, 60%);
+      color: functions.shade($base_color, 60%);
     }
     @if $shadow {
-      text-shadow: rgba(white, 0.2 + lightness($base_color) * 0.8 / 100%) 0 1px 0;
+      text-shadow: rgba(white, 0.2 + color.lightness($base_color) * 0.8 / 100%) 0 1px 0;
     }
   } @else {
     @if $more_contrast {
-      color: tint($base_color, 100%);
+      color: functions.tint($base_color, 100%);
     } @else {
-      color: tint($base_color, 95%);
+      color: functions.tint($base_color, 95%);
     }
     @if $shadow {
       text-shadow: rgba(black, 0.4) 0 -1px 1px;
@@ -129,10 +136,10 @@
 }
 
 @mixin reading-mix {
-  width: $reading-width;
+  width: typography.$reading-width;
   margin-left: auto;
   margin-right: auto;
-  @include mobile_only {
+  @include screen_sizes.mobile_only {
     width: auto;
     margin-left: 2%;
     margin-right: 2%;
@@ -140,7 +147,7 @@
 }
 
 @mixin post-style {
-  font-size: ($text_base + 2);
+  font-size: (typography.$text_base + 2);
   line-height: 1.98;
   h1, h2, h3, h4, h5, h6 {
     margin: 35px 0 25px;
@@ -195,7 +202,7 @@
   h1 {
     font-size: 32px;
     line-height: 1.2;
-    color: $black;
+    color: colors.$black;
     padding-top: 25px;
     margin-bottom: 4px;
   }
@@ -203,7 +210,7 @@
   h2 {
     font-size: 26px;
     line-height: 1.2;
-    color: $black;
+    color: colors.$black;
   }
 
   h3 {
@@ -231,8 +238,8 @@
   hr {
     display: block;
     width: 20%;
-    margin: $space_xs*4 auto $space_xs*4 auto;
-    border: 1px solid shade($background, 20%);
+    margin: spacing.$space_xs*4 auto spacing.$space_xs*4 auto;
+    border: 1px solid functions.shade(colors.$background, 20%);
   }
 
   body > h2:first-child {
@@ -312,10 +319,10 @@
 
   blockquote {
     padding: 0 15px;
-    color: tint($text_lt_light, 20%);
+    color: functions.tint(colors.$text_lt_light, 20%);
     font-style: italic;
     font-size: 120%;
-    border-left: 6px solid $accent;
+    border-left: 6px solid colors.$accent;
     padding-left: 20px;
     margin-left: -26px;
     margin-top: -1px;
@@ -461,9 +468,9 @@
 }
 
 @mixin caption {
-  color: $text_lt_light;
-  font-size: $text_large;
-  letter-spacing: $lspace_looser;
+  color: colors.$text_lt_light;
+  font-size: typography.$text_large;
+  letter-spacing: typography.$lspace_looser;
   text-transform: uppercase;
   font-weight: 500;
   text-align: center;

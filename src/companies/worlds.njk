@@ -1,0 +1,130 @@
+---
+layout: ds
+title: "Worlds — Jason Cypret"
+description: "Making physical AI usable at Worlds — leading Product Experience for IQ, directing, searching and acting on live camera networks in real time."
+permalink: /companies/worlds/
+page_classes: company company-worlds
+---
+
+{% from "ds/components.njk" import button, muteToggle %}
+
+{# --------------------------------------------------------------- Hero -- #}
+<section class="wHero">
+  <div class="wHero__in">
+    <p class="wHero__eyebrow">{{ home.worlds.eyebrow }}</p>
+    <img class="wHero__mark" src="{{ home.worlds.mark }}" alt="Worlds">
+    <h1 class="wHero__h">{{ home.worlds.title }}</h1>
+    <p class="wHero__lede">{{ home.worlds.description }}</p>
+    {% if home.worlds.description2 %}<p class="wHero__lede">{{ home.worlds.description2 }}</p>{% endif %}
+  </div>
+  <div class="wHero__video">
+    <video autoplay muted loop playsinline preload="auto" poster="/media/companies/worlds/year-in-review_thumb.jpg">
+      <source src="/media/companies/worlds/year-in-review.mp4" type="video/mp4">
+    </video>
+    {{ muteToggle() }}
+  </div>
+</section>
+
+<div class="specband">
+  <div class="specband__in">
+    {% for spec in home.worlds.specs %}
+      <div>
+        <p class="specband__k">{{ spec.k }}</p>
+        <p class="specband__v">{{ spec.v }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{# ------------------------------------------------------------- Shift -- #}
+<section class="wShift">
+  <div class="sectionTop">
+    <div>
+      <p class="eyebrow">Year one</p>
+      <h2>Where we started, where we are.</h2>
+    </div>
+  </div>
+  <div class="wShift__grid">
+    <div class="wShift__col">
+      <p class="wShift__label">July 2025</p>
+      <ul class="wShift__list">
+        <li>Capability screens in a slide deck — nothing a customer could click through live</li>
+        <li>A fragmented product across separate systems, with outside help owning the design</li>
+        <li>One piece ran as its own app, maintained by hand every day</li>
+        <li>Prototypes had quietly become permanent features, with no system behind them</li>
+        <li>No shared components, no Storybook, no dark mode</li>
+      </ul>
+    </div>
+    <div class="wShift__col wShift__col--now">
+      <p class="wShift__label">October 2026</p>
+      <ul class="wShift__list">
+        <li>Live demos anywhere — the team builds on the features sales is actually selling</li>
+        <li>Design led in-house; the outside agency dependency is gone</li>
+        <li>One codebase. The old separate app's capabilities live in the core product</li>
+        <li>AI builds and explains dashboards on its own, including for agents</li>
+        <li>A design system running from source files to ~1,000 coded component stories</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wShift__quotes">
+    <blockquote class="wShift__quote">
+      <p>&ldquo;Worlds is now a joy to sell.&rdquo;</p>
+      <cite>Company president</cite>
+    </blockquote>
+    <blockquote class="wShift__quote">
+      <p>&ldquo;This is incredible. This is an incredible update.&rdquo;</p>
+      <cite>Executive sponsor, on the new dashboards release</cite>
+    </blockquote>
+    <blockquote class="wShift__quote">
+      <p>&ldquo;Where we were two months ago&hellip; it's night and day.&rdquo;</p>
+      <cite>Customer onboarding review</cite>
+    </blockquote>
+  </div>
+</section>
+
+{# ---------------------------------------------------------- Highlights -- #}
+<section class="wHighlights">
+  <div class="sectionTop">
+    <div>
+      <p class="eyebrow">A year inside IQ</p>
+      <h2>What building IQ looks like.</h2>
+    </div>
+  </div>
+  <div class="wGrid">
+    <div class="wClip">
+      <video autoplay muted loop playsinline preload="metadata">
+        <source src="/media/companies/worlds/clips/spatial.mp4" type="video/mp4">
+      </video>
+      <p class="wClip__cap">Spatial awareness, in real time</p>
+    </div>
+    <div class="wClip">
+      <video autoplay muted loop playsinline preload="metadata">
+        <source src="/media/companies/worlds/clips/realtime.mp4" type="video/mp4">
+      </video>
+      <p class="wClip__cap">Investigating a live camera network</p>
+    </div>
+    <div class="wClip">
+      <video autoplay muted loop playsinline preload="metadata">
+        <source src="/media/companies/worlds/clips/dashboard.mp4" type="video/mp4">
+      </video>
+      <p class="wClip__cap">Dashboarding complex data</p>
+    </div>
+    <div class="wClip">
+      <video autoplay muted loop playsinline preload="metadata">
+        <source src="/media/companies/worlds/clips/ai.mp4" type="video/mp4">
+      </video>
+      <p class="wClip__cap">Making AI approachable</p>
+    </div>
+  </div>
+</section>
+
+{# -------------------------------------------------------------- Close -- #}
+<section class="wClose">
+  <p class="wClose__p">Still early days here, with a lot more to ship.</p>
+  <div class="wClose__actions">
+    {{ button("Read the full story", "/big-moves-big-vision-why-i-joined-worlds/", "secondary", "md", "rounded", "", "arrow-right") }}
+    <a class="wClose__link" href="{{ home.worlds.secondaryUrl }}" target="_blank" rel="noopener">
+      {{ home.worlds.secondaryLabel }} <i class="icon-arrow-up-right-from-square" aria-hidden="true"></i>
+    </a>
+  </div>
+</section>

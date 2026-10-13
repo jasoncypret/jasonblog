@@ -1,0 +1,38 @@
+---
+layout: ds
+---
+{#
+  Article page. Chains onto layouts/ds.njk so head, nav, footer and the theme
+  toggle stay defined in exactly one place.
+#}
+{% from "ds/components.njk" import badge %}
+{% set headerImage = image or open_graph_image %}
+
+<article>
+  <header class="posthead{% if headerImage %} posthead--image{% endif %}">
+    {% if headerImage %}
+      <img class="posthead__bg" src="{{ headerImage }}" alt="" loading="eager">
+    {% endif %}
+    <div class="posthead__inner">
+      <div class="posthead__meta">
+        <time datetime="{{ date | dateISO }}">{{ date | dateReadable }}</time>
+      </div>
+      <h1 class="posthead__title">{{ title }}</h1>
+      {% if summary %}<p class="posthead__sub">{{ summary }}</p>{% endif %}
+      {% if tags %}
+        <div class="posthead__tags">
+          {% for tag in tags %}{{ badge(tag, "/tags/" + (tag | slug) + "/") }}{% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="post jc-prose">
+    {{ content | safe }}
+  </div>
+
+  <footer class="postfoot">
+    <a class="inline-link" href="/blog/"><i class="icon-arrow-left" aria-hidden="true"></i> All articles</a>
+    <a class="inline-link" href="/tags/">Browse by category <i class="icon-arrow-right" aria-hidden="true"></i></a>
+  </footer>
+</article>

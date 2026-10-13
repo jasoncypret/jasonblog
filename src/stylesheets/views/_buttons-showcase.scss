@@ -1,47 +1,52 @@
+@use "../mixins/screen_sizes";
+@use "../tokens/colors";
+@use "../tokens/spacing";
+@use "../tokens/typography";
+
 // Buttons Showcase Styles
 .buttons-showcase {
   max-width: 1200px;
   margin: 0 auto;
-  padding: $space_xl $space_md;
+  padding: spacing.$space_xl spacing.$space_md;
   
   h1 {
-    font-family: $font_family_base;
-    font-weight: $bold;
-    font-size: $heading_1;
-    color: $text_lt_default;
-    margin-bottom: $space_sm;
+    font-family: typography.$font_family_base;
+    font-weight: typography.$bold;
+    font-size: typography.$heading_1;
+    color: colors.$text_lt_default;
+    margin-bottom: spacing.$space_sm;
   }
   
   > p {
-    font-family: $font_family_base;
-    font-weight: $light;
-    font-size: $text_large;
-    color: $text_lt_light;
-    margin-bottom: $space_xl;
+    font-family: typography.$font_family_base;
+    font-weight: typography.$light;
+    font-size: typography.$text_large;
+    color: colors.$text_lt_light;
+    margin-bottom: spacing.$space_xl;
   }
 }
 
 .showcase-section {
-  margin-bottom: ($space_xl + $space_lg);
+  margin-bottom: (spacing.$space_xl + spacing.$space_lg);
   
   h2 {
-    font-family: $font_family_base;
-    font-weight: $bold;
-    font-size: $text_larger;
-    color: $text_lt_default;
-    margin-bottom: $space_lg;
-    padding-bottom: $space_sm;
-    border-bottom: 1px solid $border_light;
+    font-family: typography.$font_family_base;
+    font-weight: typography.$bold;
+    font-size: typography.$text_larger;
+    color: colors.$text_lt_default;
+    margin-bottom: spacing.$space_lg;
+    padding-bottom: spacing.$space_sm;
+    border-bottom: 1px solid colors.$border_light;
   }
 }
 
 .button-group {
   display: flex;
   flex-wrap: wrap;
-  gap: $space_md;
+  gap: spacing.$space_md;
   align-items: center;
   
-  @include mobile_only {
+  @include screen_sizes.mobile_only {
     flex-direction: column;
     align-items: stretch;
     
@@ -60,19 +65,19 @@
     
     // Make sure icons have proper spacing
     i {
-      margin-left: $space_xs;
+      margin-left: spacing.$space_xs;
       
       &.icon-arrow-left {
         margin-left: 0;
-        margin-right: $space_xs;
+        margin-right: spacing.$space_xs;
       }
     }
   }
   
   // Add some visual separation between sections
   .showcase-section:not(:last-child) {
-    border-bottom: 1px solid $border_light;
-    padding-bottom: $space_xl;
+    border-bottom: 1px solid colors.$border_light;
+    padding-bottom: spacing.$space_xl;
   }
 }
 
@@ -83,12 +88,12 @@
 
 // Code display for button classes (optional)
 .button-code {
-  background: $bg_light;
-  border: 1px solid $border_light;
-  border-radius: $space_xs;
-  padding: $space_sm;
-  margin-top: $space_sm;
+  background: colors.$bg_light;
+  border: 1px solid colors.$border_light;
+  border-radius: spacing.$space_xs;
+  padding: spacing.$space_sm;
+  margin-top: spacing.$space_sm;
   font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
-  font-size: $text_small;
-  color: $text_lt_light;
+  font-size: typography.$text_small;
+  color: colors.$text_lt_light;
 } 

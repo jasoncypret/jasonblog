@@ -2,7 +2,7 @@
 title: "Not Every Week Is a Big Launch (And That's Okay)"
 date: 2025-06-30T17:07:00Z
 tags: [startup, development, productivity]
-layout: post
+layout: ds-post
 permalink: /not-every-week-is-a-big-launch-and-that-s-okay/
 description: "The reality of startup life: wrestling with PostHog setup, shipping BoxBoard features, and learning that messy weeks of foundation-building matter more than flashy launches."
 keywords: "startup life, solo founder, product development, BoxBoard, PostHog, AWS setup, entrepreneurship, tech challenges, solo builder, shipping features, startup reality"

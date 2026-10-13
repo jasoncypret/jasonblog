@@ -2,7 +2,7 @@
 title: "How I Orchestrate AI Tools Like a Product Team"
 date: 2025-05-29T16:27:00Z
 tags: [AI, productivity, development, ux, orchestration]
-layout: post
+layout: ds-post
 permalink: /how-i-orchestrate-ai-tools-like-a-product-team/
 image: /articles/how-i-orchestrate-ai-tools-like-a-product-team/ai-itteration.webp
 open_graph_image: /articles/how-i-orchestrate-ai-tools-like-a-product-team/ai-itteration.webp

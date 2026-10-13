@@ -1,3 +1,6 @@
+@use "../tokens/colors";
+@use "../tokens/typography";
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,17 +18,17 @@ html {
 }
 
 body {
-  font-family: $font_family_base;
-  font-size: $text_base;
+  font-family: typography.$font_family_base;
+  font-size: typography.$text_base;
   line-height: 1.5;
-  background-color: $white;
+  background-color: colors.$white;
   height: 100%;
-  letter-spacing: $lspace_normal;
-  font-weight: $regular;
+  letter-spacing: typography.$lspace_normal;
+  font-weight: typography.$regular;
   font-style: normal;
   text-rendering: optimizeLegibility;
   -moz-font-feature-settings: "liga" on;
-  color: $charcoal;
+  color: colors.$charcoal;
   margin: 0 !important;
   padding: 0 !important;
   box-sizing: border-box;
@@ -36,5 +39,5 @@ body {
 
 a {
   text-decoration: none;
-  color: $primary;
+  color: colors.$primary;
 }

@@ -2,7 +2,7 @@
 title: "Your Job Isn't Gone—Your Job Description Is"
 date: 2025-05-21T14:59:00Z
 tags: [AI, future-of-work, productivity, skill-stacking]
-layout: post
+layout: ds-post
 permalink: /your-job-isn-t-gone-your-job-description-is/
 image: /articles/your-job-isn-t-gone-your-job-description-is/post-large.webp
 open_graph_image: /articles/your-job-isn-t-gone-your-job-description-is/post-large.webp

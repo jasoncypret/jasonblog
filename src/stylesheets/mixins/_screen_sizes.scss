@@ -1,3 +1,5 @@
+@use "../tokens/screen_sizes";
+
 @mixin break_at($size) {
   @media screen and (max-width: $size) {
     @content;
@@ -22,7 +24,7 @@
 
 // Friendly names for common screen sizes
 @mixin mobile_only {
-  @include break_at($screen-sm-max) {
+  @include break_at(screen_sizes.$screen-sm-max) {
     @content;
   }
 }

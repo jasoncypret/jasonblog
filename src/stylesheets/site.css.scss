@@ -1,43 +1,45 @@
-// Variables
-@import "tokens/colors";
-@import "tokens/positioning";
-@import "tokens/screen_sizes";
-@import "tokens/spacing";
-@import "tokens/typography";
-@import "tokens/border_radius";
+// =============================================================================
+// site.css — legacy bundle.
+//
+// The whole site now runs on ds.css (see layouts/ds.njk). The ONLY pages still
+// on this stylesheet are the two unlinked developer reference pages,
+// /icons/ and /buttons-showcase/, which document the legacy icon font and
+// button classes and would be meaningless rendered with the new system.
+//
+// Everything those two pages don't need has been removed: the homepage,
+// article, blog, calendar, tags, resume and companies views, plus the lightbox
+// component. Their styles either moved into the ds/ tree or are dead.
+// When those two pages are rebuilt (or dropped), this file goes with them.
+// =============================================================================
 
-// Mixins
-@import "mixins/functions";
-@import "mixins/animations";
-@import "mixins/font_face";
-@import "mixins/images";
-@import "mixins/screen_sizes";
-@import "mixins/typography";
+// Variables & mixins (emit no CSS on their own)
+@use "tokens/colors";
+@use "tokens/positioning";
+@use "tokens/screen_sizes";
+@use "tokens/spacing";
+@use "tokens/typography";
+@use "tokens/border_radius";
 
-// Scaffold & Layout
-@import "scaffold/reset";
-@import "scaffold/icons";
+@use "mixins/functions";
+@use "mixins/animations";
+@use "mixins/images";
+@use "mixins/screen_sizes" as screen_sizes2;
+@use "mixins/typography" as typography2;
 
-// Components
-@import "components/buttons/all";
-@import "components/nav";
-@import "components/lightbox";
+// Scaffold
+@use "scaffold/reset";
+@use "scaffold/icons";
 
-// Views & Pages
-@import "views/homepage";
-@import "views/article";
-@import "views/blog";
-@import "views/calendar";
-@import "views/tags";
-@import "views/resume";
-@import "views/companies";
-@import "views/buttons-showcase";
+// These two pages still render the legacy nav.njk partial
+@use "components/nav";
 
-// Utilities
-@import "utilities/animations";
-@import "utilities/loading";
-@import "utilities/typography";
-@import "utilities/spacing";
-@import "utilities/spacing_classes";
-@import "utilities/grid";
-@import "utilities/buttons";
+// The two pages themselves
+@use "components/buttons/all";
+@use "views/buttons-showcase";
+
+// Utilities the showcase markup leans on
+@use "utilities/typography" as typography3;
+@use "utilities/spacing" as spacing2;
+@use "utilities/spacing_classes";
+@use "utilities/grid";
+@use "utilities/buttons";

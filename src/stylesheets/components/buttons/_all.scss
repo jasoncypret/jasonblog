@@ -1,5 +1,6 @@
-@import "button_mixins";
-@import "outline_button_mixins";
+@use "button_mixins";
+@use "outline_button_mixins";
+@use "../../tokens/colors";
 
 
 // Button Mixins
@@ -27,7 +28,7 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   will-change: transform;
-  @include btn-chains;
+  @include button_mixins.btn-chains;
 }
 
 @mixin button-black {
@@ -44,17 +45,17 @@
 
 @mixin button-ghost {
   @include button-base;
-  border: 2px solid $border_light;
+  border: 2px solid colors.$border_light;
   background: #FFFFFF;
   color: #000000;
 }
 
 @mixin button-link {
   @include button-base;
-  border: 2px solid $border_light;
+  border: 2px solid colors.$border_light;
   background: #FFFFFF;
   color: #000000;
-  color: $primary;
+  color: colors.$primary;
   background: none;
   border: 0;
   &:hover {
