@@ -78,19 +78,21 @@
 }
 .heroA__lede strong { color: var(--text-body); font-weight: var(--weight-bold); }
 .heroA__actions { display: flex; gap: var(--space-md); align-items: center; flex-wrap: wrap; }
-.heroA__media { position: relative; }
+/* A transparent cutout, not a cropped photo card — no frame, no radius, so
+   the page's own background shows straight through around the figure. */
+.heroA__media { position: relative; display: flex; justify-content: center; }
 .heroA__img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  object-position: 50% 18%;
-  border-radius: 28px;
+  width: 92%;
+  max-width: 460px;
+  height: auto;
   display: block;
+  filter: drop-shadow(0 32px 40px rgba(10, 10, 15, .16));
 }
 .heroA__badge {
   position: absolute;
-  left: var(--space-md);
-  bottom: var(--space-md);
+  left: 50%;
+  bottom: 4%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: var(--space-sm);
@@ -107,9 +109,11 @@
   display: block;
   @include tokens.when-dark { filter: brightness(0) invert(1); }
 }
-.heroA__badgeTxt { font-size: var(--text-xs); font-weight: var(--weight-semibold); letter-spacing: .02em; color: var(--text-body); }
+.heroA__badgeTxt { font-size: var(--text-xs); font-weight: var(--weight-semibold); letter-spacing: .02em; color: var(--text-body); white-space: nowrap; }
 
 /* --- Latest post bar ----------------------------------------------------- */
+/* Full-bleed border, edge to edge — the content inside stays contained. */
+.latestBand { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .latest {
   display: flex;
   align-items: center;
@@ -117,8 +121,6 @@
   max-width: var(--container-max);
   margin: 0 auto;
   padding: var(--space-sm) var(--space-md);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
   color: var(--text-heading);
 }
 .latest:hover { color: var(--text-heading); }

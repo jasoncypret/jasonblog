@@ -28,7 +28,7 @@ layout: ds
     </div>
   </div>
   <div class="heroA__media">
-    <img class="heroA__img" src="{{ home.hero.image }}" alt="Jason Cypret" width="800" height="1000">
+    <img class="heroA__img" src="{{ home.hero.image }}" alt="Jason Cypret" width="1138" height="1382">
     <div class="heroA__badge">
       <img src="{{ home.hero.badgeLogo }}" alt="Worlds">
       <span class="heroA__badgeTxt">{{ home.hero.badgeText }}</span>
@@ -38,16 +38,18 @@ layout: ds
 
 {# -------------------------------------------------------- Latest post -- #}
 {% if latest %}
-<a class="latest" href="{{ latest.url }}">
-  {% if latest.data.image %}
-    <img class="latest__thumb" src="{{ latest.data.image }}" alt="" loading="lazy">
-  {% endif %}
-  <span class="latest__body">
-    <span class="latest__kicker">Latest from the blog <span class="latest__dot">·</span> {{ latest.date | dateReadable }}</span>
-    <span class="latest__t">{{ latest.data.title }}</span>
-  </span>
-  <span class="latest__cta">Read the post <i class="icon-arrow-right" aria-hidden="true"></i></span>
-</a>
+<div class="latestBand">
+  <a class="latest" href="{{ latest.url }}">
+    {% if latest.data.image %}
+      <img class="latest__thumb" src="{{ latest.data.image }}" alt="" loading="lazy">
+    {% endif %}
+    <span class="latest__body">
+      <span class="latest__kicker">Latest from the blog <span class="latest__dot">·</span> {{ latest.date | dateReadable }}</span>
+      <span class="latest__t">{{ latest.data.title }}</span>
+    </span>
+    <span class="latest__cta">Read the post <i class="icon-arrow-right" aria-hidden="true"></i></span>
+  </a>
+</div>
 {% endif %}
 
 {# ------------------------------------------------------ Worlds splash -- #}
