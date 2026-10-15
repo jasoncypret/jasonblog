@@ -1,0 +1,46 @@
+{#
+  ARCHIVE — not wired into any page. This is a snapshot of the "giant
+  grayscale name behind the cutout" hero (heroB) exactly as it existed
+  just before it was replaced by the live-shader hero (Oct 2026). Kept
+  here purely as a revert reference. Files under _includes are never
+  built into pages, so this is inert.
+
+  v1 (the original card-photo hero, before the cutout) is archived
+  separately in _hero-v1-archive.njk.
+
+  To restore: paste this markup back into index.njk in place of the hero
+  section, and pull the matching CSS back from
+  src/stylesheets/ds/_archive-hero-v2.scss into _home.scss.
+#}
+
+{# ---------------------------------------------------------------- Hero --
+   The name is the real H1 — big, grayscale, set behind the cutout photo. #}
+<section class="heroB">
+  <div class="heroB__stage">
+    <h1 class="heroB__name"><span>Jason</span><span>Cypret</span></h1>
+    <img class="heroB__img" src="{{ home.hero.image }}" alt="" width="1138" height="1382">
+  </div>
+
+  <div class="heroB__row">
+    <div class="heroB__copy">
+      <p class="heroB__tagline">{{ home.hero.title }}</p>
+      <p class="heroB__lede">Twenty years and 30+ products shipped. I lead the team and write a lot of the code — product, design and engineering in one loop.</p>
+      <div class="heroB__actions">
+        {{ button(home.hero.ctaLabel, home.hero.ctaUrl, "primary", "md", "rounded", "", "arrow-right") }}
+        <a class="inline-link" href="#work">See the work <i class="icon-arrow-down" aria-hidden="true"></i></a>
+      </div>
+    </div>
+
+    {% if latest %}
+      <a class="heroB__latest" href="{{ latest.url }}">
+        <p class="heroB__latestLabel">Latest post</p>
+        <div class="heroB__latestRow">
+          {% if latest.data.image %}
+            <img class="heroB__latestThumb" src="{{ latest.data.image }}" alt="" loading="lazy">
+          {% endif %}
+          <span class="heroB__latestTitle">{{ latest.data.title }}</span>
+        </div>
+      </a>
+    {% endif %}
+  </div>
+</section>

@@ -62,7 +62,7 @@
 {% macro showcaseBanner(item, size="full") -%}
   {%- set external = item.href | startsWith("http") -%}
   <a class="jc-showcase jc-showcase--{{ item.brand }}{{ ' jc-showcase--left' if item.side == 'left' else '' }}{{ ' jc-showcase--compact' if size == 'compact' else '' }}"
-     href="{{ item.href }}"{% if external %} target="_blank" rel="noopener"{% endif %}>
+     href="{{ item.href }}"{% if external %} target="_blank" rel="noopener"{% endif %} data-reveal>
     <div class="jc-showcase__container">
       <div class="jc-showcase__copy">
         <div class="jc-showcase__brand">
@@ -139,9 +139,23 @@
       </ul>
       <div class="jc-nav__right">
         {% for s in social %}{{ iconButton(s.title, s.label or s.title, s.url) }}{% endfor %}
-        <button class="jc-themetoggle" type="button" data-theme-toggle aria-label="Switch between light and dark theme">
-          <span class="jc-themetoggle__moon" aria-hidden="true">&#9789;</span>
-          <span class="jc-themetoggle__sun" aria-hidden="true">&#9788;</span>
+        <button class="jc-iconbtn jc-themetoggle" type="button" data-theme-toggle aria-label="Switch between light and dark theme">
+          <svg class="jc-themetoggle__moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="jc-themetoggle__sun" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.2"></circle>
+            <g stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <line x1="12" y1="1.5" x2="12" y2="4"></line>
+              <line x1="12" y1="20" x2="12" y2="22.5"></line>
+              <line x1="4.22" y1="4.22" x2="5.99" y2="5.99"></line>
+              <line x1="18.01" y1="18.01" x2="19.78" y2="19.78"></line>
+              <line x1="1.5" y1="12" x2="4" y2="12"></line>
+              <line x1="20" y1="12" x2="22.5" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.99" y2="18.01"></line>
+              <line x1="18.01" y1="5.99" x2="19.78" y2="4.22"></line>
+            </g>
+          </svg>
         </button>
       </div>
     </div>

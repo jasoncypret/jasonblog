@@ -1,0 +1,136 @@
+{#
+  ARCHIVE — not wired into any page. This is a snapshot of the v4 gradient
+  blobs + particle-wave canvas hero exactly as it existed when it was
+  confirmed as the best version so far ("pretty cool, looks better than
+  the other one") — archived before trying a liquid-shader-inspired
+  variant (modeled on 21st.dev's "liquid-shader") as a parallel option
+  (Oct 2026). If that one doesn't land, THIS is the one to come back to.
+  Files under _includes are never built into pages, so this is inert.
+
+  v1 (original card photo), v2 (giant grayscale name), v3 (earlier
+  fbm-noise shader), v4 (CSS-only blobs + static dot grid), v5
+  (fbm-noise domain-warp attempt) and v6 (Mesh drift WebGL shader port)
+  are archived separately in their own _hero-vN-archive.njk files.
+
+  To restore: paste this markup + script back into index.njk in place of
+  the hero section, and make sure _home.scss has the v4-style
+  .heroS__glow / .heroS__blob rules (they're still live as of this
+  writing — check _archive-hero-v4.scss if they've since changed) plus a
+  .heroS__particles canvas rule in place of whatever replaced it.
+#}
+
+<section class="heroS">
+  <div class="heroS__glow" aria-hidden="true">
+    <span class="heroS__blob heroS__blob--a"></span>
+    <span class="heroS__blob heroS__blob--b"></span>
+    <canvas class="heroS__particles" id="heroParticles"></canvas>
+  </div>
+  <div class="heroS__inner">
+    <img class="heroS__img" src="{{ home.hero.imageBw }}" alt="Jason Cypret" width="1138" height="1382">
+
+    <div class="heroS__copy">
+      <p class="eyebrow">{{ home.hero.eyebrow }}</p>
+      <h1 class="heroS__h">I build the interface between <b>humans and AI.</b></h1>
+      <p class="heroS__lede">
+        <strong>Twenty years and 30+ products shipped</strong> as a product and design executive.
+        Today I work as an AI orchestrator: I lead the team, set the direction and write a lot
+        of the code myself, so product, design and engineering run as one continuous loop
+        instead of three handoffs.
+      </p>
+      <div class="heroS__actions">
+        {{ button(home.hero.ctaLabel, home.hero.ctaUrl, "primary", "md", "rounded", "", "arrow-right") }}
+        <a class="inline-link inline-link--onHero" href="#work">See the work <i class="icon-arrow-down" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var cv = document.getElementById("heroParticles");
+    if (!cv) return;
+    var ctx = cv.getContext("2d");
+    if (!ctx) return;
+
+    var DARK_DOT = "160, 180, 255";
+    var LIGHT_DOT = "70, 60, 160";
+
+    function isDark() {
+      var explicit = document.documentElement.getAttribute("data-theme");
+      if (explicit === "dark") return true;
+      if (explicit === "light") return false;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = 0, h = 0;
+    var dots = [];
+    var SPACING = 34;
+
+    function build() {
+      var rect = cv.getBoundingClientRect();
+      w = Math.max(1, Math.round(rect.width));
+      h = Math.max(1, Math.round(rect.height));
+      cv.width = w * dpr;
+      cv.height = h * dpr;
+      cv.style.width = w + "px";
+      cv.style.height = h + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      dots = [];
+      var cols = Math.ceil(w / SPACING) + 1;
+      var rows = Math.ceil(h / SPACING) + 1;
+      for (var gy = 0; gy < rows; gy++) {
+        for (var gx = 0; gx < cols; gx++) {
+          dots.push({ x: gx * SPACING, y: gy * SPACING, gx: gx, gy: gy });
+        }
+      }
+    }
+    window.addEventListener("resize", build);
+    build();
+
+    var mouse = { x: -9999, y: -9999 };
+    var activeTarget = 0, active = 0;
+    window.addEventListener("mousemove", function (e) {
+      var rect = cv.getBoundingClientRect();
+      var inBounds = e.clientX >= rect.left && e.clientX <= rect.right &&
+        e.clientY >= rect.top && e.clientY <= rect.bottom;
+      activeTarget = inBounds ? 1 : 0;
+      if (!inBounds) return;
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    }, { passive: true });
+
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var t0 = performance.now();
+
+    function frame() {
+      var t = ((performance.now() - t0) / 1000) * 0.5;
+      active += (activeTarget - active) * 0.08;
+      var dotColor = isDark() ? DARK_DOT : LIGHT_DOT;
+
+      ctx.clearRect(0, 0, w, h);
+      for (var i = 0; i < dots.length; i++) {
+        var d = dots[i];
+        var wave = Math.sin(t + d.gx * 0.35 + d.gy * 0.22) * 5;
+        var y = d.y + wave;
+
+        var dx = d.x - mouse.x, dy = y - mouse.y;
+        var distSq = dx * dx + dy * dy;
+        var lift = Math.exp(-distSq / 8000) * active;
+
+        var xFade = Math.min(1, Math.max(0, (d.x / w - 0.08) / 0.55));
+        var alpha = (0.16 + lift * 0.4) * xFade;
+        if (alpha <= 0.004) continue;
+
+        var radius = 1.1 + lift * 1.4;
+        ctx.beginPath();
+        ctx.arc(d.x, y - lift * 6, radius, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(" + dotColor + ", " + alpha.toFixed(3) + ")";
+        ctx.fill();
+      }
+      if (!reduceMotion) requestAnimationFrame(frame);
+    }
+    frame();
+  })();
+</script>

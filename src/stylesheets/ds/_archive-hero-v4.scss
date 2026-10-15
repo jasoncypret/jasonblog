@@ -1,0 +1,52 @@
+// ARCHIVE — NOT @used anywhere, never compiled into ds.css. A snapshot of
+// the CSS-only drifting-gradient hero glow (two blurred radial blobs + a
+// masked dot field) exactly as it existed just before it was replaced by
+// a real WebGL shader (Oct 2026). Paired with
+// src/_includes/ds/_hero-v4-archive.njk. Kept only as a revert reference.
+//
+// Only the glow layer changed between v4 and v5 — .heroS, .heroS__inner,
+// .heroS__img, .heroS__copy, .heroS__h etc. are unchanged and still live
+// in _home.scss, so they aren't duplicated here.
+
+.heroS__glow { position: absolute; inset: 0; overflow: hidden; z-index: 0; pointer-events: none; }
+.heroS__blob { position: absolute; border-radius: 50%; filter: blur(90px); }
+.heroS__blob--a {
+  width: 820px;
+  height: 820px;
+  right: -180px;
+  top: -260px;
+  background: radial-gradient(circle, var(--glow-purple) 0%, transparent 70%);
+  animation: heroGlowA 20s ease-in-out infinite;
+}
+.heroS__blob--b {
+  width: 760px;
+  height: 760px;
+  right: 120px;
+  bottom: -300px;
+  background: radial-gradient(circle, var(--glow-blue) 0%, transparent 70%);
+  animation: heroGlowB 24s ease-in-out infinite;
+}
+.heroS__dots {
+  position: absolute;
+  inset: -40px;
+  background-image: radial-gradient(var(--glow-dot) 1.4px, transparent 1.4px);
+  background-size: 28px 28px;
+  animation: heroDots 10s linear infinite;
+  opacity: .4;
+  mask-image: radial-gradient(ellipse 60% 55% at 62% 45%, black 0%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 55% at 62% 45%, black 0%, transparent 72%);
+}
+@keyframes heroGlowA {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-90px, 70px) scale(1.12); }
+  66% { transform: translate(50px, -50px) scale(0.93); }
+}
+@keyframes heroGlowB {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40% { transform: translate(80px, -65px) scale(1.1); }
+  70% { transform: translate(-55px, 45px) scale(0.94); }
+}
+@keyframes heroDots {
+  0% { background-position: 0 0; }
+  100% { background-position: 28px 28px; }
+}

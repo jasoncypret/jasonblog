@@ -1,0 +1,26 @@
+{#
+  ARCHIVE — not wired into any page. This is a snapshot of the CSS-only
+  drifting-gradient hero (two blurred radial blobs + a masked dot field,
+  no canvas) exactly as it existed just before it was replaced by a real
+  WebGL shader inspired by 21st.dev's "Mesh drift shader" (Oct 2026) —
+  the CSS version read as static/lifeless even once sped up; the ask was
+  for genuine fluid shader motion, not animated gradients. Kept here
+  purely as a revert reference. Files under _includes are never built
+  into pages, so this is inert.
+
+  v1 (original card photo), v2 (giant grayscale name) and v3 (fbm-noise
+  WebGL shader) are archived separately in their own _hero-vN-archive.njk
+  files.
+
+  To restore: paste this markup back into index.njk in place of the
+  heroS__glow block, and pull the matching CSS back from
+  src/stylesheets/ds/_archive-hero-v4.scss into _home.scss. The rest of
+  the hero (copy, headline, photo, latest band) is unchanged from v4 —
+  only the glow/background layer and its markup differ between v4 and v5.
+#}
+
+<div class="heroS__glow" aria-hidden="true">
+  <span class="heroS__blob heroS__blob--a"></span>
+  <span class="heroS__blob heroS__blob--b"></span>
+  <span class="heroS__dots"></span>
+</div>

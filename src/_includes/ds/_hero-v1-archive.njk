@@ -1,0 +1,52 @@
+{#
+  ARCHIVE — not wired into any page. This is a snapshot of the homepage
+  hero + "Latest from the blog" band exactly as they existed just before
+  the big-name/grayscale hero redesign (Oct 2026), kept here purely as a
+  reference to revert to if the new version doesn't work out. Files under
+  _includes are never built into pages, so this is inert.
+
+  To restore: paste this markup back into index.njk in place of the hero
+  section, and pull the matching CSS from
+  src/stylesheets/ds/_archive-hero-v1.scss back into _home.scss.
+#}
+
+{# ---------------------------------------------------------------- Hero -- #}
+<section class="heroA">
+  <div>
+    <p class="eyebrow">{{ home.hero.eyebrow }}</p>
+    <h1 class="heroA__h">{{ home.hero.title }}</h1>
+    <p class="heroA__lede">
+      <strong>Twenty years and 30+ products shipped</strong> as a product and design executive.
+      Today I work as an AI orchestrator: I lead the team, set the direction and write a lot
+      of the code myself, so product, design and engineering run as one continuous loop
+      instead of three handoffs.
+    </p>
+    <div class="heroA__actions">
+      {{ button(home.hero.ctaLabel, home.hero.ctaUrl, "primary", "md", "rounded", "", "arrow-right") }}
+      <a class="inline-link" href="#work">See the work <i class="icon-arrow-down" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <div class="heroA__media">
+    <img class="heroA__img" src="{{ home.hero.image }}" alt="Jason Cypret" width="1138" height="1382">
+    <div class="heroA__badge">
+      <img src="{{ home.hero.badgeLogo }}" alt="Worlds">
+      <span class="heroA__badgeTxt">{{ home.hero.badgeText }}</span>
+    </div>
+  </div>
+</section>
+
+{# -------------------------------------------------------- Latest post -- #}
+{% if latest %}
+<div class="latestBand">
+  <a class="latest" href="{{ latest.url }}">
+    {% if latest.data.image %}
+      <img class="latest__thumb" src="{{ latest.data.image }}" alt="" loading="lazy">
+    {% endif %}
+    <span class="latest__body">
+      <span class="latest__kicker">Latest from the blog <span class="latest__dot">·</span> {{ latest.date | dateReadable }}</span>
+      <span class="latest__t">{{ latest.data.title }}</span>
+    </span>
+    <span class="latest__cta">Read the post <i class="icon-arrow-right" aria-hidden="true"></i></span>
+  </a>
+</div>
+{% endif %}

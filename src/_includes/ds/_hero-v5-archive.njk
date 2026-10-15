@@ -1,0 +1,154 @@
+{#
+  ARCHIVE — not wired into any page. This is a snapshot of the fbm-noise
+  domain-warp WebGL shader (with a cursor spotlight) exactly as it existed
+  just before it was replaced by a faithful port of 21st.dev's "Mesh
+  drift shader" algorithm (Oct 2026) — the real mesh-drift technique
+  turned out to be Gaussian meta-blobs orbiting on sine/cosine paths, not
+  fbm noise at all. Kept here purely as a revert reference. Files under
+  _includes are never built into pages, so this is inert.
+
+  v1 (original card photo), v2 (giant grayscale name), v3 (fbm-noise
+  WebGL shader, no cursor) and v4 (CSS-only drifting blobs) are archived
+  separately in their own _hero-vN-archive.njk files.
+
+  To restore: paste this markup + script back into index.njk in place of
+  the hero section. No CSS changed between v5 and v6 — .heroS__canvas in
+  _home.scss is shared by both, only the script differs.
+#}
+
+<section class="heroS">
+  <canvas class="heroS__canvas" id="heroShader" aria-hidden="true"></canvas>
+  <div class="heroS__inner">
+    <img class="heroS__img" src="{{ home.hero.imageBw }}" alt="Jason Cypret" width="1138" height="1382">
+
+    <div class="heroS__copy">
+      <p class="eyebrow">{{ home.hero.eyebrow }}</p>
+      <h1 class="heroS__h">I build the interface between <b>humans and AI.</b></h1>
+      <p class="heroS__lede">
+        <strong>Twenty years and 30+ products shipped</strong> as a product and design executive.
+        Today I work as an AI orchestrator: I lead the team, set the direction and write a lot
+        of the code myself, so product, design and engineering run as one continuous loop
+        instead of three handoffs.
+      </p>
+      <div class="heroS__actions">
+        {{ button(home.hero.ctaLabel, home.hero.ctaUrl, "primary", "md", "rounded", "", "arrow-right") }}
+        <a class="inline-link inline-link--onHero" href="#work">See the work <i class="icon-arrow-down" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var cv = document.getElementById("heroShader");
+    if (!cv) return;
+    var gl = cv.getContext("webgl", { preserveDrawingBuffer: false, alpha: false });
+    if (!gl) return;
+
+    var vs = "attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
+    var fs = [
+      "precision highp float;",
+      "uniform float t;uniform vec2 r;uniform vec2 m;",
+      "uniform vec3 uBase;uniform vec3 uPurple;uniform vec3 uBlue;",
+      "float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}",
+      "float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}",
+      "float fbm(vec2 p){float v=0.,a=.55;for(int i=0;i<4;i++){v+=a*n(p);p*=2.;a*=.5;}return v;}",
+      "void main(){",
+      "  vec2 uv=gl_FragCoord.xy/r;",
+      "  vec2 auv=(uv-.5)*vec2(r.x/r.y,1.)+.5;",
+      "  vec2 p=auv*2.2;",
+      "  vec2 warp=vec2(fbm(p+vec2(0.,t*.05)),fbm(p+vec2(5.2,-t*.045)));",
+      "  vec2 q=p+.9*warp;",
+      "  float field=fbm(q+vec2(t*.03,t*.02));",
+      "  float d=distance(auv,m);",
+      "  float spot=smoothstep(.42,0.,d)*.35;",
+      "  float mixF=smoothstep(.3,.75,field+spot*.4);",
+      "  vec3 color=mix(uPurple,uBlue,smoothstep(.35,.8,field));",
+      "  float mask=smoothstep(.1,.85,uv.x)*(.5+.5*smoothstep(0.,.85,uv.y));",
+      "  mask=clamp(mask+spot*.6,0.,1.);",
+      "  vec3 col=mix(uBase,color,mixF*mask);",
+      "  col+=spot*.08;",
+      "  gl_FragColor=vec4(col,1.);",
+      "}"
+    ].join("\n");
+
+    function compile(type, src) {
+      var s = gl.createShader(type);
+      gl.shaderSource(s, src);
+      gl.compileShader(s);
+      return s;
+    }
+    var pr = gl.createProgram();
+    gl.attachShader(pr, compile(gl.VERTEX_SHADER, vs));
+    gl.attachShader(pr, compile(gl.FRAGMENT_SHADER, fs));
+    gl.linkProgram(pr);
+    gl.useProgram(pr);
+
+    var buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+    var loc = gl.getAttribLocation(pr, "p");
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+    var uT = gl.getUniformLocation(pr, "t");
+    var uR = gl.getUniformLocation(pr, "r");
+    var uM = gl.getUniformLocation(pr, "m");
+    var uBase = gl.getUniformLocation(pr, "uBase");
+    var uPurple = gl.getUniformLocation(pr, "uPurple");
+    var uBlue = gl.getUniformLocation(pr, "uBlue");
+
+    var DARK = { base: [0.031, 0.031, 0.039], purple: [0.357, 0.231, 0.918], blue: [0.145, 0.388, 0.922] };
+    var LIGHT = { base: [1.0, 1.0, 1.0], purple: [0.6, 0.52, 0.94], blue: [0.42, 0.58, 0.95] };
+
+    function isDark() {
+      var explicit = document.documentElement.getAttribute("data-theme");
+      if (explicit === "dark") return true;
+      if (explicit === "light") return false;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
+
+    function resize() {
+      var rect = cv.getBoundingClientRect();
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var w = Math.max(1, Math.round(rect.width * dpr));
+      var h = Math.max(1, Math.round(rect.height * dpr));
+      if (cv.width !== w || cv.height !== h) {
+        cv.width = w;
+        cv.height = h;
+        gl.viewport(0, 0, w, h);
+        gl.uniform2f(uR, w, h);
+      }
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    var target = { x: 0.78, y: 0.52 };
+    var smooth = { x: 0.78, y: 0.52 };
+    window.addEventListener("mousemove", function (e) {
+      var rect = cv.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) return;
+      var mx = (e.clientX - rect.left) / rect.width;
+      var my = 1 - (e.clientY - rect.top) / rect.height;
+      target.x = (mx - 0.5) * (rect.width / rect.height) + 0.5;
+      target.y = my;
+    }, { passive: true });
+
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var t0 = performance.now();
+
+    function draw() {
+      var theme = isDark() ? DARK : LIGHT;
+      gl.uniform3f(uBase, theme.base[0], theme.base[1], theme.base[2]);
+      gl.uniform3f(uPurple, theme.purple[0], theme.purple[1], theme.purple[2]);
+      gl.uniform3f(uBlue, theme.blue[0], theme.blue[1], theme.blue[2]);
+      smooth.x += (target.x - smooth.x) * 0.045;
+      smooth.y += (target.y - smooth.y) * 0.045;
+      gl.uniform2f(uM, smooth.x, smooth.y);
+      gl.uniform1f(uT, 20 + (performance.now() - t0) / 1000);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      if (!reduceMotion) requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+</script>

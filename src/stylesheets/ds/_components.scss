@@ -125,34 +125,35 @@ a.jc-badge:hover { background: var(--border-strong); color: var(--text-body); }
 .jc-card__media { display: block; width: 100%; object-fit: cover; }
 .jc-card__body { padding: var(--space-md); }
 
-/* --- Core: theme toggle -------------------------------------------------- */
-.jc-themetoggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  margin-left: var(--space-xs);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-circle);
-  background: transparent;
-  color: var(--text-body);
-  cursor: pointer;
-  font-size: var(--text-base);
-  line-height: 1;
-  transition: all var(--dur-slow) var(--ease-standard);
-}
-.jc-themetoggle:hover { color: var(--action-accent); border-color: var(--action-accent); background: var(--action-hover-wash); }
+/* --- Core: theme toggle --------------------------------------------------
+   Markup now carries .jc-iconbtn alongside .jc-themetoggle (see
+   components.njk) instead of duplicating its box model here, so the box
+   is pixel-identical to the LinkedIn/X/GitHub buttons next to it — a
+   second attempt at matching the two by hand (same width/height) still
+   left it looking different, because .jc-iconbtn has no border or
+   background and those three icons are solid filled glyphs, where the
+   toggle had a circular outline plus thin 2px-stroke line icons. A
+   ring around one icon in an otherwise plain row reads as "off" even
+   when every box is the exact same size. .jc-themetoggle now only
+   carries the icon-swap logic and the SVGs are filled shapes instead of
+   strokes, matching the other three's visual weight. */
+/* Measured each glyph's actual ink bounding box in a rendered
+   screenshot (not just the button box, which was already identical) —
+   LinkedIn/X sit at a 21px optical vertical center within the 47px
+   button, GitHub at 18px (its own long-standing quirk, already flagged
+   and compensated above), and these two SVGs at 24px. Nudging up 3px
+   lines them up with LinkedIn/X instead of guessing from the eye. */
+.jc-themetoggle svg { display: block; width: 20px; height: 20px; transform: translateY(-3px); }
 /* Show the icon for the theme you'd switch TO. */
-.jc-themetoggle__moon { display: inline; }
+.jc-themetoggle__moon { display: block; }
 .jc-themetoggle__sun { display: none; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .jc-themetoggle__moon { display: none; }
-  :root:not([data-theme="light"]) .jc-themetoggle__sun { display: inline; }
+  :root:not([data-theme="light"]) .jc-themetoggle__sun { display: block; }
 }
 [data-theme="dark"] .jc-themetoggle__moon { display: none; }
-[data-theme="dark"] .jc-themetoggle__sun { display: inline; }
-[data-theme="light"] .jc-themetoggle__moon { display: inline; }
+[data-theme="dark"] .jc-themetoggle__sun { display: block; }
+[data-theme="light"] .jc-themetoggle__moon { display: block; }
 [data-theme="light"] .jc-themetoggle__sun { display: none; }
 
 /* --- Layout: site nav ---------------------------------------------------- */
@@ -167,6 +168,36 @@ a.jc-badge:hover { background: var(--border-strong); color: var(--text-body); }
   -webkit-backdrop-filter: var(--blur-glass);
   border-bottom: 1px solid var(--border-glass);
   box-shadow: var(--shadow-glass);
+  transition: background var(--dur-slow) var(--ease-standard), border-color var(--dur-slow) var(--ease-standard), box-shadow var(--dur-slow) var(--ease-standard), backdrop-filter var(--dur-slow) var(--ease-standard);
+}
+/* Homepage only (body.nav-on-hero, see navOnHero front matter) — fully
+   see-through over the hero's own glow, solid again once scrolled past it. */
+body.nav-on-hero .jc-nav {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom-color: transparent;
+  box-shadow: none;
+}
+body.nav-on-hero.is-scrolled .jc-nav {
+  background: var(--surface-glass);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border-bottom-color: var(--border-glass);
+  box-shadow: var(--shadow-glass);
+}
+/* The chrome arrives after the content — see the hero-entrance comment in
+   _home.scss for why. Scoped to nav-on-hero (the homepage) specifically;
+   this isn't a sitewide tic every page load should pay for. */
+body.nav-on-hero .jc-nav { animation: navEntrance 0.55s var(--ease-reveal) 600ms both; }
+@keyframes navEntrance {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* See the matching override in _home.scss — the sitewide reduced-motion
+   rule zeroes duration, not delay. */
+@media (prefers-reduced-motion: reduce) {
+  body.nav-on-hero .jc-nav { animation-delay: 0ms; }
 }
 .jc-nav__container {
   max-width: var(--container-max);
@@ -250,6 +281,13 @@ a.jc-badge:hover { background: var(--border-strong); color: var(--text-body); }
 .jc-article__image { border-radius: var(--space-sm); overflow: hidden; background: var(--grad-article); }
 .jc-article__image img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--space-sm); transition: transform var(--dur-slow) var(--ease-standard); }
 .jc-article:hover .jc-article__image img { transform: scale(1.05); }
+/* Lazy-load fade-in — .jc-article__image's own background (above) is
+   already the placeholder, a branded gradient rather than a generic
+   shimmer, so loading just means crossfading the photo in over it. See
+   the img[loading="lazy"] handler in ds.njk; html.js-gated so a page
+   with JS disabled never gets a stuck-invisible image. */
+html.js .jc-article__image img[loading="lazy"] { opacity: 0; transition: transform var(--dur-slow) var(--ease-standard), opacity var(--dur-reveal) var(--ease-reveal); }
+html.js .jc-article__image img[loading="lazy"].is-loaded { opacity: 1; }
 .jc-article--featured .jc-article__image { height: 240px; }
 .jc-article--grid .jc-article__image { height: 180px; }
 .jc-article--compact .jc-article__image { height: 140px; }
@@ -369,6 +407,11 @@ a.jc-badge:hover { background: var(--border-strong); color: var(--text-body); }
   right: -10%;
   transition: top var(--dur-base) var(--ease-standard);
 }
+/* Lazy-load fade-in — .jc-showcase__container's own brand-gradient
+   background (above) is the placeholder; loading means crossfading the
+   product shot in over it, not popping onto a blank panel. */
+html.js .jc-showcase__image[loading="lazy"] { opacity: 0; transition: top var(--dur-base) var(--ease-standard), opacity var(--dur-reveal) var(--ease-reveal); }
+html.js .jc-showcase__image[loading="lazy"].is-loaded { opacity: 1; }
 .jc-showcase--left .jc-showcase__image { right: auto; left: -10%; }
 
 /* BoxBoard's render is a near-square cluster of phones — it needs to be larger

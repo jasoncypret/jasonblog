@@ -49,6 +49,17 @@ button { font: inherit; color: inherit; }
 
 :focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
 
+/* Browser-default surfaces this page doesn't draw itself, but still ship
+   with a default that belongs to no design system — theme them from the
+   same palette as everything else instead of leaving them at UA gray/blue. */
+::selection { background: var(--action-accent); color: var(--white); }
+
+html { scrollbar-color: var(--border-strong) var(--canvas); scrollbar-width: thin; }
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: var(--canvas); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 6px; border: 3px solid var(--canvas); background-clip: padding-box; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-tertiary); }
+
 /* Respect the OS-level reduced-motion preference for every transition and
    transform the component layer introduces. */
 @media (prefers-reduced-motion: reduce) {

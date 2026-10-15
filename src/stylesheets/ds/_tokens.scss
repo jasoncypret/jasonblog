@@ -91,6 +91,13 @@
   --danger-subtle: rgba(218, 0, 20, 0.1);
   --info: var(--teal);
   --info-subtle: rgba(0, 196, 215, 0.1);
+
+  /* Hero glow — the two drifting light sources behind the shader hero's
+     headline. Same Worlds purple/blue as --grad-worlds, just low-opacity
+     so they stay soft on a white canvas instead of looking neon. */
+  --glow-purple: rgba(91, 59, 234, .16);
+  --glow-blue: rgba(27, 63, 216, .26);
+  --glow-dot: rgba(27, 63, 216, .35);
 }
 
 /* Dark palette. Defined once as a mixin, then emitted three times so all three
@@ -131,6 +138,13 @@
   /* Frosted panels that sit on photography need to invert with the theme. */
   --panel-glass: rgba(18, 18, 22, 0.72);
   --panel-glass-border: rgba(255, 255, 255, 0.14);
+
+  /* Full-strength on the near-black canvas — see the light default above.
+     Leans blue over purple so it doesn't compete with the Worlds splash
+     just below it, which is purple-forward. */
+  --glow-purple: rgba(91, 59, 234, .42);
+  --glow-blue: rgba(37, 99, 235, .62);
+  --glow-dot: rgba(120, 160, 255, .3);
 
   /* Shadows read as ambient light in light mode and as depth in dark mode. */
   --shadow-ambient: 0 2px 8px rgba(0, 0, 0, 0.6);
@@ -187,6 +201,7 @@
   --text-stat-sm: 60px;
   --text-stat-xl: 96px;
 
+  --weight-light: 200;
   --weight-regular: 400;
   --weight-medium: 500;
   --weight-semibold: 600;
@@ -275,6 +290,9 @@
   --ease-button: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-swift: cubic-bezier(0.7, 0, 0.3, 1);
   --ease-soft: cubic-bezier(0.39, 0.575, 0.565, 1);
+  /* Confident deceleration for one-time entrances (page load, scroll
+     reveals) — a steeper settle than --ease-button, with no overshoot. */
+  --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
 
   --lift-sm: translateY(-2px);
   --lift-lg: translateY(-8px);

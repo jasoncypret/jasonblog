@@ -1,0 +1,98 @@
+// ARCHIVE — NOT @used anywhere, never compiled into ds.css. A snapshot of
+// the live-WebGL-shader hero (heroS) CSS exactly as it existed just before
+// it was swapped for the simpler CSS-only drifting-gradient version
+// (Oct 2026). Paired with src/_includes/ds/_hero-v3-archive.njk. Kept only
+// as a revert reference.
+
+/* --- Hero -----------------------------------------------------------------
+   Live WebGL shader field (see the inline script in index.njk) behind a
+   cascading headline and the B&W cutout. The shader reads two uniform sets
+   — one per theme — so it stays the Worlds purple/blue in dark mode and a
+   softened version of the same hues on white in light mode; it never
+   needs its own dark-mode override block the way most of this file does. */
+.heroS {
+  position: relative;
+  overflow: hidden;
+  min-height: 760px;
+  display: flex;
+  flex-direction: column;
+  padding: 140px var(--space-md) 0;
+  background: var(--canvas); /* shows through if WebGL is unavailable */
+}
+.heroS__canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; }
+.heroS__img {
+  position: absolute;
+  right: 3%;
+  bottom: 0;
+  height: 94%;
+  max-height: 820px;
+  width: auto;
+  z-index: 2;
+  display: block;
+}
+.heroS__fade {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 240px;
+  z-index: 3;
+  background: linear-gradient(to top, var(--canvas) 18%, transparent);
+  pointer-events: none;
+}
+.heroS__copy { position: relative; z-index: 6; max-width: 620px; }
+.heroS__h {
+  margin: 16px 0 30px;
+  font-weight: var(--weight-regular);
+  font-size: clamp(34px, 4.6vw, 58px);
+  line-height: 1.04;
+  letter-spacing: -.03em;
+  color: var(--text-heading);
+}
+.heroS__h span { display: block; }
+.heroS__h span:nth-child(2) { color: var(--text-tertiary); }
+.heroS__h span:nth-child(3) { font-weight: var(--weight-bold); }
+.heroS__lede { font-size: var(--text-md); line-height: 1.6; color: var(--text-secondary); margin: 0 0 var(--space-lg); max-width: 44ch; }
+.heroS__lede strong { color: var(--text-body); font-weight: var(--weight-bold); }
+.heroS__actions { display: flex; gap: var(--space-md); align-items: center; flex-wrap: wrap; }
+.inline-link--onHero:hover { color: var(--action-accent); }
+.heroS__latest {
+  position: relative;
+  z-index: 6;
+  margin-top: auto;
+  padding: 48px 0 48px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--text-heading);
+}
+.heroS__latest:hover { color: var(--text-heading); }
+.heroS__latest:hover b { color: var(--action-accent); }
+.heroS__latest img { width: 56px; height: 40px; border-radius: var(--radius-md); object-fit: cover; display: block; flex: none; }
+.heroS__latestCap {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+.heroS__dot { color: var(--text-tertiary); margin: 0 var(--space-xxs); }
+.heroS__latest b { display: block; font-size: var(--text-body-sm); font-weight: var(--weight-bold); margin-top: 4px; color: var(--text-heading); }
+
+@media (max-width: 900px) {
+  .heroS { padding-top: 120px; min-height: 0; }
+  .heroS__img { height: 72%; right: 0; max-height: 560px; }
+}
+
+/* The photo is absolutely positioned off the hero's own box, so it has no
+   flow footprint — on desktop it dodges the copy because the copy sits to
+   its left. Once things stack to one column that no longer holds (same
+   lesson as the previous hero's mobile overlap bug), so it drops into
+   normal flow here instead, below the copy, rather than trying to share
+   the same stack of space as absolutely-positioned. */
+@media (max-width: 600px) {
+  .heroS { padding: 96px var(--space-md) 0; min-height: 0; }
+  .heroS__img { position: static; height: auto; max-height: none; width: 72%; max-width: 320px; margin: 28px auto 0; order: 2; }
+  .heroS__fade { display: none; }
+  .heroS__copy { order: 1; max-width: none; }
+  .heroS__latest { order: 3; margin-top: 0; padding: 36px 0 40px; }
+}

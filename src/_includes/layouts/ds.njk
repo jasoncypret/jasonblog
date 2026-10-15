@@ -16,10 +16,15 @@
   {#
     Runs before first paint so an explicitly-chosen theme never flashes the
     wrong palette. With no stored choice we set nothing at all and let the
-    prefers-color-scheme media query in ds.css decide.
+    prefers-color-scheme media query in ds.css decide. Also marks html.js —
+    several CSS rules (lazy-image fades, scroll reveals, the hero photo)
+    start their elements at opacity:0 only when this class is present, so a
+    page with JS disabled or blocked never ends up with content stuck
+    invisible: without the class those rules simply don't exist.
   #}
   <script>
     (function () {
+      document.documentElement.classList.add("js");
       try {
         var saved = localStorage.getItem("jc-theme");
         if (saved === "dark" || saved === "light") {
@@ -84,13 +89,13 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="icon" href="/media/homepage/JC-logo.svg" type="image/svg+xml">
   <link rel="mask-icon" href="/media/homepage/JC-logo.svg" color="#0400FF">
   <link rel="stylesheet" href="/stylesheets/ds.css">
   <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
 </head>
-<body>
+<body{% if navOnHero %} class="nav-on-hero"{% endif %}>
   <a class="ds-skip" href="#main">Skip to content</a>
 
   {% from "ds/components.njk" import siteNav, siteFooter %}
@@ -138,6 +143,18 @@
       });
     })();
 
+    // Transparent nav over the homepage hero — solid again once scrolled
+    // past it. Scoped to body.nav-on-hero (see navOnHero in front matter)
+    // so no other page's nav is affected.
+    (function () {
+      if (!document.body.classList.contains("nav-on-hero")) return;
+      var onScroll = function () {
+        document.body.classList.toggle("is-scrolled", window.scrollY > 24);
+      };
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    })();
+
     // Mute/unmute toggle for autoplaying hero videos — they have to start
     // muted to autoplay at all, this is the only way to actually hear them.
     (function () {
@@ -152,6 +169,47 @@
           btn.setAttribute("aria-label", unmuted ? "Mute video" : "Turn on sound");
         });
       });
+    })();
+
+    // Lazy-image fade-in system — every img[loading="lazy"] fades in from
+    // its placeholder (a brand gradient on .jc-article__image /
+    // .jc-showcase__container, a shimmer sweep elsewhere — see the
+    // corresponding CSS) once it actually has pixels, instead of popping
+    // in whenever the network happens to catch up. Sitewide and generic,
+    // not homepage-specific — any page's lazy images get this for free.
+    (function () {
+      var imgs = document.querySelectorAll('img[loading="lazy"]');
+      if (!imgs.length) return;
+      imgs.forEach(function (img) {
+        if (img.complete && img.naturalWidth > 0) {
+          img.classList.add("is-loaded");
+          return;
+        }
+        img.addEventListener("load", function () { img.classList.add("is-loaded"); });
+        // A broken image shouldn't sit at opacity:0 forever either.
+        img.addEventListener("error", function () { img.classList.add("is-loaded"); });
+      });
+    })();
+
+    // Scroll reveals — one shared IntersectionObserver for every
+    // [data-reveal] element on the page (see _home.scss for the CSS and
+    // which elements currently carry the attribute). Generic and
+    // sitewide; a page that never adds the attribute pays nothing extra.
+    (function () {
+      var els = document.querySelectorAll("[data-reveal]");
+      if (!els.length) return;
+      if (!("IntersectionObserver" in window)) {
+        els.forEach(function (el) { el.classList.add("is-revealed"); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-revealed");
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+      els.forEach(function (el) { io.observe(el); });
     })();
   </script>
 </body>

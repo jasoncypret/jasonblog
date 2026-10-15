@@ -4,6 +4,7 @@ description: Head of Product Experience at Worlds. Twenty years shipping product
 og_title: Jason Cypret — Building the interface between humans and AI
 og_description: Head of Product Experience at Worlds. Twenty years shipping product — product, design and engineering in one loop instead of three handoffs.
 layout: ds
+navOnHero: true
 ---
 
 {% from "ds/components.njk" import button, showcaseBanner, workItem, articleCard, muteToggle %}
@@ -11,30 +12,263 @@ layout: ds
 {# collections.articles is sorted newest-first in .eleventy.js #}
 {% set latest = collections.articles | first %}
 
-{# ---------------------------------------------------------------- Hero -- #}
-<section class="heroA">
-  <div>
-    <p class="eyebrow">{{ home.hero.eyebrow }}</p>
-    <h1 class="heroA__h">{{ home.hero.title }}</h1>
-    <p class="heroA__lede">
-      <strong>Twenty years and 30+ products shipped</strong> as a product and design executive.
-      Today I work as an AI orchestrator: I lead the team, set the direction and write a lot
-      of the code myself, so product, design and engineering run as one continuous loop
-      instead of three handoffs.
-    </p>
-    <div class="heroA__actions">
-      {{ button(home.hero.ctaLabel, home.hero.ctaUrl, "primary", "md", "rounded", "", "arrow-right") }}
-      <a class="inline-link" href="#work">See the work <i class="icon-arrow-down" aria-hidden="true"></i></a>
-    </div>
-  </div>
-  <div class="heroA__media">
-    <img class="heroA__img" src="{{ home.hero.image }}" alt="Jason Cypret" width="1138" height="1382">
-    <div class="heroA__badge">
-      <img src="{{ home.hero.badgeLogo }}" alt="Worlds">
-      <span class="heroA__badgeTxt">{{ home.hero.badgeText }}</span>
+{# ---------------------------------------------------------------- Hero --
+   A WebGL ray-marched nebula — a faithful port of the actual recovered
+   source for 21st.dev's "liquid-shader" (the user spent a free 21st.dev
+   view to unlock Component.tsx; this is Three.js/React in the original,
+   ported here to vanilla WebGL on the same fullscreen-quad pattern used
+   elsewhere in this file). It's a 6-step raymarch through a rotating,
+   sine-warped distance field, with color accumulated along each step.
+   Recolored from the original's literal teal/magenta to this site's
+   brand blue/purple, and slowed substantially from the source's literal
+   real-time speed per explicit feedback that an earlier hand-built
+   approximation of this same effect was "amazing but too intense and
+   fast." The source's `iMouse` uniform is tracked but never actually
+   read in its fragment shader, so there's no cursor interaction to port
+   here either. Sized and positioned to read as a big background wash
+   across the whole hero — not a small glow tucked behind the photo —
+   per explicit feedback that an earlier, tighter version "still mostly
+   off to the side... I thought it would take up the whole space behind
+   everything." A legibility mask keeps the text column clear of it
+   (blended between a horizontal cut on wide screens and a vertical one
+   on mobile's stacked layout — see the JS below). Runs up behind the
+   nav so the two don't read as separate stacked blocks. This is a
+   parallel option to the particle-wave version, not a replacement of
+   it — see _hero-v7-archive.njk for that one (confirmed the best so
+   far), plus _hero-v8-archive.njk (an earlier hand-built ring
+   approximation), _hero-v6-archive.njk (Mesh drift WebGL shader),
+   _hero-v5-archive.njk (fbm-noise domain-warp attempt),
+   _hero-v4-archive.njk (CSS-only blobs + static dot grid),
+   _hero-v3-archive.njk (earlier fbm-noise shader), _hero-v2-archive.njk
+   (giant grayscale name) and _hero-v1-archive.njk (original card photo). -- #}
+<section class="heroS">
+  <canvas class="heroS__canvas" id="heroNebula" aria-hidden="true"></canvas>
+  <div class="heroS__inner">
+    <img class="heroS__img" src="{{ home.hero.imageBw }}" alt="Jason Cypret" width="1024" height="1243">
+
+    <div class="heroS__copy">
+      <p class="eyebrow">{{ home.hero.eyebrow }}</p>
+      <h1 class="heroS__h">I build the interface between <b>humans and AI.</b></h1>
+      <p class="heroS__lede">
+        <strong>Twenty years and 30+ products shipped</strong> as a product and design executive.
+        Today I work as an AI orchestrator: I lead the team, set the direction and write a lot
+        of the code myself, so product, design and engineering run as one continuous loop
+        instead of three handoffs.
+      </p>
+      <div class="heroS__actions">
+        {{ button(home.hero.ctaLabel, home.hero.ctaUrl, "primary", "md", "rounded", "", "arrow-right") }}
+        <a class="inline-link inline-link--onHero" href="#work">See the work <i class="icon-arrow-down" aria-hidden="true"></i></a>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  /* Ray-marched nebula — ported from the real recovered source (a
+     Three.js ShaderMaterial, "InteractiveNebulaShader.tsx") behind
+     21st.dev's "liquid-shader". Same structure as the original: a 6-step
+     raymarch through map(p) — a distance-ish field built from two
+     counter-rotations plus a triple-nested sine domain warp — with color
+     accumulated multiplicatively per step. The source runs iTime at full
+     real-time speed with no damping at all; even after one big slowdown
+     pass it still visibly drifted/morphed within a normal viewing
+     session, which read as "tends to go off to the side" — tt below is
+     turned down another order of magnitude on top of that, per explicit
+     "I want it super slow, almost looks like a still" feedback. uZoom
+     makes the structure read noticeably bigger than the source's own
+     framing, so it fills the hero rather than sitting as a contained
+     spot off to one side.
+
+     Color went through two revisions. The source's literal palette
+     amplifies red/magenta hardest, which first got recolored toward
+     this site's brand blue/purple but kept a similar multi-hue spread —
+     and in the dim, diffuse parts of the structure (which cover a lot
+     more area now that uZoom is bigger) that spread reads as a muddy
+     gray-purple smear, especially in light mode where it looks like a
+     dirty smudge fading toward black instead of a clean glow. uNebAmp
+     below instead keeps every brightness level within one blue→cyan
+     hue family — no hue fight in the transition zone, so there's
+     nothing left to read as muddy. The second fix is the `vivid`
+     normalization: energy (how much of a pixel is "nebula") and col
+     (its actual color) both came from the same raw accumulated value,
+     so a pixel could cross the energy threshold while still being a
+     dim, muddy version of the hue instead of a vivid one — normalizing
+     col by its own max channel before blending forces every visible
+     pixel to show its hue at a consistent, saturated brightness, so the
+     energy curve purely controls how much shows rather than also
+     controlling how washed-out it looks.
+
+     iMouse is wired up in the source component but never actually read
+     inside its fragment shader, so there's nothing to port for cursor
+     interaction. Theme-aware: color blends toward the page's own
+     background by how much energy landed in a pixel, so empty regions
+     read as the page background in both themes, not the source's
+     literal near-black resting color. */
+  (function () {
+    var cv = document.getElementById("heroNebula");
+    if (!cv) return;
+    var gl = cv.getContext("webgl", { preserveDrawingBuffer: false, alpha: false });
+    if (!gl) return;
+
+    var vs = "attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
+    var fs = [
+      "precision highp float;",
+      "uniform float t;uniform vec2 r;uniform vec2 uOff;uniform float uZoom;",
+      "uniform vec3 uBase;uniform vec3 uNebBase;uniform vec3 uNebAmp;",
+      "mat2 rotM(float a){float c=cos(a),s=sin(a);return mat2(c,-s,s,c);}",
+      "float field(vec3 p,float tt){",
+      "  p.xz*=rotM(tt*0.4);",
+      "  p.xy*=rotM(tt*0.3);",
+      "  vec3 q=p*2.0+tt;",
+      "  return length(p+vec3(sin(tt*0.7)))*log(length(p)+1.0)",
+      "       +sin(q.x+sin(q.z+sin(q.y)))*0.5-1.0;",
+      "}",
+      "void main(){",
+      "  float tt=t*0.035;",
+      // uOff is a fixed fraction (not tracked to the photo element) —
+      // tracking the photo precisely turned out to fight this request:
+      // the whole point now is a big wash across the hero, not a glow
+      // that follows the photo around. uZoom<1 enlarges the structure
+      // so it reads as filling the space rather than a contained spot.
+      "  vec2 uv=(gl_FragCoord.xy/min(r.x,r.y)-uOff)*uZoom;",
+      "  vec3 col=vec3(0.0);",
+      "  float d=2.5;",
+      "  for(int i=0;i<=5;i++){",
+      "    vec3 p=vec3(0.0,0.0,5.0)+normalize(vec3(uv,-1.0))*d;",
+      "    float rz=field(p,tt);",
+      "    float f=clamp((rz-field(p+0.1,tt))*0.5,-0.1,1.0);",
+      "    vec3 base=uNebBase+uNebAmp*f;",
+      "    col=col*base+smoothstep(2.5,0.0,rz)*0.7*base;",
+      "    d+=min(rz,1.0);",
+      "  }",
+      // Sharp energy curve — only the genuinely bright pixels count as
+      // "nebula," everything dimmer collapses to background. This is
+      // what gives the crisp ribbon-with-bright-core look instead of a
+      // soft wash.
+      "  float m=max(col.r,max(col.g,col.b));",
+      "  float energy=smoothstep(0.12,0.5,m);",
+      // Normalize col by its own brightness before using it as the
+      // visible color — see the comment above. Without this, a pixel
+      // that just barely crosses the energy threshold shows whatever
+      // dim, possibly muddy value it actually accumulated, instead of a
+      // clean, saturated version of its hue.
+      "  vec3 vivid=clamp(col/max(m,0.001)*0.95,0.0,1.0);",
+      "  vec3 shaded=mix(uBase,vivid,energy);",
+      // White-hot core, matching the source's brightest highlight.
+      "  float hot=smoothstep(0.55,1.1,m);",
+      "  shaded=mix(shaded,vec3(1.0),hot*0.6);",
+      // Legibility mask, blended between two strategies: a horizontal
+      // cut (clear on the text side, full on the photo side — for the
+      // wide desktop layout where text and photo sit side by side) and
+      // a vertical cut (clear above, full below — for mobile's stacked
+      // layout, where text sits ABOVE the photo instead of beside it;
+      // a horizontal-only mask bled straight through the lede paragraph
+      // there, since there's no "photo side" on a single-column layout).
+      // Which one applies is read straight from the canvas's own aspect
+      // ratio, so it tracks the CSS breakpoints without duplicating them
+      // here.
+      "  vec2 uv01=gl_FragCoord.xy/r;",
+      "  float xMask=smoothstep(0.36,0.54,uv01.x);",
+      "  float yMask=1.0-smoothstep(0.28,0.48,uv01.y);",
+      "  float vert=smoothstep(1.0,0.6,r.x/r.y);",
+      "  float mask=mix(xMask,yMask,vert);",
+      "  shaded=mix(uBase,shaded,mask);",
+      "  gl_FragColor=vec4(shaded,1.0);",
+      "}"
+    ].join("\n");
+
+    function compile(type, src) {
+      var s = gl.createShader(type);
+      gl.shaderSource(s, src);
+      gl.compileShader(s);
+      return s;
+    }
+    var pr = gl.createProgram();
+    gl.attachShader(pr, compile(gl.VERTEX_SHADER, vs));
+    gl.attachShader(pr, compile(gl.FRAGMENT_SHADER, fs));
+    gl.linkProgram(pr);
+    gl.useProgram(pr);
+
+    var buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+    var loc = gl.getAttribLocation(pr, "p");
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+    var uT = gl.getUniformLocation(pr, "t");
+    var uR = gl.getUniformLocation(pr, "r");
+    var uOff = gl.getUniformLocation(pr, "uOff");
+    var uZoom = gl.getUniformLocation(pr, "uZoom");
+    var uBase = gl.getUniformLocation(pr, "uBase");
+    var uNebBase = gl.getUniformLocation(pr, "uNebBase");
+    var uNebAmp = gl.getUniformLocation(pr, "uNebAmp");
+
+    // A single blue→cyan hue family (B amplified hardest, R barely at
+    // all) instead of the source's literal red/magenta-dominant
+    // amplitude — see the comment above for why. Same palette in both
+    // themes; the `vivid` normalization in the shader is what makes it
+    // read cleanly against either background, not a per-theme recolor.
+    var DARK = { base: [0.031, 0.031, 0.039], nebBase: [0.05, 0.12, 0.35], nebAmp: [1.5, 3.0, 5.5] };
+    var LIGHT = { base: [1.0, 1.0, 1.0], nebBase: [0.05, 0.12, 0.35], nebAmp: [1.5, 3.0, 5.5] };
+
+    function isDark() {
+      var explicit = document.documentElement.getAttribute("data-theme");
+      if (explicit === "dark") return true;
+      if (explicit === "light") return false;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
+
+    function resize() {
+      var rect = cv.getBoundingClientRect();
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var w = Math.max(1, Math.round(rect.width * dpr));
+      var h = Math.max(1, Math.round(rect.height * dpr));
+      if (cv.width !== w || cv.height !== h) {
+        cv.width = w;
+        cv.height = h;
+        gl.viewport(0, 0, w, h);
+        gl.uniform2f(uR, w, h);
+        var minwh = Math.min(w, h);
+        gl.uniform2f(uOff, 1.0 * (w / minwh), (1 - 0.48) * (h / minwh));
+        gl.uniform1f(uZoom, 0.5);
+      }
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var t0 = performance.now();
+
+    function draw() {
+      var theme = isDark() ? DARK : LIGHT;
+      gl.uniform3f(uBase, theme.base[0], theme.base[1], theme.base[2]);
+      gl.uniform3f(uNebBase, theme.nebBase[0], theme.nebBase[1], theme.nebBase[2]);
+      gl.uniform3f(uNebAmp, theme.nebAmp[0], theme.nebAmp[1], theme.nebAmp[2]);
+      gl.uniform1f(uT, (performance.now() - t0) / 1000);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      if (!reduceMotion) requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
+  // Hero photo fade-in — tied to the image's actual load event rather than
+  // a fixed delay (see the html.js .heroS__img rule in _home.scss for why:
+  // a timed reveal would run out regardless of whether the image had
+  // actually arrived yet, which is the "doesn't fade in smoothly" bug this
+  // fixes). Not using img[loading="lazy"] (the sitewide handler in ds.njk)
+  // because this photo is eager — it's above the fold.
+  (function () {
+    var img = document.querySelector(".heroS__img");
+    if (!img) return;
+    if (img.complete && img.naturalWidth > 0) {
+      img.classList.add("is-loaded");
+      return;
+    }
+    img.addEventListener("load", function () { img.classList.add("is-loaded"); });
+    img.addEventListener("error", function () { img.classList.add("is-loaded"); });
+  })();
+</script>
 
 {# -------------------------------------------------------- Latest post -- #}
 {% if latest %}
@@ -54,7 +288,7 @@ layout: ds
 
 {# ------------------------------------------------------ Worlds splash -- #}
 <div data-theme="dark">
-  <section class="wsplash">
+  <section class="wsplash" data-reveal>
     <div class="wsplash__in">
       <p class="wsplash__eyebrow">{{ home.worlds.eyebrow }}</p>
       <img class="wsplash__mark" src="{{ home.worlds.mark }}" alt="Worlds">
@@ -126,7 +360,7 @@ layout: ds
 </div>
 
 {# --------------------------------------------------------- Statement -- #}
-<section class="speak">
+<section class="speak" data-reveal>
   <h2 class="speak__h">{{ home.statement.title }}</h2>
   <p class="speak__p">{{ home.statement.body }}</p>
   <div class="speak__strip">
@@ -140,7 +374,7 @@ layout: ds
 </section>
 
 {# ---------------------------------------------- Approach + experience -- #}
-<div class="twoCol">
+<div class="twoCol" data-reveal>
   <div>
     <p class="eyebrow">My approach</p>
     <h2>Leadership that ships.</h2>
@@ -164,7 +398,7 @@ layout: ds
     </div>
     <a class="inline-link" href="/blog/">Go to blog <i class="icon-arrow-right" aria-hidden="true"></i></a>
   </div>
-  <div class="bloggrid">
+  <div class="bloggrid" data-reveal>
     {% for post in collections.articles | limit(3) %}
       {{ articleCard({
         title: post.data.title,

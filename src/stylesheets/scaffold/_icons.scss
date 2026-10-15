@@ -56,10 +56,17 @@
 }
 /* The GitHub glyph was exported with more built-in padding than its
    siblings (LinkedIn, X), so it reads smaller at the same font-size —
-   scale it up in place to visually match. */
+   scale it up in place to visually match. The padding isn't even on all
+   sides, though: scale(1.3) alone scales around the glyph's own box
+   center, which just magnifies that asymmetry rather than fixing it, so
+   it still sat visibly high (measured: its ink center landed 3px above
+   LinkedIn/X's, in a 47px nav button). translateY shifts it back down —
+   it's inside the scale() in the transform list, so the shift itself
+   also gets scaled by 1.3x; 2.31px in here becomes ~3px on screen,
+   which is the amount actually needed. */
 .icon-github {
   display: inline-block;
-  transform: scale(1.3);
+  transform: scale(1.3) translateY(2.31px);
 }
 .icon-arrow-down:before {
   content: "\64";
